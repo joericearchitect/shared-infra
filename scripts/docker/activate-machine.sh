@@ -2,7 +2,7 @@ DOCKER_MACHINE_TO_SWITCH=$1
 
 echo .
 echo .
-echo ---- Making this machine active:  $DOCKER_MACHINE_TO_SWITC .....
+echo ---- Making this machine active:  $DOCKER_MACHINE_TO_SWITCH .....
 
  eval "$(docker-machine env $DOCKER_MACHINE_TO_SWITCH)"
 
