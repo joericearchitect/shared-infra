@@ -1,7 +1,7 @@
 export AWS_ACCESS_KEY_ID=<access_key>
 export AWS_SECRET_ACCESS_KEY=<access_key>
 
-SCRIPTS_DIR_COMMON_DOCKER=~/git/dev-ops-common/scripts/docker
+SCRIPTS_DIR_COMMON_DOCKER=~/git/dev-ops-common/scripts-global/docker
 SCRIPTS_DIR_SITE_JARCH=~/git/site-joe-rice-architect/devops/scripts
 SCRIPTS_DIR_APP_MINECAT=~/git/app-mine-the-catalog/devops/scripts
 
