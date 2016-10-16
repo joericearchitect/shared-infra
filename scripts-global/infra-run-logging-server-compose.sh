@@ -9,7 +9,7 @@
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
 
-$DIR/setenv.sh
+source $DIR/setenv.sh
 
 cd $APP_CODE_DIR
 
