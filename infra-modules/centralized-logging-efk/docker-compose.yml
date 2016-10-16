@@ -6,7 +6,7 @@ fluentd:
   environment:
     - FLUENTD_CONF=cloudopting.conf
 #    - FLUENTD_OPT=<command line options>
-  container_name: fluentd
+  container_name: infra-logging-server-fluentd
   net: "host"
   ## exposes 24224
 
@@ -15,7 +15,7 @@ elasticsearch:
   restart: always
   net: "host"
   ## exposes 9200 9300
-  container_name: elasticsearch
+  container_name: infra-logging-server-elasticsearch
 
 kibana:
   image: kibana:4
@@ -24,4 +24,4 @@ kibana:
   ## exposes 5601
   environment:
     - ELASTICSEARCH_URL=http://localhost:9200
-  container_name: kibana
+  container_name: infra-logging-server-kibana

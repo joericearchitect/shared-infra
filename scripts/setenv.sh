@@ -1,1 +1,0 @@
- MACHINE_NAME_LOGGING_SERVER=infra-logging-server
