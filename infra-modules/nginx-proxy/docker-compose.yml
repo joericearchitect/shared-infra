@@ -2,7 +2,7 @@
  services:
    nginx-proxy:
     image: jwilder/nginx-proxy
-    container_name: nginx-web-proxy
+    container_name: infra-nginx-web-proxy
     ports:
       - "80:80"
     volumes:
