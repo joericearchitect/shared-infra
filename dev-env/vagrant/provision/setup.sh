@@ -18,9 +18,9 @@ sudo chown -R vagrant:vagrant /home/vagrant/workspace
 
 echo "."
 echo "*********************************************************************************
-echo "   updating apg-get"
+echo "   updating apt-get"
 echo "*********************************************************************************
-sudo apg-get update -y > /dev/null
+sudo apt-get update -y > /dev/null
 
 echo "."
 echo "*********************************************************************************
@@ -38,6 +38,20 @@ sudo rm /usr/share/maven/conf
 sudo ln -s /home/vagrant/workspace/maven/conf /usr/share/maven/conf
 
 echo "."
+echo "*********************************************************************************
+echo "   Settng symbolic link for git"
+echo "*********************************************************************************
+sudo ln -s /home/vagrant/workspace/git ~/git
+
+echo "."
+echo "*********************************************************************************
+echo "   Installing Docker Machine"
+echo "*********************************************************************************
+sudo curl -L https://github.com/docker/machine/releases/download/v0.8.2/docker-machine-`uname -s`-`uname -m` >~/docker-machine 
+sudo mv docker-machine /usr/local/bin/docker-machine 
+sudo chmod +x /usr/local/bin/docker-machine
+
+echo "."
 echo "*********************************************************************************"
 echo "   Installing Amazon CLI - Command Line Interface "
 echo "*********************************************************************************"
@@ -49,3 +63,31 @@ rm -r awscli-bundle
 sudo ln -s /home/vagrant/workspace/.aws /home/vagrant/.aws
 complete -C '/usr/local/aws/bin/aws_completer' aws
 
+echo "."
+echo "*********************************************************************************
+echo "   installing node.js
+echo "*********************************************************************************
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs > /dev/null
+
+echo "."
+echo "*********************************************************************************
+echo "   installing gradle
+echo "*********************************************************************************
+sudo add-apt-repository ppa:cwchien/gradle -y > /dev/null
+sudo apt-get update -y > /dev/null
+sudo apt-get install gradle -y > /dev/null
+
+echo "."
+echo "*********************************************************************************
+echo "   installing imagemagick
+echo "*********************************************************************************
+sudo apt-get install imagemagick -y > /dev/null
+
+echo "."
+echo "*********************************************************************************
+echo "   installing PHP
+echo "*********************************************************************************
+sudo apt-get install build-essential libxml2-dev -y > /dev/null
+#wget http://in1.php.net/distributions/php-5.3.29.tar.bz2
+#wget http://in1.php.net/distributions/php-7.0.12.tar.bz2
