@@ -48,7 +48,7 @@ echo "**************************************************************************
 echo "   Installing Docker Machine"
 echo "*********************************************************************************
 sudo curl -L https://github.com/docker/machine/releases/download/v0.8.2/docker-machine-`uname -s`-`uname -m` >~/docker-machine 
-sudo mv docker-machine /usr/local/bin/docker-machine 
+sudo mv ~/docker-machine /usr/local/bin/docker-machine 
 sudo chmod +x /usr/local/bin/docker-machine
 
 echo "."
@@ -68,14 +68,14 @@ echo "**************************************************************************
 echo "   installing node.js
 echo "*********************************************************************************
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs > /dev/null
+sudo apt-get install nodejs -y > /dev/null
 
 echo "."
 echo "*********************************************************************************
 echo "   installing gradle
 echo "*********************************************************************************
 sudo add-apt-repository ppa:cwchien/gradle -y > /dev/null
-sudo apt-get update -y > /dev/null
+sudo apt-get update -y > /dev/null 
 sudo apt-get install gradle -y > /dev/null
 
 echo "."
