@@ -5,8 +5,8 @@
 #
 # Notes:
 #    Script assumes that the following environment variables are set
-#       export AWS_ACCESS_KEY_ID=<Secret>
-#       export AWS_SECRET_ACCESS_KEY=<Super_Top_Secret>
+#       export AWS_ACCESS_KEY=<Secret>
+#       export AWS_SECRET_KEY=<Super_Top_Secret>
 # *********************************************************************************
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
