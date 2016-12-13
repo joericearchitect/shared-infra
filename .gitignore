@@ -11,3 +11,6 @@ buildNumber.properties
 .DS_Store
 
 .vagrant
+
+**/*.tfvars
+.terraform
