@@ -39,3 +39,20 @@ resource "aws_subnet" "us-east-1c-public" {
         environment = "${var.environment}"
     }
 }
+
+# Associate public subnets to Internet Gateway routing table
+
+resource "aws_route_table_association" "us-east-1a-public" {
+	subnet_id = "${aws_subnet.us-east-1a-public.id}"
+	route_table_id = "${aws_route_table.us-east-1-public.id}"
+}
+
+resource "aws_route_table_association" "us-east-1b-public" {
+	subnet_id = "${aws_subnet.us-east-1b-public.id}"
+	route_table_id = "${aws_route_table.us-east-1-public.id}"
+}
+
+resource "aws_route_table_association" "us-east-1c-public" {
+	subnet_id = "${aws_subnet.us-east-1c-public.id}"
+	route_table_id = "${aws_route_table.us-east-1-public.id}"
+}
