@@ -3,7 +3,7 @@
     "aws_access_key": "",
     "aws_secret_key": "",
     "aws_region": "us-east-1",
-    "aws_source_ami": "ami-fce3c696"
+    "aws_source_ami": "ami-40d28157"
   },
   "builders": [{
     "type": "amazon-ebs",
@@ -13,14 +13,15 @@
     "source_ami": "{{user `aws_source_ami`}}",
     "instance_type": "t2.micro",
     "ssh_username": "ubuntu",
-    "ami_name": "packer-example {{timestamp}}"
+    "ami_name": "jra-ami-docker-ubuntu {{timestamp}}"
   }],
   "provisioners": [{
     "type": "shell",
     "inline": [
       "sleep 30",
       "sudo apt-get update",
-      "sudo apt-get install -y redis-server"
+      "sudo curl -sSL https://get.docker.com/ | sh",
+      "sudo usermod -aG docker ubuntu"
     ]
   }]
 }

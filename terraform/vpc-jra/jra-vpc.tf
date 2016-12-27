@@ -27,7 +27,7 @@ resource "aws_internet_gateway" "jra_igw" {
 # ---------------------------------------------------------------------------
 # Routing table for public subnets
 # ---------------------------------------------------------------------------
-resource "aws_route_table" "us-east-1-public" {
+resource "aws_route_table" "public" {
 	vpc_id = "${aws_vpc.jra_vpc.id}"
 
 	route {

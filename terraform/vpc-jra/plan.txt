@@ -1,0 +1,533 @@
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but
+will not be persisted to local or remote state storage.
+
+[0m[1maws_route_table_association.us-east-1a-public: Refreshing state... (ID: rtbassoc-08ee1870)[0m
+[0m[1maws_nat_gateway.us-east-1c-public: Refreshing state... (ID: nat-02e638d33e1ed9413)[0m
+[0m[1maws_nat_gateway.us-east-1b-public: Refreshing state... (ID: nat-00a66da94ed8b45f5)[0m
+[0m[1maws_subnet.us-east-1a-private: Refreshing state... (ID: subnet-c8096fe5)[0m
+[0m[1maws_subnet.us-east-1b-private: Refreshing state... (ID: subnet-fbeeb9b2)[0m
+[0m[1maws_nat_gateway.us-east-1a-public: Refreshing state... (ID: nat-02e445ad918690ab3)[0m
+[0m[1maws_subnet.us-east-1c-private: Refreshing state... (ID: subnet-f876e8a3)[0m
+[0m[1maws_route_table_association.us-east-1c-public: Refreshing state... (ID: rtbassoc-17ee186f)[0m
+[0m[1maws_route_table_association.us-east-1b-public: Refreshing state... (ID: rtbassoc-09ee1871)[0m
+[0m[1maws_vpc.jra_vpc: Refreshing state... (ID: vpc-707fdf16)[0m
+[0m[1maws_eip.us-east-1b-public: Refreshing state... (ID: eipalloc-0d0cc333)[0m
+[0m[1maws_subnet.us-east-1b-public: Refreshing state... (ID: subnet-f8eeb9b1)[0m
+[0m[1maws_eip.us-east-1c-public: Refreshing state... (ID: eipalloc-7f09c641)[0m
+[0m[1maws_eip.us-east-1a-public: Refreshing state... (ID: eipalloc-f805cac6)[0m
+[0m[1maws_subnet.us-east-1a-public: Refreshing state... (ID: subnet-cb096fe6)[0m
+[0m[1maws_subnet.us-east-1c-public: Refreshing state... (ID: subnet-fa76e8a1)[0m
+[0m[1maws_route_table.us-east-1-public: Refreshing state... (ID: rtb-55170f33)[0m
+[0m[1maws_security_group.public_app_api_web: Refreshing state... (ID: sg-24646859)[0m
+[0m[1maws_security_group.private_app_api_service: Refreshing state... (ID: sg-2f646852)[0m
+[0m[1maws_security_group.private_build: Refreshing state... (ID: sg-29646854)[0m
+[0m[1maws_security_group.private_management_persistence: Refreshing state... (ID: sg-2e646853)[0m
+[0m[1maws_internet_gateway.jra_igw: Refreshing state... (ID: igw-84701de3)[0m
+[0m[1maws_security_group.private_management: Refreshing state... (ID: sg-2c646851)[0m
+[0m[1maws_security_group.public_app_ui_web: Refreshing state... (ID: sg-25646858)[0m
+[0m[1maws_security_group.private_app-persistence: Refreshing state... (ID: sg-28646855)[0m
+
+The Terraform execution plan has been generated and is shown below.
+Resources are shown in alphabetical order for quick scanning. Green resources
+will be created (or destroyed and then created if an existing resource
+exists), yellow resources are being changed in-place, and red resources
+will be destroyed. Cyan entries are data sources to be read.
+
+Note: You didn't specify an "-out" parameter to save this plan, so when
+"apply" is called, Terraform can't guarantee this is what will execute.
+
+[32m+ aws_eip.az-1-public
+[0m    allocation_id:     "<computed>"
+    association_id:    "<computed>"
+    domain:            "<computed>"
+    instance:          "<computed>"
+    network_interface: "<computed>"
+    private_ip:        "<computed>"
+    public_ip:         "<computed>"
+    vpc:               "true"
+[0m
+[0m[32m+ aws_eip.az-2-public
+[0m    allocation_id:     "<computed>"
+    association_id:    "<computed>"
+    domain:            "<computed>"
+    instance:          "<computed>"
+    network_interface: "<computed>"
+    private_ip:        "<computed>"
+    public_ip:         "<computed>"
+    vpc:               "true"
+[0m
+[0m[32m+ aws_eip.az-3-public
+[0m    allocation_id:     "<computed>"
+    association_id:    "<computed>"
+    domain:            "<computed>"
+    instance:          "<computed>"
+    network_interface: "<computed>"
+    private_ip:        "<computed>"
+    public_ip:         "<computed>"
+    vpc:               "true"
+[0m
+[0m[31m- aws_eip.us-east-1a-public
+[0m[0m
+[0m[31m- aws_eip.us-east-1b-public
+[0m[0m
+[0m[31m- aws_eip.us-east-1c-public
+[0m[0m
+[0m[32m+ aws_instance.swarm-manager-az-1
+[0m    ami:                         "ami-2e849339"
+    associate_public_ip_address: "<computed>"
+    availability_zone:           "us-east-1a"
+    ebs_block_device.#:          "<computed>"
+    ephemeral_block_device.#:    "<computed>"
+    instance_state:              "<computed>"
+    instance_type:               "t2.micro"
+    key_name:                    "jra-build"
+    network_interface_id:        "<computed>"
+    placement_group:             "<computed>"
+    private_dns:                 "<computed>"
+    private_ip:                  "<computed>"
+    public_dns:                  "<computed>"
+    public_ip:                   "<computed>"
+    root_block_device.#:         "<computed>"
+    security_groups.#:           "<computed>"
+    source_dest_check:           "true"
+    subnet_id:                   "<computed>"
+    tags.%:                      "7"
+    tags.Name:                   "jra-instance.swarm-manager.manager.latest.us-east-1a"
+    tags.environment:            "latest"
+    tags.environment-size:       "small"
+    tags.environment_type:       "latest"
+    tags.failure_zone:           "us-east-1-az-1"
+    tags.swarm-instance-type:    "swarm-manager"
+    tags.swarm-node-type:        "swarm-manager"
+    tenancy:                     "<computed>"
+    vpc_security_group_ids.#:    "<computed>"
+[0m
+[0m[32m+ aws_instance.swarm-manager-az-2
+[0m    ami:                         "ami-2e849339"
+    associate_public_ip_address: "<computed>"
+    availability_zone:           "us-east-1b"
+    ebs_block_device.#:          "<computed>"
+    ephemeral_block_device.#:    "<computed>"
+    instance_state:              "<computed>"
+    instance_type:               "t2.micro"
+    key_name:                    "jra-build"
+    network_interface_id:        "<computed>"
+    placement_group:             "<computed>"
+    private_dns:                 "<computed>"
+    private_ip:                  "<computed>"
+    public_dns:                  "<computed>"
+    public_ip:                   "<computed>"
+    root_block_device.#:         "<computed>"
+    security_groups.#:           "<computed>"
+    source_dest_check:           "true"
+    subnet_id:                   "<computed>"
+    tags.%:                      "7"
+    tags.Name:                   "jra-instance.swarm-manager.manager.latest.us-east-1b"
+    tags.environment:            "latest"
+    tags.environment-size:       "small"
+    tags.environment_type:       "latest"
+    tags.failure_zone:           "us-east-1-az-2"
+    tags.swarm-instance-type:    "swarm-manager"
+    tags.swarm-node-type:        "swarm-manager"
+    tenancy:                     "<computed>"
+    vpc_security_group_ids.#:    "<computed>"
+[0m
+[0m[32m+ aws_instance.swarm-manager-az-3
+[0m    ami:                         "ami-2e849339"
+    associate_public_ip_address: "<computed>"
+    availability_zone:           "us-east-1c"
+    ebs_block_device.#:          "<computed>"
+    ephemeral_block_device.#:    "<computed>"
+    instance_state:              "<computed>"
+    instance_type:               "t2.micro"
+    key_name:                    "jra-build"
+    network_interface_id:        "<computed>"
+    placement_group:             "<computed>"
+    private_dns:                 "<computed>"
+    private_ip:                  "<computed>"
+    public_dns:                  "<computed>"
+    public_ip:                   "<computed>"
+    root_block_device.#:         "<computed>"
+    security_groups.#:           "<computed>"
+    source_dest_check:           "true"
+    subnet_id:                   "<computed>"
+    tags.%:                      "7"
+    tags.Name:                   "jra-instance.swarm-manager.manager.latest.us-east-1c"
+    tags.environment:            "latest"
+    tags.environment-size:       "small"
+    tags.environment_type:       "latest"
+    tags.failure_zone:           "us-east-1-az-3"
+    tags.swarm-instance-type:    "swarm-manager"
+    tags.swarm-node-type:        "swarm-manager"
+    tenancy:                     "<computed>"
+    vpc_security_group_ids.#:    "<computed>"
+[0m
+[0m[32m+ aws_nat_gateway.az-1-public
+[0m    allocation_id:        "<computed>"
+    network_interface_id: "<computed>"
+    private_ip:           "<computed>"
+    public_ip:            "<computed>"
+    subnet_id:            "<computed>"
+[0m
+[0m[32m+ aws_nat_gateway.az-2-public
+[0m    allocation_id:        "<computed>"
+    network_interface_id: "<computed>"
+    private_ip:           "<computed>"
+    public_ip:            "<computed>"
+    subnet_id:            "<computed>"
+[0m
+[0m[32m+ aws_nat_gateway.az-3-public
+[0m    allocation_id:        "<computed>"
+    network_interface_id: "<computed>"
+    private_ip:           "<computed>"
+    public_ip:            "<computed>"
+    subnet_id:            "<computed>"
+[0m
+[0m[31m- aws_nat_gateway.us-east-1a-public
+[0m[0m
+[0m[31m- aws_nat_gateway.us-east-1b-public
+[0m[0m
+[0m[31m- aws_nat_gateway.us-east-1c-public
+[0m[0m
+[0m[32m+ aws_route_table.public
+[0m    route.#:                                   "1"
+    route.318367998.cidr_block:                "0.0.0.0/0"
+    route.318367998.gateway_id:                "igw-84701de3"
+    route.318367998.instance_id:               ""
+    route.318367998.nat_gateway_id:            ""
+    route.318367998.network_interface_id:      ""
+    route.318367998.vpc_peering_connection_id: ""
+    tags.%:                                    "2"
+    tags.Name:                                 "jra-route-table-latest-us-east-1-public"
+    tags.environment:                          "latest"
+    vpc_id:                                    "vpc-707fdf16"
+[0m
+[0m[31m- aws_route_table.us-east-1-public
+[0m[0m
+[0m[32m+ aws_route_table_association.az-1-public
+[0m    route_table_id: "<computed>"
+    subnet_id:      "<computed>"
+[0m
+[0m[32m+ aws_route_table_association.az-2-public
+[0m    route_table_id: "<computed>"
+    subnet_id:      "<computed>"
+[0m
+[0m[32m+ aws_route_table_association.az-3-public
+[0m    route_table_id: "<computed>"
+    subnet_id:      "<computed>"
+[0m
+[0m[31m- aws_route_table_association.us-east-1a-public
+[0m[0m
+[0m[31m- aws_route_table_association.us-east-1b-public
+[0m[0m
+[0m[31m- aws_route_table_association.us-east-1c-public
+[0m[0m
+[0m[32m+ aws_security_group.private_admin
+[0m    description:                          "Swarm Nodes that will run containers related to admin apps (timetracking, jira, wikis, etc)"
+    egress.#:                             "1"
+    egress.3581498979.cidr_blocks.#:      "1"
+    egress.3581498979.cidr_blocks.0:      "10.0.0.0/16"
+    egress.3581498979.from_port:          "0"
+    egress.3581498979.prefix_list_ids.#:  "0"
+    egress.3581498979.protocol:           "tcp"
+    egress.3581498979.security_groups.#:  "0"
+    egress.3581498979.self:               "false"
+    egress.3581498979.to_port:            "65535"
+    ingress.#:                            "1"
+    ingress.3581498979.cidr_blocks.#:     "1"
+    ingress.3581498979.cidr_blocks.0:     "10.0.0.0/16"
+    ingress.3581498979.from_port:         "0"
+    ingress.3581498979.protocol:          "tcp"
+    ingress.3581498979.security_groups.#: "0"
+    ingress.3581498979.self:              "false"
+    ingress.3581498979.to_port:           "65535"
+    name:                                 "jra-sg-latest-us-east-1-private-admin"
+    owner_id:                             "<computed>"
+    tags.%:                               "2"
+    tags.Name:                            "jra-sg-latest-us-east-1-private-admin"
+    tags.environment:                     "latest"
+    vpc_id:                               "vpc-707fdf16"
+[0m
+[0m[32m-/+ aws_security_group.private_app-persistence
+[0m    description:                          "ZZZ" => "Swarm Nodes that will run containers related to storage persistence for mangement apps (databases, caches, etc)" [31m(forces new resource)[0m
+    egress.#:                             "1" => "1"
+    egress.3581498979.cidr_blocks.#:      "1" => "1"
+    egress.3581498979.cidr_blocks.0:      "10.0.0.0/16" => "10.0.0.0/16"
+    egress.3581498979.from_port:          "0" => "0"
+    egress.3581498979.prefix_list_ids.#:  "0" => "0"
+    egress.3581498979.protocol:           "tcp" => "tcp"
+    egress.3581498979.security_groups.#:  "0" => "0"
+    egress.3581498979.self:               "false" => "false"
+    egress.3581498979.to_port:            "65535" => "65535"
+    ingress.#:                            "1" => "1"
+    ingress.3581498979.cidr_blocks.#:     "1" => "1"
+    ingress.3581498979.cidr_blocks.0:     "10.0.0.0/16" => "10.0.0.0/16"
+    ingress.3581498979.from_port:         "0" => "0"
+    ingress.3581498979.protocol:          "tcp" => "tcp"
+    ingress.3581498979.security_groups.#: "0" => "0"
+    ingress.3581498979.self:              "false" => "false"
+    ingress.3581498979.to_port:           "65535" => "65535"
+    name:                                 "jra-sg-latest-us-east-1-private-app-persistence" => "jra-sg-latest-us-east-1-private-app-persistence"
+    owner_id:                             "193862077204" => "<computed>"
+    tags.%:                               "2" => "2"
+    tags.Name:                            "jra-sg-latest-us-east-1-private-app-persistence" => "jra-sg-latest-us-east-1-private-app-persistence"
+    tags.environment:                     "latest" => "latest"
+    vpc_id:                               "vpc-707fdf16" => "vpc-707fdf16"
+[0m
+[0m[32m-/+ aws_security_group.private_app_api_service
+[0m    description:                          "ZZZ" => "Swarm Nodes that will run containers related to storage persistence for mangement apps (databases, caches, etc)" [31m(forces new resource)[0m
+    egress.#:                             "1" => "1"
+    egress.3581498979.cidr_blocks.#:      "1" => "1"
+    egress.3581498979.cidr_blocks.0:      "10.0.0.0/16" => "10.0.0.0/16"
+    egress.3581498979.from_port:          "0" => "0"
+    egress.3581498979.prefix_list_ids.#:  "0" => "0"
+    egress.3581498979.protocol:           "tcp" => "tcp"
+    egress.3581498979.security_groups.#:  "0" => "0"
+    egress.3581498979.self:               "false" => "false"
+    egress.3581498979.to_port:            "65535" => "65535"
+    ingress.#:                            "1" => "1"
+    ingress.3581498979.cidr_blocks.#:     "1" => "1"
+    ingress.3581498979.cidr_blocks.0:     "10.0.0.0/16" => "10.0.0.0/16"
+    ingress.3581498979.from_port:         "0" => "0"
+    ingress.3581498979.protocol:          "tcp" => "tcp"
+    ingress.3581498979.security_groups.#: "0" => "0"
+    ingress.3581498979.self:              "false" => "false"
+    ingress.3581498979.to_port:           "65535" => "65535"
+    name:                                 "jra-sg-latest-us-east-1-private-app-api-service" => "jra-sg-latest-us-east-1-private-app-api-service"
+    owner_id:                             "193862077204" => "<computed>"
+    tags.%:                               "2" => "2"
+    tags.Name:                            "jra-sg-latest-us-east-1-private-app-api-service" => "jra-sg-latest-us-east-1-private-app-api-service"
+    tags.environment:                     "latest" => "latest"
+    vpc_id:                               "vpc-707fdf16" => "vpc-707fdf16"
+[0m
+[0m[32m-/+ aws_security_group.private_build
+[0m    description:                          "ZZZ" => "Swarm Nodes that will run containers related to builds & CI / CD pipelines" [31m(forces new resource)[0m
+    egress.#:                             "1" => "1"
+    egress.3581498979.cidr_blocks.#:      "1" => "1"
+    egress.3581498979.cidr_blocks.0:      "10.0.0.0/16" => "10.0.0.0/16"
+    egress.3581498979.from_port:          "0" => "0"
+    egress.3581498979.prefix_list_ids.#:  "0" => "0"
+    egress.3581498979.protocol:           "tcp" => "tcp"
+    egress.3581498979.security_groups.#:  "0" => "0"
+    egress.3581498979.self:               "false" => "false"
+    egress.3581498979.to_port:            "65535" => "65535"
+    ingress.#:                            "1" => "1"
+    ingress.3581498979.cidr_blocks.#:     "1" => "1"
+    ingress.3581498979.cidr_blocks.0:     "10.0.0.0/16" => "10.0.0.0/16"
+    ingress.3581498979.from_port:         "0" => "0"
+    ingress.3581498979.protocol:          "tcp" => "tcp"
+    ingress.3581498979.security_groups.#: "0" => "0"
+    ingress.3581498979.self:              "false" => "false"
+    ingress.3581498979.to_port:           "65535" => "65535"
+    name:                                 "jra-sg-latest-us-east-1-private-build" => "jra-sg-latest-us-east-1-private-build"
+    owner_id:                             "193862077204" => "<computed>"
+    tags.%:                               "2" => "2"
+    tags.Name:                            "jra-sg-latest-us-east-1-private-build" => "jra-sg-latest-us-east-1-private-build"
+    tags.environment:                     "latest" => "latest"
+    vpc_id:                               "vpc-707fdf16" => "vpc-707fdf16"
+[0m
+[0m[32m-/+ aws_security_group.private_management
+[0m    description:                          "ZZZ" => "Swarm Nodes that will run containers related to storage persistence for mangement apps (databases, caches, etc)" [31m(forces new resource)[0m
+    egress.#:                             "1" => "1"
+    egress.3581498979.cidr_blocks.#:      "1" => "1"
+    egress.3581498979.cidr_blocks.0:      "10.0.0.0/16" => "10.0.0.0/16"
+    egress.3581498979.from_port:          "0" => "0"
+    egress.3581498979.prefix_list_ids.#:  "0" => "0"
+    egress.3581498979.protocol:           "tcp" => "tcp"
+    egress.3581498979.security_groups.#:  "0" => "0"
+    egress.3581498979.self:               "false" => "false"
+    egress.3581498979.to_port:            "65535" => "65535"
+    ingress.#:                            "1" => "1"
+    ingress.3581498979.cidr_blocks.#:     "1" => "1"
+    ingress.3581498979.cidr_blocks.0:     "10.0.0.0/16" => "10.0.0.0/16"
+    ingress.3581498979.from_port:         "0" => "0"
+    ingress.3581498979.protocol:          "tcp" => "tcp"
+    ingress.3581498979.security_groups.#: "0" => "0"
+    ingress.3581498979.self:              "false" => "false"
+    ingress.3581498979.to_port:           "65535" => "65535"
+    name:                                 "jra-sg-latest-us-east-1-private-management" => "jra-sg-latest-us-east-1-private-management"
+    owner_id:                             "193862077204" => "<computed>"
+    tags.%:                               "2" => "2"
+    tags.Name:                            "jra-sg-latest-us-east-1-private-management" => "jra-sg-latest-us-east-1-private-management"
+    tags.environment:                     "latest" => "latest"
+    vpc_id:                               "vpc-707fdf16" => "vpc-707fdf16"
+[0m
+[0m[32m-/+ aws_security_group.private_management_persistence
+[0m    description:                          "ZZZ" => "Swarm Nodes that will run containers related to storage persistence for mangement apps (databases, caches, etc)" [31m(forces new resource)[0m
+    egress.#:                             "1" => "1"
+    egress.3581498979.cidr_blocks.#:      "1" => "1"
+    egress.3581498979.cidr_blocks.0:      "10.0.0.0/16" => "10.0.0.0/16"
+    egress.3581498979.from_port:          "0" => "0"
+    egress.3581498979.prefix_list_ids.#:  "0" => "0"
+    egress.3581498979.protocol:           "tcp" => "tcp"
+    egress.3581498979.security_groups.#:  "0" => "0"
+    egress.3581498979.self:               "false" => "false"
+    egress.3581498979.to_port:            "65535" => "65535"
+    ingress.#:                            "1" => "1"
+    ingress.3581498979.cidr_blocks.#:     "1" => "1"
+    ingress.3581498979.cidr_blocks.0:     "10.0.0.0/16" => "10.0.0.0/16"
+    ingress.3581498979.from_port:         "0" => "0"
+    ingress.3581498979.protocol:          "tcp" => "tcp"
+    ingress.3581498979.security_groups.#: "0" => "0"
+    ingress.3581498979.self:              "false" => "false"
+    ingress.3581498979.to_port:           "65535" => "65535"
+    name:                                 "jra-sg-latest-us-east-1-private-management-persistence" => "jra-sg-latest-us-east-1-private-management-persistence"
+    owner_id:                             "193862077204" => "<computed>"
+    tags.%:                               "2" => "2"
+    tags.Name:                            "jra-sg-latest-us-east-1-private-management-persistence" => "jra-sg-latest-us-east-1-private-management-persistence"
+    tags.environment:                     "latest" => "latest"
+    vpc_id:                               "vpc-707fdf16" => "vpc-707fdf16"
+[0m
+[0m[32m+ aws_security_group.private_monitoring
+[0m    description:                          "Swarm Nodes that will run containers related to monitoring (logging servers, metrics collection, etc"
+    egress.#:                             "1"
+    egress.3581498979.cidr_blocks.#:      "1"
+    egress.3581498979.cidr_blocks.0:      "10.0.0.0/16"
+    egress.3581498979.from_port:          "0"
+    egress.3581498979.prefix_list_ids.#:  "0"
+    egress.3581498979.protocol:           "tcp"
+    egress.3581498979.security_groups.#:  "0"
+    egress.3581498979.self:               "false"
+    egress.3581498979.to_port:            "65535"
+    ingress.#:                            "1"
+    ingress.3581498979.cidr_blocks.#:     "1"
+    ingress.3581498979.cidr_blocks.0:     "10.0.0.0/16"
+    ingress.3581498979.from_port:         "0"
+    ingress.3581498979.protocol:          "tcp"
+    ingress.3581498979.security_groups.#: "0"
+    ingress.3581498979.self:              "false"
+    ingress.3581498979.to_port:           "65535"
+    name:                                 "jra-sg-latest-us-east-1-private-monitoring"
+    owner_id:                             "<computed>"
+    tags.%:                               "2"
+    tags.Name:                            "jra-sg-latest-us-east-1-private-management-persistence"
+    tags.environment:                     "latest"
+    vpc_id:                               "vpc-707fdf16"
+[0m
+[0m[32m-/+ aws_security_group.public_app_api_web
+[0m    description:                          "ZZZ" => "Security groups for public web apis" [31m(forces new resource)[0m
+    egress.#:                             "1" => "1"
+    egress.3581498979.cidr_blocks.#:      "1" => "1"
+    egress.3581498979.cidr_blocks.0:      "10.0.0.0/16" => "10.0.0.0/16"
+    egress.3581498979.from_port:          "0" => "0"
+    egress.3581498979.prefix_list_ids.#:  "0" => "0"
+    egress.3581498979.protocol:           "tcp" => "tcp"
+    egress.3581498979.security_groups.#:  "0" => "0"
+    egress.3581498979.self:               "false" => "false"
+    egress.3581498979.to_port:            "65535" => "65535"
+    ingress.#:                            "1" => "1"
+    ingress.3581498979.cidr_blocks.#:     "1" => "1"
+    ingress.3581498979.cidr_blocks.0:     "10.0.0.0/16" => "10.0.0.0/16"
+    ingress.3581498979.from_port:         "0" => "0"
+    ingress.3581498979.protocol:          "tcp" => "tcp"
+    ingress.3581498979.security_groups.#: "0" => "0"
+    ingress.3581498979.self:              "false" => "false"
+    ingress.3581498979.to_port:           "65535" => "65535"
+    name:                                 "jra-sg-latest-us-east-1-public-app-api-web" => "jra-sg-latest-us-east-1-public-app-api-web"
+    owner_id:                             "193862077204" => "<computed>"
+    tags.%:                               "2" => "2"
+    tags.Name:                            "jra-sg-latest-us-east-1-public-app-api-web" => "jra-sg-latest-us-east-1-public-app-api-web"
+    tags.environment:                     "latest" => "latest"
+    vpc_id:                               "vpc-707fdf16" => "vpc-707fdf16"
+[0m
+[0m[32m-/+ aws_security_group.public_app_ui_web
+[0m    description:                          "ZZZ" => "Security Group for public web ui apps" [31m(forces new resource)[0m
+    egress.#:                             "1" => "1"
+    egress.3581498979.cidr_blocks.#:      "1" => "1"
+    egress.3581498979.cidr_blocks.0:      "10.0.0.0/16" => "10.0.0.0/16"
+    egress.3581498979.from_port:          "0" => "0"
+    egress.3581498979.prefix_list_ids.#:  "0" => "0"
+    egress.3581498979.protocol:           "tcp" => "tcp"
+    egress.3581498979.security_groups.#:  "0" => "0"
+    egress.3581498979.self:               "false" => "false"
+    egress.3581498979.to_port:            "65535" => "65535"
+    ingress.#:                            "1" => "1"
+    ingress.3581498979.cidr_blocks.#:     "1" => "1"
+    ingress.3581498979.cidr_blocks.0:     "10.0.0.0/16" => "10.0.0.0/16"
+    ingress.3581498979.from_port:         "0" => "0"
+    ingress.3581498979.protocol:          "tcp" => "tcp"
+    ingress.3581498979.security_groups.#: "0" => "0"
+    ingress.3581498979.self:              "false" => "false"
+    ingress.3581498979.to_port:           "65535" => "65535"
+    name:                                 "jra-sg-latest-us-east-1-public-app-ui-web" => "jra-sg-latest-us-east-1-public-app-ui-web"
+    owner_id:                             "193862077204" => "<computed>"
+    tags.%:                               "2" => "2"
+    tags.Name:                            "jra-sg-latest-us-east-1-public-app-ui-web" => "jra-sg-latest-us-east-1-public-app-ui-web"
+    tags.environment:                     "latest" => "latest"
+    vpc_id:                               "vpc-707fdf16" => "vpc-707fdf16"
+[0m
+[0m[32m+ aws_subnet.az-1-private
+[0m    availability_zone:       "us-east-1a"
+    cidr_block:              "10.0.1.0/24"
+    map_public_ip_on_launch: "false"
+    tags.%:                  "3"
+    tags.Name:               "jra-subnet-latest-us-east-1a-private"
+    tags.environment:        "latest"
+    tags.failure_zone:       "us-east-1-az-1"
+    vpc_id:                  "vpc-707fdf16"
+[0m
+[0m[32m+ aws_subnet.az-1-public
+[0m    availability_zone:       "us-east-1a"
+    cidr_block:              "10.0.0.0/24"
+    map_public_ip_on_launch: "false"
+    tags.%:                  "3"
+    tags.Name:               "jra-subnet-latest-us-east-1a-public"
+    tags.environment:        "latest"
+    tags.failure_zone:       "us-east-1-az-1"
+    vpc_id:                  "vpc-707fdf16"
+[0m
+[0m[32m+ aws_subnet.az-2-private
+[0m    availability_zone:       "us-east-1b"
+    cidr_block:              "10.0.3.0/24"
+    map_public_ip_on_launch: "false"
+    tags.%:                  "3"
+    tags.Name:               "jra-subnet-latest-us-east-1b-private"
+    tags.environment:        "latest"
+    tags.failure_zone:       "us-east-1-az-2"
+    vpc_id:                  "vpc-707fdf16"
+[0m
+[0m[32m+ aws_subnet.az-2-public
+[0m    availability_zone:       "us-east-1b"
+    cidr_block:              "10.0.2.0/24"
+    map_public_ip_on_launch: "false"
+    tags.%:                  "3"
+    tags.Name:               "jra-subnet-latest-us-east-1b-public"
+    tags.environment:        "latest"
+    tags.failure_zone:       "us-east-1-az-2"
+    vpc_id:                  "vpc-707fdf16"
+[0m
+[0m[32m+ aws_subnet.az-3-private
+[0m    availability_zone:       "us-east-1c"
+    cidr_block:              "10.0.5.0/24"
+    map_public_ip_on_launch: "false"
+    tags.%:                  "3"
+    tags.Name:               "jra-subnet-latest-us-east-1c-private"
+    tags.environment:        "latest"
+    tags.failure_zone:       "us-east-1-az-3"
+    vpc_id:                  "vpc-707fdf16"
+[0m
+[0m[32m+ aws_subnet.az-3-public
+[0m    availability_zone:       "us-east-1c"
+    cidr_block:              "10.0.4.0/24"
+    map_public_ip_on_launch: "false"
+    tags.%:                  "3"
+    tags.Name:               "jra-subnet-latest-us-east-1c-public"
+    tags.environment:        "latest"
+    tags.failure_zone:       "us-east-1-az-3"
+    vpc_id:                  "vpc-707fdf16"
+[0m
+[0m[31m- aws_subnet.us-east-1a-private
+[0m[0m
+[0m[31m- aws_subnet.us-east-1a-public
+[0m[0m
+[0m[31m- aws_subnet.us-east-1b-private
+[0m[0m
+[0m[31m- aws_subnet.us-east-1b-public
+[0m[0m
+[0m[31m- aws_subnet.us-east-1c-private
+[0m[0m
+[0m[31m- aws_subnet.us-east-1c-public
+[0m[0m
+[0m
+[0m[1mPlan:[0m 28 to add, 0 to change, 23 to destroy.[0m

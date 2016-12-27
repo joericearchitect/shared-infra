@@ -7,23 +7,30 @@ variable "region" {
   default = "us-east-1"
 }
 
+variable "availability_zone" {
+  description = "AMIs for docker-engine nodes by region"
+  type = "map"
+  default = {
+    us-east-1.az-1 = "us-east-1a"
+    us-east-1.az-2 = "us-east-1b"
+    us-east-1.az-3 = "us-east-1c"
+    us-east-1.az-4 = "us-east-1d"
+    us-west-1.az-1 = "us-west-1a"
+    us-west-1.az-2 = "us-west-1b"
+    us-west-1.az-3 = "us-west-1c"
+    us-west-1.az-4 = "us-west-1d"
+  }
+}
+
 variable "amis_docker_node" {
   description = "AMIs for docker-engine nodes by region"
   type = "map"
   default = {
-    us-east-1 = "ami-13be557e"
+    us-east-1 = "ami-2e849339"
     us-west-2 = "ami-06b94666"
   }
 }
 
-variable "amis_nat" {
-  description = "AMIs for docker-engine nodes by region"
-  type = "map"
-  default = {
-    us-east-1 = "ami-13be557e"
-    us-west-2 = "ami-06b94666"
-  }
-}
 variable "vpc_cidr" {
     description = "CIDR for the whole VPC"
     default = "10.0.0.0/16"
@@ -46,7 +53,64 @@ variable "environment" {
     description = "The environment this resource is running in"
 	default = "latest"
 }
+variable "environment_type" {
+    description = "The environment this resource is running in"
+	default = "latest"
+}
 variable "environment-flip" {
     description = "whether this region is running as blue or green"
 	default = "blue"
+}
+
+# ---------------------------------------------------------------------------
+# Environment Sizing Variables
+# ---------------------------------------------------------------------------
+variable "environment-size" {
+    description = "Size of an environment"
+    default = "small"
+}
+
+variable "ec2-instance-type" {
+  description = "What ec2 instance type to use per environment size and swawrm-node type"
+  type = "map"
+  default = {
+    small.swarm-manager = "t2.micro"
+    small.build = "t2.micro"
+    small.app-api-service = "t2.micro"
+    small.app-api-service-large = "t2.micro"
+    small.app-persistence = "t2.micro"
+    small.app-persistence-large = "t2.micro"
+    small.management = "t2.micro"
+    small.management-persistence = "t2.micro"
+    small.admin = "t2.micro"
+    small.monitoring = "t2.micro"
+    small.app-ui-web = "t2.micro"
+    small.app-api-web = "t2.micro"
+
+    medium.swarm-manager = "t2.medium"
+    medium.build = "t2.medium"
+    medium.app-api-service = "t2.medium"
+    medium.app-api-service-large = "t2.medium"
+    medium.app-persistence = "t2.medium"
+    medium.app-persistence-large = "t2.medium"
+    medium.management = "t2.medium"
+    medium.management-persistence = "t2.medium"
+    medium.admin = "t2.medium"
+    medium.monitoring = "t2.medium"
+    medium.app-ui-web = "t2.medium"
+    medium.app-api-web = "t2.medium"
+
+    large.swarm-manager = "m4.large"
+    large.build = "m4.large"
+    large.app-api-service = "m4.large"
+    large.app-api-service-large = "m4.large"
+    large.app-persistence = "m4.large"
+    large.app-persistence-large = "m4.large"
+    large.management = "m4.large"
+    large.management-persistence = "m4.large"
+    large.admin = "m4.large"
+    large.monitoring = "m4.large"
+    large.app-ui-web = "m4.large"
+    large.app-api-web = "m4.large"
+  }
 }
