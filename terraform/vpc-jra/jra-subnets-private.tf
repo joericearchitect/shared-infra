@@ -46,3 +46,20 @@ resource "aws_subnet" "az-3-private" {
     	failure_zone = "${var.region}-az-3"
     }
 }
+
+# Associate private subnets to private routing table
+
+resource "aws_route_table_association" "az-1-private" {
+	subnet_id = "${aws_subnet.az-1-private.id}"
+	route_table_id = "${aws_route_table.private.id}"
+}
+
+resource "aws_route_table_association" "az-2-private" {
+	subnet_id = "${aws_subnet.az-2-private.id}"
+	route_table_id = "${aws_route_table.private.id}"
+}
+
+resource "aws_route_table_association" "az-3-private" {
+	subnet_id = "${aws_subnet.az-3-private.id}"
+	route_table_id = "${aws_route_table.private.id}"
+}

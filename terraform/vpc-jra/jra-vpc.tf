@@ -40,3 +40,20 @@ resource "aws_route_table" "public" {
         environment = "${var.environment}"
     }
 }
+
+# ---------------------------------------------------------------------------
+# Routing table for public subnets
+# ---------------------------------------------------------------------------
+resource "aws_route_table" "private" {
+	vpc_id = "${aws_vpc.jra_vpc.id}"
+
+	route {
+		cidr_block = "0.0.0.0/0"
+		gateway_id = "${aws_internet_gateway.jra_igw.id}"
+	},
+
+	tags {
+        Name = "jra-route-table-${var.environment}-${var.region}-private",
+        environment = "${var.environment}"
+    }
+}

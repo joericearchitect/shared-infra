@@ -6,8 +6,8 @@
 # ---------------------------------------------------------------------------
 
 resource "aws_security_group" "private_swarm-manager" {
-	name = "jra-sg-${var.environment}-${var.region}-private-build"
-	description = "Swarm Nodes that will run containers related to builds & CI / CD pipelines"
+	name = "jra-sg-${var.environment}-${var.region}-private-swarm-manager"
+	description = "Swarm Manager that will run the docker swarm manager"
 
 	ingress {
 		from_port = 0
@@ -26,7 +26,7 @@ resource "aws_security_group" "private_swarm-manager" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "jra-sg-${var.environment}-${var.region}-private-build",
+        Name = "jra-sg-${var.environment}-${var.region}-private-swarm-manager",
         environment = "${var.environment}"
     }
 }
