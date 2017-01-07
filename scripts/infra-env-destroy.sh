@@ -13,6 +13,6 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 
 source $DIR/setenv.sh
 
-cd $INFRA_ENVIRONMENTS_HOME_DIR/ansible
+cd $INFRA_ENVIRONMENTS_HOME_DIR/terraform
 
-ansible-playbook -i ./ec2-inventory/ec2.py -v -u ubuntu -e env=latest --private-key $JRA_BUILD_PRIVATE_KEY_FILE swarm.yml
+terraform destroy
