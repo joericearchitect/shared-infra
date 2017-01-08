@@ -1,0 +1,36 @@
+
+
+# re-install docker on all manager nodes
+- hosts: tag_environment_{{ env }}:&tag_swarm_instance_type_swarm_manager
+  become: true
+  tasks:
+
+
+    - name: clear existing docker config file for XXX nodes
+      shell: >
+       sudo rm -f /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
+       sudo mkdir -p /etc/systemd/system/docker.service.d
+
+    - name: write customized docker start config file with labels for XXX nodes
+      shell: >
+       sudo bash -c
+       'echo "[Service]" >> /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
+       echo "ExecStart=" >> /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
+       echo "ExecStart=/usr/bin/dockerd
+       -H unix:///var/run/docker.sock
+       -H tcp://{{ ec2_private_ip_address }}:2375
+       --label name={{ ec2_tag_Name }}
+       --label environment={{ ec2_tag_environment }}
+       --label environment-size={{ ec2_tag_environment_size }}
+       --label environment-type={{ ec2_tag_environment_type }}
+       --label failure-zone={{ ec2_tag_failure_zone }}
+       --label subnet-type={{ ec2_tag_subnet_type }}
+       --label swarm-instance-type={{ ec2_tag_swarm_instance_type }}
+       --label swarm-worker-type={{ ec2_tag_swarm_node_type }}"
+       >> /etc/systemd/system/docker.service.d/jra-docker-config.conf'
+      ignore_errors: yes
+
+    - name: restart docker on XXX nodes
+      shell: >
+       sudo systemctl daemon-reload &&
+       sudo systemctl restart docker

@@ -14,7 +14,10 @@ resource "aws_subnet" "az-1-private" {
 
 	tags {
         Name = "jra-subnet-${var.environment}-${lookup(var.availability_zone, "${var.region}.az-1")}-private",
-        environment = "${var.environment}"
+        environment = "${var.environment}",
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-1"
     }
 }
@@ -28,7 +31,10 @@ resource "aws_subnet" "az-2-private" {
 
 	tags {
         Name = "jra-subnet-${var.environment}-${lookup(var.availability_zone, "${var.region}.az-2")}-private",
-        environment = "${var.environment}"
+        environment = "${var.environment}",
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-2"
     }
 }
@@ -43,7 +49,10 @@ resource "aws_subnet" "az-3-private" {
 	tags {
         Name = "jra-subnet-${var.environment}-${lookup(var.availability_zone, "${var.region}.az-3")}-private",
         environment = "${var.environment}"
-    	failure_zone = "${var.region}-az-3"
+    	failure_zone = "${var.region}-az-3",
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 

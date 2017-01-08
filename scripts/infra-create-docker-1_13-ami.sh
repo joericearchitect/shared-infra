@@ -13,6 +13,6 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 
 source $DIR/setenv.sh
 
-cd $INFRA_ENVIRONMENTS_HOME_DIR/terraform
+cd $INFRA_ENVIRONMENTS_HOME_DIR/packer
 
-terraform plan
+packer build docker-1_13-jra-image.json

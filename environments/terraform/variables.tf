@@ -26,7 +26,7 @@ variable "amis_docker_node" {
   description = "AMIs for docker-engine nodes by region"
   type = "map"
   default = {
-    us-east-1 = "ami-93b5ac84"
+    us-east-1 = "ami-ca59bddc"
     us-west-2 = "ami-06b94666"
   }
 }
@@ -60,6 +60,30 @@ variable "environment_type" {
 variable "environment-flip" {
     description = "whether this region is running as blue or green"
 	default = "blue"
+}
+
+# ---------------------------------------------------------------------------
+# Ansible Provisioning Variables
+# ---------------------------------------------------------------------------
+variable "ansible-remote-host-user" {
+    description = "The user ansible will use to ssh into remote machines to provision docker swarm"
+	default = "ubuntu"
+}
+variable "ansible-host-inventory-file" {
+    description = "The location of the ansible host inventory file.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../ansible/ec2-inventory/ec2.py"
+}
+variable "ansible-custom-configuration-file" {
+    description = "The location of the ansible host inventory file.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../ansible/ansible.cfg"
+}
+variable "ansible-provision-swarm-cluster-playbook-file" {
+    description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../ansible/swarm.yml"
+}
+variable "ansible-remove-swarm-cluster-playbook-file" {
+    description = "The location of the ansible playbook file that will tear down a docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../ansible/swarm-down.yml"
 }
 
 # ---------------------------------------------------------------------------

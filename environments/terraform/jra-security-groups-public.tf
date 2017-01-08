@@ -11,15 +11,15 @@ resource "aws_security_group" "public_app-ui-web" {
 
 	ingress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
 	egress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
@@ -27,7 +27,10 @@ resource "aws_security_group" "public_app-ui-web" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-public-app-ui-web",
-        environment = "${var.environment}"
+        environment = "${var.environment}",
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -38,15 +41,15 @@ resource "aws_security_group" "public_app-api-web" {
 
 	ingress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
 	egress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
@@ -54,7 +57,10 @@ resource "aws_security_group" "public_app-api-web" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-public-app-api-web",
-        environment = "${var.environment}"
+        environment = "${var.environment}",
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 

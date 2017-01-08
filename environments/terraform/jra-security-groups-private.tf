@@ -11,15 +11,15 @@ resource "aws_security_group" "private_swarm-manager" {
 
 	ingress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
 	egress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
@@ -28,6 +28,9 @@ resource "aws_security_group" "private_swarm-manager" {
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-swarm-manager",
         environment = "${var.environment}"
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -38,15 +41,15 @@ resource "aws_security_group" "private_build" {
 
 	ingress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
 	egress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
@@ -55,6 +58,9 @@ resource "aws_security_group" "private_build" {
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-build",
         environment = "${var.environment}"
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -65,15 +71,15 @@ resource "aws_security_group" "private_app-api-service" {
 
 	ingress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
 	egress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
@@ -82,6 +88,9 @@ resource "aws_security_group" "private_app-api-service" {
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-app-api-service",
         environment = "${var.environment}"
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -91,15 +100,15 @@ resource "aws_security_group" "private_app-persistence" {
 
 	ingress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
 	egress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
@@ -108,6 +117,9 @@ resource "aws_security_group" "private_app-persistence" {
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-app-persistence",
         environment = "${var.environment}"
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -118,15 +130,15 @@ resource "aws_security_group" "private_management" {
 
 	ingress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
 	egress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
@@ -135,6 +147,9 @@ resource "aws_security_group" "private_management" {
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-management",
         environment = "${var.environment}"
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -144,15 +159,15 @@ resource "aws_security_group" "private_management_persistence" {
 
 	ingress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
 	egress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
@@ -161,6 +176,9 @@ resource "aws_security_group" "private_management_persistence" {
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-management-persistence",
         environment = "${var.environment}"
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -170,15 +188,15 @@ resource "aws_security_group" "private_admin" {
 
 	ingress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
 	egress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
@@ -187,6 +205,9 @@ resource "aws_security_group" "private_admin" {
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-admin",
         environment = "${var.environment}"
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -197,15 +218,15 @@ resource "aws_security_group" "private_monitoring" {
 
 	ingress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
 	egress {
 		from_port = 0
-		to_port = 65535
-		protocol = "tcp"
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
@@ -214,5 +235,8 @@ resource "aws_security_group" "private_monitoring" {
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-management-persistence",
         environment = "${var.environment}"
+        environment_type = "${var.environment_type}",
+    	environment-size = "${var.environment-size}",
+        environment-instance-id = "${random_id.env-instance.b64}"
     }
 }

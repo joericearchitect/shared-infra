@@ -1,0 +1,30 @@
+{
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": "",
+    "aws_region": "us-east-1",
+    "aws_source_ami": "ami-40d28157"
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{user `aws_source_ami`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "region": "{{user `aws_region`}}",
+    "source_ami": "{{user `aws_source_ami`}}",
+    "instance_type": "t2.micro",
+    "ssh_username": "ubuntu",
+    "ami_name": "jra-ami-docker-1_13-ubuntu {{timestamp}}"
+  }],
+  "provisioners": [{
+    "type": "shell",
+    "inline": [
+      "sleep 30",
+      "sudo apt-get update",
+      "sudo curl -fsSL https://test.docker.com/ | sh",
+      "sudo usermod -aG docker ubuntu",
+      "sudo apt-get install -y python",
+      "sudo apt install -y python-pip",
+      "sudo pip install docker"
+    ]
+  }]
+}

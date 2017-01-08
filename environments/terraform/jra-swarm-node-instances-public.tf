@@ -14,12 +14,13 @@ resource "aws_instance" "app-ui-web-az-1" {
     }
 
 	tags {
-        Name = "jra-instance.swarm-node.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
+        Name = "jra-instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
     	failure_zone = "${var.region}-az-1"
     	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-node"
+        environment-instance-id = "${random_id.env-instance.b64}"
+    	swarm-instance-type = "swarm-worker"
     	swarm-node-type = "app-ui-web"
     	subnet-type = "public"
     }
@@ -36,12 +37,13 @@ resource "aws_instance" "app-ui-web-az-2" {
     }
 
 	tags {
-        Name = "jra-instance.swarm-node.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
+        Name = "jra-instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-2"
     	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-node"
+    	swarm-instance-type = "swarm-worker"
     	swarm-node-type = "app-ui-web"
     	subnet-type = "public"
     }
@@ -58,12 +60,13 @@ resource "aws_instance" "app-ui-web-az-3" {
     }
 
 	tags {
-        Name = "jra-instance.swarm-node.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
+        Name = "jra-instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-3"
     	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-node"
+    	swarm-instance-type = "swarm-worker"
     	swarm-node-type = "app-ui-web"
     	subnet-type = "public"
     }

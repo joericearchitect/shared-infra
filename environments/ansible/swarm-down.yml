@@ -1,0 +1,85 @@
+---
+# determine the status of each manager node and break them
+# into two groups:
+#   - swarm_manager_operational (swarm is running and active)
+#   - swarm_manager_bootstrap (host needs to be joined to the cluster)
+- hosts: tag_environment_{{ env }}:&tag_swarm_instance_type_swarm_manager
+  become: true
+  tasks:
+    - name: determine swarm status
+      shell: >
+        docker info | egrep '^Swarm: ' | cut -d ' ' -f2
+      register: swarm_status
+
+    - name: Print manager host name
+      debug: msg="manager-host-name='{{ ec2_private_dns_name }}'"
+
+    - name: Print manager node name (with regex)
+      debug: msg="manager-host-name='{{ ec2_private_dns_name | regex_replace('(ip-[0-9]*-[0-9]*-[0-9]*-[0-9]*)\.[a-zA-Z0-9]*\.[a-zA-Z0-9]*', '\\1')}}'"
+
+    - name: create swarm_manager_operational group
+      add_host:
+        hostname: "{{ item }}"
+        groups: swarm_manager_operational
+      with_items: "{{ ansible_play_hosts | default(play_hosts) }}"
+      when: "'active' in hostvars[item].swarm_status.stdout_lines"
+      run_once: true
+
+    - name: create swarm_manager_bootstrap group
+      add_host:
+        hostname: "{{ item }}"
+        groups: swarm_manager_bootstrap
+      with_items: "{{ ansible_play_hosts | default(play_hosts) }}"
+      when: "'active' not in hostvars[item].swarm_status.stdout_lines"
+      run_once: true
+
+# determine the status of each worker node and break them
+# into two groups:
+#   - swarm_worker_operational (host is joined to the swarm cluster)
+#   - swarm_worker_bootstrap (host needs to be joined to the cluster)
+- hosts: tag_environment_{{ env }}:&tag_swarm_instance_type_swarm_worker
+  become: true
+  tasks:
+    - name: determine swarm status
+      shell: >
+        docker info | egrep '^Swarm: ' | cut -d ' ' -f2
+      register: swarm_status
+
+    - name: Print worker host name
+      debug: msg="worker-host-name='{{ ec2_private_dns_name }}'"
+
+    - name: Print worker node name
+      debug: msg="manager-host-name='{{ ec2_private_dns_name | regex_replace('(ip-[0-9]*-[0-9]*-[0-9]*-[0-9]*)\.[a-zA-Z0-9]*\.[a-zA-Z0-9]*', '\\1')}}'"
+
+    - name: create swarm_worker_operational group
+      add_host:
+        hostname: "{{ item }}"
+        groups: swarm_worker_operational
+      with_items: "{{ ansible_play_hosts | default(play_hosts) }}"
+      when: "'active' in hostvars[item].swarm_status.stdout_lines"
+      run_once: true
+
+    - name: create swarm_worker_bootstrap group
+      add_host:
+        hostname: "{{ item }}"
+        groups: swarm_worker_bootstrap
+      with_items: "{{ ansible_play_hosts | default(play_hosts) }}"
+      when: "'active' not in hostvars[item].swarm_status.stdout_lines"
+      run_once: true
+
+
+# leave the worker hosts that are active from the swarm
+- hosts: swarm_worker_operational
+  become: true
+  tasks:
+    - name: leave worker nodes from cluster
+      shell: >
+        docker swarm leave
+
+# leave the manager hosts that are active from the swarm
+- hosts: swarm_manager_operational
+  become: true
+  tasks:
+    - name: leave worker nodes from cluster
+      shell: >
+        docker swarm leave --force

@@ -18,6 +18,7 @@ resource "aws_instance" "swarm-manager-az-1" {
         Name = "jra-instance.swarm-manager.manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-1"
     	environment-size = "${var.environment-size}"
     	swarm-instance-type = "swarm-manager"
@@ -40,6 +41,7 @@ resource "aws_instance" "swarm-manager-az-2" {
         Name = "jra-instance.swarm-manager.manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-2"
     	environment-size = "${var.environment-size}"
     	swarm-instance-type = "swarm-manager"
@@ -62,6 +64,7 @@ resource "aws_instance" "swarm-manager-az-3" {
         Name = "jra-instance.swarm-manager.manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-3"
     	environment-size = "${var.environment-size}"
     	swarm-instance-type = "swarm-manager"
@@ -86,12 +89,13 @@ resource "aws_instance" "build-az-1" {
     }
 
 	tags {
-        Name = "jra-instance.swarm-node.build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
+        Name = "jra-instance.swarm-worker.build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-1"
     	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-node"
+    	swarm-instance-type = "swarm-worker"
     	swarm-node-type = "build"
     	subnet-type = "private"
     }
@@ -108,12 +112,13 @@ resource "aws_instance" "build-az-2" {
     }
 
 	tags {
-        Name = "jra-instance.swarm-node.build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
+        Name = "jra-instance.swarm-worker.build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-2"
     	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-node"
+    	swarm-instance-type = "swarm-worker"
     	swarm-node-type = "build"
     	subnet-type = "private"
     }
@@ -130,12 +135,13 @@ resource "aws_instance" "build-az-3" {
     }
 
 	tags {
-        Name = "jra-instance.swarm-node.build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
+        Name = "jra-instance.swarm-worker.build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-3"
     	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-node"
+    	swarm-instance-type = "swarm-worker"
     	swarm-node-type = "build"
     	subnet-type = "private"
     }
@@ -157,12 +163,13 @@ resource "aws_instance" "app-api-service-az-1" {
     }
 
 	tags {
-        Name = "jra-instance.swarm-node.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
+        Name = "jra-instance.swarm-worker.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-1"
     	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-node"
+    	swarm-instance-type = "swarm-worker"
     	swarm-node-type = "app-api-service"
     	subnet-type = "private"
     }
@@ -179,12 +186,13 @@ resource "aws_instance" "app-api-service-az-2" {
     }
 
 	tags {
-        Name = "jra-instance.swarm-node.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
+        Name = "jra-instance.swarm-worker.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-2"
     	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-node"
+    	swarm-instance-type = "swarm-worker"
     	swarm-node-type = "app-api-service"
     	subnet-type = "private"
     }
@@ -201,12 +209,13 @@ resource "aws_instance" "app-api-service-az-3" {
     }
 
 	tags {
-        Name = "jra-instance.swarm-node.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
+        Name = "jra-instance.swarm-worker.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-3"
     	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-node"
+    	swarm-instance-type = "swarm-worker"
     	swarm-node-type = "app-api-service"
     	subnet-type = "private"
     }
@@ -228,12 +237,13 @@ resource "aws_instance" "app-persistence-az-1" {
     }
 
 	tags {
-        Name = "jra-instance.swarm-node.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
+        Name = "jra-instance.swarm-worker.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-1"
     	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-node"
+    	swarm-instance-type = "swarm-worker"
     	swarm-node-type = "app-persistence"
     	subnet-type = "private"
     }
@@ -250,12 +260,13 @@ resource "aws_instance" "app-persistence-az-2" {
     }
 
 	tags {
-        Name = "jra-instance.swarm-node.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
+        Name = "jra-instance.swarm-worker.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-2"
     	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-node"
+    	swarm-instance-type = "swarm-worker"
     	swarm-node-type = "app-persistence"
     	subnet-type = "private"
     }
@@ -272,12 +283,13 @@ resource "aws_instance" "app-persistence-az-3" {
     }
 
 	tags {
-        Name = "jra-instance.swarm-node.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
+        Name = "jra-instance.swarm-worker.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
         environment = "${var.environment}"
         environment_type = "${var.environment_type}"
+        environment-instance-id = "${random_id.env-instance.b64}"
     	failure_zone = "${var.region}-az-3"
     	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-node"
+    	swarm-instance-type = "swarm-worker"
     	swarm-node-type = "app-persistence"
     	subnet-type = "private"
     }
