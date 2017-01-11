@@ -26,7 +26,8 @@ variable "amis_docker_node" {
   description = "AMIs for docker-engine nodes by region"
   type = "map"
   default = {
-    us-east-1 = "ami-ca59bddc"
+    us-east-1 = "ami-93b5ac84"
+#    us-east-1 = "ami-ca59bddc"
     us-west-2 = "ami-06b94666"
   }
 }
