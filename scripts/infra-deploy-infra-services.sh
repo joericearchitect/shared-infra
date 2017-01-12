@@ -11,7 +11,7 @@
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
 
-PLAYBOOK_FILE=swarm-reinstallp-docker.yml
+PLAYBOOK_FILE=deploy-infra-apps-services.yml
 
 source $DIR/setenv.sh
 

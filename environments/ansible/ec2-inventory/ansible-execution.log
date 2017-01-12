@@ -1,0 +1,57 @@
+[0m[1mrandom_id.env-instance: Creating...[21m
+  b64:         "" => "<computed>"
+  b64_std:     "" => "<computed>"
+  b64_url:     "" => "<computed>"
+  byte_length: "" => "8"
+  dec:         "" => "<computed>"
+  hex:         "" => "<computed>"[0m
+[0m[1mrandom_id.env-instance: Creation complete[21m[0m
+[0m[1maws_eip.az-2-public: Creating...[21m
+  allocation_id:     "" => "<computed>"
+  association_id:    "" => "<computed>"
+  domain:            "" => "<computed>"
+  instance:          "" => "<computed>"
+  network_interface: "" => "<computed>"
+  private_ip:        "" => "<computed>"
+  public_ip:         "" => "<computed>"
+  vpc:               "" => "true"[0m
+[0m[1maws_eip.az-1-public: Creating...[21m
+  allocation_id:     "" => "<computed>"
+  association_id:    "" => "<computed>"
+  domain:            "" => "<computed>"
+  instance:          "" => "<computed>"
+  network_interface: "" => "<computed>"
+  private_ip:        "" => "<computed>"
+  public_ip:         "" => "<computed>"
+  vpc:               "" => "true"[0m
+[0m[1maws_vpc.jra_vpc: Creating...[21m
+  cidr_block:                           "" => "10.0.0.0/16"
+  default_network_acl_id:               "" => "<computed>"
+  default_route_table_id:               "" => "<computed>"
+  default_security_group_id:            "" => "<computed>"
+  dhcp_options_id:                      "" => "<computed>"
+  enable_classiclink:                   "" => "<computed>"
+  enable_dns_hostnames:                 "" => "true"
+  enable_dns_support:                   "" => "true"
+  instance_tenancy:                     "" => "<computed>"
+  main_route_table_id:                  "" => "<computed>"
+  tags.%:                               "" => "5"
+  tags.Name:                            "" => "jra-vpc-latest-us-east-1"
+  tags.com.jra.environment:             "" => "latest"
+  tags.com.jra.environment-instance-id: "" => "2Enfbs74i5o"
+  tags.com.jra.environment-size:        "" => "small"
+  tags.com.jra.environment_type:        "" => "latest"[0m
+[0m[1maws_eip.az-3-public: Creating...[21m
+  allocation_id:     "" => "<computed>"
+  association_id:    "" => "<computed>"
+  domain:            "" => "<computed>"
+  instance:          "" => "<computed>"
+  network_interface: "" => "<computed>"
+  private_ip:        "" => "<computed>"
+  public_ip:         "" => "<computed>"
+  vpc:               "" => "true"[0m
+[0m[1maws_eip.az-2-public: Creation complete[21m[0m
+[0m[1maws_eip.az-3-public: Creation complete[21m[0m
+[0m[1maws_eip.az-1-public: Creation complete[21m[0m
+Interrupt received. Gracefully shutting down...
+[0m[1maws_vpc.jra_vpc: Creation complete[21m[0m

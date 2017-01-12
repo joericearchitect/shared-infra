@@ -64,6 +64,22 @@ variable "environment-flip" {
 }
 
 # ---------------------------------------------------------------------------
+# JRA domain Variables
+# ---------------------------------------------------------------------------
+variable "jra-domain-name" {
+    description = "The jra domain name"
+	default = "joericearchitect.com"
+}
+variable "jra-domain-hosted-zone-id" {
+    description = "The zone-id of the jra domain hosted zone"
+	default = "Z3FJU1EE4AHCEF"
+}
+variable "environment-domain-prefix" {
+    description = "The environment this resource is running in"
+	default = "latest."
+}
+
+# ---------------------------------------------------------------------------
 # Ansible Provisioning Variables
 # ---------------------------------------------------------------------------
 variable "ansible-remote-host-user" {
@@ -81,6 +97,10 @@ variable "ansible-custom-configuration-file" {
 variable "ansible-provision-swarm-cluster-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
 	default = "../ansible/swarm.yml"
+}
+variable "ansible-provision-infra-app-playbook-file" {
+    description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../ansible/deploy-infra-apps-services.yml"
 }
 variable "ansible-remove-swarm-cluster-playbook-file" {
     description = "The location of the ansible playbook file that will tear down a docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
