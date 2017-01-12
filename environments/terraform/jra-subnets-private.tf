@@ -14,11 +14,11 @@ resource "aws_subnet" "az-1-private" {
 
 	tags {
         Name = "jra-subnet-${var.environment}-${lookup(var.availability_zone, "${var.region}.az-1")}-private",
-        environment = "${var.environment}",
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
-    	failure_zone = "${var.region}-az-1"
+        com.jra.environment = "${var.environment}",
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
+    	com.jra.failure_zone = "${var.region}-az-1"
     }
 }
 

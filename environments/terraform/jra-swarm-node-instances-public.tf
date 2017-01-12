@@ -15,14 +15,14 @@ resource "aws_instance" "app-ui-web-az-1" {
 
 	tags {
         Name = "jra-instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}"
-    	failure_zone = "${var.region}-az-1"
-    	environment-size = "${var.environment-size}"
-        environment-instance-id = "${random_id.env-instance.b64}"
-    	swarm-instance-type = "swarm-worker"
-    	swarm-node-type = "app-ui-web"
-    	subnet-type = "public"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}"
+    	com.jra.failure_zone = "${var.region}-az-1"
+    	com.jra.environment-size = "${var.environment-size}"
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
+    	com.jra.swarm-instance-type = "swarm-worker"
+    	com.jra.swarm-node-type = "app-ui-web"
+    	com.jra.subnet-type = "public"
     }
 }
 resource "aws_instance" "app-ui-web-az-2" {
@@ -38,14 +38,14 @@ resource "aws_instance" "app-ui-web-az-2" {
 
 	tags {
         Name = "jra-instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}"
-        environment-instance-id = "${random_id.env-instance.b64}"
-    	failure_zone = "${var.region}-az-2"
-    	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-worker"
-    	swarm-node-type = "app-ui-web"
-    	subnet-type = "public"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}"
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
+    	com.jra.failure_zone = "${var.region}-az-2"
+    	com.jra.environment-size = "${var.environment-size}"
+    	com.jra.swarm-instance-type = "swarm-worker"
+    	com.jra.swarm-node-type = "app-ui-web"
+    	com.jra.subnet-type = "public"
     }
 }
 resource "aws_instance" "app-ui-web-az-3" {
@@ -61,13 +61,13 @@ resource "aws_instance" "app-ui-web-az-3" {
 
 	tags {
         Name = "jra-instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}"
-        environment-instance-id = "${random_id.env-instance.b64}"
-    	failure_zone = "${var.region}-az-3"
-    	environment-size = "${var.environment-size}"
-    	swarm-instance-type = "swarm-worker"
-    	swarm-node-type = "app-ui-web"
-    	subnet-type = "public"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}"
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
+    	com.jra.failure_zone = "${var.region}-az-3"
+    	com.jra.environment-size = "${var.environment-size}"
+    	com.jra.swarm-instance-type = "swarm-worker"
+    	com.jra.swarm-node-type = "app-ui-web"
+    	com.jra.subnet-type = "public"
     }
 }

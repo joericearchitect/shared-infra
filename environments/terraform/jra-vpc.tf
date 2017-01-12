@@ -15,10 +15,10 @@ resource "aws_vpc" "jra_vpc" {
 
 	tags {
         Name = "jra-vpc-${var.environment}-${var.region}",
-        environment = "${var.environment}",
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
+        com.jra.environment = "${var.environment}",
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -30,10 +30,10 @@ resource "aws_internet_gateway" "jra_igw" {
 
 	tags {
         Name = "jra-igw-${var.environment}-${var.region}",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -50,10 +50,10 @@ resource "aws_route_table" "public" {
 
 	tags {
         Name = "jra-route-table-${var.environment}-${var.region}-public",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -70,9 +70,9 @@ resource "aws_route_table" "private" {
 
 	tags {
         Name = "jra-route-table-${var.environment}-${var.region}-private",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }

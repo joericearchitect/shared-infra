@@ -27,10 +27,10 @@ resource "aws_security_group" "private_swarm-manager" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-swarm-manager",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -57,10 +57,10 @@ resource "aws_security_group" "private_build" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-build",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -87,10 +87,10 @@ resource "aws_security_group" "private_app-api-service" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-app-api-service",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -116,10 +116,10 @@ resource "aws_security_group" "private_app-persistence" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-app-persistence",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -146,10 +146,10 @@ resource "aws_security_group" "private_management" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-management",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -175,10 +175,10 @@ resource "aws_security_group" "private_management_persistence" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-management-persistence",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -204,10 +204,10 @@ resource "aws_security_group" "private_admin" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-admin",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -234,9 +234,9 @@ resource "aws_security_group" "private_monitoring" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-private-management-persistence",
-        environment = "${var.environment}"
-        environment_type = "${var.environment_type}",
-    	environment-size = "${var.environment-size}",
-        environment-instance-id = "${random_id.env-instance.b64}"
+        com.jra.environment = "${var.environment}"
+        com.jra.environment_type = "${var.environment_type}",
+    	com.jra.environment-size = "${var.environment-size}",
+        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
