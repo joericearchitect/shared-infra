@@ -17,4 +17,4 @@ source $DIR/setenv.sh
 
 cd $INFRA_ENVIRONMENTS_HOME_DIR/ansible
 
-ansible-playbook -i ./ec2-inventory/ec2.py -v -u ubuntu -e env=latest --private-key $JRA_BUILD_PRIVATE_KEY_FILE $PLAYBOOK_FILE
+ansible-playbook -i ./ec2-inventory/ec2.py -v -u ubuntu -e env=latest -e env_domain_prefix="" --private-key $JRA_BUILD_PRIVATE_KEY_FILE $PLAYBOOK_FILE

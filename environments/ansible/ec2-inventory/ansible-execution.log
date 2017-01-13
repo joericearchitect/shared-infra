@@ -37,10 +37,10 @@
   main_route_table_id:                  "" => "<computed>"
   tags.%:                               "" => "5"
   tags.Name:                            "" => "jra-vpc-latest-us-east-1"
-  tags.com.jra.environment:             "" => "latest"
-  tags.com.jra.environment-instance-id: "" => "2Enfbs74i5o"
-  tags.com.jra.environment-size:        "" => "small"
-  tags.com.jra.environment_type:        "" => "latest"[0m
+  tags.jra.environment:             "" => "latest"
+  tags.jra.environment-instance-id: "" => "2Enfbs74i5o"
+  tags.jra.environment-size:        "" => "small"
+  tags.jra.environment_type:        "" => "latest"[0m
 [0m[1maws_eip.az-3-public: Creating...[21m
   allocation_id:     "" => "<computed>"
   association_id:    "" => "<computed>"

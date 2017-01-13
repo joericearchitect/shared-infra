@@ -15,4 +15,4 @@ source $DIR/setenv.sh
 
 cd $INFRA_ENVIRONMENTS_HOME_DIR/terraform
 
-terraform apply
+terraform apply -var 'environment-domain-prefix='

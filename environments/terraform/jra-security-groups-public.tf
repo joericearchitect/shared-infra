@@ -27,10 +27,10 @@ resource "aws_security_group" "public_app-ui-web" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-public-app-ui-web",
-        com.jra.environment = "${var.environment}",
-        com.jra.environment_type = "${var.environment_type}",
-    	com.jra.environment-size = "${var.environment-size}",
-        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
+        jra.environment = "${var.environment}",
+        jra.environment_type = "${var.environment_type}",
+    	jra.environment-size = "${var.environment-size}",
+        jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -57,10 +57,10 @@ resource "aws_security_group" "public_app-api-web" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-public-app-api-web",
-        com.jra.environment = "${var.environment}",
-        com.jra.environment_type = "${var.environment_type}",
-    	com.jra.environment-size = "${var.environment-size}",
-        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
+        jra.environment = "${var.environment}",
+        jra.environment_type = "${var.environment_type}",
+    	jra.environment-size = "${var.environment-size}",
+        jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 

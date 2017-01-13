@@ -13,11 +13,11 @@ resource "aws_subnet" "az-1-public" {
 
 	tags {
         Name = "jra-subnet-${var.environment}-${lookup(var.availability_zone, "${var.region}.az-1")}-public",
-        com.jra.environment = "${var.environment}"
-        com.jra.environment_type = "${var.environment_type}",
-    	com.jra.environment-size = "${var.environment-size}",
-        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
-    	com.jra.failure_zone = "${var.region}-az-1"
+        jra.environment = "${var.environment}"
+        jra.environment_type = "${var.environment_type}",
+    	jra.environment-size = "${var.environment-size}",
+        jra.environment-instance-id = "${random_id.env-instance.b64}"
+    	jra.failure_zone = "${var.region}-az-1"
     }
 }
 
@@ -30,11 +30,11 @@ resource "aws_subnet" "az-2-public" {
 
 	tags {
         Name = "jra-subnet-${var.environment}-${lookup(var.availability_zone, "${var.region}.az-2")}-public",
-        com.jra.environment = "${var.environment}"
-        com.jra.environment_type = "${var.environment_type}",
-    	com.jra.environment-size = "${var.environment-size}",
-        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
-    	com.jra.failure_zone = "${var.region}-az-2"
+        jra.environment = "${var.environment}"
+        jra.environment_type = "${var.environment_type}",
+    	jra.environment-size = "${var.environment-size}",
+        jra.environment-instance-id = "${random_id.env-instance.b64}"
+    	jra.failure_zone = "${var.region}-az-2"
     }
 }
 
@@ -47,11 +47,11 @@ resource "aws_subnet" "az-3-public" {
 
 	tags {
         Name = "jra-subnet-${var.environment}-${lookup(var.availability_zone, "${var.region}.az-3")}-public",
-        com.jra.environment = "${var.environment}"
-        com.jra.environment_type = "${var.environment_type}",
-    	com.jra.environment-size = "${var.environment-size}",
-        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
-    	com.jra.failure_zone = "${var.region}-az-3"
+        jra.environment = "${var.environment}"
+        jra.environment_type = "${var.environment_type}",
+    	jra.environment-size = "${var.environment-size}",
+        jra.environment-instance-id = "${random_id.env-instance.b64}"
+    	jra.failure_zone = "${var.region}-az-3"
     }
 }
 

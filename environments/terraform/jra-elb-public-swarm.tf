@@ -20,10 +20,10 @@ resource "aws_security_group" "elb-public-swarm" {
 
 	tags {
         Name = "jra-sg-${var.environment}-${var.region}-public-swarm-elb",
-        com.jra.environment = "${var.environment}",
-        com.jra.environment_type = "${var.environment_type}",
-    	com.jra.environment-size = "${var.environment-size}",
-        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
+        jra.environment = "${var.environment}",
+        jra.environment_type = "${var.environment_type}",
+    	jra.environment-size = "${var.environment-size}",
+        jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -61,9 +61,9 @@ resource "aws_elb" "elb-public-swarm" {
 
     tags {
         Name = "jra-elb-${var.environment}-${var.region}-public-swarm",
-        com.jra.environment = "${var.environment}"
-        com.jra.environment_type = "${var.environment_type}"
-    	com.jra.environment-size = "${var.environment-size}"
-        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
+        jra.environment = "${var.environment}"
+        jra.environment_type = "${var.environment_type}"
+    	jra.environment-size = "${var.environment-size}"
+        jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }

@@ -15,10 +15,10 @@ resource "aws_vpc" "jra_vpc" {
 
 	tags {
         Name = "jra-vpc-${var.environment}-${var.region}",
-        com.jra.environment = "${var.environment}",
-        com.jra.environment_type = "${var.environment_type}",
-    	com.jra.environment-size = "${var.environment-size}",
-        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
+        jra.environment = "${var.environment}",
+        jra.environment_type = "${var.environment_type}",
+    	jra.environment-size = "${var.environment-size}",
+        jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -30,10 +30,10 @@ resource "aws_internet_gateway" "jra_igw" {
 
 	tags {
         Name = "jra-igw-${var.environment}-${var.region}",
-        com.jra.environment = "${var.environment}"
-        com.jra.environment_type = "${var.environment_type}",
-    	com.jra.environment-size = "${var.environment-size}",
-        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
+        jra.environment = "${var.environment}"
+        jra.environment_type = "${var.environment_type}",
+    	jra.environment-size = "${var.environment-size}",
+        jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -50,10 +50,10 @@ resource "aws_route_table" "public" {
 
 	tags {
         Name = "jra-route-table-${var.environment}-${var.region}-public",
-        com.jra.environment = "${var.environment}"
-        com.jra.environment_type = "${var.environment_type}",
-    	com.jra.environment-size = "${var.environment-size}",
-        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
+        jra.environment = "${var.environment}"
+        jra.environment_type = "${var.environment_type}",
+    	jra.environment-size = "${var.environment-size}",
+        jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }
 
@@ -70,9 +70,9 @@ resource "aws_route_table" "private" {
 
 	tags {
         Name = "jra-route-table-${var.environment}-${var.region}-private",
-        com.jra.environment = "${var.environment}"
-        com.jra.environment_type = "${var.environment_type}",
-    	com.jra.environment-size = "${var.environment-size}",
-        com.jra.environment-instance-id = "${random_id.env-instance.b64}"
+        jra.environment = "${var.environment}"
+        jra.environment_type = "${var.environment_type}",
+    	jra.environment-size = "${var.environment-size}",
+        jra.environment-instance-id = "${random_id.env-instance.b64}"
     }
 }

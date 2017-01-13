@@ -3,7 +3,7 @@
 # into two groups:
 #   - swarm_manager_operational (swarm is running and active)
 #   - swarm_manager_bootstrap (host needs to be joined to the cluster)
-- hosts: tag_com_jra_environment_{{ env }}:&tag_com_jra_swarm_instance_type_swarm_manager
+- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_instance_type_swarm_manager
   become: true
   tasks:
     - name: determine swarm status
@@ -37,7 +37,7 @@
 # into two groups:
 #   - swarm_worker_operational (host is joined to the swarm cluster)
 #   - swarm_worker_bootstrap (host needs to be joined to the cluster)
-- hosts: tag_com_jra_environment_{{ env }}:&tag_com_jra_swarm_instance_type_swarm_worker
+- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_instance_type_swarm_worker
   become: true
   tasks:
     - name: determine swarm status
@@ -88,16 +88,16 @@
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
        -H tcp://{{ ec2_private_ip_address }}:2375
-       --label com.jra.swarm-node-name={{ ec2_tag_Name }}
-       --label com.jra.instance-name={{ ec2_tag_Name }}
-       --label com.jra.environment={{ ec2_tag_com_jra_environment }}
-       --label com.jra.environment-size={{ ec2_tag_com_jra_environment_size }}
-       --label com.jra.environment-type={{ ec2_tag_com_jra_environment_type }}
-       --label com.jra.environment-instance-id={{ ec2_tag_com_jra_environment_instance_id }}
-       --label com.jra.failure-zone={{ ec2_tag_com_jra_failure_zone }}
-       --label com.jra.subnet-type={{ ec2_tag_com_jra_subnet_type }}
-       --label com.jra.swarm-instance-type={{ ec2_tag_com_jra_swarm_instance_type }}
-       --label com.jra.swarm-node-type={{ ec2_tag_com_jra_swarm_node_type }}"
+       --label jra.swarm-node-name={{ ec2_tag_Name }}
+       --label jra.instance-name={{ ec2_tag_Name }}
+       --label jra.environment={{ ec2_tag_jra_environment }}
+       --label jra.environment-size={{ ec2_tag_jra_environment_size }}
+       --label jra.environment-type={{ ec2_tag_jra_environment_type }}
+       --label jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
+       --label jra.failure-zone={{ ec2_tag_jra_failure_zone }}
+       --label jra.subnet-type={{ ec2_tag_jra_subnet_type }}
+       --label jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
+       --label jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}"
        >> /etc/systemd/system/docker.service.d/jra-docker-config.conf'
       ignore_errors: yes
 
@@ -117,16 +117,16 @@
     - name: add labels to docker manager leader swarm node
       shell: >
         docker node update
-        --label-add com.jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add com.jra.instance-name={{ ec2_tag_Name }}
-        --label-add com.jra.environment={{ ec2_tag_com_jra_environment }}
-        --label-add com.jra.environment-size={{ ec2_tag_com_jra_environment_size }}
-        --label-add com.jra.environment-type={{ ec2_tag_com_jra_environment_type }}
-        --label-add com.jra.environment-instance-id={{ ec2_tag_com_jra_environment_instance_id }}
-        --label-add com.jra.failure-zone={{ ec2_tag_com_jra_failure_zone }}
-        --label-add com.jra.subnet-type={{ ec2_tag_com_jra_subnet_type }}
-        --label-add com.jra.swarm-instance-type={{ ec2_tag_com_jra_swarm_instance_type }}
-        --label-add com.jra.swarm-node-type={{ ec2_tag_com_jra_swarm_node_type }}
+        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
+        --label-add jra.instance-name={{ ec2_tag_Name }}
+        --label-add jra.environment={{ ec2_tag_jra_environment }}
+        --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
+        --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
+        --label-add jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
+        --label-add jra.failure-zone={{ ec2_tag_jra_failure_zone }}
+        --label-add jra.subnet-type={{ ec2_tag_jra_subnet_type }}
+        --label-add jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
+        --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
         '{{ swarm_node_host_name }}'
 
     - name: add initialized host to swarm_manager_operational group
@@ -177,16 +177,16 @@
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
        -H tcp://{{ ec2_private_ip_address }}:2375
-       --label com.jra.swarm-node-name={{ ec2_tag_Name }}
-       --label com.jra.instance-name={{ ec2_tag_Name }}
-       --label com.jra.environment={{ ec2_tag_com_jra_environment }}
-       --label com.jra.environment-size={{ ec2_tag_com_jra_environment_size }}
-       --label com.jra.environment-type={{ ec2_tag_com_jra_environment_type }}
-       --label com.jra.environment-instance-id={{ ec2_tag_com_jra_environment_instance_id }}
-       --label com.jra.failure-zone={{ ec2_tag_com_jra_failure_zone }}
-       --label com.jra.subnet-type={{ ec2_tag_com_jra_subnet_type }}
-       --label com.jra.swarm-instance-type={{ ec2_tag_com_jra_swarm_instance_type }}
-       --label com.jra.swarm-node-type={{ ec2_tag_com_jra_swarm_node_type }}"
+       --label jra.swarm-node-name={{ ec2_tag_Name }}
+       --label jra.instance-name={{ ec2_tag_Name }}
+       --label jra.environment={{ ec2_tag_jra_environment }}
+       --label jra.environment-size={{ ec2_tag_jra_environment_size }}
+       --label jra.environment-type={{ ec2_tag_jra_environment_type }}
+       --label jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
+       --label jra.failure-zone={{ ec2_tag_jra_failure_zone }}
+       --label jra.subnet-type={{ ec2_tag_jra_subnet_type }}
+       --label jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
+       --label jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}"
        >> /etc/systemd/system/docker.service.d/jra-docker-config.conf'
       ignore_errors: yes
 
@@ -204,16 +204,16 @@
     - name: add labels to docker manager follower swarm node
       shell: >
         docker node update
-        --label-add com.jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add com.jra.instance-name={{ ec2_tag_Name }}
-        --label-add com.jra.environment={{ ec2_tag_com_jra_environment }}
-        --label-add com.jra.environment-size={{ ec2_tag_com_jra_environment_size }}
-        --label-add com.jra.environment-type={{ ec2_tag_com_jra_environment_type }}
-        --label-add com.jra.environment-instance-id={{ ec2_tag_com_jra_environment_instance_id }}
-        --label-add com.jra.failure-zone={{ ec2_tag_com_jra_failure_zone }}
-        --label-add com.jra.subnet-type={{ ec2_tag_com_jra_subnet_type }}
-        --label-add com.jra.swarm-instance-type={{ ec2_tag_com_jra_swarm_instance_type }}
-        --label-add com.jra.swarm-node-type={{ ec2_tag_com_jra_swarm_node_type }}
+        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
+        --label-add jra.instance-name={{ ec2_tag_Name }}
+        --label-add jra.environment={{ ec2_tag_jra_environment }}
+        --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
+        --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
+        --label-add jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
+        --label-add jra.failure-zone={{ ec2_tag_jra_failure_zone }}
+        --label-add jra.subnet-type={{ ec2_tag_jra_subnet_type }}
+        --label-add jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
+        --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
         '{{ swarm_node_host_name }}'
 
 
@@ -238,16 +238,16 @@
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
        -H tcp://{{ ec2_private_ip_address }}:2375
-       --label com.jra.swarm-node-name={{ ec2_tag_Name }}
-       --label com.jra.instance-name={{ ec2_tag_Name }}
-       --label com.jra.environment={{ ec2_tag_com_jra_environment }}
-       --label com.jra.environment-size={{ ec2_tag_com_jra_environment_size }}
-       --label com.jra.environment-type={{ ec2_tag_com_jra_environment_type }}
-       --label com.jra.environment-instance-id={{ ec2_tag_com_jra_environment_instance_id }}
-       --label com.jra.failure-zone={{ ec2_tag_com_jra_failure_zone }}
-       --label com.jra.subnet-type={{ ec2_tag_com_jra_subnet_type }}
-       --label com.jra.swarm-instance-type={{ ec2_tag_com_jra_swarm_instance_type }}
-       --label com.jra.swarm-node-type={{ ec2_tag_com_jra_swarm_node_type }}"
+       --label jra.swarm-node-name={{ ec2_tag_Name }}
+       --label jra.instance-name={{ ec2_tag_Name }}
+       --label jra.environment={{ ec2_tag_jra_environment }}
+       --label jra.environment-size={{ ec2_tag_jra_environment_size }}
+       --label jra.environment-type={{ ec2_tag_jra_environment_type }}
+       --label jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
+       --label jra.failure-zone={{ ec2_tag_jra_failure_zone }}
+       --label jra.subnet-type={{ ec2_tag_jra_subnet_type }}
+       --label jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
+       --label jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}"
        >> /etc/systemd/system/docker.service.d/jra-docker-config.conf'
       ignore_errors: yes
 
@@ -265,14 +265,14 @@
     - name: add labels to docker worker swarm node
       shell: >
         docker -H {{ groups['swarm_manager_ips'][0] }}:2375 node update
-        --label-add com.jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add com.jra.instance-name={{ ec2_tag_Name }}
-        --label-add com.jra.environment={{ ec2_tag_com_jra_environment }}
-        --label-add com.jra.environment-size={{ ec2_tag_com_jra_environment_size }}
-        --label-add com.jra.environment-type={{ ec2_tag_com_jra_environment_type }}
-        --label-add com.jra.environment-instance-id={{ ec2_tag_com_jra_environment_instance_id }}
-        --label-add com.jra.failure-zone={{ ec2_tag_com_jra_failure_zone }}
-        --label-add com.jra.subnet-type={{ ec2_tag_com_jra_subnet_type }}
-        --label-add com.jra.swarm-instance-type={{ ec2_tag_com_jra_swarm_instance_type }}
-        --label-add com.jra.swarm-node-type={{ ec2_tag_com_jra_swarm_node_type }}
+        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
+        --label-add jra.instance-name={{ ec2_tag_Name }}
+        --label-add jra.environment={{ ec2_tag_jra_environment }}
+        --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
+        --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
+        --label-add jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
+        --label-add jra.failure-zone={{ ec2_tag_jra_failure_zone }}
+        --label-add jra.subnet-type={{ ec2_tag_jra_subnet_type }}
+        --label-add jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
+        --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
         '{{ swarm_node_host_name }}'

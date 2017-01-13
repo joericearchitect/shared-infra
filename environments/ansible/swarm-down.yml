@@ -3,7 +3,7 @@
 # into two groups:
 #   - swarm_manager_operational (swarm is running and active)
 #   - swarm_manager_bootstrap (host needs to be joined to the cluster)
-- hosts: tag_com_jra_environment_{{ env }}:&tag_com_jra_swarm_instance_type_swarm_manager
+- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_instance_type_swarm_manager
   become: true
   tasks:
     - name: determine swarm status
@@ -37,7 +37,7 @@
 # into two groups:
 #   - swarm_worker_operational (host is joined to the swarm cluster)
 #   - swarm_worker_bootstrap (host needs to be joined to the cluster)
-- hosts: tag_com_jra_environment_{{ env }}:&tag_com_jra_swarm_instance_type_swarm_worker
+- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_instance_type_swarm_worker
   become: true
   tasks:
     - name: determine swarm status
