@@ -9,9 +9,9 @@ resource "null_resource" "swarm-cluster-provision" {
     command =  "cp ${var.ansible-custom-configuration-file} ."
   }
 
-  # Wait 60 seconds to give all the instances a chance to fully spin up and become available
+  # Wait 120 seconds to give all the instances a chance to fully spin up and become available
   provisioner "local-exec" {
-    command =  "sleep 60s"
+    command =  "sleep 120s"
   }
 
   provisioner "local-exec" {

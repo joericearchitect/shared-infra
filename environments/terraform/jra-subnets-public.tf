@@ -17,7 +17,7 @@ resource "aws_subnet" "az-1-public" {
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
         jra.environment-instance-id = "${random_id.env-instance.b64}"
-    	jra.failure_zone = "${var.region}-az-1"
+    	jra.failure-zone = "${var.region}-az-1"
     }
 }
 
@@ -34,7 +34,7 @@ resource "aws_subnet" "az-2-public" {
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
         jra.environment-instance-id = "${random_id.env-instance.b64}"
-    	jra.failure_zone = "${var.region}-az-2"
+    	jra.failure-zone = "${var.region}-az-2"
     }
 }
 
@@ -51,7 +51,7 @@ resource "aws_subnet" "az-3-public" {
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
         jra.environment-instance-id = "${random_id.env-instance.b64}"
-    	jra.failure_zone = "${var.region}-az-3"
+    	jra.failure-zone = "${var.region}-az-3"
     }
 }
 

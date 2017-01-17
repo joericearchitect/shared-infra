@@ -109,7 +109,7 @@
         --network jarch-proxy-traefik-network
         --mount type=bind,src=/usr/local/jra/docker-data-volumes/jra-infra/docker-registry/data,dst=/var/lib/registry
         --mount type=bind,src=/usr/local/jra/docker-data-volumes/jra-infra/docker-registry/certs,dst=/certs
-        --constraint 'node.labels.jra.swarm-node-type == build'
+        --constraint 'node.labels.jra.swarm-node-type == infra-build'
         --label traefik.docker.network=jarch-proxy-traefik-network
         --label traefik.port=5000
         --label traefik.frontend.rule=Host:{{ env_domain_prefix }}docker.joericearchitect.com
@@ -120,7 +120,7 @@
         registry:2
 
 # Make sure the proper volume mount points are created on all the swarm manager nodes
-- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_node_type_build
+- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_node_type_infra_build
   become: true
   tasks:
     - name: create the jenkins mount directory if it doesn't already exist
@@ -148,7 +148,7 @@
         --name jarch-infra-build-jenkins
         --publish 8180:8080
         --replicas=1
-        --constraint 'node.labels.jra.swarm-node-type == build'
+        --constraint 'node.labels.jra.swarm-node-type == infra-build'
         --network jarch-proxy-traefik-network
         --mount type=bind,src=/usr/local/jra/docker-data-volumes/jra-infra/build-jenkins/home,dst=/var/jenkins_home \
         --label traefik.docker.network=jarch-proxy-traefik-network
@@ -202,3 +202,30 @@
         --label jra.domain-name={{ env_domain_prefix }}dockerui.joericearchitect.com
         portainer/portainer
         -H unix:///var/run/docker.sock
+
+# Deploy the docker swarm visualizer service
+- hosts: swarm_manager_operational[0]
+  become: true
+  tasks:
+    - name: remove the jarch-infra-docker-ui-docker visualizer service if it exists (ignore failure if it does not exist)
+      shell: >
+        docker service rm jarch-infra-docker-ui-visualizer
+      ignore_errors: yes
+
+    - name: deploy Docker visualizer service
+      shell: >
+        docker service create
+        --name jarch-infra-docker-ui-visualizer
+        --publish 8190:8080/tcp
+        --constraint 'node.role == manager'
+        --constraint 'node.labels.jra.failure-zone == us-east-1-az-3'
+        --network jarch-proxy-traefik-network
+        --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock
+        --label traefik.docker.network=jarch-proxy-traefik-network
+        --label traefik.port=8080
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}dockervisual.joericearchitect.com
+        --label jra.environment-flip=blue
+        --label jra.application-name=jarch-infra-docker-ui-visualizer
+        --label jra.container-name=jarch-infra-docker-ui-visualizer
+        --label jra.domain-name={{ env_domain_prefix }}dockervisual.joericearchitect.com
+        manomarks/visualizer

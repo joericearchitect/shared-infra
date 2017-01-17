@@ -13,7 +13,7 @@
     "source_ami": "{{user `aws_source_ami`}}",
     "instance_type": "t2.micro",
     "ssh_username": "ubuntu",
-    "ami_name": "jra-ami-docker-ubuntu {{timestamp}}"
+    "ami_name": "TEMP-jra-ami-docker-latest-ubuntu {{timestamp}}"
   }],
   "provisioners": [{
     "type": "shell",

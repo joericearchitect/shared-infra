@@ -8,7 +8,7 @@ variable "region" {
 }
 
 variable "availability_zone" {
-  description = "AMIs for docker-engine nodes by region"
+  description = "Availability Zones per region and failure zones"
   type = "map"
   default = {
     us-east-1.az-1 = "us-east-1a"
@@ -26,8 +26,7 @@ variable "amis_docker_node" {
   description = "AMIs for docker-engine nodes by region"
   type = "map"
   default = {
-    us-east-1 = "ami-93b5ac84"
-#    us-east-1 = "ami-ca59bddc"
+    us-east-1 = "ami-a5e30db3"
     us-west-2 = "ami-06b94666"
   }
 }
