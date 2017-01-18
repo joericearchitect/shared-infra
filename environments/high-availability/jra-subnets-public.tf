@@ -12,7 +12,7 @@ resource "aws_subnet" "az-1-public" {
 	map_public_ip_on_launch = "true"
 
 	tags {
-        Name = "jra-subnet-${var.environment}-${lookup(var.availability_zone, "${var.region}.az-1")}-public",
+        Name = "${var.environment}.subnet.${lookup(var.availability_zone, "${var.region}.az-1")}-public",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -29,7 +29,7 @@ resource "aws_subnet" "az-2-public" {
 	map_public_ip_on_launch = "true"
 
 	tags {
-        Name = "jra-subnet-${var.environment}-${lookup(var.availability_zone, "${var.region}.az-2")}-public",
+        Name = "${var.environment}.subnet.${lookup(var.availability_zone, "${var.region}.az-2")}-public",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -46,7 +46,7 @@ resource "aws_subnet" "az-3-public" {
 	map_public_ip_on_launch = "true"
 
 	tags {
-        Name = "jra-subnet-${var.environment}-${lookup(var.availability_zone, "${var.region}.az-3")}-public",
+        Name = "${var.environment}.subnet.${lookup(var.availability_zone, "${var.region}.az-3")}-public",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",

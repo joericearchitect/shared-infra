@@ -88,6 +88,7 @@
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
        -H tcp://{{ ec2_private_ip_address }}:2375
+       --experimental
        --label jra.swarm-node-name={{ ec2_tag_Name }}
        --label jra.instance-name={{ ec2_tag_Name }}
        --label jra.environment={{ ec2_tag_jra_environment }}
@@ -179,6 +180,7 @@
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
        -H tcp://{{ ec2_private_ip_address }}:2375
+       --experimental
        --label jra.swarm-node-name={{ ec2_tag_Name }}
        --label jra.instance-name={{ ec2_tag_Name }}
        --label jra.environment={{ ec2_tag_jra_environment }}
@@ -240,6 +242,7 @@
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
        -H tcp://{{ ec2_private_ip_address }}:2375
+       --experimental
        --label jra.swarm-node-name={{ ec2_tag_Name }}
        --label jra.instance-name={{ ec2_tag_Name }}
        --label jra.environment={{ ec2_tag_jra_environment }}

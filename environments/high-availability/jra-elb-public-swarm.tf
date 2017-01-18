@@ -1,5 +1,5 @@
 resource "aws_security_group" "elb-public-swarm" {
-	name = "jra-sg-${var.environment}-${var.region}-public-swarm-elb"
+	name = "${var.environment}.jra-sg.${var.region}-public-swarm-elb"
 	description = "Security groups for public swarm elb"
 
 	ingress {
@@ -19,7 +19,7 @@ resource "aws_security_group" "elb-public-swarm" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "jra-sg-${var.environment}-${var.region}-public-swarm-elb",
+        Name = "${var.environment}.sg.${var.region}-public-swarm-elb",
         jra.environment = "${var.environment}",
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -34,7 +34,7 @@ resource "aws_security_group" "elb-public-swarm" {
 #   avaialble from EVERY node in the cluster...even if there is no container with the application deployed there.
 # ---------------------------------------------------------------------------
 resource "aws_elb" "elb-public-swarm" {
-    name = "jra-elb-${var.environment}-${var.region}-public"
+    name = "${var.environment}-jra-elb-${var.region}-public"
     subnets = ["${aws_subnet.az-1-public.id}","${aws_subnet.az-2-public.id}","${aws_subnet.az-3-public.id}"]
     security_groups = ["${aws_security_group.elb-public-swarm.id}"]
 
@@ -60,7 +60,7 @@ resource "aws_elb" "elb-public-swarm" {
     connection_draining_timeout = 400
 
     tags {
-        Name = "jra-elb-${var.environment}-${var.region}-public-swarm",
+        Name = "${var.environment}.elb.${var.region}-public-swarm",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
     	jra.environment-size = "${var.environment-size}"

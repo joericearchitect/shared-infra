@@ -6,7 +6,7 @@
 # ---------------------------------------------------------------------------
 
 resource "aws_security_group" "private_swarm-manager" {
-	name = "jra-sg-${var.environment}-${var.region}-private-swarm-manager"
+	name = "${var.environment}.jra-sg.${var.region}-private-swarm-manager"
 	description = "Swarm Manager that will run the docker swarm manager"
 
 	ingress {
@@ -26,7 +26,7 @@ resource "aws_security_group" "private_swarm-manager" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "jra-sg-${var.environment}-${var.region}-private-swarm-manager",
+        Name = "${var.environment}.sg.${var.region}-private-swarm-manager",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -36,7 +36,7 @@ resource "aws_security_group" "private_swarm-manager" {
 
 
 resource "aws_security_group" "private_build" {
-	name = "jra-sg-${var.environment}-${var.region}-private-build"
+	name = "${var.environment}.jra-sg.${var.region}-private-build"
 	description = "Swarm Nodes that will run containers related to builds & CI / CD pipelines"
 
 	ingress {
@@ -56,7 +56,7 @@ resource "aws_security_group" "private_build" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "jra-sg-${var.environment}-${var.region}-private-build",
+        Name = "${var.environment}.sg.${var.region}-private-build",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -66,7 +66,7 @@ resource "aws_security_group" "private_build" {
 
 
 resource "aws_security_group" "private_app-api-service" {
-	name = "jra-sg-${var.environment}-${var.region}-private-app-api-service"
+	name = "${var.environment}.jra-sg.${var.region}-private-app-api-service"
 	description = "Swarm Nodes that will run containers related to storage persistence for mangement apps (databases, caches, etc)"
 
 	ingress {
@@ -86,7 +86,7 @@ resource "aws_security_group" "private_app-api-service" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "jra-sg-${var.environment}-${var.region}-private-app-api-service",
+        Name = "${var.environment}.sg.${var.region}-private-app-api-service",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -95,7 +95,7 @@ resource "aws_security_group" "private_app-api-service" {
 }
 
 resource "aws_security_group" "private_app-persistence" {
-	name = "jra-sg-${var.environment}-${var.region}-private-app-persistence"
+	name = "${var.environment}.jra-sg.${var.region}-private-app-persistence"
 	description = "Swarm Nodes that will run containers related to storage persistence for mangement apps (databases, caches, etc)"
 
 	ingress {
@@ -115,7 +115,7 @@ resource "aws_security_group" "private_app-persistence" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "jra-sg-${var.environment}-${var.region}-private-app-persistence",
+        Name = "${var.environment}.sg.${var.region}-private-app-persistence",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -124,7 +124,7 @@ resource "aws_security_group" "private_app-persistence" {
 }
 
 resource "aws_security_group" "private_infra-logging" {
-	name = "jra-sg-${var.environment}-${var.region}-private-infra-logging"
+	name = "${var.environment}.jra-sg.${var.region}-private-infra-logging"
 	description = "Swarm Nodes that will run containers related to centralized logging stack"
 
 	ingress {
@@ -144,7 +144,7 @@ resource "aws_security_group" "private_infra-logging" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "jra-sg-${var.environment}-${var.region}-private-infra-logging",
+        Name = "${var.environment}.sg.${var.region}-private-infra-logging",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -154,7 +154,7 @@ resource "aws_security_group" "private_infra-logging" {
 
 
 resource "aws_security_group" "private_management" {
-	name = "jra-sg-${var.environment}-${var.region}-private-management"
+	name = "${var.environment}.jra-sg.${var.region}-private-management"
 	description = "Swarm Nodes that will run containers related to storage persistence for mangement apps (databases, caches, etc)"
 
 	ingress {
@@ -174,7 +174,7 @@ resource "aws_security_group" "private_management" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "jra-sg-${var.environment}-${var.region}-private-management",
+        Name = "${var.environment}.sg.${var.region}-private-management",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -183,7 +183,7 @@ resource "aws_security_group" "private_management" {
 }
 
 resource "aws_security_group" "private_management_persistence" {
-	name = "jra-sg-${var.environment}-${var.region}-private-management-persistence"
+	name = "${var.environment}.jra-sg.${var.region}-private-management-persistence"
 	description = "Swarm Nodes that will run containers related to storage persistence for mangement apps (databases, caches, etc)"
 
 	ingress {
@@ -203,7 +203,7 @@ resource "aws_security_group" "private_management_persistence" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "jra-sg-${var.environment}-${var.region}-private-management-persistence",
+        Name = "${var.environment}.sg.${var.region}-private-management-persistence",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -212,7 +212,7 @@ resource "aws_security_group" "private_management_persistence" {
 }
 
 resource "aws_security_group" "private_admin" {
-	name = "jra-sg-${var.environment}-${var.region}-private-admin"
+	name = "${var.environment}.jra-sg.${var.region}-private-admin"
 	description = "Swarm Nodes that will run containers related to admin apps (timetracking, jira, wikis, etc)"
 
 	ingress {
@@ -232,7 +232,7 @@ resource "aws_security_group" "private_admin" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "jra-sg-${var.environment}-${var.region}-private-admin",
+        Name = "${var.environment}.sg.${var.region}-private-admin",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -242,7 +242,7 @@ resource "aws_security_group" "private_admin" {
 
 
 resource "aws_security_group" "private_monitoring" {
-	name = "jra-sg-${var.environment}-${var.region}-private-monitoring"
+	name = "${var.environment}.jra-sg.${var.region}-private-monitoring"
 	description = "Swarm Nodes that will run containers related to monitoring (logging servers, metrics collection, etc"
 
 	ingress {
@@ -262,7 +262,7 @@ resource "aws_security_group" "private_monitoring" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "jra-sg-${var.environment}-${var.region}-private-management-persistence",
+        Name = "${var.environment}.sg.${var.region}-private-management-persistence",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",

@@ -11,10 +11,13 @@
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
 
-PLAYBOOK_FILE=deploy-infra-apps-services.yml
-
 source $DIR/setenv.sh
 
-cd $INFRA_ENVIRONMENTS_HOME_DIR/ansible
+PLAYBOOK_FILE=./deploy-infra-apps-services.yml
+EC2_INVENTORY_FILE=./ec2-inventory/ec2.py
+PLAYBOOK_VAR_ENV=qa1
+PLAYBOOK_VAR_DOMAIN_PREFIX="qa1."
 
-ansible-playbook -i ./ec2-inventory/ec2.py -v -u ubuntu -e env=latest -e env_domain_prefix="" --private-key $JRA_BUILD_PRIVATE_KEY_FILE $PLAYBOOK_FILE
+cd $INFRA_MODULES_DOCKER_SWARM_ANSIBLE_DIR
+
+ansible-playbook -i $EC2_INVENTORY_FILE -v -u ubuntu -e env=$PLAYBOOK_VAR_ENV -e env_domain_prefix=$PLAYBOOK_VAR_DOMAIN_PREFIX --private-key $JRA_BUILD_PRIVATE_KEY_FILE $PLAYBOOK_FILE

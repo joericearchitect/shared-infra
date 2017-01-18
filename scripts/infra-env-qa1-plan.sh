@@ -13,6 +13,10 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 
 source $DIR/setenv.sh
 
-cd $INFRA_ENVIRONMENTS_HOME_DIR/terraform
+export TERRAFORM_DIR=$INFRA_ENVIRONMENTS_HOME_DIR/high-availability
+export ENVIRONMENT=qa1
+export ENVIRONMENT_DOMAIN_PREFIX=qa1.
 
-terraform destroy
+cd $TERRAFORM_DIR
+
+terraform plan -var "environment=$ENVIRONMENT" -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"

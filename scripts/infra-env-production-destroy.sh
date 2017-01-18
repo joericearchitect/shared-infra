@@ -13,11 +13,10 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 
 source $DIR/setenv.sh
 
-PLAYBOOK_FILE=./swarm-down.yml
-EC2_INVENTORY_FILE=./ec2-inventory/ec2.py
-PLAYBOOK_VAR_ENV=qa1
-PLAYBOOK_VAR_DOMAIN_PREFIX="qa1."
+TERRAFORM_DIR=$INFRA_ENVIRONMENTS_HOME_DIR/single
+ENVIRONMENT=prod
+ENVIRONMENT_DOMAIN_PREFIX=
 
-cd $INFRA_MODULES_DOCKER_SWARM_ANSIBLE_DIR
+cd $TERRAFORM_DIR
 
-ansible-playbook -i $EC2_INVENTORY_FILE -v -u ubuntu -e env=$PLAYBOOK_VAR_ENV -e env_domain_prefix=$PLAYBOOK_VAR_DOMAIN_PREFIX --private-key $JRA_BUILD_PRIVATE_KEY_FILE $PLAYBOOK_FILE
+terraform destroy -var "environment=$ENVIRONMENT" -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"

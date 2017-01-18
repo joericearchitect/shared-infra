@@ -14,7 +14,7 @@ resource "aws_vpc" "jra_vpc" {
 	enable_dns_hostnames  = "true",
 
 	tags {
-        Name = "jra-vpc-${var.environment}-${var.region}",
+        Name = "${var.environment}.vpc.${var.region}",
         jra.environment = "${var.environment}",
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -29,7 +29,7 @@ resource "aws_internet_gateway" "jra_igw" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "jra-igw-${var.environment}-${var.region}",
+        Name = "${var.environment}.igw.${var.region}",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -49,7 +49,7 @@ resource "aws_route_table" "public" {
 	},
 
 	tags {
-        Name = "jra-route-table-${var.environment}-${var.region}-public",
+        Name = "${var.environment}.route-table.${var.region}-public",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
@@ -69,7 +69,7 @@ resource "aws_route_table" "private" {
 	},
 
 	tags {
-        Name = "jra-route-table-${var.environment}-${var.region}-private",
+        Name = "${var.environment}.route-table.${var.region}-private",
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",
