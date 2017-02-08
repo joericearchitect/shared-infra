@@ -24,11 +24,7 @@ resource "aws_instance" "swarm-worker-az-1" {
     	jra.failure-zone = "${var.region}-az-3"
     	jra.environment-size = "${var.environment-size}"
     	jra.swarm-instance-type = "swarm-worker"
-    	jra.swarm-node-type = "infra-build"
-    	jra.swarm-node-type = "infra-logging"
-    	jra.swarm-node-type = "app-ui-web"
-    	jra.swarm-node-type = "app-api-service"
-    	jra.swarm-node-type = "app-persistence"
+    	jra.swarm-node-type = "infra-swarm-worker"
     	jra.subnet-type = "private"
     }
 }

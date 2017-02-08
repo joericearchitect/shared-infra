@@ -61,3 +61,39 @@ resource "aws_route53_record" "proxy" {
       evaluate_target_health = true
     }
 }
+
+resource "aws_route53_record" "dockervisual" {
+    zone_id = "${var.jra-domain-hosted-zone-id}"
+    name = "${var.environment-domain-prefix}dockervisual.${var.jra-domain-name}"
+    type = "A"
+
+    alias {
+      name = "${aws_elb.elb-public-swarm.dns_name}"
+      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      evaluate_target_health = true
+    }
+}
+
+resource "aws_route53_record" "kibana" {
+    zone_id = "${var.jra-domain-hosted-zone-id}"
+    name = "${var.environment-domain-prefix}kibana.${var.jra-domain-name}"
+    type = "A"
+
+    alias {
+      name = "${aws_elb.elb-public-swarm.dns_name}"
+      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      evaluate_target_health = true
+    }
+}
+
+resource "aws_route53_record" "elasticsearch" {
+    zone_id = "${var.jra-domain-hosted-zone-id}"
+    name = "${var.environment-domain-prefix}es.${var.jra-domain-name}"
+    type = "A"
+
+    alias {
+      name = "${aws_elb.elb-public-logging.dns_name}"
+      zone_id = "${aws_elb.elb-public-logging.zone_id}"
+      evaluate_target_health = true
+    }
+}

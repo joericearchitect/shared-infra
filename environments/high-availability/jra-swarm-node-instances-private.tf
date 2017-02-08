@@ -1,4 +1,3 @@
-
 # ---------------------------------------------------------------------------
 # Swarm Manager Instances
 #  - EC2 Instances for across 3 avail zones
