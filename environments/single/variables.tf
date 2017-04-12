@@ -95,7 +95,7 @@ variable "ansible-custom-configuration-file" {
 }
 variable "ansible-provision-swarm-cluster-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/docker-swarm-infra/ansible/swarm.yml"
+	default = "../../infra-modules/docker-swarm-infra/ansible/swarm-provision-cluster.yml"
 }
 variable "ansible-provision-infra-app-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"

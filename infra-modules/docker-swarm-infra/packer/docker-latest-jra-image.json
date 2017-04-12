@@ -1,3 +1,4 @@
+
 {
   "variables": {
     "aws_access_key": "",
@@ -13,7 +14,7 @@
     "source_ami": "{{user `aws_source_ami`}}",
     "instance_type": "t2.micro",
     "ssh_username": "ubuntu",
-    "ami_name": "TEMP-jra-ami-docker-latest-ubuntu {{timestamp}}"
+    "ami_name": "jra-ami-docker-latest-ubuntu {{timestamp}}"
   }],
   "provisioners": [{
     "type": "shell",

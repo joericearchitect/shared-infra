@@ -11,7 +11,7 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 
 source $DIR/setenv.sh
 
-cd $INFRA_MODULES_LOGGING_DOCKER_DIR/fluentd-es
+cd $INFRA_MODULES_LOGGING_DOCKER_DIR/fluentd-es-TEMP-DELETE
 
 docker build -t $INFRA_LOGGING_FLUENTD_ES_IMAGE_NAME_LOCAL .
 
