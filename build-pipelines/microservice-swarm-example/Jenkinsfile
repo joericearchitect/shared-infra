@@ -1,0 +1,134 @@
+pipeline {
+    agent any
+    triggers {
+        pollSCM('* * * * *')
+    }
+    environment { 
+        tc_sonar_sonarQubeServerName = 'local-sonarqube-server'
+        
+        tc_docker_registry_username=  'tcjrice'
+        tc_docker_registry_password ='Travel@123'
+        
+        tc_app_docker_image_repo_name='tcjrice'
+        tc_app_docker_image_name='tc-devops-poc-avail-service'
+        tc_app_docker_image_version='1.0.0'
+        
+        tc_build_toos_docker_image_repo_name='tcjrice'
+        tc_build_toos_docker_image_name='tc-devops-poc-build-tools'
+        tc_build_toos_docker_image_version='1.0.0'
+
+        tc_swarmcluster_manager_host_ip_address='10.30.82.168'
+        tc_swarmcluster_manager_host_username='jrice'
+        tc_swarmcluster_manager_host_password='Hotel@456'
+        
+        tc_app_docker_service_app_name='tc-app-ihotelier-restapi-avail-service'
+        tc_app_docker_service_container_name='tc-app-ihotelier-restapi-avail-service'
+        tc_app_docker_service_publish_port_host='8381'
+        tc_app_docker_service_publish_port_container='8080'
+        tc_app_docker_service_network='tc-app-ihoteier-network'
+        tc_app_docker_service_node_type_constraint='node.labels.tc.swarm-node-type==app-services'
+        tc_app_docker_service_proxy_pattern='latest.api.travelclick.com'
+        tc_app_docker_service_environment_flip='blue'
+        
+        tc_app_docker_service_config_replicas='1'
+
+    }
+    stages {
+        stage('build') {
+	        agent { 
+	           docker 'maven:3.3.3' 
+	        }
+            steps {
+                sh 'mvn clean package -DskipTests=true'
+                archiveArtifacts artifacts: '**/target/*.jar', onlyIfSuccessful: true
+            }
+        }
+        stage('test') {
+	        agent { 
+	           docker 'maven:3.3.3' 
+	        }
+            steps {
+                sh 'mvn test'
+                junit '**/target/surefire-reports/*.xml'
+            }
+        }
+        stage('static-analysis') {
+	        agent { 
+	           docker 'maven:3.3.3' 
+	        }
+            steps {
+                sh 'mvn checkstyle:checkstyle pmd:pmd findbugs:findbugs pmd:cpd javadoc:javadoc'
+                findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', pattern: '**/findbugs.xml', unHealthy: ''
+                pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/pmd.xml', unHealthy: ''
+                checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/checkstyle-result.xml', unHealthy: ''
+                openTasks canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', high: '', low: '', normal: '', pattern: '', unHealthy: ''
+                
+		        script {
+		           STAGE_NAME = "static-analysis"
+		           
+	               withSonarQubeEnv("${tc_sonar_sonarQubeServerName}") {
+	                  sh "mvn sonar:sonar"   
+	               }
+		        }
+            }
+        }
+        stage('package') {
+	        agent any
+	        
+            steps {
+				sh 'cp -R src/main/resources/docker/* target'
+				sh 'docker login --username=${tc_docker_registry_username} --password=${tc_docker_registry_password}'
+				dir('target') {
+				    sh 'docker build -t ${tc_app_docker_image_repo_name}/${tc_app_docker_image_name}:${tc_app_docker_image_version} -t ${tc_app_docker_image_repo_name}/${tc_app_docker_image_name}:latest .'
+				}
+				sh 'docker push ${tc_app_docker_image_repo_name}/${tc_app_docker_image_name}'
+            }
+        }
+        stage('functional-test') {
+	        agent { 
+	           docker 'maven:3.3.3' 
+	        }
+            steps {
+                sh 'echo hello-deploy'
+            }
+        }
+        stage('deploy-to-latest') {
+	        agent any
+            steps {	
+	             sh '''
+	                 echo ${tc_build_toos_docker_image_repo_name}
+	                 set +e
+	                 docker run \
+	                    ${tc_build_toos_docker_image_repo_name}/${tc_build_toos_docker_image_name} \
+	                    sshpass -p${tc_swarmcluster_manager_host_password} \
+	                    ssh  -o "StrictHostKeyChecking no" \
+	                    ${tc_swarmcluster_manager_host_username}@${tc_swarmcluster_manager_host_ip_address} \
+	                    docker service rm ${tc_app_docker_service_app_name}
+	                 set -e
+	             '''
+	             sh '''
+					 docker run \
+					    ${tc_build_toos_docker_image_repo_name}/${tc_build_toos_docker_image_name} \
+					    sshpass -p${tc_swarmcluster_manager_host_password} \
+					    ssh  -o "StrictHostKeyChecking no" \
+					    ${tc_swarmcluster_manager_host_username}@${tc_swarmcluster_manager_host_ip_address} \
+					        docker service create  \
+					        --name ${tc_app_docker_service_app_name}  \
+					        --publish ${tc_app_docker_service_publish_port_host}:${tc_app_docker_service_publish_port_container}  \
+					        --replicas=${tc_app_docker_service_config_replicas} \
+					        --network ${tc_app_docker_service_network}  \
+					        --constraint ${tc_app_docker_service_node_type_constraint}  \
+					        --label traefik.docker.network=${tc_app_docker_service_network}  \
+					        --label traefik.port=${tc_app_docker_service_publish_port_container}  \
+					        --label traefik.frontend.rule=Host:${tc_app_docker_service_proxy_pattern}  \
+					        --label tc.environment-flip=${tc_app_docker_service_environment_flip}  \
+					        --label tc.application-name="${tc_app_docker_service_app_name}"  \
+					        --label tc.container-name="${tc_app_docker_service_container_name}"  \
+					        --label tc.domain-name=${tc_app_docker_service_proxy_pattern} \
+					        ${tc_app_docker_image_repo_name}/${tc_app_docker_image_name}:${tc_app_docker_image_version}
+
+	             '''
+            }
+        }
+    }
+}
