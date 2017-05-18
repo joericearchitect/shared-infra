@@ -67,11 +67,11 @@ variable "environment-flip" {
 # ---------------------------------------------------------------------------
 variable "jra-domain-name" {
     description = "The jra domain name"
-	default = "joericearchitect.com"
+	default = "joericearchitect.info"
 }
 variable "jra-domain-hosted-zone-id" {
     description = "The zone-id of the jra domain hosted zone"
-	default = "Z3FJU1EE4AHCEF"
+	default = "Z2ZVLIKT9MX0K8"
 }
 variable "environment-domain-prefix" {
     description = "The environment this resource is running in"
