@@ -16,4 +16,9 @@
 * AMI Id
   - Using a cust
   
- ## 
+ ## Challenges when creating a dynamic automated solution wihtout requiring a lot o manual setup
+ 
+ * Managing AWS account specific things like:
+   +  AMIs
+   +  Domain Names
+   
