@@ -27,8 +27,19 @@
  * Managing AWS account specific things like:
    +  AMIs
    +  Domain Names
+
+## Stuff you gotta do to set up enviornment to run the env buildout scripts & stuff
+*  set environment variables
+   -  Can use [dev-env-vars.sh](https://github.com/joericearchitect/shared-infra/blob/master/scripts/config/dev-env-vars.sh) as an example of all env variables to set
+   -  Or can copy that file into:  /etc/profile.d
    
-## Software that has to be installed to run env buildout stuff 
+*  Set up the aws access key file:
+   -  Make sure to put privatge access key (access-key-name.pem) somewhere
+   -  chmod 400 <file>
+   -  Set environment variable AWS_KEY_PATH=<file>
+   
+### Software that has to be installed to run env buildout stuff 
 * Terraform
 * Ansible
 * Ansible Ec2 script
+
