@@ -164,7 +164,7 @@
         --env ELASTICSEARCH_URL=http://jarch-infra-logging-elasticsearch:9200
         kibana
 
-# Deploy the fluentd service
+# Deploy the fluentd service joericearchitect/jarch-infra-fluentd-es
 - hosts: swarm_manager_operational[0]
   become: true
   tasks:
@@ -189,4 +189,4 @@
         --label environment-flip="blue"
         --label application-name="jarch-infra-logging-fluentd"
         --label container-name="jarch-infra-logging-fluentd"
-        joericearchitect/jarch-infra-logging-fluentd
+        joericearchitect/jarch-infra-fluentd-es

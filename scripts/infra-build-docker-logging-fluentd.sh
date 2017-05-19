@@ -11,13 +11,24 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 
 source $DIR/setenv.sh
 
-cd $INFRA_MODULES_LOGGING_DOCKER_DIR/fluentd-es-TEMP-DELETE
+echo .
+echo .
+echo -------------------------------------------------------------
+echo   Building fluentD Docker ES Image...
+echo ------------------------------------------------
 
-docker build -t $INFRA_LOGGING_FLUENTD_ES_IMAGE_NAME_LOCAL .
+REPO_NAME=$JRA_GLOBAL_DOCKER_REPO_NAME
+IMAGE_NAME=$JRA_GLOBAL_IMAGE_NAME_PREFIX_INFRA-fluentd-es
+IMAGE_VERSION=1.0.0
+IMAGE_TAG_VERSION=$IMAGE_VERSION
+IMAGE_TAG_LAGEST=latest
 
-# **************************************************************************************
-# Commenting out the tagging and pushing image to ECR repo is soooo slow.  Will add
-# support for pushing images to repo when I set up the CI process with Jenkins
-# **************************************************************************************
-#docker tag $JARCH_WEB_STATIC_IMAGE_NAME_LOCAL $JARCH_WEB_STATIC_IMAGE_NAME_REPO
-docker push $INFRA_LOGGING_FLUENTD_ES_IMAGE_NAME_REPO
+cd $INFRA_MODULES_LOGGING_DOCKER_DIR/fluentd-es
+
+docker build \
+   -t $REPO_NAME/$IMAGE_NAME:$IMAGE_TAG_VERSION \
+   -t $REPO_NAME/$IMAGE_NAME:$IMAGE_TAG_LAGEST \
+   .
+
+docker push \
+    $REPO_NAME/$IMAGE_NAME
