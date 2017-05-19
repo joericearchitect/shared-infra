@@ -47,6 +47,9 @@
 * environment_type
 * environment-size
 * aws region
+* vpc_cidr
+* public_subnet_cidr
+* private_subnet_cidr
 * 
    
 ### Software that has to be installed to run env buildout stuff 

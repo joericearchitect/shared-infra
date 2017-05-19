@@ -19,4 +19,6 @@ ENVIRONMENT_DOMAIN_PREFIX=
 
 cd $TERRAFORM_DIR
 
-terraform plan -var "environment=$ENVIRONMENT" -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"
+terraform plan \
+  -var "environment=$ENVIRONMENT" \
+  -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"
