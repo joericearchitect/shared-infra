@@ -16,6 +16,12 @@
 * AMI Id
   - Using a cust
   
+* Key Pair
+
+* Creds
+  - access key
+  - access secret
+  
  ## Challenges when creating a dynamic automated solution wihtout requiring a lot o manual setup
  
  * Managing AWS account specific things like:
