@@ -28,3 +28,7 @@
    +  AMIs
    +  Domain Names
    
+## Software that has to be installed to run env buildout stuff 
+* Terraform
+* Ansible
+* Ansible Ec2 script

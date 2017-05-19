@@ -1,0 +1,6 @@
+		ansible-playbook -i \
+		  ../../infra-modules/docker-swarm/ansible/ec2-inventory/ec2.py\
+		  -v -u ubuntu\
+		  -e env=qa1\
+		  --private-key '/home/vagrant/.ssh/jra-swarm-key-pair.pem'\
+		  ../../infra-modules/docker-swarm/ansible/swarm-provision-cluster.yml 

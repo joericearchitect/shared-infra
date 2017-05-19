@@ -1,6 +1,8 @@
 export AWS_ACCESS_KEY=
 export AWS_SECRET_KEY=
 
+export AWS_KEY_PATH=/home/vagrant/share/jra-swarm-key-pair.pem
+
 export GIT_PROJECTS_DIR=~/git
 export APPS_DIR=~/workspace/apps
 export MAVEN_CONF_DIR=~/workspace/maven/conf

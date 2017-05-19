@@ -71,7 +71,7 @@ variable "jra-domain-name" {
 }
 variable "jra-domain-hosted-zone-id" {
     description = "The zone-id of the jra domain hosted zone"
-	default = "Z3FJU1EE4AHCEF"
+	default = "Z2ZVLIKT9MX0K8"
 }
 variable "environment-domain-prefix" {
     description = "The environment this resource is running in"
@@ -87,23 +87,23 @@ variable "ansible-remote-host-user" {
 }
 variable "ansible-host-inventory-file" {
     description = "The location of the ansible host inventory file.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/docker-swarm-infra/ansible/ec2-inventory/ec2.py"
+	default = "../../infra-modules/docker-swarm/ansible/ec2-inventory/ec2.py"
 }
 variable "ansible-custom-configuration-file" {
     description = "The location of the ansible host inventory file.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/docker-swarm-infra/ansible/ansible.cfg"
+	default = "../../infra-modules/docker-swarm/ansible/ansible.cfg"
 }
 variable "ansible-provision-swarm-cluster-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/docker-swarm-infra/ansible/swarm-provision-cluster.yml"
+	default = "../../infra-modules/docker-swarm/ansible/swarm-provision-cluster.yml"
 }
 variable "ansible-provision-infra-app-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/docker-swarm-infra/ansible/deploy-infra-apps-services.yml"
+	default = "../../infra-modules/docker-swarm/ansible/deploy-infra-apps-services.yml"
 }
 variable "ansible-remove-swarm-cluster-playbook-file" {
     description = "The location of the ansible playbook file that will tear down a docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/docker-swarm-infra/ansible/swarm-down.yml"
+	default = "../../infra-modules/docker-swarm/ansible/swarm-down.yml"
 }
 
 # ---------------------------------------------------------------------------
