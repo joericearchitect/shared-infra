@@ -38,8 +38,28 @@
    -  chmod 400 <file>
    -  Set environment variable AWS_KEY_PATH=<file>
    
+## Stuff that has to be parameterized in order to allow jenkins to build
+
+* jra-domain-name
+* amis_docker_node
+* environment-domain-prefix
+* environment
+* environment_type
+* environment-size
+* aws region
+* 
+   
 ### Software that has to be installed to run env buildout stuff 
 * Terraform
 * Ansible
 * Ansible Ec2 script
 
+
+## To-Dos
+
+* Parameterize the following in ansible scripts
+  -  Ansible
+     - domain name
+
+* Add creation of hosted zone to terraform script
+  -  Right now, it's expected to be there

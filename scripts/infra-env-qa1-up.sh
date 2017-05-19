@@ -19,4 +19,6 @@ ENVIRONMENT_DOMAIN_PREFIX=qa1.
 
 cd $TERRAFORM_DIR
 
-terraform apply -var "environment=$ENVIRONMENT" -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"
+terraform apply \
+  -var "environment=$ENVIRONMENT" \
+  -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"

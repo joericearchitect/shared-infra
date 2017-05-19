@@ -28,7 +28,7 @@ export NGINX_PROXY_CODE_DIR=$INFRA_MODULES_HOME_DIR/centralized-logging-efk
 export MACHINE_NAME_LOGGING_SERVER=infra-logging-server
 export MACHINE_NAME_CI=infra-ci-server
 
-export JRA_BUILD_PRIVATE_KEY_FILE='/home/vagrant/share/aws-keys/jra-build.pem'
+export JRA_BUILD_PRIVATE_KEY_FILE=$AWS_KEY_PATH
 
 
 export INFRA_LOGGING_FLUENTD_ES_NAMESPACE=joericearchitect

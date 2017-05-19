@@ -1,7 +1,7 @@
 export AWS_ACCESS_KEY=
 export AWS_SECRET_KEY=
 
-export AWS_KEY_PATH=/home/vagrant/share/jra-swarm-key-pair.pem
+export AWS_KEY_PATH=/home/vagrant/.ssh/jra-swarm-key-pair.pem
 
 export GIT_PROJECTS_DIR=~/git
 export APPS_DIR=~/workspace/apps
