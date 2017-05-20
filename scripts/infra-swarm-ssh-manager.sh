@@ -1,3 +1,4 @@
+
 # *********************************************************************************
 # Description: provision a new docker host machine in AWS to be used for the wordpress blog
 # Author:      Joe Rice
@@ -9,4 +10,12 @@
 #       export AWS_SECRET_KEY=<Super_Top_Secret>
 # *********************************************************************************
 
-aws ec2 describe-instances --filters 'Name=tag:jra.swarm-node-type,Values=infra-swarm-manager' --output text --query 'Reservations[*].Instances[*].PublicIpAddress'
+SWARM_MANAGER_NODE="$(infra-swarm-list-swarm-manager-ips.sh)"
+
+SWARM_MANAGER_NODE="$(echo $SWARM_MANAGER_NODE | cut -d ' ' -f1)"
+
+echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+echo +  ssh into this manager node:
+echo +   -   $SWARM_MANAGER_NODE
+echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ssh-aws.sh $SWARM_MANAGER_NODE "$1"

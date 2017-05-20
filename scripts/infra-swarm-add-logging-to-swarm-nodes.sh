@@ -13,7 +13,7 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 
 source $DIR/setenv.sh
 
-PLAYBOOK_FILE=./swarm-down.yml
+PLAYBOOK_FILE=./swarm-add-logging-to-swarm-nodes.yml
 EC2_INVENTORY_FILE=./ec2-inventory/ec2.py
 PLAYBOOK_VAR_ENV=qa1
 PLAYBOOK_VAR_DOMAIN_PREFIX="qa1."

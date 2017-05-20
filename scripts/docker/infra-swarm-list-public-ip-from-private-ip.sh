@@ -8,5 +8,5 @@
 #       export AWS_ACCESS_KEY=<Secret>
 #       export AWS_SECRET_KEY=<Super_Top_Secret>
 # *********************************************************************************
-
-aws ec2 describe-instances --filters 'Name=tag:jra.swarm-node-type,Values=infra-swarm-manager' --output text --query 'Reservations[*].Instances[*].PublicIpAddress'
+echo returning public ip address for this private ip address = "$1"
+aws ec2 describe-instances --filters 'Name=private-dns-name,Values=$1*' --output text --query 'Reservations[*].Instances[*].PublicIpAddress'

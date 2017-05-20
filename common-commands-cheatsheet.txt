@@ -4,3 +4,95 @@
 		  -e env=qa1\
 		  --private-key '/home/vagrant/.ssh/jra-swarm-key-pair.pem'\
 		  ../../infra-modules/docker-swarm/ansible/swarm-provision-cluster.yml 
+
+##Check the existece of a string in a file in bash script
+		  
+(grep -q 'log-driver' /etc/systemd/system/docker.service.d/jra-docker-config.conf || echo Joe && exit 123;)
+
+ssh-aws.sh 54.236.38.166 "cat /etc/systemd/system/docker.service.d/jra-docker-config.conf"
+
+
+grep -q 'log-driver' /etc/systemd/system/docker.service.d/jra-docker-config.conf ; echo $?
+
+"grep -q 'log-driver' /etc/systemd/system/docker.service.d/jra-docker-config.conf ; echo $?"
+
+if grep -q 'log-driver' /etc/systemd/system/docker.service.d/jra-docker-config.conf; then echo true; else echo false; fi
+
+if [ -z "$1" ]
+then
+    GREP_STRING=log
+else
+    GREP_STRING=$1
+fi
+
+GREP_FILE=/etc/systemd/system/docker.service.d/jra-docker-config.conf
+
+echo GREP_STRING - $GREP_STRING
+echo 1 - $1
+echo GREP_FILE - $GREP_FILE
+
+grep -q "$GREP_STRING" $GREP_FILE
+echo grep status code - $?
+
+if ! grep -q "$GREP_STRING" $GREP_FILE
+then
+    echo  +++++ Log not found.  Install Log Drivers
+fi
+
+
+
+
+result=$(printf '%s| %-15s| %-25s| %-15s| %-15s| %-15s\n' "$result" "$size" "$name" "$visits" "$inbound" "$outbound")
+
+
+aws ec2 describe-instances \
+  --filters Name=private-dns-name,Values=$1* \
+  --output json \
+  --query 'Reservations[*].Instances[*].[PublicIpAddress, PrivateIpAddress,PublicDnsName,PrivateDnsName,Tags[?Key==`Name`].Value[],Tags[?Key==`jra.swarm-node-type`].Value[],Tags[?Key==`jra.swarm-instance-type`].Value[],Tags[?Key==`jra.failure-zone`].Value[],Tags[?Key==`jra.environment_type`].Value[]]'
+  
+  
+   aws ec2 describe-instances \
+    --filters Name=private-dns-name,Values=$1* \
+    --output json \
+    --query 'Reservations[*].Instances[*].[PublicIpAddress, PrivateIpAddress,PublicDnsName,PrivateDnsName,Tags[?Key==`Name`].Key[],Tags[?Key==`Name`].Value[],Tags[?Key==`jra.swarm-node-type`].Value[],Tags[?Key==`jra.swarm-instance-type`].Value[],Tags[?Key==`jra.failure-zone`].Value[],Tags[?Key==`jra.environment_type` || ?Key==`jra.swarm-node-type`].Value[]]'\
+ 
+ 
+ 
+     aws ec2 describe-instances \
+    --filters Name=private-dns-name,Values=$1* \
+    --output json \
+    --query 'Reservations[*].Instances[*].{PublicIpAddress:PublicIpAddress, PrivateIpAddress:PrivateIpAddress,PublicDnsName:PublicDnsName,PrivateDnsName:PrivateDnsName,Tags:Tags[?Key==`jra.swarm-node-type` || Key==`Name` || Key==`jra.swarm-instance-type` || Key==`jra.failure-zone` || Key==`jra.environment_type`]}'  \
+    | jq 'type,length'
+ 
+ 
+     aws ec2 describe-instances \
+    --filters Name=private-dns-name,Values=$1* \
+    --output json \
+    --query 'Reservations[*].Instances[*].[PublicIpAddress, PrivateIpAddress,PublicDnsName,PrivateDnsName,Tags[?Key==`jra.swarm-node-type`],Tags[?Key==`jra.swarm-instance-type`]]' \
+ 
+ 
+ 
+ 
+ for key in $(curl -Ss http://myriak.server:8098/buckets/mybucket/index/index_int/100/200/ | jq -r '.keys[] | @uri'); do
+  curl http://myriak/buckets/mybucket/keys/$key | jq '.[] | {.id}';
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

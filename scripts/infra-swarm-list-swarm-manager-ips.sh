@@ -9,15 +9,8 @@
 #       export AWS_SECRET_KEY=<Super_Top_Secret>
 # *********************************************************************************
 
-DIR="$(cd "$(dirname "$0")" && pwd)"
-
-source $DIR/setenv.sh
-
-PLAYBOOK_FILE=./swarm-update-docker-engine-logging-nodes.yml
-EC2_INVENTORY_FILE=./ec2-inventory/ec2.py
-PLAYBOOK_VAR_ENV=qa1
-PLAYBOOK_VAR_DOMAIN_PREFIX="qa1."
-
-cd $INFRA_MODULES_DOCKER_SWARM_ANSIBLE_DIR
-
-ansible-playbook -i $EC2_INVENTORY_FILE -v -u ubuntu -e env=$PLAYBOOK_VAR_ENV -e env_domain_prefix=$PLAYBOOK_VAR_DOMAIN_PREFIX --private-key $JRA_BUILD_PRIVATE_KEY_FILE $PLAYBOOK_FILE
+aws \
+    ec2 describe-instances \
+   --filters 'Name=tag:jra.swarm-node-type,Values=infra-swarm-manager' \
+   --output text \
+   --query 'Reservations[*].Instances[*].PublicIpAddress' $1

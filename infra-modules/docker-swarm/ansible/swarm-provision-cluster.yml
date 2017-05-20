@@ -99,7 +99,7 @@
        --label jra.subnet-type={{ ec2_tag_jra_subnet_type }}
        --label jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
        --label jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
-       --label jra.swarm-node-type=swarm-leader"
+       --label jra.swarm-manager-node-type=swarm-leader"
        >> /etc/systemd/system/docker.service.d/jra-docker-config.conf'
       ignore_errors: yes
 
@@ -129,7 +129,7 @@
         --label-add jra.subnet-type={{ ec2_tag_jra_subnet_type }}
         --label-add jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
         --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
-        --label-add jra.swarm-node-type=swarm-leader
+        --label-add jra.swarm-manager-node-type=swarm-leader
         '{{ swarm_node_host_name }}'
 
     - name: add initialized host to swarm_manager_operational group
