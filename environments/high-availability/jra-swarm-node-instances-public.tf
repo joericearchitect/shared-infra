@@ -15,6 +15,9 @@ resource "aws_instance" "app-ui-web-az-1" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
+        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}"
+        jra.insgtance-instance-name-short = "app-ui-web-${var.region}-az-1"
+        jra.environment_type = "${var.environment_type}"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
     	jra.failure-zone = "${var.region}-az-1"
@@ -38,6 +41,8 @@ resource "aws_instance" "app-ui-web-az-2" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
+        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2"
+        jra.insgtance-instance-name-short = "app-ui-web-${var.region}-az-2"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -61,6 +66,8 @@ resource "aws_instance" "app-ui-web-az-3" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
+        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}"
+        jra.insgtance-instance-name-short = "app-ui-web-${var.region}-az-3"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"

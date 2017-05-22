@@ -1,4 +1,7 @@
-json_data=open(file_directory).read()
+import json
 
-data = json.loads(json_data)
+with open('strings.json') as json_data:
+    d = json.load(json_data)
+    print(d)
+
 pprint(data)

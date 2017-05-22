@@ -16,6 +16,8 @@ resource "aws_instance" "swarm-worker-az-1" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.infra-swarm-worker.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
+        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-manager.infra-swarm-manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}"
+        jra.insgtance-instance-name-short = "infra-swarm-worker-${var.region}-az-1"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"

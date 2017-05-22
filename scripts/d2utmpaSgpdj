@@ -10,7 +10,7 @@
 #       export AWS_SECRET_KEY=<Super_Top_Secret>
 # *********************************************************************************
 
-SWARM_MANAGER_NODE="$(infra-swarm-list-swarm-manager-ips.sh)"
+SWARM_MANAGER_NODE="$(infra-swarm-list-manager-ips.sh)"
 
 SWARM_MANAGER_NODE="$(echo $SWARM_MANAGER_NODE | cut -d ' ' -f1)"
 

@@ -21,7 +21,7 @@ fi
 
 echo returning public ip address for this private dns name = "$1"
 
-SWARM_NODE_INFO="$(infra-swarm-list-swarm-manager-ips.sh)"
+SWARM_NODE_INFO="$(infra-swarm-list-manager-ips.sh)"
 SWARM_NODE_INFO="$(echo $SWARM_NODE_INFO | cut -d ' ' -f1)"
 
 

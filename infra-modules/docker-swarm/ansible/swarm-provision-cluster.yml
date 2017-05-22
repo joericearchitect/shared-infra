@@ -75,39 +75,6 @@
   vars:
     swarm_node_host_name: "{{ ec2_private_dns_name | regex_replace('(ip-[0-9]*-[0-9]*-[0-9]*-[0-9]*)\\.[a-zA-Z0-9]*\\.[a-zA-Z0-9]*', '\\1')}}"
   tasks:
-    - name: clear existing docker config file for manager leader nodes
-      shell: >
-       sudo rm -f /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
-       sudo mkdir -p /etc/systemd/system/docker.service.d
-
-    - name: write customized docker start config file with labels for manager leader nodes
-      shell: >
-       sudo bash -c
-       'echo "[Service]" >> /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
-       echo "ExecStart=" >> /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
-       echo "ExecStart=/usr/bin/dockerd
-       -H unix:///var/run/docker.sock
-       -H tcp://{{ ec2_private_ip_address }}:2375
-       --experimental
-       --label jra.swarm-node-name={{ ec2_tag_Name }}
-       --label jra.instance-name={{ ec2_tag_Name }}
-       --label jra.environment={{ ec2_tag_jra_environment }}
-       --label jra.environment-size={{ ec2_tag_jra_environment_size }}
-       --label jra.environment-type={{ ec2_tag_jra_environment_type }}
-       --label jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
-       --label jra.failure-zone={{ ec2_tag_jra_failure_zone }}
-       --label jra.subnet-type={{ ec2_tag_jra_subnet_type }}
-       --label jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
-       --label jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
-       --label jra.swarm-manager-node-type=swarm-leader"
-       >> /etc/systemd/system/docker.service.d/jra-docker-config.conf'
-      ignore_errors: yes
-
-    - name: restart docker on manager leader nodes
-      shell: >
-       sudo systemctl daemon-reload &&
-       sudo systemctl restart docker
-
     - name: initialize swarm cluster
       shell: >
         docker swarm init
@@ -115,22 +82,6 @@
         --listen-addr={{ ec2_private_ip_address }}:2377
       when: "'swarm_manager_operational' not in groups"
       register: bootstrap_first_node
-
-    - name: add labels to docker manager leader swarm node
-      shell: >
-        docker node update
-        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add jra.instance-name={{ ec2_tag_Name }}
-        --label-add jra.environment={{ ec2_tag_jra_environment }}
-        --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
-        --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
-        --label-add jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
-        --label-add jra.failure-zone={{ ec2_tag_jra_failure_zone }}
-        --label-add jra.subnet-type={{ ec2_tag_jra_subnet_type }}
-        --label-add jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
-        --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
-        --label-add jra.swarm-manager-node-type=swarm-leader
-        '{{ swarm_node_host_name }}'
 
     - name: add initialized host to swarm_manager_operational group
       add_host:
@@ -167,59 +118,11 @@
     token: "{{ hostvars[groups['swarm_manager_operational'][0]]['swarm_manager_token']['stdout'] }}"
     swarm_node_host_name: "{{ ec2_private_dns_name | regex_replace('(ip-[0-9]*-[0-9]*-[0-9]*-[0-9]*)\\.[a-zA-Z0-9]*\\.[a-zA-Z0-9]*', '\\1')}}"
   tasks:
-    - name: clear existing docker config file for manager follower nodes
-      shell: >
-       sudo rm -f /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
-       sudo mkdir -p /etc/systemd/system/docker.service.d
-
-    - name: write customized docker start config file with labels for manager follower nodes
-      shell: >
-       sudo bash -c
-       'echo "[Service]" >> /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
-       echo "ExecStart=" >> /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
-       echo "ExecStart=/usr/bin/dockerd
-       -H unix:///var/run/docker.sock
-       -H tcp://{{ ec2_private_ip_address }}:2375
-       --experimental
-       --label jra.swarm-node-name={{ ec2_tag_Name }}
-       --label jra.instance-name={{ ec2_tag_Name }}
-       --label jra.environment={{ ec2_tag_jra_environment }}
-       --label jra.environment-size={{ ec2_tag_jra_environment_size }}
-       --label jra.environment-type={{ ec2_tag_jra_environment_type }}
-       --label jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
-       --label jra.failure-zone={{ ec2_tag_jra_failure_zone }}
-       --label jra.subnet-type={{ ec2_tag_jra_subnet_type }}
-       --label jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
-       --label jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}"
-       >> /etc/systemd/system/docker.service.d/jra-docker-config.conf'
-      ignore_errors: yes
-
-    - name: restart docker on manager follower nodes
-      shell: >
-       sudo systemctl daemon-reload &&
-       sudo systemctl restart docker
-
     - name: join manager follower nodes to cluster
       shell: >
         docker swarm join
         --token={{ token }}
         {{ groups['swarm_manager_ips'][0] }}:2377
-
-    - name: add labels to docker manager follower swarm node
-      shell: >
-        docker node update
-        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add jra.instance-name={{ ec2_tag_Name }}
-        --label-add jra.environment={{ ec2_tag_jra_environment }}
-        --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
-        --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
-        --label-add jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
-        --label-add jra.failure-zone={{ ec2_tag_jra_failure_zone }}
-        --label-add jra.subnet-type={{ ec2_tag_jra_subnet_type }}
-        --label-add jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
-        --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
-        '{{ swarm_node_host_name }}'
-
 
 
 # join the worker hosts not yet initialized to the swarm cluster
@@ -229,55 +132,8 @@
     token: "{{ hostvars[groups['swarm_manager_operational'][0]]['swarm_worker_token']['stdout'] }}"
     swarm_node_host_name: "{{ ec2_private_dns_name | regex_replace('(ip-[0-9]*-[0-9]*-[0-9]*-[0-9]*)\\.[a-zA-Z0-9]*\\.[a-zA-Z0-9]*', '\\1')}}"
   tasks:
-    - name: clear existing docker config file for worker nodes
-      shell: >
-       sudo rm -f /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
-       sudo mkdir -p /etc/systemd/system/docker.service.d
-
-    - name: write customized docker start config file with labels for worker nodes
-      shell: >
-       sudo bash -c
-       'echo "[Service]" >> /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
-       echo "ExecStart=" >> /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
-       echo "ExecStart=/usr/bin/dockerd
-       -H unix:///var/run/docker.sock
-       -H tcp://{{ ec2_private_ip_address }}:2375
-       --experimental
-       --label jra.swarm-node-name={{ ec2_tag_Name }}
-       --label jra.instance-name={{ ec2_tag_Name }}
-       --label jra.environment={{ ec2_tag_jra_environment }}
-       --label jra.environment-size={{ ec2_tag_jra_environment_size }}
-       --label jra.environment-type={{ ec2_tag_jra_environment_type }}
-       --label jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
-       --label jra.failure-zone={{ ec2_tag_jra_failure_zone }}
-       --label jra.subnet-type={{ ec2_tag_jra_subnet_type }}
-       --label jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
-       --label jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}"
-       >> /etc/systemd/system/docker.service.d/jra-docker-config.conf'
-      ignore_errors: yes
-
-    - name: restart docker on worker nodes
-      shell: >
-       sudo systemctl daemon-reload &&
-       sudo systemctl restart docker
-
     - name: join worker nodes to cluster
       shell: >
         docker swarm join
         --token={{ token }}
         {{ groups['swarm_manager_ips'][0] }}:2377
-
-    - name: add labels to docker worker swarm node
-      shell: >
-        docker -H {{ groups['swarm_manager_ips'][0] }}:2375 node update
-        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add jra.instance-name={{ ec2_tag_Name }}
-        --label-add jra.environment={{ ec2_tag_jra_environment }}
-        --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
-        --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
-        --label-add jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
-        --label-add jra.failure-zone={{ ec2_tag_jra_failure_zone }}
-        --label-add jra.subnet-type={{ ec2_tag_jra_subnet_type }}
-        --label-add jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
-        --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
-        '{{ swarm_node_host_name }}'

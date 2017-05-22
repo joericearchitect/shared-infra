@@ -1,4 +1,3 @@
-
 # *********************************************************************************
 # Description: provision a new docker host machine in AWS to be used for the wordpress blog
 # Author:      Joe Rice
@@ -10,12 +9,15 @@
 #       export AWS_SECRET_KEY=<Super_Top_Secret>
 # *********************************************************************************
 
-SWARM_MANAGER_NODE="$(infra-swarm-list-manager-ips.sh)"
+DIR="$(cd "$(dirname "$0")" && pwd)"
 
-SWARM_MANAGER_NODE="$(echo $SWARM_MANAGER_NODE | cut -d ' ' -f1)"
+source $DIR/setenv.sh
 
-echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-echo +  ssh into this manager node:
-echo +   -   $SWARM_MANAGER_NODE
-echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-ssh-aws.sh $SWARM_MANAGER_NODE "$1"
+PLAYBOOK_FILE=./infra-debug-environment.yml
+EC2_INVENTORY_FILE=./ec2-inventory/ec2.py
+PLAYBOOK_VAR_ENV=qa1
+PLAYBOOK_VAR_DOMAIN_PREFIX="qa1."
+
+cd $INFRA_MODULES_DOCKER_SWARM_ANSIBLE_DIR
+
+ansible-playbook -i $EC2_INVENTORY_FILE -v -u ubuntu -e env=$PLAYBOOK_VAR_ENV -e env_domain_prefix=$PLAYBOOK_VAR_DOMAIN_PREFIX --private-key $JRA_BUILD_PRIVATE_KEY_FILE $PLAYBOOK_FILE

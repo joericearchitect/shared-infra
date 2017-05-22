@@ -1,7 +1,6 @@
 export AWS_ACCESS_KEY=
 export AWS_SECRET_KEY=
-
-export AWS_KEY_PATH=/home/vagrant/.ssh/jra-swarm-key-pair.pem
+export AWS_KEY_FILE_PATH=
 
 export GIT_PROJECTS_DIR=~/git
 export APPS_DIR=~/workspace/apps
@@ -18,7 +17,7 @@ export SCRIPTS_DIR_APP_MINECAT=/home/vagrant/git/app-mine-the-catalog/devops/scr
 
 
 export SCRIPTS_DIR_INFRA_GLOBAL=$GIT_PROJECTS_DIR/shared-infra/scripts
-export SCRIPTS_DIR_INFRA_DOCKER=$GIT_PROJECTS_DIR/shared-infra/scripts/docker
-export SCRIPTS_DIR_INFRA_PYTHON=$GIT_PROJECTS_DIR/shared-infra/scripts/python
+export SCRIPTS_DIR_INFRA_DOCKER=$SCRIPTS_DIR_INFRA_GLOBAL/docker
+export SCRIPTS_DIR_INFRA_PYTHON=$SCRIPTS_DIR_INFRA_GLOBAL/python
 
 export PATH=$PATH:$SCRIPTS_DIR_INFRA_GLOBAL:$SCRIPTS_DIR_INFRA_DOCKER:$SCRIPTS_DIR_INFRA_DEV_ENV:$SCRIPTS_DIR_INFRA_DEV_ENV_LOCAL:$SCRIPTS_DIR_INFRA_DEV_ENV_VM:$SCRIPTS_DIR_INFRA_PYTHON

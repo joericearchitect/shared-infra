@@ -36,7 +36,7 @@
 *  Set up the aws access key file:
    -  Make sure to put privatge access key (access-key-name.pem) somewhere
    -  chmod 400 <file>
-   -  Set environment variable AWS_KEY_PATH=<file>
+   -  Set environment variable AWS_KEY_FILE_PATH=<file>
    
 ## Stuff that has to be parameterized in order to allow jenkins to build
 
