@@ -41,7 +41,7 @@ resource "aws_instance" "app-ui-web-az-2" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2"
+        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.app-ui-web.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}"
         jra.insgtance-instance-name-short = "app-ui-web-${var.region}-az-2"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
