@@ -101,7 +101,13 @@ variable "ansible-provision-infra-app-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
 	default = "../../infra-modules/docker-swarm-infra/ansible/deploy-infra-apps-services.yml"
 }
-variable "ansible-remove-swarm-cluster-playbook-file" {
+variable "ansible-configure-swarm-cluster-playbook-file" {
+    description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../../infra-modules/docker-swarm/ansible/swarm-configure-cluster.yml"
+}
+variable "ansible-deploy-infra-logging-services-playbook-file" {
+    description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../../infra-modules/centralized-logging/ansible/deploy-infra-logging-services.yml"
     description = "The location of the ansible playbook file that will tear down a docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
 	default = "../../infra-modules/docker-swarm-infra/ansible/swarm-remove-cluster.yml"
 }

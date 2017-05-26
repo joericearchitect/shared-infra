@@ -129,25 +129,6 @@
        sudo systemctl restart docker
       when: "'false' in docker_already_conigured_for_jra.stdout_lines"
 
-    - name: add labels to docker manager leader swarm node
-      shell: >
-        docker node update
-        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add jra.instance-name={{ ec2_tag_Name }}
-        --label-add jra.environment={{ ec2_tag_jra_environment }}
-        --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
-        --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
-        --label-add jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
-        --label-add jra.failure-zone={{ ec2_tag_jra_failure_zone }}
-        --label-add jra.subnet-type={{ ec2_tag_jra_subnet_type }}
-        --label-add jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
-        --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
-        --label-add jra.swarm-manager-node-type=swarm-leader
-        '{{ swarm_node_host_name }}'
-
-
-
-
 
 
 # when the swarm_manager_operational group is empty, meaning there
@@ -194,24 +175,6 @@
        sudo systemctl daemon-reload &&
        sudo systemctl restart docker
 
-    - name: add labels to docker manager follower swarm node
-      shell: >
-        docker node update
-        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add jra.instance-name={{ ec2_tag_Name }}
-        --label-add jra.environment={{ ec2_tag_jra_environment }}
-        --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
-        --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
-        --label-add jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
-        --label-add jra.failure-zone={{ ec2_tag_jra_failure_zone }}
-        --label-add jra.subnet-type={{ ec2_tag_jra_subnet_type }}
-        --label-add jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
-        --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
-        --label-add jra.swarm-manager-node-type=swarm-non-leader
-        '{{ swarm_node_host_name }}'
-
-
-
 
 
 # join the manager hosts not yet initialized to the swarm cluster
@@ -250,21 +213,6 @@
       shell: >
        sudo systemctl daemon-reload &&
        sudo systemctl restart docker
-
-    - name: add labels to docker worker swarm node
-      shell: >
-        docker -H {{ groups['swarm_manager_ips'][0] }}:2375 node update
-        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add jra.instance-name={{ ec2_tag_Name }}
-        --label-add jra.environment={{ ec2_tag_jra_environment }}
-        --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
-        --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
-        --label-add jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
-        --label-add jra.failure-zone={{ ec2_tag_jra_failure_zone }}
-        --label-add jra.subnet-type={{ ec2_tag_jra_subnet_type }}
-        --label-add jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
-        --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
-        '{{ swarm_node_host_name }}'
 
 
 
@@ -308,21 +256,5 @@
       shell: >
        sudo systemctl daemon-reload &&
        sudo systemctl restart docker
-
-    - name: add labels to docker worker swarm node
-      shell: >
-        docker -H {{ groups['swarm_manager_ips'][0] }}:2375 node update
-        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add jra.instance-name={{ ec2_tag_Name }}
-        --label-add jra.environment={{ ec2_tag_jra_environment }}
-        --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
-        --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
-        --label-add jra.environment-instance-id={{ ec2_tag_jra_environment_instance_id }}
-        --label-add jra.failure-zone={{ ec2_tag_jra_failure_zone }}
-        --label-add jra.subnet-type={{ ec2_tag_jra_subnet_type }}
-        --label-add jra.swarm-instance-type={{ ec2_tag_jra_swarm_instance_type }}
-        --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
-        '{{ swarm_node_host_name }}'
-
 
 
