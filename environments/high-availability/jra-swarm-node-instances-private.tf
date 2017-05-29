@@ -15,8 +15,8 @@ resource "aws_instance" "swarm-manager-az-1" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-manager.infra-swarm-manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-manager.infra-swarm-manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}"
-        jra.insgtance-instance-name-short = "infra-swarm-manager-${var.region}-az-1"
+        jra.instance-name-full = "${var.environment}.instance.swarm-manager.infra-swarm-manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}"
+        jra.instance-name = "infra-swarm-manager-${var.region}-az-1"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -40,8 +40,8 @@ resource "aws_instance" "swarm-manager-az-2" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-manager.infra-swarm-manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-manager.infra-swarm-manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}"
-        jra.insgtance-instance-name-short = "infra-swarm-manager-${var.region}-az-2"
+        jra.instance-name-full = "${var.environment}.instance.swarm-manager.infra-swarm-manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}"
+        jra.instance-name = "infra-swarm-manager-${var.region}-az-2"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -65,8 +65,8 @@ resource "aws_instance" "swarm-manager-az-3" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-manager.infra-swarm-manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-manager.infra-swarm-manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}"
-        jra.insgtance-instance-name-short = "infra-swarm-manager-${var.region}-az-3"
+        jra.instance-name-full = "${var.environment}.instance.swarm-manager.infra-swarm-manager.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}"
+        jra.instance-name = "infra-swarm-manager-${var.region}-az-3"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -95,8 +95,8 @@ resource "aws_instance" "build-az-1" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.infra-build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.infra-build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}"
-        jra.insgtance-instance-name-short = "infra-build-${var.region}-az-1"
+        jra.instance-name-full = "${var.environment}.instance.swarm-worker.infra-build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}"
+        jra.instance-name = "infra-build-${var.region}-az-1"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -120,8 +120,8 @@ resource "aws_instance" "build-az-2" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.infra-build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.infra-build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}"
-        jra.insgtance-instance-name-short = "infra-build-${var.region}-az-2"
+        jra.instance-name-full = "${var.environment}.instance.swarm-worker.infra-build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}"
+        jra.instance-name = "infra-build-${var.region}-az-2"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -145,8 +145,8 @@ resource "aws_instance" "build-az-3" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.infra-build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.infra-build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}"
-        jra.insgtance-instance-name-short = "infra-build-${var.region}-az-3"
+        jra.instance-name-full = "${var.environment}.instance.swarm-worker.infra-build.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}"
+        jra.instance-name = "infra-build-${var.region}-az-3"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -175,8 +175,8 @@ resource "aws_instance" "app-api-service-az-1" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}"
-        jra.insgtance-instance-name-short = "app-api-service-${var.region}-az-1"
+        jra.instance-name-full = "${var.environment}.instance.swarm-worker.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}"
+        jra.instance-name = "app-api-service-${var.region}-az-1"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -200,8 +200,8 @@ resource "aws_instance" "app-api-service-az-2" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}"
-        jra.insgtance-instance-name-short = "app-api-service-${var.region}-az-2"
+        jra.instance-name-full = "${var.environment}.instance.swarm-worker.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}"
+        jra.instance-name = "app-api-service-${var.region}-az-2"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -225,8 +225,8 @@ resource "aws_instance" "app-api-service-az-3" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}"
-        jra.insgtance-instance-name-short = "app-api-service-${var.region}-az-3"
+        jra.instance-name-full = "${var.environment}.instance.swarm-worker.app-api-service.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}"
+        jra.instance-name = "app-api-service-${var.region}-az-3"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -255,8 +255,8 @@ resource "aws_instance" "app-persistence-az-1" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}"
-        jra.insgtance-instance-name-short = "app-persistence-${var.region}-az-1"
+        jra.instance-name-full = "${var.environment}.instance.swarm-worker.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}"
+        jra.instance-name = "app-persistence-${var.region}-az-1"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -280,8 +280,8 @@ resource "aws_instance" "app-persistence-az-2" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}"
-        jra.insgtance-instance-name-short = "app-persistence-${var.region}-az-2"
+        jra.instance-name-full = "${var.environment}.instance.swarm-worker.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}"
+        jra.instance-name = "app-persistence-${var.region}-az-2"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -305,8 +305,8 @@ resource "aws_instance" "app-persistence-az-3" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}"
-        jra.insgtance-instance-name-short = "app-persistence-${var.region}-az-3"
+        jra.instance-name-full = "${var.environment}.instance.swarm-worker.app-persistence.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}"
+        jra.instance-name = "app-persistence-${var.region}-az-3"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -335,8 +335,8 @@ resource "aws_instance" "infra-logging-az-1" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.infra-logging.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.infra-logging.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}"
-        jra.insgtance-instance-name-short = "infra-logging-${var.region}-az-1"
+        jra.instance-name-full = "${var.environment}.instance.swarm-worker.infra-logging.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-1")}"
+        jra.instance-name = "infra-logging-${var.region}-az-1"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -360,8 +360,8 @@ resource "aws_instance" "infra-logging-az-2" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.infra-logging.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.infra-logging.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}"
-        jra.insgtance-instance-name-short = "infra-logging-${var.region}-az-2"
+        jra.instance-name-full = "${var.environment}.instance.swarm-worker.infra-logging.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-2")}"
+        jra.instance-name = "infra-logging-${var.region}-az-2"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"
@@ -385,8 +385,8 @@ resource "aws_instance" "infra-logging-az-3" {
 
 	tags {
         Name = "${var.environment}.instance.swarm-worker.infra-logging.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}",
-        jra.insgtance-instance-name-full = "${var.environment}.instance.swarm-worker.infra-logging.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}"
-        jra.insgtance-instance-name-short = "infra-logging-${var.region}-az-3"
+        jra.instance-name-full = "${var.environment}.instance.swarm-worker.infra-logging.${var.environment}.${lookup(var.availability_zone, "${var.region}.az-3")}"
+        jra.instance-name = "infra-logging-${var.region}-az-3"
         jra.environment = "${var.environment}"
         jra.environment_type = "${var.environment_type}"
         jra.environment-instance-id = "${random_id.env-instance.b64}"

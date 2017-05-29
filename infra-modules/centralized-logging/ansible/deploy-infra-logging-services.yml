@@ -54,11 +54,11 @@
         --constraint 'node.role == manager'
         --label traefik.docker.network=jarch-infra-logging-proxy-traefik-network
         --label traefik.port=8080
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}proxy.joericearchitect.info
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}logging-proxy.joericearchitect.info
         --label jra.environment-flip=blue
         --label jra.application-name=jarch-infra-logging-proxy-traefik
         --label jra.container-name=jarch-infra-logging-proxy-traefik
-        --label jra.domain-name={{ env_domain_prefix }}proxy.joericearchitect.info
+        --label jra.domain-name={{ env_domain_prefix }}logging-proxy.joericearchitect.info
         --publish 81:80
         --publish 8188:8080
         --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock
@@ -168,7 +168,7 @@
         --env ELASTICSEARCH_URL=http://jarch-infra-logging-elasticsearch:9200
         kibana
 
-# Deploy the fluentd service joericearchitect/jarch-infra-fluentd-es
+# Deploy the fluentd service joericearchitect/jarch-infra-  td-es
 - hosts: swarm_manager_operational[0]
   become: true
   tasks:
@@ -189,8 +189,9 @@
         --mount type=bind,source=/usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data,target=/fluentd/log
         --label traefik.docker.network=jarch-infra-logging-proxy-traefik-network
         --label traefik.port=24284
-        --label traefik.frontend.rule=Host:fluentd.joericearchitect.info
-        --label environment-flip="blue"
-        --label application-name="jarch-infra-logging-fluentd"
-        --label container-name="jarch-infra-logging-fluentd"
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}fluentd.joericearchitect.info
+        --label jra.environment-flip="blue"
+        --label jra.application-name="jarch-infra-logging-fluentd"
+        --label jra.container-name="jarch-infra-logging-fluentd"
+        --label jra.domain-name={{ env_domain_prefix }}fluentd.joericearchitect.info
         joericearchitect/jarch-infra-fluentd-es

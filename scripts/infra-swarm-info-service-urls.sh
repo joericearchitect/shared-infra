@@ -260,4 +260,3 @@ else
 	printf '%b\n' ""
 	printf '%b\n' "$REPORT_STRING" | column -t -s ','
 fi
-s

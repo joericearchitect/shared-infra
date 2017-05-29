@@ -107,10 +107,12 @@
        --experimental
        --log-driver=fluentd
        --log-opt fluentd-address=localhost:8282
-       --log-opt labels=jra.swarm-node-name,jra.instance-name,jra.environment,jra.environment-size,jra.environment-type,jra.environment-instance-id,jra.failure-zone,jra.subnet-type,jra.swarm-instance-type,jra.swarm-node-type,jra.swarm-node-type,jra.environment-flip,jra.application-name,jra.container-name,jra.domain-name
-       --log-opt tag='docker.{{ ec2_tag_Name }}.\{\{.ID\}\}'
+       --log-opt tag='docker.{{ ec2_tag_jra_instance_name }}.\{\{.ID\}\}'
        --label jra.swarm-node-name={{ ec2_tag_Name }}
-       --label jra.instance-name={{ ec2_tag_Name }}
+       --label jra.instance-name={{ ec2_tag_jra_instance_name }}
+       --label jra.instance-name-full={{ ec2_tag_jra_instance_name_full }}
+       --label jra.swarm-node-name={{ ec2_tag_jra_instance_name }}
+       --label jra.swarm-node-name-full={{ ec2_tag_jra_instance_name_full }}
        --label jra.environment={{ ec2_tag_jra_environment }}
        --label jra.environment-size={{ ec2_tag_jra_environment_size }}
        --label jra.environment-type={{ ec2_tag_jra_environment_type }}
@@ -155,10 +157,11 @@
        --experimental
        --log-driver=fluentd
        --log-opt fluentd-address=localhost:8282
-       --log-opt labels=jra.swarm-node-name,jra.instance-name,jra.environment,jra.environment-size,jra.environment-type,jra.environment-instance-id,jra.failure-zone,jra.subnet-type,jra.swarm-instance-type,jra.swarm-node-type,jra.swarm-node-type,jra.environment-flip,jra.application-name,jra.container-name,jra.domain-name
-       --log-opt tag='docker.{{ ec2_tag_Name }}.\{\{.ID\}\}'
-       --label jra.swarm-node-name={{ ec2_tag_Name }}
-       --label jra.instance-name={{ ec2_tag_Name }}
+       --log-opt tag='docker.{{ ec2_tag_jra_instance_name }}.\{\{.ID\}\}'
+       --label jra.instance-name={{ ec2_tag_jra_instance_name }}
+       --label jra.instance-name-full={{ ec2_tag_jra_instance_name_full }}
+       --label jra.swarm-node-name={{ ec2_tag_jra_instance_name }}
+       --label jra.swarm-node-name-full={{ ec2_tag_jra_instance_name_full }}
        --label jra.environment={{ ec2_tag_jra_environment }}
        --label jra.environment-size={{ ec2_tag_jra_environment_size }}
        --label jra.environment-type={{ ec2_tag_jra_environment_type }}
@@ -197,8 +200,10 @@
        -H unix:///var/run/docker.sock
        -H tcp://{{ ec2_private_ip_address }}:2375
        --experimental
-       --label jra.swarm-node-name={{ ec2_tag_Name }}
-       --label jra.instance-name={{ ec2_tag_Name }}
+       --label jra.instance-name={{ ec2_tag_jra_instance_name }}
+       --label jra.instance-name-full={{ ec2_tag_jra_instance_name_full }}
+       --label jra.swarm-node-name={{ ec2_tag_jra_instance_name }}
+       --label jra.swarm-node-name-full={{ ec2_tag_jra_instance_name_full }}
        --label jra.environment={{ ec2_tag_jra_environment }}
        --label jra.environment-size={{ ec2_tag_jra_environment_size }}
        --label jra.environment-type={{ ec2_tag_jra_environment_type }}
@@ -238,10 +243,11 @@
        --experimental
        --log-driver=fluentd
        --log-opt fluentd-address=localhost:8282
-       --log-opt labels=jra.swarm-node-name,jra.instance-name,jra.environment,jra.environment-size,jra.environment-type,jra.environment-instance-id,jra.failure-zone,jra.subnet-type,jra.swarm-instance-type,jra.swarm-node-type,jra.swarm-node-type,jra.environment-flip,jra.application-name,jra.container-name,jra.domain-name
-       --log-opt tag='docker.{{ ec2_tag_Name }}.\{\{.ID\}\}'
-       --label jra.swarm-node-name={{ ec2_tag_Name }}
-       --label jra.instance-name={{ ec2_tag_Name }}
+       --log-opt tag='docker.{{ ec2_tag_jra_instance_name }}.\{\{.ID\}\}'
+       --label jra.instance-name={{ ec2_tag_jra_instance_name }}
+       --label jra.instance-name-full={{ ec2_tag_jra_instance_name_full }}
+       --label jra.swarm-node-name={{ ec2_tag_jra_instance_name }}
+       --label jra.swarm-node-name-full={{ ec2_tag_jra_instance_name_full }}
        --label jra.environment={{ ec2_tag_jra_environment }}
        --label jra.environment-size={{ ec2_tag_jra_environment_size }}
        --label jra.environment-type={{ ec2_tag_jra_environment_type }}

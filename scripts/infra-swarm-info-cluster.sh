@@ -32,16 +32,18 @@ for ((i = 0 ; i < $NUM_OF_RESERVATIONS ; i++ )); do
   for ((k = 0 ; k < $NUM_OF_INSGANCES ; k++ )); do  
 	  INSTANCE_JSON=$(echo $RESERVATION_JSON | jq ".Instances[$k] | {PublicIpAddress: .PublicIpAddress, PrivateIpAddress: .PrivateIpAddress, PublicDnsName: .PublicDnsName, PrivateDnsName: .PrivateDnsName, Tags: .Tags}")
 	  
+		#printf '%b\n' "INSTANCE_JSON:  \n$INSTANCE_JSON"
+	
 	  NUM_OF_TAGS=$(echo $INSTANCE_JSON | jq '.Tags | length')
 	  
       REPORT_STRING="$REPORT_STRING$(echo $INSTANCE_JSON | jq '.PublicIpAddress' | sed -e 's/^"//' -e 's/"$//')"
       REPORT_STRING="$REPORT_STRING,$(echo $INSTANCE_JSON | jq '.PublicDnsName' | sed -e 's/^"//' -e 's/"$//' | cut -d '.' -f1)"
       REPORT_STRING="$REPORT_STRING,$(echo $INSTANCE_JSON | jq '.PrivateIpAddress' | sed -e 's/^"//' -e 's/"$//')"
       REPORT_STRING="$REPORT_STRING,$(echo $INSTANCE_JSON | jq '.PrivateDnsName' | sed -e 's/^"//' -e 's/"$//' | cut -d '.' -f1)"
-	  
+	
 	  for ((l = 0 ; l < $NUM_OF_TAGS ; l++ )); do
 		  TAGS_JSON=$(echo $INSTANCE_JSON | jq ".Tags[$l]")
-		  	  
+	  		  	  
 		  TAG_MAP_KEY=$(echo $TAGS_JSON | jq '.Key' | sed -e 's/^"//' -e 's/"$//')
 		  TAG_MAP_VALUE=$(echo $TAGS_JSON | jq '.Value' | sed -e 's/^"//' -e 's/"$//')
 	
@@ -53,7 +55,7 @@ for ((i = 0 ; i < $NUM_OF_RESERVATIONS ; i++ )); do
 	  REPORT_STRING="$REPORT_STRING,${TAG_MAP[jra.failure-zone]}"
 	  REPORT_STRING="$REPORT_STRING,${TAG_MAP[jra.environment_type]}"
 	  REPORT_STRING="$REPORT_STRING,${TAG_MAP[jra.swarm-node-type]}-${TAG_MAP[jra.failure-zone]}"
-	  
+	
 	  REPORT_STRING="$REPORT_STRING\n"
   done
 

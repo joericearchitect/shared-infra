@@ -86,8 +86,10 @@
     - name: add labels to docker manager leader swarm node
       shell: >
         docker node update
-        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add jra.instance-name={{ ec2_tag_Name }}
+        --label-add jra.instance-name={{ ec2_tag_jra_instance_name }}
+        --label-add jra.instance-name-full={{ ec2_tag_jra_instance_name_full }}
+        --label-add jra.swarm-node-name={{ ec2_tag_jra_instance_name }}
+        --label-add jra.swarm-node-name-full={{ ec2_tag_jra_instance_name_full }}
         --label-add jra.environment={{ ec2_tag_jra_environment }}
         --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
         --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
@@ -143,8 +145,10 @@
     - name: add labels to docker manager follower swarm node
       shell: >
         docker node update
-        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add jra.instance-name={{ ec2_tag_Name }}
+        --label-add jra.instance-name={{ ec2_tag_jra_instance_name }}
+        --label-add jra.instance-name-full={{ ec2_tag_jra_instance_name_full }}
+        --label-add jra.swarm-node-name={{ ec2_tag_jra_instance_name }}
+        --label-add jra.swarm-node-name-full={{ ec2_tag_jra_instance_name_full }}
         --label-add jra.environment={{ ec2_tag_jra_environment }}
         --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
         --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
@@ -156,7 +160,7 @@
         --label-add jra.swarm-manager-node-type=swarm-non-leader
         '{{ swarm_node_host_name }}'
 
-
+       
 # join the worker hosts not yet initialized to the swarm cluster
 - hosts: swarm_worker_bootstrap
   become: true
@@ -177,8 +181,10 @@
     - name: add labels to docker worker swarm node
       shell: >
         docker node update
-        --label-add jra.swarm-node-name={{ ec2_tag_Name }}
-        --label-add jra.instance-name={{ ec2_tag_Name }}
+        --label-add jra.instance-name={{ ec2_tag_jra_instance_name }}
+        --label-add jra.instance-name-full={{ ec2_tag_jra_instance_name_full }}
+        --label-add jra.swarm-node-name={{ ec2_tag_jra_instance_name }}
+        --label-add jra.swarm-node-name-full={{ ec2_tag_jra_instance_name_full }}
         --label-add jra.environment={{ ec2_tag_jra_environment }}
         --label-add jra.environment-size={{ ec2_tag_jra_environment_size }}
         --label-add jra.environment-type={{ ec2_tag_jra_environment_type }}
