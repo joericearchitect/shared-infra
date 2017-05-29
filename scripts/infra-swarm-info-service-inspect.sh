@@ -1,4 +1,3 @@
-
 # *********************************************************************************
 # Description: provision a new docker host machine in AWS to be used for the wordpress blog
 # Author:      Joe Rice
@@ -10,20 +9,33 @@
 #       export AWS_SECRET_KEY=<Super_Top_Secret>
 # *********************************************************************************
 
-SWARM_MANAGER_NODE="$(infra-swarm-list-manager-ips.sh single)"
+DIR="$(cd "$(dirname "$0")" && pwd)"
+
+source $DIR/setenv.sh
+
+SCRIPT_NAME=`basename "$0"`
+
+if [ -z "$1" ]
+then
+	$DIR/jra-util/jra-util-print-service-usage-info.sh $SCRIPT_NAME "<GREP_STRING>"
+	exit 1;	
+fi
 
 GREP_STRING=""
 GREP_STRING_DISPLAY=""
+SERVICE_NAME=$1
 
-if ! [ -z "$1" ]
+SWARM_MANAGER_NODE="$(infra-swarm-list-manager-ips.sh single)"
+
+if ! [ -z "$2" ]
 then
-	GREP_STRING=" | grep \"$1\""
-	GREP_STRING_DISPLAY="grep $1";
+	GREP_STRING=" | grep \"$2\""
+	GREP_STRING_DISPLAY="grep $2";
 else
 	GREP_STRING=''
 	GREP_STRING_DISPLAY="<no grep string>";
 fi
 
-printf '%b\n' ""
-ssh-aws.sh $SWARM_MANAGER_NODE "docker service ls $GREP_STRING"
-printf '%b\n' ""
+SWARM_SERVICE_INSPECT_JSON=$(ssh-aws.sh $SWARM_MANAGER_NODE "docker service inspect $SERVICE_NAME $GREP_STRING")
+
+printf '%b\n' "$SWARM_SERVICE_INSPECT_JSON"

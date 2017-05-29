@@ -21,18 +21,10 @@ fi
 
 echo returning public ip address for this private dns name = "$1"
 
-SWARM_NODE_INFO="$(infra-swarm-list-manager-ips.sh)"
-SWARM_NODE_INFO="$(echo $SWARM_NODE_INFO | cut -d ' ' -f1)"
-
-
 SWARM_MANAGER_HOST_INFO="$(aws ec2 describe-instances \
   --filters Name=private-dns-name,Values=$1* \
   --output text \
   --query 'Reservations[*].Instances[*].[PublicIpAddress, PrivateIpAddress,PublicDnsName,PrivateDnsName,Tags[?Key==`Name`].Value[],Tags[?Key==`jra.swarm-node-type`].Value[],Tags[?Key==`jra.swarm-instance-type`].Value[],Tags[?Key==`jra.failure-zone`].Value[],Tags[?Key==`jra.environment_type`].Value[]]')"
-
-	echo .
-	echo String = $SWARM_MANAGER_HOST_INFO
-	echo .
 			
 declare -A SWARM_NODE_INFO_MAP
 
@@ -58,10 +50,6 @@ then
 	  echo $"  - $i - ${SWARM_NODE_INFO_MAP[$i]}"
 	done|
 	sort -k1 | column -t)
-
-	echo .
-	echo String = $STRING
-	echo .
 			
 	echo .
 	echo ---------------------------------------------------------------------------------------------------------------------------------------
@@ -73,10 +61,6 @@ else
 	echo $" $i ${SWARM_NODE_INFO_MAP[$i]}"
 	done|
 	sort -k1)
-
-	echo .
-	echo String = $STRING
-	echo .
 			
 	printf '%b\n' "$STRING" 
 fi

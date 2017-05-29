@@ -9,9 +9,7 @@ NODE_TO_TEST_HOST_NAME=$2
 NODE_TO_TEST_NODE_TYPE=$3
 NODE_TO_TEST_NODE_NAME=$4
 
-SWARM_MANAGER_NODE="$(infra-swarm-list-manager-ips.sh)"
-
-SWARM_MANAGER_NODE="$(echo $SWARM_MANAGER_NODE | cut -d ' ' -f1)"
+SWARM_MANAGER_NODE="$(infra-swarm-list-manager-ips.sh single)"
 
 echo .
 echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

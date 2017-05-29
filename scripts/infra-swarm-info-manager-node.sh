@@ -11,24 +11,20 @@
 #!/bin/bash
 
 
-if [ -z "$1" ]
+if ! [ -z "$1" ]
 then
-    echo .
-    echo You must pass in a private dns name to look up
-    exit 1;	
+    MANAGER_NODE_INDEX=$1;
+else
+    MANAGER_NODE_INDEX=1;
 fi
 
-
-echo returning public ip address for this private dns name = "$1"
-
-SWARM_NODE_INFO="$(infra-swarm-list-manager-ips.sh)"
-SWARM_NODE_INFO="$(echo $SWARM_NODE_INFO | cut -d ' ' -f1)"
+echo ++++++++++++++++++++++ MANAGER_NODE_INDEX = $MANAGER_NODE_INDEX
 
 
 SWARM_MANAGER_HOST_INFO="$(aws ec2 describe-instances \
-  --filters Name=ip-address,Values=$1* \
+   --filters 'Name=tag:jra.swarm-node-type,Values=infra-swarm-manager' \
   --output text \
-  --query 'Reservations[*].Instances[*].[PublicIpAddress, PrivateIpAddress,PublicDnsName,PrivateDnsName,Tags[?Key==`Name`].Value[],Tags[?Key==`jra.swarm-node-type`].Value[],Tags[?Key==`jra.swarm-instance-type`].Value[],Tags[?Key==`jra.failure-zone`].Value[],Tags[?Key==`jra.environment_type`].Value[]]')"
+--query 'Reservations[1].Instances[*].[PublicIpAddress, PrivateIpAddress,PublicDnsName,PrivateDnsName,Tags[?Key==`Name`].Value[],Tags[?Key==`jra.swarm-node-type`].Value[],Tags[?Key==`jra.swarm-instance-type`].Value[],Tags[?Key==`jra.failure-zone`].Value[],Tags[?Key==`jra.environment_type`].Value[]]')"
 
 declare -A SWARM_NODE_INFO_MAP
 
@@ -46,7 +42,7 @@ SWARM_NODE_INFO_MAP[Environment]="$(echo $SWARM_MANAGER_HOST_INFO | cut -d ' ' -
 
 STRING=""
 
-if [ -z "$2" ]
+if [ -z "$1" ]
 then
 	STRING=$(for i in "${!SWARM_NODE_INFO_MAP[@]}"
 	do
@@ -54,9 +50,7 @@ then
 	done|
 	sort -k1 | column -t)
 
-	echo .
-	echo String = $STRING
-	echo .
+	echo returning public ip address for this private dns name = "$1"
 			
 	echo .
 	echo ---------------------------------------------------------------------------------------------------------------------------------------
@@ -65,13 +59,9 @@ then
 else
 	STRING=$(for i in "${!SWARM_NODE_INFO_MAP[@]}"
 	do
-	echo $" $i ${SWARM_NODE_INFO_MAP[$i]}"
+	echo $"$i ${SWARM_NODE_INFO_MAP[$i]}"
 	done|
 	sort -k1)
-
-	echo .
-	echo String = $STRING
-	echo .
 			
 	printf '%b\n' "$STRING" 
 fi

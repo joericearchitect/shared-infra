@@ -9,8 +9,16 @@
 #       export AWS_SECRET_KEY=<Super_Top_Secret>
 # *********************************************************************************
 
-aws \
+SWARM_NODE_INFO=$(aws \
     ec2 describe-instances \
    --filters 'Name=tag:jra.swarm-node-type,Values=infra-swarm-manager' \
    --output text \
-   --query 'Reservations[*].Instances[*].PublicIpAddress' $1
+--query 'Reservations[*].Instances[*].PublicIpAddress')
+
+
+if ! [ -z "$1" ]
+then
+ SWARM_NODE_INFO="$(echo $SWARM_NODE_INFO | cut -d ' ' -f2)"
+fi
+
+printf '%b\n' "$SWARM_NODE_INFO"

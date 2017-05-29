@@ -10,9 +10,7 @@
 #       export AWS_SECRET_KEY=<Super_Top_Secret>
 # *********************************************************************************
 
-SWARM_MANAGER_NODE="$(infra-swarm-list-manager-ips.sh)"
-
-SWARM_MANAGER_NODE="$(echo $SWARM_MANAGER_NODE | cut -d ' ' -f1)"
+SWARM_MANAGER_NODE="$(infra-swarm-list-manager-ips.sh single)"
 
 echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 echo +  ssh into this manager node:
@@ -38,9 +36,7 @@ then
     exit 1;	
 fi
 
-SWARM_NODE="$(infra-swarm-list-ips-node-type.sh $1)"
-
-SWARM_NODE="$(echo $SWARM_NODE | cut -d ' ' -f1)"
+SWARM_NODE="$(infra-swarm-list-ips-node-type.sh $1 single)"
 
 echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 echo +  ssh into this node found for this node type:  :
