@@ -25,14 +25,15 @@ SWARM_NODE_INFO="$(infra-swarm-list-manager-ips.sh)"
 SWARM_NODE_INFO="$(echo $SWARM_NODE_INFO | cut -d ' ' -f1)"
 
 
-SWARM_MANAGER_HOST_INFO="$(\
-    aws ec2 describe-instances \
-    --filters Name=private-dns-name,Values=$1* \
-    --output json \
-    --query 'Reservations[*].Instances[*].{PublicIpAddress:PublicIpAddress, PrivateIpAddress:PrivateIpAddress,PublicDnsName:PublicDnsName,PrivateDnsName:PrivateDnsName,Tags:Tags[?Key==`jra.swarm-node-type` || Key==`Name` || Key==`jra.swarm-instance-type` || Key==`jra.failure-zone` || Key==`jra.environment_type`]}' \
- | jq 'type,length'
-  )"  
+SWARM_MANAGER_HOST_INFO="$(aws ec2 describe-instances \
+  --filters Name=private-dns-name,Values=$1* \
+  --output text \
+  --query 'Reservations[*].Instances[*].[PublicIpAddress, PrivateIpAddress,PublicDnsName,PrivateDnsName,Tags[?Key==`Name`].Value[],Tags[?Key==`jra.swarm-node-type`].Value[],Tags[?Key==`jra.swarm-instance-type`].Value[],Tags[?Key==`jra.failure-zone`].Value[],Tags[?Key==`jra.environment_type`].Value[]]')"
 
+	echo .
+	echo String = $SWARM_MANAGER_HOST_INFO
+	echo .
+			
 declare -A SWARM_NODE_INFO_MAP
 
 SWARM_NODE_INFO_MAP[PublicIpAddress]="$(echo $SWARM_MANAGER_HOST_INFO | cut -d ' ' -f1)"
@@ -41,7 +42,7 @@ SWARM_NODE_INFO_MAP[PrivateIHostName]="$(echo $SWARM_MANAGER_HOST_INFO | cut -d 
 SWARM_NODE_INFO_MAP[PublicHostName]="$(echo $SWARM_MANAGER_HOST_INFO | cut -d ' ' -f3 | cut -d '.' -f1)"
 SWARM_NODE_INFO_MAP[PublicDnsName]="$(echo $SWARM_MANAGER_HOST_INFO | cut -d ' ' -f3)"
 SWARM_NODE_INFO_MAP[PrivateDnsName]="$(echo $SWARM_MANAGER_HOST_INFO | cut -d ' ' -f4)"
-SWARM_NODE_INFO_MAP[Name]="$(echo $SWARM_MANAGER_HOST_INFO | cut -d ' ' -f5)"
+SWARM_NODE_INFO_MAP[Name]="$(echo $SWARM_MANAGER_HOST_INFO | cut -d ' ' -f6)"
 SWARM_NODE_INFO_MAP[SwarmNodeType]="$(echo $SWARM_MANAGER_HOST_INFO | cut -d ' ' -f6)"
 SWARM_NODE_INFO_MAP[SwarmInstanceType]="$(echo $SWARM_MANAGER_HOST_INFO | cut -d ' ' -f7)"
 SWARM_NODE_INFO_MAP[FailureZone]="$(echo $SWARM_MANAGER_HOST_INFO | cut -d ' ' -f8)"
@@ -49,16 +50,37 @@ SWARM_NODE_INFO_MAP[Environment]="$(echo $SWARM_MANAGER_HOST_INFO | cut -d ' ' -
 
 STRING=""
 
-STRING=$(for i in "${!SWARM_NODE_INFO_MAP[@]}"
-do
-  echo $"  - $i - ${SWARM_NODE_INFO_MAP[$i]}"
-done|
-sort -k1 | column -t)
 
-echo .
-echo ---------------------------------------------------------------------------------------------------------------------------------------
-printf '%b\n' "$SWARM_NODE_INFO_MAP" | column -t
-echo ---------------------------------------------------------------------------------------------------------------------------------------
+if [ -z "$2" ]
+then
+	STRING=$(for i in "${!SWARM_NODE_INFO_MAP[@]}"
+	do
+	  echo $"  - $i - ${SWARM_NODE_INFO_MAP[$i]}"
+	done|
+	sort -k1 | column -t)
+
+	echo .
+	echo String = $STRING
+	echo .
+			
+	echo .
+	echo ---------------------------------------------------------------------------------------------------------------------------------------
+	printf '%b\n' "$STRING" | column -t
+	echo ---------------------------------------------------------------------------------------------------------------------------------------;
+else
+	STRING=$(for i in "${!SWARM_NODE_INFO_MAP[@]}"
+	do
+	echo $" $i ${SWARM_NODE_INFO_MAP[$i]}"
+	done|
+	sort -k1)
+
+	echo .
+	echo String = $STRING
+	echo .
+			
+	printf '%b\n' "$STRING" 
+fi
+	
 
 
 

@@ -5,14 +5,14 @@
 resource "null_resource" "infra-configure-swarm-cluster" {
   depends_on = ["null_resource.infra-deploy-central-logging-services"]
 
-  # Wait 60 seconds to give all the logging services a chance to start up
+  # Wait 180 seconds to give all the logging services a chance to start up
   provisioner "local-exec" {
-    command =  "echo waiting 120 seconds to allow time for the logging services start up..."
+    command =  "echo waiting 180 seconds to allow time for the logging services start up..."
   }
 
-  # Wait 60 seconds to give all the instances a chance to fully spin up and become available
+  # Wait 180 seconds to give all the instances a chance to fully spin up and become available
   provisioner "local-exec" {
-    command =  "sleep 60s"
+    command =  "sleep 180s"
   }
 
   provisioner "local-exec" {

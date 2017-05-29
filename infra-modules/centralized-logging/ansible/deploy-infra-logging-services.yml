@@ -145,6 +145,10 @@
         docker service rm jarch-infra-logging-kibana
       ignore_errors: yes
 
+#    - name: wait 60 seconds for elasticsearch to come up
+#      shell: >
+#        sleep 60s
+        
     - name: deploy kibana service
       shell: >
         docker service create

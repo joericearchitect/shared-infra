@@ -19,4 +19,6 @@ export ENVIRONMENT_DOMAIN_PREFIX=qa1.
 
 cd $TERRAFORM_DIR
 
-terraform plan -var "environment=$ENVIRONMENT" -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"
+time terraform plan \
+  -var "environment=$ENVIRONMENT" \
+  -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"

@@ -1,3 +1,4 @@
+
 # *********************************************************************************
 # Description: provision a new docker host machine in AWS to be used for the wordpress blog
 # Author:      Joe Rice
@@ -9,16 +10,12 @@
 #       export AWS_SECRET_KEY=<Super_Top_Secret>
 # *********************************************************************************
 
-DIR="$(cd "$(dirname "$0")" && pwd)"
+SWARM_MANAGER_NODE="$(infra-swarm-list-manager-ips.sh)"
 
-source $DIR/setenv.sh
+SWARM_MANAGER_NODE="$(echo $SWARM_MANAGER_NODE | cut -d ' ' -f1)"
 
-TERRAFORM_DIR=$INFRA_ENVIRONMENTS_HOME_DIR/high-availability
-ENVIRONMENT=qa1
-ENVIRONMENT_DOMAIN_PREFIX=qa1.
-
-cd $TERRAFORM_DIR
-
-time terraform apply \
-  -var "environment=$ENVIRONMENT" \
-  -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"
+echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+echo +  listing services using this manager node:
+echo +   -   $SWARM_MANAGER_NODE
+echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ssh-aws.sh $SWARM_MANAGER_NODE "docker node ls"

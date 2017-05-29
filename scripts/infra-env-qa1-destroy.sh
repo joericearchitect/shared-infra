@@ -19,4 +19,6 @@ ENVIRONMENT_DOMAIN_PREFIX=qa1.
 
 cd $TERRAFORM_DIR
 
-terraform destroy -var "environment=$ENVIRONMENT" -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"
+time terraform destroy \
+  -var "environment=$ENVIRONMENT" \
+  -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"

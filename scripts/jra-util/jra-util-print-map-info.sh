@@ -8,17 +8,19 @@
 #       export AWS_ACCESS_KEY=<Secret>
 #       export AWS_SECRET_KEY=<Super_Top_Secret>
 # *********************************************************************************
+#!/bin/bash
 
-DIR="$(cd "$(dirname "$0")" && pwd)"
+INFO_MAP=$1
 
-source $DIR/setenv.sh
+STRING=""
 
-TERRAFORM_DIR=$INFRA_ENVIRONMENTS_HOME_DIR/high-availability
-ENVIRONMENT=qa1
-ENVIRONMENT_DOMAIN_PREFIX=qa1.
+STRING=$(for i in "${!INFO_MAP[@]}"
+do
+echo $"$i ${INFO_MAP[$i]}"
+done|
+sort -k1 | column -t)
 
-cd $TERRAFORM_DIR
+printf '%b\n' "$STRING" | column -t
 
-time terraform apply \
-  -var "environment=$ENVIRONMENT" \
-  -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"
+
+
