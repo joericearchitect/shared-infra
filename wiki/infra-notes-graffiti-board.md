@@ -183,14 +183,29 @@ They build on top of each other.  Basically,
 
 #### Environments
 
+**Resources**
+
+* Environments (list & detail)
+  = Identifiers (searchable)
+    + environment id
+    + environment type
+    + environment name
+
 #### Swarm Clusters
 
-* Nodes
-* Services
-* Docker Engines
-* 
+**Resources**
+
+* Nodes (list & detail)
+  = Identifiers (searchable)
+    + environment id
+    + environment type
+    + environment name
+    
+* Docker Engines (list & detail)
 
 #### Applications & Services
+
+* Services (list & detail)
 
 #### Infrastructure Configuration
 

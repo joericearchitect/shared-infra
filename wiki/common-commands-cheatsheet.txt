@@ -83,11 +83,19 @@ done
 
 STARTing a Docker Swarm
 
-        docker swarm init
-        --advertise-addr={{ ec2_private_ip_address }}:2377
-        --listen-addr={{ ec2_private_ip_address }}:2377
-        
-
+        docker swarm init \
+        --advertise-addr=127.0.0.1:2377 \
+        --listen-addr=127.0.0.1:2377
+  
+        docker service create \
+        --name jarch-site-web-static \
+        --publish 9080:8080 \
+        --replicas=1 \
+        --label jra.environment-flip=blue \
+        --label jra.application-name=jarch-site-web-static \
+        --label jra.container-name=jarch-site-web-static \
+        --label jra.domain-name=www.joericearchitect.com \
+        joericearchitect/jarch-site-web-static         
 
 
 
