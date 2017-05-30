@@ -215,13 +215,14 @@ They build on top of each other.  Basically,
      + jra.environment-durability-type
      + environment-billing-info
      + environment-configuration
+       + Terraform State file
      + environment-health
      + links
        - metrics
        - logging
        - consul
-     + swarm manager nodes
-     + swarm-worker-nodes
+     + list of swarm clusters
+     + List of Application Groups
     
 **Operations**
   - Create Environment
@@ -230,10 +231,20 @@ They build on top of each other.  Basically,
   - Start Environment
   - Backup Environment
   - Validate Environment
+  
+**Endpoints**
+
+* /infra-api/environments
+
+* /infra-api/environments/{environment-canonical-id}
 
 #### Swarm Clusters
 
 **Resources**
+
+* Swarm Cluster (list & details)
+  - Identifiers
+    + jra.canonical-swarm-cluster-id
 
 * Nodes (list & detail)
   - Identifiers
@@ -277,10 +288,38 @@ They build on top of each other.  Basically,
        + used-disk
        + free-disk
 
+**Endpoints**
+
+* /infra-api/container-clusters
+
+* /infra-api/container-clusters/{container-cluster-canonical-id}
+
+* /infra-api/container-nodes
+
+* /infra-api/container-nodes/{container-node-canonical-id}
 
 #### Applications & Services
 
+**Resources**
 * Services (list & detail)
+
+**Endpoints**
+
+* /infra-api/application-groups
+
+* /infra-api/application-groups/{application-group-canonical-id}
+
+* /infra-api/applications
+
+* /infra-api/applications/{application-canonical-id}
+
+* /infra-api/application-instances
+
+* /infra-api/application-instances/{application-instance-canonical-id}
+
+* /infra-api/application-instances/{application-instance-canonical-id}/containers
+
+* /infra-api/application-instances/{application-instance-canonical-id}/containers/{container-canonical-id}
 
 #### Infrastructure Configuration
 

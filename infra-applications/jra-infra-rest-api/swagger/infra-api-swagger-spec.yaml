@@ -1,0 +1,79 @@
+---
+# Quick n dirty swagger spect.  rushing to hack something together to achieve a larger goal.  it ain't prettyd  
+swagger: "2.0"
+info:
+  description: JRA Infra API
+  version: 1.0.0
+  title: JRA Infra API
+host: joericearchitect.com
+basePath: /infra-api
+schemes:
+- http
+
+paths:
+
+  # Each Path Item Object describes a resource, containing a set of operations
+  # at a specified path.  The Path Item object can define parameters and 
+  # responses common all of its contained operations.
+  /environments:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Environment
+      description: retrieves and searches through a list of environments
+      operationId: getEnvironments
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        description: ID of the requested TaxFiling
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with a representation of the Tax Filing.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/TaxFilingObject"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              {
+                filingID : 1234,
+                jurisdiction : Federal,
+                year : 2015,
+                period : CALENDAR_YEAR,
+                currency : EUR,
+                grossIncome : 74832,
+                taxLiability : 15640
+              }
+        404:
+          description: The requested tax filing was not found.
+
+# The definitions section contains a set of named Schema Objects.  Each schema
+# object describes a reusable data type, which can be reference by name.
+definitions:
+  TaxFilingObject:
+    type: object
+    description: An individual Tax Filing record.
+    properties:
+      filingID:
+        type: string
+      jurisdiction:
+        type: string
+      year:
+        type: string
+      period:
+        type: integer
+      currency:
+        type: string
+      grossIncome:
+        type: number
+      taxLiability:
+        type: number
+      taxpayer:
+        type: object
