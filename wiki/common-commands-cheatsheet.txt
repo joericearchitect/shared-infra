@@ -81,7 +81,12 @@ done
 
 
 
+STARTing a Docker Swarm
 
+        docker swarm init
+        --advertise-addr={{ ec2_private_ip_address }}:2377
+        --listen-addr={{ ec2_private_ip_address }}:2377
+        
 
 
 

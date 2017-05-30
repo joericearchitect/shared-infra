@@ -145,8 +145,61 @@ They build on top of each other.  Basically,
   - Unit tests for CLI, scripts, and other tools
   - For each scripting language or tool, see if there is a linting for it and use it if possible.
   - Infrastructure scripts & CLI 
-  
+
+* The meta-data returned from the API should not be exhaustive.  Should contain only the most pertinent data needed to aid scripting and UI displays
+  + Should contain links to the source systems / data for more info whereever possible.
+  + Good Candidates to be returned from API
+    -  Lookup info:  For each resource should have various identifiers used by different systems / tools.  
+    -  Basic status & health info
+    -  Tags, Labels, and other metadate used to organize and filter resources.
+    -  Names and descriptions - used for display and indexing / searching.
+    -  Dates (created, modified, deleted)
+    -  Links to source systems for more detailed info (Links to AWS API, Docker API, Consul API, ElasticSearch queries, etc)
+    -  Example:  For a Swarm Node Resource, should return the following to make it easier to lookup identifiers 
+       + instance id, public & private IPs and dns names (provided by and used by AWS EC2)
+       + node id, leader status, active status, exposed and internal ports (provided and used by Docker Swarm)
+       + AWS instance tags 
+       + Docker Engine Labels
+       + Docker Swarm Labels
+       + Consul configuration
+       + JRA metadata:  node type, environment-name, environment-instance-id, failure zone
+       + Status & Health
+         -  ELB health check
+         -  Docker Swarm Node health
+         -  Grafana Health Stats
+    -  Another example: For a Docker Swarm Service, (i.e application, database, api, etc), should return:
+       + service id, service name, replicas, image, ports, constraints, image version (provided by and used by docker)
+       + JRA Metadata (Application name, application type, environment flip, application-version, etc
+       + Application URLs
+         - API Spec
+         - Main UI URL
+         - Main API URL
+         - Health Check URL
+       + External URLs
+         - Metrics URL (Grafana)
+         - Splunk URL
+
 ### Orgnization of API
 
+#### Environments
+
+#### Swarm Clusters
+
+* Nodes
+* Services
+* Docker Engines
+* 
+
+#### Applications & Services
+
+#### Infrastructure Configuration
+
+#### Application Configuration
+
+#### Infrastructure Health & Status
+
+#### Application Health and Status
+
+#### Metrics
 
 ### Organization of CLI
