@@ -28,17 +28,32 @@ paths:
       produces:
       - application/json
       parameters:
-      - name: id
-        in: path
-        description: ID of the requested TaxFiling
-        required: true
+      - name: jra-environment-tupe
+        in: query
+        description: filter field on environment type
+        required: false
+        type: string
+      - name: jra-environment-name
+        in: query
+        description: <@TODO>
+        required: false
+        type: string
+      - name: jra-environment-status
+        in: query
+        description: <@TODO>
+        required: false
+        type: string
+      - name: jra-environment-durability-type
+        in: query
+        description: <@TODO>
+        required: false
         type: string
       responses:
         200:
-          description: Successful response, with a representation of the Tax Filing.
+          description: Successful response, with a representation of the list of matching environments.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/TaxFilingObject"
+            $ref: "#/definitions/EnvironmentSummary"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -57,7 +72,7 @@ paths:
 # The definitions section contains a set of named Schema Objects.  Each schema
 # object describes a reusable data type, which can be reference by name.
 definitions:
-  TaxFilingObject:
+  EnvironmentSummary:
     type: object
     description: An individual Tax Filing record.
     properties:
@@ -77,3 +92,5 @@ definitions:
         type: number
       taxpayer:
         type: object
+
+  Identifier:

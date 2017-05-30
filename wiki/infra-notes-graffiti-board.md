@@ -332,3 +332,15 @@ They build on top of each other.  Basically,
 #### Metrics
 
 ### Organization of CLI
+
+
+
+## TO-DO - Tags that gotta be added to ec2 instances, docker engines, and nodes
+
+* environment-canonical-id
+* container-cluster-canonical-id
+* container-node-canonical-id
+* application-group-canonical-id
+* application-group-canonical-id
+* application-instance-canonical-id
+* application-instance-canonical-id
