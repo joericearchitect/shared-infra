@@ -186,7 +186,7 @@ They build on top of each other.  Basically,
 **Resources**
 
 * Environments (list & detail)
-  = Identifiers (searchable)
+  - Identifiers (searchable)
     + environment id
     + environment type
     + environment name
@@ -196,7 +196,7 @@ They build on top of each other.  Basically,
 **Resources**
 
 * Nodes (list & detail)
-  = Identifiers (searchable)
+  - Identifiers (searchable)
     + environment id
     + environment type
     + environment name
