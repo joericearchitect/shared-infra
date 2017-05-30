@@ -156,7 +156,7 @@ They build on top of each other.  Basically,
     -  Dates (created, modified, deleted)
     -  Links to source systems for more detailed info (Links to AWS API, Docker API, Consul API, ElasticSearch queries, etc)
     -  Example:  For a Swarm Node Resource, should return the following to make it easier to lookup identifiers 
-       + instance id, public & private IPs and dns names (provided by and used by AWS EC2)
+       + instance id, public & private IPs and dns names, region, avail zone (provided by and used by AWS EC2)
        + node id, leader status, active status, exposed and internal ports (provided and used by Docker Swarm)
        + AWS instance tags 
        + Docker Engine Labels
@@ -186,22 +186,97 @@ They build on top of each other.  Basically,
 **Resources**
 
 * Environments (list & detail)
-  - Identifiers (searchable)
-    + environment id
-    + environment type
-    + environment name
+  - Identifier
+    + jra.environment-cananical-id
+  - Filter fields
+    + jra.environment type
+    + jra.environment name
+    + jra.environment-status
+  - Return Data (List & Filter)
+     + List of All Environments
+       - canonical-id
+       - name
+       - description
+       - link to environment detail
+       - environment-status
+       - environment-start-date-time
+       - environment-end-date-date
+       - environment-last-modification-date-time
+     * Response Duration
+  - Return Data (Detail)
+     + <identifiers & filter fields>
+     + environment-start-date-time
+     + environment-last-modified-date-time
+     + environment-activity-events
+       + activity-event-type
+       + activity-start-date-time
+       + activity-end-date-time
+     + Response Duration
+     + jra.environment-durability-type
+     + environment-billing-info
+     + environment-configuration
+     + environment-health
+     + links
+       - metrics
+       - logging
+       - consul
+     + swarm manager nodes
+     + swarm-worker-nodes
+    
+**Operations**
+  - Create Environment
+  - Destroy Environment
+  - Stop Environment
+  - Start Environment
+  - Backup Environment
+  - Validate Environment
 
 #### Swarm Clusters
 
 **Resources**
 
 * Nodes (list & detail)
-  - Identifiers (searchable)
-    + environment id
+  - Identifiers
+    + jra.cananical-node-id
+    + aws-instance-id
+    + docker-swarm-node-id
+  - Filter Fields
+    + environment-id
+    + environment-type
+    + environment-name
+    + environment-status
+    + public-ip
+    + public-dns
+    + private-ip
+    + private-dns
     + environment type
     + environment name
-    
-* Docker Engines (list & detail)
+    + jra.node-type
+    + aws-region
+    + aws-avail-zone
+    + swarm-node-host-name
+  - Return Data (Detail)
+     + <identifiers & filter fields>
+     + aws-AMI-id
+     + aws-ELBs
+     + AWS links
+       - VPCs
+       - Security Groups
+       - subnets
+     + Node configuration (consul)
+     + List of Services Deployed
+     + List of Containers Running
+     + hardware capacity info
+       + cpu cores
+       + allocated memory
+       + allocated disk
+     + hardware runtime info
+       + used-memory
+       + free-memory
+       + cpu used
+       + used-disk
+       + free-disk
+
 
 #### Applications & Services
 
