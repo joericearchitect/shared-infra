@@ -1,0 +1,23 @@
+[
+    {
+        "Name": "jarch-infra-logging-network",
+        "Id": "4b159zozi6o2x9fe7im6sx8zb",
+        "Created": "0001-01-01T00:00:00Z",
+        "Scope": "swarm",
+        "Driver": "overlay",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": []
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "Containers": null,
+        "Options": {
+            "com.docker.network.driver.overlay.vxlanid_list": "4098"
+        },
+        "Labels": null
+    }
+]

@@ -1,0 +1,13 @@
+VPCS	10.0.0.0/16	dopt-eb4a818d	default	False	available	vpc-6f897116
+TAGS	jra.environment-size	small
+TAGS	Name	qa1.vpc.us-east-1
+TAGS	jra.environment-instance-id	QRN9WFguNOE
+TAGS	jra.environment	qa1
+TAGS	jra.environment_type	latest
+VPCS	172.31.0.0/16	dopt-eb4a818d	default	True	available	vpc-034ab37a
+VPCS	10.0.0.0/16	dopt-eb4a818d	default	False	available	vpc-5d79ab24
+TAGS	Name	qa1.vpc.us-east-1
+TAGS	jra.environment_type	latest
+TAGS	jra.environment	qa1
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.environment-size	small

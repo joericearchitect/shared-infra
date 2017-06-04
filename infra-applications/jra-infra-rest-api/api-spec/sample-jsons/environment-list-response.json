@@ -1,0 +1,40 @@
+[
+	{
+		"environmentCanonicalId": "349023nsddf",
+		"environmentName": "latest",
+		"alternateIds": [
+			{
+				"id": "234uff2u34234",
+				"idName": "awsVpcId",
+				"idSource": "aws-ec2"
+			}
+		],
+		"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+		"environmentStatus": "active",
+		"environmentDurabilityType": "fixed",
+		"links": {
+			"self": {
+				"href": "http://localhost/infra-api/environments/349023nsdf"
+			}
+		}
+	},
+	{
+		"environmentCanonicalId": "234sldfjsdflj234",
+		"environmentName": "UAT-Magic-Band-Project",
+		"alternateIds": [
+			{
+				"id": "234uff2u34234",
+				"idName": "awsVpcId",
+				"idSource": "aws-ec2"
+			}
+		],
+		"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+		"environmentStatus": "terminated",
+		"environmentDurabilityType": "short-term",
+		"links": {
+			"self": {
+				"href": "http://localhost/infra-api/environments/234sldfjsdflj234"
+			}
+		}
+	}
+]	

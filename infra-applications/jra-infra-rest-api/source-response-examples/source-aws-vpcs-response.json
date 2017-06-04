@@ -1,0 +1,72 @@
+{
+    "Vpcs": [
+        {
+            "VpcId": "vpc-6f897116", 
+            "InstanceTenancy": "default", 
+            "Tags": [
+                {
+                    "Value": "small", 
+                    "Key": "jra.environment-size"
+                }, 
+                {
+                    "Value": "qa1.vpc.us-east-1", 
+                    "Key": "Name"
+                }, 
+                {
+                    "Value": "QRN9WFguNOE", 
+                    "Key": "jra.environment-instance-id"
+                }, 
+                {
+                    "Value": "qa1", 
+                    "Key": "jra.environment"
+                }, 
+                {
+                    "Value": "latest", 
+                    "Key": "jra.environment_type"
+                }
+            ], 
+            "State": "available", 
+            "DhcpOptionsId": "dopt-eb4a818d", 
+            "CidrBlock": "10.0.0.0/16", 
+            "IsDefault": false
+        }, 
+        {
+            "VpcId": "vpc-034ab37a", 
+            "InstanceTenancy": "default", 
+            "State": "available", 
+            "DhcpOptionsId": "dopt-eb4a818d", 
+            "CidrBlock": "172.31.0.0/16", 
+            "IsDefault": true
+        }, 
+        {
+            "VpcId": "vpc-5d79ab24", 
+            "InstanceTenancy": "default", 
+            "Tags": [
+                {
+                    "Value": "qa1.vpc.us-east-1", 
+                    "Key": "Name"
+                }, 
+                {
+                    "Value": "latest", 
+                    "Key": "jra.environment_type"
+                }, 
+                {
+                    "Value": "qa1", 
+                    "Key": "jra.environment"
+                }, 
+                {
+                    "Value": "lRGNBkaDBSE", 
+                    "Key": "jra.environment-instance-id"
+                }, 
+                {
+                    "Value": "small", 
+                    "Key": "jra.environment-size"
+                }
+            ], 
+            "State": "available", 
+            "DhcpOptionsId": "dopt-eb4a818d", 
+            "CidrBlock": "10.0.0.0/16", 
+            "IsDefault": false
+        }
+    ]
+}

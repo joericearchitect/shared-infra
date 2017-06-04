@@ -1,0 +1,59 @@
+++++Docker Engine Details for 	Instance:  34.200.252.92
+
+ 
+++++Docker Engine Details for 	Instance:  54.237.194.116
+
+ 
+++++Docker Engine Details for 	Instance:  52.23.241.112
+
+ 
+++++Docker Engine Details for 	Instance:  52.90.156.252
+
+ 
+++++Docker Engine Details for 	Instance:  54.165.245.122
+{"Command":"\"/traefik --docker...\"","CreatedAt":"2017-06-04 14:36:01 +0000 UTC","ID":"4f5bf963469e","Image":"traefik:v1.1.0","Labels":"com.docker.swarm.node.id=lylcdytdzolboh45pe8fklf5n,com.docker.swarm.service.name=jarch-infra-proxy-traefik,com.docker.swarm.task=,com.docker.swarm.task.name=jarch-infra-proxy-traefik.1.ruytlpf3dlr4fh7n9u4vpdst1,org.label-schema.docker.schema-version=1.0,org.label-schema.url=https://traefik.io,com.docker.swarm.service.id=gqal20wda5r1fmz4j2kkevzmv,com.docker.swarm.task.id=ruytlpf3dlr4fh7n9u4vpdst1,org.label-schema.description=A modern reverse-proxy,org.label-schema.name=Traefik,org.label-schema.vendor=Containous,org.label-schema.version=v1.1.0","LocalVolumes":"0","Mounts":"/var/run/doc...","Names":"jarch-infra-proxy-traefik.1.ruytlpf3dlr4fh7n9u4vpdst1","Networks":"jarch-proxy-traefik-network,ingress","Ports":"80/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+ 
+++++Docker Engine Details for 	Instance:  107.23.79.89
+{"Command":"\"/portainer -H uni...\"","CreatedAt":"2017-06-04 14:36:56 +0000 UTC","ID":"4444a333a15b","Image":"portainer/portainer:latest","Labels":"com.docker.swarm.task.id=hijcypnjb1p9q2nloxdt3z6m0,com.docker.swarm.task.name=jarch-infra-docker-ui-portainer.1.hijcypnjb1p9q2nloxdt3z6m0,com.docker.swarm.node.id=leheohkbf9cy9z9lxyixaoxoa,com.docker.swarm.service.id=u658s79hdn2334wo8j3gk5ksy,com.docker.swarm.service.name=jarch-infra-docker-ui-portainer,com.docker.swarm.task=","LocalVolumes":"0","Mounts":"/var/run/doc...,/usr/local/j...","Names":"jarch-infra-docker-ui-portainer.1.hijcypnjb1p9q2nloxdt3z6m0","Networks":"ingress,jarch-proxy-traefik-network","Ports":"9000/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+{"Command":"\"/traefik --docker...\"","CreatedAt":"2017-06-04 14:33:37 +0000 UTC","ID":"7d86b2f5d8a2","Image":"traefik:v1.1.0","Labels":"com.docker.swarm.service.id=g2p9puclkywnf18mj920ozlmn,com.docker.swarm.service.name=jarch-infra-logging-proxy-traefik,com.docker.swarm.task.id=ta1i1csrpeoesuf0z6bmqohrt,org.label-schema.name=Traefik,org.label-schema.url=https://traefik.io,org.label-schema.vendor=Containous,com.docker.swarm.node.id=leheohkbf9cy9z9lxyixaoxoa,com.docker.swarm.task=,com.docker.swarm.task.name=jarch-infra-logging-proxy-traefik.1.ta1i1csrpeoesuf0z6bmqohrt,org.label-schema.description=A modern reverse-proxy,org.label-schema.docker.schema-version=1.0,org.label-schema.version=v1.1.0","LocalVolumes":"0","Mounts":"/var/run/doc...","Names":"jarch-infra-logging-proxy-traefik.1.ta1i1csrpeoesuf0z6bmqohrt","Networks":"jarch-infra-logging-proxy-traefik-network,ingress","Ports":"80/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+ 
+++++Docker Engine Details for 	Instance:  34.201.21.13
+
+ 
+++++Docker Engine Details for 	Instance:  34.200.249.234
+
+ 
+++++Docker Engine Details for 	Instance:  34.201.26.123
+{"Command":"\"/docker-entrypoin...\"","CreatedAt":"2017-06-04 14:34:55 +0000 UTC","ID":"2ec40738cb0e","Image":"kibana:latest","Labels":"com.docker.swarm.node.id=0cjihhjws5l3m95x2ldlum6ey,com.docker.swarm.service.id=wk3myyh5bhk4i5xj9c90rfecg,com.docker.swarm.service.name=jarch-infra-logging-kibana,com.docker.swarm.task=,com.docker.swarm.task.id=ivya9416akop2in5tkf2ogmt7,com.docker.swarm.task.name=jarch-infra-logging-kibana.1.ivya9416akop2in5tkf2ogmt7","LocalVolumes":"0","Mounts":"","Names":"jarch-infra-logging-kibana.1.ivya9416akop2in5tkf2ogmt7","Networks":"ingress,jarch-infra-logging-network,jarch-infra-logging-proxy-traefik-network","Ports":"5601/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+{"Command":"\"/bin/sh -c 'exec ...\"","CreatedAt":"2017-06-04 14:34:25 +0000 UTC","ID":"2959b7312ff5","Image":"joericearchitect/jarch-infra-fluentd-es:latest","Labels":"com.docker.swarm.node.id=0cjihhjws5l3m95x2ldlum6ey,com.docker.swarm.service.name=jarch-infra-logging-fluentd,com.docker.swarm.task.name=jarch-infra-logging-fluentd.3.dd20zfpbi750r7pd39s4i02qh,Description=Fluentd docker image,Version=1.1,com.docker.swarm.task=,com.docker.swarm.task.id=dd20zfpbi750r7pd39s4i02qh,Vendor=Fluent Organization,com.docker.swarm.service.id=pae9t6o9uxhurp933wnpkg0wl","LocalVolumes":"0","Mounts":"/usr/local/j...","Names":"jarch-infra-logging-fluentd.3.dd20zfpbi750r7pd39s4i02qh","Networks":"jarch-infra-logging-proxy-traefik-network,ingress,jarch-infra-logging-network","Ports":"5140/tcp, 24224/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+ 
+++++Docker Engine Details for 	Instance:  54.145.159.93
+
+ 
+++++Docker Engine Details for 	Instance:  52.23.227.1
+
+ 
+++++Docker Engine Details for 	Instance:  184.73.43.101
+{"Command":"\"npm start\"","CreatedAt":"2017-06-04 14:37:21 +0000 UTC","ID":"7cdd08c851ac","Image":"manomarks/visualizer:latest","Labels":"com.docker.swarm.node.id=noomifav7kxn7jajzg9vpjgl1,com.docker.swarm.service.id=yeuuknp4jh9624hka9hpny50s,com.docker.swarm.service.name=jarch-infra-docker-ui-visualizer,com.docker.swarm.task=,com.docker.swarm.task.id=epd2bkpcb1ekmximsa6uamgcr,com.docker.swarm.task.name=jarch-infra-docker-ui-visualizer.1.epd2bkpcb1ekmximsa6uamgcr","LocalVolumes":"0","Mounts":"/var/run/doc...","Names":"jarch-infra-docker-ui-visualizer.1.epd2bkpcb1ekmximsa6uamgcr","Networks":"ingress,jarch-proxy-traefik-network","Ports":"8080/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+ 
+++++Docker Engine Details for 	Instance:  34.204.100.97
+{"Command":"\"/docker-entrypoin...\"","CreatedAt":"2017-06-04 14:34:25 +0000 UTC","ID":"4942214a8186","Image":"elasticsearch:latest","Labels":"com.docker.swarm.task.name=jarch-infra-logging-elasticsearch.1.tm6lfequfdwq6tkogdyjb04ga,com.docker.swarm.node.id=yhwa2n8cev7b3vy39kcyd946d,com.docker.swarm.service.id=2er0hb4nq6ujaduvgrweljjx7,com.docker.swarm.service.name=jarch-infra-logging-elasticsearch,com.docker.swarm.task=,com.docker.swarm.task.id=tm6lfequfdwq6tkogdyjb04ga","LocalVolumes":"1","Mounts":"/usr/local/j...,a22509737439...","Names":"jarch-infra-logging-elasticsearch.1.tm6lfequfdwq6tkogdyjb04ga","Networks":"jarch-infra-logging-proxy-traefik-network,ingress,jarch-infra-logging-network","Ports":"9200/tcp, 9300/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+{"Command":"\"/docker-entrypoin...\"","CreatedAt":"2017-06-04 14:34:25 +0000 UTC","ID":"37dd2f904d8f","Image":"kibana:latest","Labels":"com.docker.swarm.node.id=yhwa2n8cev7b3vy39kcyd946d,com.docker.swarm.service.id=wk3myyh5bhk4i5xj9c90rfecg,com.docker.swarm.service.name=jarch-infra-logging-kibana,com.docker.swarm.task=,com.docker.swarm.task.id=ivlzx4elnlu3lqukx3nifmyb1,com.docker.swarm.task.name=jarch-infra-logging-kibana.2.ivlzx4elnlu3lqukx3nifmyb1","LocalVolumes":"0","Mounts":"","Names":"jarch-infra-logging-kibana.2.ivlzx4elnlu3lqukx3nifmyb1","Networks":"ingress,jarch-infra-logging-network,jarch-infra-logging-proxy-traefik-network","Ports":"5601/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+{"Command":"\"/bin/sh -c 'exec ...\"","CreatedAt":"2017-06-04 14:34:25 +0000 UTC","ID":"cf5df83845a3","Image":"joericearchitect/jarch-infra-fluentd-es:latest","Labels":"com.docker.swarm.task.id=8maem8l7tf5lj1r8smy8d9oz6,Description=Fluentd docker image,Vendor=Fluent Organization,com.docker.swarm.node.id=yhwa2n8cev7b3vy39kcyd946d,com.docker.swarm.service.name=jarch-infra-logging-fluentd,com.docker.swarm.task=,Version=1.1,com.docker.swarm.service.id=pae9t6o9uxhurp933wnpkg0wl,com.docker.swarm.task.name=jarch-infra-logging-fluentd.1.8maem8l7tf5lj1r8smy8d9oz6","LocalVolumes":"0","Mounts":"/usr/local/j...","Names":"jarch-infra-logging-fluentd.1.8maem8l7tf5lj1r8smy8d9oz6","Networks":"ingress,jarch-infra-logging-network,jarch-infra-logging-proxy-traefik-network","Ports":"5140/tcp, 24224/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+ 
+++++Docker Engine Details for 	Instance:  54.196.17.50
+{"Command":"\"/docker-entrypoin...\"","CreatedAt":"2017-06-04 14:33:53 +0000 UTC","ID":"f782228e88fb","Image":"kibana:latest","Labels":"com.docker.swarm.service.name=jarch-infra-logging-kibana,com.docker.swarm.task=,com.docker.swarm.task.id=q7852j4jhku2e4h0mw4xxmgvl,com.docker.swarm.task.name=jarch-infra-logging-kibana.3.q7852j4jhku2e4h0mw4xxmgvl,com.docker.swarm.node.id=okdq9jslh0m2iea9csrx15xd3,com.docker.swarm.service.id=wk3myyh5bhk4i5xj9c90rfecg","LocalVolumes":"0","Mounts":"","Names":"jarch-infra-logging-kibana.3.q7852j4jhku2e4h0mw4xxmgvl","Networks":"ingress,jarch-infra-logging-network,jarch-infra-logging-proxy-traefik-network","Ports":"5601/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+{"Command":"\"/bin/sh -c 'exec ...\"","CreatedAt":"2017-06-04 14:33:53 +0000 UTC","ID":"b72d8a9be376","Image":"joericearchitect/jarch-infra-fluentd-es:latest","Labels":"com.docker.swarm.service.id=pae9t6o9uxhurp933wnpkg0wl,com.docker.swarm.task=,com.docker.swarm.task.id=q22seyzoqwv8mzqwfmp11mqlb,com.docker.swarm.task.name=jarch-infra-logging-fluentd.2.q22seyzoqwv8mzqwfmp11mqlb,Description=Fluentd docker image,Vendor=Fluent Organization,Version=1.1,com.docker.swarm.node.id=okdq9jslh0m2iea9csrx15xd3,com.docker.swarm.service.name=jarch-infra-logging-fluentd","LocalVolumes":"0","Mounts":"/usr/local/j...","Names":"jarch-infra-logging-fluentd.2.q22seyzoqwv8mzqwfmp11mqlb","Networks":"ingress,jarch-infra-logging-network,jarch-infra-logging-proxy-traefik-network","Ports":"5140/tcp, 24224/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+ 
+++++Docker Engine Details for 	Instance:  54.165.70.97
+
+ 
+++++Docker Engine Details for 	Instance:  52.55.212.255
+
+ 
+++++Docker Engine Details for 	Instance:  54.208.105.78
+{"Command":"\"/bin/tini -- /usr...\"","CreatedAt":"2017-06-04 14:37:00 +0000 UTC","ID":"5c819441be89","Image":"jenkins:latest","Labels":"com.docker.swarm.task=,com.docker.swarm.task.id=j98jz1d7hb5l6uq4afc0n8r91,com.docker.swarm.task.name=jarch-infra-build-jenkins.1.j98jz1d7hb5l6uq4afc0n8r91,com.docker.swarm.node.id=lex68k2z3nw2nmic42qt4jaml,com.docker.swarm.service.id=nctu98g8tylgyisg45y28ypro,com.docker.swarm.service.name=jarch-infra-build-jenkins","LocalVolumes":"0","Mounts":"/usr/local/j...","Names":"jarch-infra-build-jenkins.1.j98jz1d7hb5l6uq4afc0n8r91","Networks":"jarch-proxy-traefik-network,ingress","Ports":"8080/tcp, 50000/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+ 
+++++Docker Engine Details for 	Instance:  52.71.119.41
+{"Command":"\"/entrypoint.sh /e...\"","CreatedAt":"2017-06-04 14:36:23 +0000 UTC","ID":"29e9cfe1eb74","Image":"registry:2","Labels":"com.docker.swarm.node.id=5bl5iuqebipyvh2yzevu5jaoa,com.docker.swarm.service.id=mkj1uv36xaz9ydm0o3ooe99lx,com.docker.swarm.service.name=jarch-infra-docker-registry,com.docker.swarm.task=,com.docker.swarm.task.id=er30ahnkmf4utg7aib3d89nk0,com.docker.swarm.task.name=jarch-infra-docker-registry.1.er30ahnkmf4utg7aib3d89nk0","LocalVolumes":"0","Mounts":"/usr/local/j...,/usr/local/j...","Names":"jarch-infra-docker-registry.1.er30ahnkmf4utg7aib3d89nk0","Networks":"ingress,jarch-proxy-traefik-network","Ports":"5000/tcp","RunningFor":"3 hours ago","Size":"0B","Status":"Up 3 hours"}
+ 

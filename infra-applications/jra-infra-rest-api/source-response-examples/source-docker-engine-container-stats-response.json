@@ -1,0 +1,59 @@
+++++Docker Engine Details for 	Instance:  34.200.252.92
+
+ 
+++++Docker Engine Details for 	Instance:  54.237.194.116
+
+ 
+++++Docker Engine Details for 	Instance:  52.23.241.112
+
+ 
+++++Docker Engine Details for 	Instance:  52.90.156.252
+
+ 
+++++Docker Engine Details for 	Instance:  54.165.245.122
+{"BlockIO":"406kB / 0B","CPUPerc":"0.05%","Container":"4f5bf963469e","ID":"4f5bf963469e461eceab979ed473e60b5b9e523e1abce254f58edc761260023b","MemPerc":"0.74%","MemUsage":"7.359MiB / 990.6MiB","Name":"jarch-infra-proxy-traefik.1.ruytlpf3dlr4fh7n9u4vpdst1","NetIO":"1.72MB / 876kB","PIDs":"7"}
+ 
+++++Docker Engine Details for 	Instance:  107.23.79.89
+{"BlockIO":"0B / 53.2kB","CPUPerc":"0.00%","Container":"4444a333a15b","ID":"4444a333a15b7d4bcbf2ed56b16d5474bd395c983dee756f65470b41afcb4507","MemPerc":"0.29%","MemUsage":"2.859MiB / 990.6MiB","Name":"jarch-infra-docker-ui-portainer.1.hijcypnjb1p9q2nloxdt3z6m0","NetIO":"2.16kB / 0B","PIDs":"3"}
+{"BlockIO":"0B / 0B","CPUPerc":"0.10%","Container":"7d86b2f5d8a2","ID":"7d86b2f5d8a2791126f551c1ece1371d2767aa9f86165f40dfa8972ae778dd26","MemPerc":"0.66%","MemUsage":"6.492MiB / 990.6MiB","Name":"jarch-infra-logging-proxy-traefik.1.ta1i1csrpeoesuf0z6bmqohrt","NetIO":"3.2MB / 1.68MB","PIDs":"7"}
+ 
+++++Docker Engine Details for 	Instance:  34.201.21.13
+
+ 
+++++Docker Engine Details for 	Instance:  34.200.249.234
+
+ 
+++++Docker Engine Details for 	Instance:  34.201.26.123
+{"BlockIO":"0B / 4.1kB","CPUPerc":"0.07%","Container":"2ec40738cb0e","ID":"2ec40738cb0ee3698d2bf4b8b094fa5f7eaf9810bac45431be8f2a619dfa0571","MemPerc":"1.60%","MemUsage":"63.07MiB / 3.858GiB","Name":"jarch-infra-logging-kibana.1.ivya9416akop2in5tkf2ogmt7","NetIO":"7.05MB / 6.25MB","PIDs":"11"}
+{"BlockIO":"0B / 0B","CPUPerc":"0.05%","Container":"2959b7312ff5","ID":"2959b7312ff59672c5c6f0bf0b65437a55db4d942526d772990bc1936371684a","MemPerc":"1.18%","MemUsage":"46.62MiB / 3.858GiB","Name":"jarch-infra-logging-fluentd.3.dd20zfpbi750r7pd39s4i02qh","NetIO":"890B / 0B","PIDs":"9"}
+ 
+++++Docker Engine Details for 	Instance:  54.145.159.93
+
+ 
+++++Docker Engine Details for 	Instance:  52.23.227.1
+
+ 
+++++Docker Engine Details for 	Instance:  184.73.43.101
+{"BlockIO":"0B / 0B","CPUPerc":"0.00%","Container":"7cdd08c851ac","ID":"7cdd08c851ac0c7efdce2d654b7dc54bab3e18aa2144c50cb325120e8e679c45","MemPerc":"6.38%","MemUsage":"63.18MiB / 990.6MiB","Name":"jarch-infra-docker-ui-visualizer.1.epd2bkpcb1ekmximsa6uamgcr","NetIO":"744B / 0B","PIDs":"15"}
+ 
+++++Docker Engine Details for 	Instance:  34.204.100.97
+{"BlockIO":"65.5kB / 655kB","CPUPerc":"0.57%","Container":"4942214a8186","ID":"4942214a8186994828c4b0e7902f044a7b41644d638f4f1931bf114d695a3136","MemPerc":"59.35%","MemUsage":"2.29GiB / 3.858GiB","Name":"jarch-infra-logging-elasticsearch.1.tm6lfequfdwq6tkogdyjb04ga","NetIO":"20.4MB / 21.8MB","PIDs":"48"}
+{"BlockIO":"0B / 4.1kB","CPUPerc":"0.36%","Container":"37dd2f904d8f","ID":"37dd2f904d8fb75035c183cab85ea914212687f777aeff1d244a3263a4f37c78","MemPerc":"1.58%","MemUsage":"62.51MiB / 3.858GiB","Name":"jarch-infra-logging-kibana.2.ivlzx4elnlu3lqukx3nifmyb1","NetIO":"7.35MB / 7.06MB","PIDs":"11"}
+{"BlockIO":"0B / 0B","CPUPerc":"0.07%","Container":"cf5df83845a3","ID":"cf5df83845a3ce5bc56fe58a02aa2f1626e5cb740a7ef73accd98dd9f82d880a","MemPerc":"1.19%","MemUsage":"47.09MiB / 3.858GiB","Name":"jarch-infra-logging-fluentd.1.8maem8l7tf5lj1r8smy8d9oz6","NetIO":"8.75kB / 7.04kB","PIDs":"9"}
+ 
+++++Docker Engine Details for 	Instance:  54.196.17.50
+{"BlockIO":"0B / 4.1kB","CPUPerc":"0.01%","Container":"f782228e88fb","ID":"f782228e88fb6a457ef20a9c5466bb19f9124dc7ca3c791997479c18ad3aa36f","MemPerc":"1.63%","MemUsage":"64.4MiB / 3.858GiB","Name":"jarch-infra-logging-kibana.3.q7852j4jhku2e4h0mw4xxmgvl","NetIO":"7.35MB / 7.06MB","PIDs":"11"}
+{"BlockIO":"0B / 0B","CPUPerc":"0.05%","Container":"b72d8a9be376","ID":"b72d8a9be376b433f87e292853e094463925187d2f6705085086f143bf16375e","MemPerc":"1.20%","MemUsage":"47.45MiB / 3.858GiB","Name":"jarch-infra-logging-fluentd.2.q22seyzoqwv8mzqwfmp11mqlb","NetIO":"57.5kB / 49.3kB","PIDs":"9"}
+ 
+++++Docker Engine Details for 	Instance:  54.165.70.97
+
+ 
+++++Docker Engine Details for 	Instance:  52.55.212.255
+
+ 
+++++Docker Engine Details for 	Instance:  54.208.105.78
+{"BlockIO":"43.9MB / 19.6MB","CPUPerc":"0.10%","Container":"5c819441be89","ID":"5c819441be890b09517c09c11dee1d3db59209bf47bb4c2fe5cf1f7739065b16","MemPerc":"33.31%","MemUsage":"329.9MiB / 990.6MiB","Name":"jarch-infra-build-jenkins.1.j98jz1d7hb5l6uq4afc0n8r91","NetIO":"2.84MB / 53.7kB","PIDs":"33"}
+ 
+++++Docker Engine Details for 	Instance:  52.71.119.41
+{"BlockIO":"0B / 0B","CPUPerc":"0.00%","Container":"29e9cfe1eb74","ID":"29e9cfe1eb745257a96965371832fc5b599bbb2539750e570300da583884f230","MemPerc":"0.32%","MemUsage":"3.125MiB / 990.6MiB","Name":"jarch-infra-docker-registry.1.er30ahnkmf4utg7aib3d89nk0","NetIO":"3.56kB / 0B","PIDs":"6"}
+ 

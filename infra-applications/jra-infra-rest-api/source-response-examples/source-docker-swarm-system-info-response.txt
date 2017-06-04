@@ -1,0 +1,80 @@
+Containers: 1
+ Running: 1
+ Paused: 0
+ Stopped: 0
+Images: 1
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 4
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: lylcdytdzolboh45pe8fklf5n
+ Is Manager: true
+ ClusterID: 204bqax8o0px09rjdvsyfhkmb
+ Managers: 3
+ Nodes: 18
+ Orchestration:
+  Task History Retention Limit: 5
+ Raft:
+  Snapshot Interval: 10000
+  Number of Old Snapshots to Retain: 0
+  Heartbeat Tick: 1
+  Election Tick: 3
+ Dispatcher:
+  Heartbeat Period: 5 seconds
+ CA Configuration:
+  Expiry Duration: 3 months
+ Node Address: 10.0.1.231
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-1-231
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.swarm-node-name=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1a
+ jra.instance-name=infra-swarm-manager-us-east-1-az-1
+ jra.instance-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1a
+ jra.swarm-node-name=infra-swarm-manager-us-east-1-az-1
+ jra.swarm-node-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1a
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-1
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-manager
+ jra.swarm-node-type=infra-swarm-manager
+ jra.swarm-manager-node-type=swarm-leader
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+

@@ -1,0 +1,1216 @@
+++++Docker Engine Details for 	Instance:  34.200.252.92
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: f5zucdn6cnkpylmkkf50jjios
+ Is Manager: false
+ Node Address: 10.0.3.121
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-3-121
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=app-api-service-us-east-1-az-2
+ jra.instance-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b
+ jra.swarm-node-name=app-api-service-us-east-1-az-2
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-2
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=app-api-service
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  54.237.194.116
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: u671sf35l67ncc5y5i1hfj47r
+ Is Manager: false
+ Node Address: 10.0.5.175
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-5-175
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=infra-build-us-east-1-az-3
+ jra.instance-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1c
+ jra.swarm-node-name=infra-build-us-east-1-az-3
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1c
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-3
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=infra-build
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  52.23.241.112
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: 2h65knajmwmbqo5j31he79of2
+ Is Manager: false
+ Node Address: 10.0.5.187
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-5-187
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=app-api-service-us-east-1-az-3
+ jra.instance-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1c
+ jra.swarm-node-name=app-api-service-us-east-1-az-3
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1c
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-3
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=app-api-service
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  52.90.156.252
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: qh3dxpf4tniv4xwpdtmajuiov
+ Is Manager: false
+ Node Address: 10.0.0.208
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-0-208
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=app-ui-web-us-east-1-az-1
+ jra.instance-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1a
+ jra.swarm-node-name=app-ui-web-us-east-1-az-1
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1a
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-1
+ jra.subnet-type=public
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=app-ui-web
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  54.165.245.122
+Containers: 1
+ Running: 1
+ Paused: 0
+ Stopped: 0
+Images: 1
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 4
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: lylcdytdzolboh45pe8fklf5n
+ Is Manager: true
+ ClusterID: 204bqax8o0px09rjdvsyfhkmb
+ Managers: 3
+ Nodes: 18
+ Orchestration:
+  Task History Retention Limit: 5
+ Raft:
+  Snapshot Interval: 10000
+  Number of Old Snapshots to Retain: 0
+  Heartbeat Tick: 1
+  Election Tick: 3
+ Dispatcher:
+  Heartbeat Period: 5 seconds
+ CA Configuration:
+  Expiry Duration: 3 months
+ Node Address: 10.0.1.231
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-1-231
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.swarm-node-name=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1a
+ jra.instance-name=infra-swarm-manager-us-east-1-az-1
+ jra.instance-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1a
+ jra.swarm-node-name=infra-swarm-manager-us-east-1-az-1
+ jra.swarm-node-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1a
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-1
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-manager
+ jra.swarm-node-type=infra-swarm-manager
+ jra.swarm-manager-node-type=swarm-leader
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  107.23.79.89
+Containers: 2
+ Running: 2
+ Paused: 0
+ Stopped: 0
+Images: 2
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 9
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: leheohkbf9cy9z9lxyixaoxoa
+ Is Manager: true
+ ClusterID: 204bqax8o0px09rjdvsyfhkmb
+ Managers: 3
+ Nodes: 18
+ Orchestration:
+  Task History Retention Limit: 5
+ Raft:
+  Snapshot Interval: 10000
+  Number of Old Snapshots to Retain: 0
+  Heartbeat Tick: 1
+  Election Tick: 3
+ Dispatcher:
+  Heartbeat Period: 5 seconds
+ CA Configuration:
+  Expiry Duration: 3 months
+ Node Address: 10.0.3.251
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-3-251
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=infra-swarm-manager-us-east-1-az-2
+ jra.instance-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1b
+ jra.swarm-node-name=infra-swarm-manager-us-east-1-az-2
+ jra.swarm-node-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1b
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-2
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-manager
+ jra.swarm-node-type=infra-swarm-manager
+ jra.swarm-manager-node-type=swarm-non-leader
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  34.201.21.13
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: n1j030msfn8j1uy46xgc3njx4
+ Is Manager: false
+ Node Address: 10.0.3.244
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-3-244
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=app-persistence-us-east-1-az-2
+ jra.instance-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1b
+ jra.swarm-node-name=app-persistence-us-east-1-az-2
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1b
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-2
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=app-persistence
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  34.200.249.234
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: yfyuqkgvv71wn8ar97mmxszml
+ Is Manager: false
+ Node Address: 10.0.2.221
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-2-221
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=app-ui-web-us-east-1-az-2
+ jra.instance-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1b
+ jra.swarm-node-name=app-ui-web-us-east-1-az-2
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1b
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-2
+ jra.subnet-type=public
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=app-ui-web
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  34.201.26.123
+Containers: 2
+ Running: 2
+ Paused: 0
+ Stopped: 0
+Images: 2
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 23
+ Dirperm1 Supported: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: 0cjihhjws5l3m95x2ldlum6ey
+ Is Manager: false
+ Node Address: 10.0.3.254
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 2
+Total Memory: 3.858GiB
+Name: ip-10-0-3-254
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=infra-logging-us-east-1-az-2
+ jra.instance-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1b
+ jra.swarm-node-name=infra-logging-us-east-1-az-2
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1b
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-2
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=infra-logging
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  54.145.159.93
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: pbcj91k7dm43omlc825jhj1hn
+ Is Manager: false
+ Node Address: 10.0.5.52
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-5-52
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=app-persistence-us-east-1-az-3
+ jra.instance-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1c
+ jra.swarm-node-name=app-persistence-us-east-1-az-3
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1c
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-3
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=app-persistence
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  52.23.227.1
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: kvqyi05hp6gd5rz9j1w9f7h99
+ Is Manager: false
+ Node Address: 10.0.4.136
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-4-136
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=app-ui-web-us-east-1-az-3
+ jra.instance-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1c
+ jra.swarm-node-name=app-ui-web-us-east-1-az-3
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1c
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-3
+ jra.subnet-type=public
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=app-ui-web
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  184.73.43.101
+Containers: 1
+ Running: 1
+ Paused: 0
+ Stopped: 0
+Images: 1
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 15
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: noomifav7kxn7jajzg9vpjgl1
+ Is Manager: true
+ ClusterID: 204bqax8o0px09rjdvsyfhkmb
+ Managers: 3
+ Nodes: 18
+ Orchestration:
+  Task History Retention Limit: 5
+ Raft:
+  Snapshot Interval: 10000
+  Number of Old Snapshots to Retain: 0
+  Heartbeat Tick: 1
+  Election Tick: 3
+ Dispatcher:
+  Heartbeat Period: 5 seconds
+ CA Configuration:
+  Expiry Duration: 3 months
+ Node Address: 10.0.5.90
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-5-90
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=infra-swarm-manager-us-east-1-az-3
+ jra.instance-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1c
+ jra.swarm-node-name=infra-swarm-manager-us-east-1-az-3
+ jra.swarm-node-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1c
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-3
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-manager
+ jra.swarm-node-type=infra-swarm-manager
+ jra.swarm-manager-node-type=swarm-non-leader
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  34.204.100.97
+Containers: 3
+ Running: 3
+ Paused: 0
+ Stopped: 0
+Images: 3
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 39
+ Dirperm1 Supported: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: yhwa2n8cev7b3vy39kcyd946d
+ Is Manager: false
+ Node Address: 10.0.1.196
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 2
+Total Memory: 3.858GiB
+Name: ip-10-0-1-196
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=infra-logging-us-east-1-az-1
+ jra.instance-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1a
+ jra.swarm-node-name=infra-logging-us-east-1-az-1
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1a
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-1
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=infra-logging
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  54.196.17.50
+Containers: 2
+ Running: 2
+ Paused: 0
+ Stopped: 0
+Images: 2
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 23
+ Dirperm1 Supported: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: okdq9jslh0m2iea9csrx15xd3
+ Is Manager: false
+ Node Address: 10.0.5.93
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 2
+Total Memory: 3.858GiB
+Name: ip-10-0-5-93
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=infra-logging-us-east-1-az-3
+ jra.instance-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1c
+ jra.swarm-node-name=infra-logging-us-east-1-az-3
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1c
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-3
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=infra-logging
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  54.165.70.97
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: tbzmhj0wkq85uhbx0koxo7rmi
+ Is Manager: false
+ Node Address: 10.0.1.151
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-1-151
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=app-api-service-us-east-1-az-1
+ jra.instance-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1a
+ jra.swarm-node-name=app-api-service-us-east-1-az-1
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1a
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-1
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=app-api-service
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  52.55.212.255
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: 1j4jdy6sksx253engijrnzz47
+ Is Manager: false
+ Node Address: 10.0.1.171
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-1-171
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=app-persistence-us-east-1-az-1
+ jra.instance-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1a
+ jra.swarm-node-name=app-persistence-us-east-1-az-1
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1a
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-1
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=app-persistence
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  54.208.105.78
+Containers: 1
+ Running: 1
+ Paused: 0
+ Stopped: 0
+Images: 1
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 22
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: lex68k2z3nw2nmic42qt4jaml
+ Is Manager: false
+ Node Address: 10.0.1.39
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-1-39
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=infra-build-us-east-1-az-1
+ jra.instance-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1a
+ jra.swarm-node-name=infra-build-us-east-1-az-1
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1a
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-1
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=infra-build
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 
+++++Docker Engine Details for 	Instance:  52.71.119.41
+Containers: 1
+ Running: 1
+ Paused: 0
+ Stopped: 0
+Images: 1
+Server Version: 17.05.0-ce-rc3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 7
+ Dirperm1 Supported: true
+Logging Driver: fluentd
+Cgroup Driver: cgroupfs
+Plugins: 
+ Volume: local
+ Network: bridge host ipvlan macvlan null overlay
+Swarm: active
+ NodeID: 5bl5iuqebipyvh2yzevu5jaoa
+ Is Manager: false
+ Node Address: 10.0.3.12
+ Manager Addresses:
+  10.0.1.231:2377
+  10.0.3.251:2377
+  10.0.5.90:2377
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 9048e5e50717ea4497b757314bad98ea3763c145
+runc version: 9c2d8d184e5da67c95d601382adf14862e4f2228
+init version: 949e6fa
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.4.0-78-generic
+Operating System: Ubuntu 16.04.1 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.6MiB
+Name: ip-10-0-3-12
+ID: YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+ jra.instance-name=infra-build-us-east-1-az-2
+ jra.instance-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1b
+ jra.swarm-node-name=infra-build-us-east-1-az-2
+ jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1b
+ jra.environment=qa1
+ jra.environment-size=small
+ jra.environment-type=latest
+ jra.environment-instance-id=lRGNBkaDBSE
+ jra.failure-zone=us-east-1-az-2
+ jra.subnet-type=private
+ jra.swarm-instance-type=swarm-worker
+ jra.swarm-node-type=infra-build
+Experimental: true
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+ 

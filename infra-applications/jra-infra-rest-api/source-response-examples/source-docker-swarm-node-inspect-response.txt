@@ -1,0 +1,810 @@
+ID:			0cjihhjws5l3m95x2ldlum6ey
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-2
+ - jra.instance-name=infra-logging-us-east-1-az-2
+ - jra.instance-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1b
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=infra-logging-us-east-1-az-2
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1b
+ - jra.swarm-node-type=infra-logging
+Hostname:              	ip-10-0-3-254
+Joined at:             	2017-06-04 14:27:36.327749548 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.3.254
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			2
+ Memory:		3.858GiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-2
+ - jra.instance-name=infra-logging-us-east-1-az-2
+ - jra.instance-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1b
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=infra-logging-us-east-1-az-2
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1b
+ - jra.swarm-node-type=infra-logging
+
+ID:			1j4jdy6sksx253engijrnzz47
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-1
+ - jra.instance-name=app-persistence-us-east-1-az-1
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1a
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-persistence-us-east-1-az-1
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1a
+ - jra.swarm-node-type=app-persistence
+Hostname:              	ip-10-0-1-171
+Joined at:             	2017-06-04 14:27:39.13352904 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.1.171
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-1
+ - jra.instance-name=app-persistence-us-east-1-az-1
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1a
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-persistence-us-east-1-az-1
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1a
+ - jra.swarm-node-type=app-persistence
+
+ID:			2h65knajmwmbqo5j31he79of2
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-3
+ - jra.instance-name=app-api-service-us-east-1-az-3
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1c
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-api-service-us-east-1-az-3
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1c
+ - jra.swarm-node-type=app-api-service
+Hostname:              	ip-10-0-5-187
+Joined at:             	2017-06-04 14:27:33.642539934 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.5.187
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-3
+ - jra.instance-name=app-api-service-us-east-1-az-3
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1c
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-api-service-us-east-1-az-3
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1c
+ - jra.swarm-node-type=app-api-service
+
+ID:			5bl5iuqebipyvh2yzevu5jaoa
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-2
+ - jra.instance-name=infra-build-us-east-1-az-2
+ - jra.instance-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1b
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=infra-build-us-east-1-az-2
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1b
+ - jra.swarm-node-type=infra-build
+Hostname:              	ip-10-0-3-12
+Joined at:             	2017-06-04 14:27:39.30507521 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.3.12
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-2
+ - jra.instance-name=infra-build-us-east-1-az-2
+ - jra.instance-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1b
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=infra-build-us-east-1-az-2
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1b
+ - jra.swarm-node-type=infra-build
+
+ID:			f5zucdn6cnkpylmkkf50jjios
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-2
+ - jra.instance-name=app-api-service-us-east-1-az-2
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-api-service-us-east-1-az-2
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b
+ - jra.swarm-node-type=app-api-service
+Hostname:              	ip-10-0-3-121
+Joined at:             	2017-06-04 14:27:33.305526815 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.3.121
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-2
+ - jra.instance-name=app-api-service-us-east-1-az-2
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-api-service-us-east-1-az-2
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b
+ - jra.swarm-node-type=app-api-service
+
+ID:			kvqyi05hp6gd5rz9j1w9f7h99
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-3
+ - jra.instance-name=app-ui-web-us-east-1-az-3
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1c
+ - jra.subnet-type=public
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-ui-web-us-east-1-az-3
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1c
+ - jra.swarm-node-type=app-ui-web
+Hostname:              	ip-10-0-4-136
+Joined at:             	2017-06-04 14:27:36.550690857 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.4.136
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-3
+ - jra.instance-name=app-ui-web-us-east-1-az-3
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1c
+ - jra.subnet-type=public
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-ui-web-us-east-1-az-3
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1c
+ - jra.swarm-node-type=app-ui-web
+
+ID:			leheohkbf9cy9z9lxyixaoxoa
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-2
+ - jra.instance-name=infra-swarm-manager-us-east-1-az-2
+ - jra.instance-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1b
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-manager
+ - jra.swarm-manager-node-type=swarm-non-leader
+ - jra.swarm-node-name=infra-swarm-manager-us-east-1-az-2
+ - jra.swarm-node-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1b
+ - jra.swarm-node-type=infra-swarm-manager
+Hostname:              	ip-10-0-3-251
+Joined at:             	2017-06-04 14:27:16.904617732 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.3.251
+Manager Status:
+ Address:		10.0.3.251:2377
+ Raft Status:		Reachable
+ Leader:		No
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-2
+ - jra.instance-name=infra-swarm-manager-us-east-1-az-2
+ - jra.instance-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1b
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-manager
+ - jra.swarm-manager-node-type=swarm-non-leader
+ - jra.swarm-node-name=infra-swarm-manager-us-east-1-az-2
+ - jra.swarm-node-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1b
+ - jra.swarm-node-type=infra-swarm-manager
+
+ID:			lex68k2z3nw2nmic42qt4jaml
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-1
+ - jra.instance-name=infra-build-us-east-1-az-1
+ - jra.instance-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1a
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=infra-build-us-east-1-az-1
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1a
+ - jra.swarm-node-type=infra-build
+Hostname:              	ip-10-0-1-39
+Joined at:             	2017-06-04 14:27:39.405205685 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.1.39
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-1
+ - jra.instance-name=infra-build-us-east-1-az-1
+ - jra.instance-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1a
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=infra-build-us-east-1-az-1
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1a
+ - jra.swarm-node-type=infra-build
+
+ID:			lylcdytdzolboh45pe8fklf5n
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-1
+ - jra.instance-name=infra-swarm-manager-us-east-1-az-1
+ - jra.instance-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1a
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-manager
+ - jra.swarm-manager-node-type=swarm-leader
+ - jra.swarm-node-name=infra-swarm-manager-us-east-1-az-1
+ - jra.swarm-node-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1a
+ - jra.swarm-node-type=infra-swarm-manager
+Hostname:              	ip-10-0-1-231
+Joined at:             	2017-06-04 14:27:00.566111641 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.1.231
+Manager Status:
+ Address:		10.0.1.231:2377
+ Raft Status:		Reachable
+ Leader:		Yes
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-1
+ - jra.instance-name=infra-swarm-manager-us-east-1-az-1
+ - jra.instance-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1a
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-manager
+ - jra.swarm-manager-node-type=swarm-leader
+ - jra.swarm-node-name=infra-swarm-manager-us-east-1-az-1
+ - jra.swarm-node-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1a
+ - jra.swarm-node-type=infra-swarm-manager
+
+ID:			n1j030msfn8j1uy46xgc3njx4
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-2
+ - jra.instance-name=app-persistence-us-east-1-az-2
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1b
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-persistence-us-east-1-az-2
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1b
+ - jra.swarm-node-type=app-persistence
+Hostname:              	ip-10-0-3-244
+Joined at:             	2017-06-04 14:27:33.506478857 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.3.244
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-2
+ - jra.instance-name=app-persistence-us-east-1-az-2
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1b
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-persistence-us-east-1-az-2
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1b
+ - jra.swarm-node-type=app-persistence
+
+ID:			noomifav7kxn7jajzg9vpjgl1
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-3
+ - jra.instance-name=infra-swarm-manager-us-east-1-az-3
+ - jra.instance-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1c
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-manager
+ - jra.swarm-manager-node-type=swarm-non-leader
+ - jra.swarm-node-name=infra-swarm-manager-us-east-1-az-3
+ - jra.swarm-node-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1c
+ - jra.swarm-node-type=infra-swarm-manager
+Hostname:              	ip-10-0-5-90
+Joined at:             	2017-06-04 14:27:16.915709554 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.5.90
+Manager Status:
+ Address:		10.0.5.90:2377
+ Raft Status:		Reachable
+ Leader:		No
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-3
+ - jra.instance-name=infra-swarm-manager-us-east-1-az-3
+ - jra.instance-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1c
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-manager
+ - jra.swarm-manager-node-type=swarm-non-leader
+ - jra.swarm-node-name=infra-swarm-manager-us-east-1-az-3
+ - jra.swarm-node-name-full=qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1c
+ - jra.swarm-node-type=infra-swarm-manager
+
+ID:			okdq9jslh0m2iea9csrx15xd3
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-3
+ - jra.instance-name=infra-logging-us-east-1-az-3
+ - jra.instance-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1c
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=infra-logging-us-east-1-az-3
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1c
+ - jra.swarm-node-type=infra-logging
+Hostname:              	ip-10-0-5-93
+Joined at:             	2017-06-04 14:27:39.003077546 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.5.93
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			2
+ Memory:		3.858GiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-3
+ - jra.instance-name=infra-logging-us-east-1-az-3
+ - jra.instance-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1c
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=infra-logging-us-east-1-az-3
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1c
+ - jra.swarm-node-type=infra-logging
+
+ID:			pbcj91k7dm43omlc825jhj1hn
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-3
+ - jra.instance-name=app-persistence-us-east-1-az-3
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1c
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-persistence-us-east-1-az-3
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1c
+ - jra.swarm-node-type=app-persistence
+Hostname:              	ip-10-0-5-52
+Joined at:             	2017-06-04 14:27:36.458911146 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.5.52
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-3
+ - jra.instance-name=app-persistence-us-east-1-az-3
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1c
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-persistence-us-east-1-az-3
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-persistence.qa1.us-east-1c
+ - jra.swarm-node-type=app-persistence
+
+ID:			qh3dxpf4tniv4xwpdtmajuiov
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-1
+ - jra.instance-name=app-ui-web-us-east-1-az-1
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1a
+ - jra.subnet-type=public
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-ui-web-us-east-1-az-1
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1a
+ - jra.swarm-node-type=app-ui-web
+Hostname:              	ip-10-0-0-208
+Joined at:             	2017-06-04 14:27:33.667590052 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.0.208
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-1
+ - jra.instance-name=app-ui-web-us-east-1-az-1
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1a
+ - jra.subnet-type=public
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-ui-web-us-east-1-az-1
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1a
+ - jra.swarm-node-type=app-ui-web
+
+ID:			tbzmhj0wkq85uhbx0koxo7rmi
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-1
+ - jra.instance-name=app-api-service-us-east-1-az-1
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1a
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-api-service-us-east-1-az-1
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1a
+ - jra.swarm-node-type=app-api-service
+Hostname:              	ip-10-0-1-151
+Joined at:             	2017-06-04 14:27:39.087294597 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.1.151
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-1
+ - jra.instance-name=app-api-service-us-east-1-az-1
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1a
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-api-service-us-east-1-az-1
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1a
+ - jra.swarm-node-type=app-api-service
+
+ID:			u671sf35l67ncc5y5i1hfj47r
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-3
+ - jra.instance-name=infra-build-us-east-1-az-3
+ - jra.instance-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1c
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=infra-build-us-east-1-az-3
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1c
+ - jra.swarm-node-type=infra-build
+Hostname:              	ip-10-0-5-175
+Joined at:             	2017-06-04 14:27:33.410740402 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.5.175
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-3
+ - jra.instance-name=infra-build-us-east-1-az-3
+ - jra.instance-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1c
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=infra-build-us-east-1-az-3
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1c
+ - jra.swarm-node-type=infra-build
+
+ID:			yfyuqkgvv71wn8ar97mmxszml
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-2
+ - jra.instance-name=app-ui-web-us-east-1-az-2
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1b
+ - jra.subnet-type=public
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-ui-web-us-east-1-az-2
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1b
+ - jra.swarm-node-type=app-ui-web
+Hostname:              	ip-10-0-2-221
+Joined at:             	2017-06-04 14:27:36.224264871 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.2.221
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			1
+ Memory:		990.6MiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-2
+ - jra.instance-name=app-ui-web-us-east-1-az-2
+ - jra.instance-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1b
+ - jra.subnet-type=public
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=app-ui-web-us-east-1-az-2
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1b
+ - jra.swarm-node-type=app-ui-web
+
+ID:			yhwa2n8cev7b3vy39kcyd946d
+Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-1
+ - jra.instance-name=infra-logging-us-east-1-az-1
+ - jra.instance-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1a
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=infra-logging-us-east-1-az-1
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1a
+ - jra.swarm-node-type=infra-logging
+Hostname:              	ip-10-0-1-196
+Joined at:             	2017-06-04 14:27:36.531743788 +0000 utc
+Status:
+ State:			Ready
+ Availability:         	Active
+ Address:		10.0.1.196
+Platform:
+ Operating System:	linux
+ Architecture:		x86_64
+Resources:
+ CPUs:			2
+ Memory:		3.858GiB
+Plugins:
+ Network:		bridge, host, ipvlan, macvlan, null, overlay
+ Volume:		local
+Engine Version:		17.05.0-ce-rc3
+Engine Labels:
+ - jra.environment=qa1
+ - jra.environment-instance-id=lRGNBkaDBSE
+ - jra.environment-size=small
+ - jra.environment-type=latest
+ - jra.failure-zone=us-east-1-az-1
+ - jra.instance-name=infra-logging-us-east-1-az-1
+ - jra.instance-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1a
+ - jra.subnet-type=private
+ - jra.swarm-instance-type=swarm-worker
+ - jra.swarm-node-name=infra-logging-us-east-1-az-1
+ - jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-logging.qa1.us-east-1a
+ - jra.swarm-node-type=infra-logging
+

@@ -1,0 +1,10 @@
+ID                  NAME                                MODE                REPLICAS            IMAGE                                            PORTS
+2er0hb4nq6uj        jarch-infra-logging-elasticsearch   replicated          1/1                 elasticsearch:latest                             *:8191->9200/tcp,*:8192->9300/tcp
+g2p9puclkywn        jarch-infra-logging-proxy-traefik   replicated          1/1                 traefik:v1.1.0                                   *:81->80/tcp,*:8188->8080/tcp
+gqal20wda5r1        jarch-infra-proxy-traefik           replicated          1/1                 traefik:v1.1.0                                   *:80->80/tcp,*:8388->8080/tcp
+mkj1uv36xaz9        jarch-infra-docker-registry         replicated          1/1                 registry:2                                       *:8183->5000/tcp
+nctu98g8tylg        jarch-infra-build-jenkins           replicated          1/1                 jenkins:latest                                   *:8180->8080/tcp
+pae9t6o9uxhu        jarch-infra-logging-fluentd         replicated          3/3                 joericearchitect/jarch-infra-fluentd-es:latest   *:8282->24224/tcp
+u658s79hdn23        jarch-infra-docker-ui-portainer     replicated          1/1                 portainer/portainer:latest                       *:8184->9000/tcp
+wk3myyh5bhk4        jarch-infra-logging-kibana          replicated          3/3                 kibana:latest                                    *:8187->5601/tcp
+yeuuknp4jh96        jarch-infra-docker-ui-visualizer    replicated          1/1                 manomarks/visualizer:latest                      *:8190->8080/tcp

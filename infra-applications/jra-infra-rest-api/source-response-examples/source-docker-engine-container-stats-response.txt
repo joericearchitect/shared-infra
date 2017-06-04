@@ -1,0 +1,67 @@
+++++Docker Engine Details for 	Instance:  34.200.252.92
+
+ 
+++++Docker Engine Details for 	Instance:  54.237.194.116
+
+ 
+++++Docker Engine Details for 	Instance:  52.23.241.112
+
+ 
+++++Docker Engine Details for 	Instance:  52.90.156.252
+
+ 
+++++Docker Engine Details for 	Instance:  54.165.245.122
+CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+4f5bf963469e        0.01%               7.359MiB / 990.6MiB   0.74%               1.72MB / 876kB      406kB / 0B          7
+ 
+++++Docker Engine Details for 	Instance:  107.23.79.89
+CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+4444a333a15b        0.00%               2.859MiB / 990.6MiB   0.29%               2.16kB / 0B         0B / 53.2kB         3
+7d86b2f5d8a2        0.01%               6.492MiB / 990.6MiB   0.66%               3.2MB / 1.68MB      0B / 0B             7
+ 
+++++Docker Engine Details for 	Instance:  34.201.21.13
+
+ 
+++++Docker Engine Details for 	Instance:  34.200.249.234
+
+ 
+++++Docker Engine Details for 	Instance:  34.201.26.123
+CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+2ec40738cb0e        0.33%               63.45MiB / 3.858GiB   1.61%               7.05MB / 6.25MB     0B / 4.1kB          11
+2959b7312ff5        0.06%               46.62MiB / 3.858GiB   1.18%               890B / 0B           0B / 0B             9
+ 
+++++Docker Engine Details for 	Instance:  54.145.159.93
+
+ 
+++++Docker Engine Details for 	Instance:  52.23.227.1
+
+ 
+++++Docker Engine Details for 	Instance:  184.73.43.101
+CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+7cdd08c851ac        0.00%               63.18MiB / 990.6MiB   6.38%               744B / 0B           0B / 0B             15
+ 
+++++Docker Engine Details for 	Instance:  34.204.100.97
+CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+4942214a8186        0.34%               2.29GiB / 3.858GiB    59.35%              20.4MB / 21.8MB     65.5kB / 655kB      48
+37dd2f904d8f        0.00%               62.7MiB / 3.858GiB    1.59%               7.35MB / 7.06MB     0B / 4.1kB          11
+cf5df83845a3        0.08%               47.09MiB / 3.858GiB   1.19%               8.75kB / 7.04kB     0B / 0B             9
+ 
+++++Docker Engine Details for 	Instance:  54.196.17.50
+CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+f782228e88fb        0.41%               63.82MiB / 3.858GiB   1.62%               7.36MB / 7.06MB     0B / 4.1kB          11
+b72d8a9be376        0.05%               47.45MiB / 3.858GiB   1.20%               57.5kB / 49.3kB     0B / 0B             9
+ 
+++++Docker Engine Details for 	Instance:  54.165.70.97
+
+ 
+++++Docker Engine Details for 	Instance:  52.55.212.255
+
+ 
+++++Docker Engine Details for 	Instance:  54.208.105.78
+CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+5c819441be89        0.06%               329.9MiB / 990.6MiB   33.31%              2.84MB / 53.7kB     43.9MB / 19.6MB     33
+ 
+++++Docker Engine Details for 	Instance:  52.71.119.41
+CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+29e9cfe1eb74        0.00%               3.125MiB / 990.6MiB   0.32%               3.56kB / 0B         0B / 0B             6
+ 

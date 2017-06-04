@@ -12,10 +12,6 @@
 
 SWARM_MANAGER_NODE="$(infra-swarm-list-manager-ips.sh single)"
 
-echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-echo +  ssh into this manager node:
-echo +   -   $SWARM_MANAGER_NODE
-echo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ssh-aws.sh $SWARM_MANAGER_NODE "$1"
 
 

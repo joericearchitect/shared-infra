@@ -1,0 +1,9 @@
+NETWORK ID          NAME                                        DRIVER              SCOPE
+0d203b5e37d1        bridge                                      bridge              local
+2f9beed981dc        docker_gwbridge                             bridge              local
+284e624a9d06        host                                        host                local
+fyjinunyjxpp        ingress                                     overlay             swarm
+4b159zozi6o2        jarch-infra-logging-network                 overlay             swarm
+07i8kpwiyzt9        jarch-infra-logging-proxy-traefik-network   overlay             swarm
+zpwahcxkew92        jarch-proxy-traefik-network                 overlay             swarm
+063c256d32bd        none                                        null                local

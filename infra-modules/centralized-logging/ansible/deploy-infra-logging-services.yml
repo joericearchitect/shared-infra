@@ -76,12 +76,12 @@
   tasks:
     - name: create the elasticsearch mount directory if it doesn't already exist
       shell: >
-        sudo mkdir -p sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data
+        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data
       ignore_errors: yes
 
     - name: create the elasticsearch mount directory if it doesn't already exist
       shell: >
-        sudo mkdir -p sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data
+        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data
       ignore_errors: yes
 
     - name: make sure the processes running inside containers have access to the directories

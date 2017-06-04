@@ -1,0 +1,1143 @@
+[
+    {
+        "ID": "2er0hb4nq6ujaduvgrweljjx7",
+        "Version": {
+            "Index": 197
+        },
+        "CreatedAt": "2017-06-04T14:29:13.23302144Z",
+        "UpdatedAt": "2017-06-04T14:33:32.002723835Z",
+        "Spec": {
+            "Name": "jarch-infra-logging-elasticsearch",
+            "Labels": {
+                "jra.application-name": "jarch-infra-logging-elasticsearch",
+                "jra.container-name": "jarch-infra-logging-elasticsearch",
+                "jra.domain-name": "qa1.es.joericearchitect.info",
+                "jra.environment-flip": "blue",
+                "traefik.docker.network": "jarch-infra-logging-proxy-traefik-network",
+                "traefik.frontend.rule": "Host:qa1.es.joericearchitect.info",
+                "traefik.port": "9200"
+            },
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "elasticsearch:latest@sha256:b8697c807aa65316714a5074ef039c42e6c4b400a6986c18b9a88ef37636acbc",
+                    "Args": [
+                        "elasticsearch"
+                    ],
+                    "Mounts": [
+                        {
+                            "Type": "bind",
+                            "Source": "/usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data",
+                            "Target": "/data"
+                        }
+                    ],
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {}
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Constraints": [
+                        "node.labels.jra.swarm-node-type == infra-logging",
+                        "node.labels.jra.failure-zone == us-east-1-az-1"
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "07i8kpwiyzt96tv1bhg3m5lmp"
+                    },
+                    {
+                        "Target": "4b159zozi6o2x9fe7im6sx8zb"
+                    }
+                ],
+                "ForceUpdate": 0
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 1
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 9200,
+                        "PublishedPort": 8191,
+                        "PublishMode": "ingress"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 9300,
+                        "PublishedPort": 8192,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 9200,
+                        "PublishedPort": 8191,
+                        "PublishMode": "ingress"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 9300,
+                        "PublishedPort": 8192,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 9200,
+                    "PublishedPort": 8191,
+                    "PublishMode": "ingress"
+                },
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 9300,
+                    "PublishedPort": 8192,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "Addr": "10.255.0.22/16"
+                },
+                {
+                    "NetworkID": "07i8kpwiyzt96tv1bhg3m5lmp",
+                    "Addr": "10.0.0.4/24"
+                },
+                {
+                    "NetworkID": "4b159zozi6o2x9fe7im6sx8zb",
+                    "Addr": "10.0.1.2/24"
+                }
+            ]
+        }
+    },
+    {
+        "ID": "g2p9puclkywnf18mj920ozlmn",
+        "Version": {
+            "Index": 197
+        },
+        "CreatedAt": "2017-06-04T14:28:45.610728147Z",
+        "UpdatedAt": "2017-06-04T14:33:32.002770706Z",
+        "Spec": {
+            "Name": "jarch-infra-logging-proxy-traefik",
+            "Labels": {
+                "jra.application-name": "jarch-infra-logging-proxy-traefik",
+                "jra.container-name": "jarch-infra-logging-proxy-traefik",
+                "jra.domain-name": "qa1.logging-proxy.joericearchitect.info",
+                "jra.environment-flip": "blue",
+                "traefik.docker.network": "jarch-infra-logging-proxy-traefik-network",
+                "traefik.frontend.rule": "Host:qa1.logging-proxy.joericearchitect.info",
+                "traefik.port": "8080"
+            },
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "traefik:v1.1.0@sha256:8fd0e3ee0aca5a4019a981eae81c46c283c36e2463f2c04d7b144e672777cffe",
+                    "Args": [
+                        "--docker",
+                        "--docker.swarmmode",
+                        "--docker.domain=traefik",
+                        "--docker.watch",
+                        "--web"
+                    ],
+                    "Mounts": [
+                        {
+                            "Type": "bind",
+                            "Source": "/var/run/docker.sock",
+                            "Target": "/var/run/docker.sock"
+                        }
+                    ],
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {}
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Constraints": [
+                        "node.role == manager"
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "07i8kpwiyzt96tv1bhg3m5lmp"
+                    }
+                ],
+                "ForceUpdate": 0
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 1
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 80,
+                        "PublishedPort": 81,
+                        "PublishMode": "ingress"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 8080,
+                        "PublishedPort": 8188,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 80,
+                        "PublishedPort": 81,
+                        "PublishMode": "ingress"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 8080,
+                        "PublishedPort": 8188,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 80,
+                    "PublishedPort": 81,
+                    "PublishMode": "ingress"
+                },
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 8080,
+                    "PublishedPort": 8188,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "Addr": "10.255.0.20/16"
+                },
+                {
+                    "NetworkID": "07i8kpwiyzt96tv1bhg3m5lmp",
+                    "Addr": "10.0.0.2/24"
+                }
+            ]
+        }
+    },
+    {
+        "ID": "gqal20wda5r1fmz4j2kkevzmv",
+        "Version": {
+            "Index": 271
+        },
+        "CreatedAt": "2017-06-04T14:36:01.528371108Z",
+        "UpdatedAt": "2017-06-04T14:36:01.532736264Z",
+        "Spec": {
+            "Name": "jarch-infra-proxy-traefik",
+            "Labels": {
+                "jra.application-name": "jarch-infra-proxy-traefik",
+                "jra.container-name": "jarch-infra-proxy-traefik",
+                "jra.domain-name": "qa1.proxy.joericearchitect.info",
+                "jra.environment-flip": "blue",
+                "traefik.docker.network": "jarch-proxy-traefik-network",
+                "traefik.frontend.rule": "Host:qa1.proxy.joericearchitect.info",
+                "traefik.port": "8080"
+            },
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "traefik:v1.1.0@sha256:8fd0e3ee0aca5a4019a981eae81c46c283c36e2463f2c04d7b144e672777cffe",
+                    "Args": [
+                        "--docker",
+                        "--docker.swarmmode",
+                        "--docker.domain=traefik",
+                        "--docker.watch",
+                        "--web"
+                    ],
+                    "Mounts": [
+                        {
+                            "Type": "bind",
+                            "Source": "/var/run/docker.sock",
+                            "Target": "/var/run/docker.sock"
+                        }
+                    ],
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {}
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Constraints": [
+                        "node.role == manager",
+                        "node.labels.jra.failure-zone == us-east-1-az-1"
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "zpwahcxkew92amuk2hzqjgptt"
+                    }
+                ],
+                "ForceUpdate": 0
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 1
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 80,
+                        "PublishedPort": 80,
+                        "PublishMode": "ingress"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 8080,
+                        "PublishedPort": 8388,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 80,
+                        "PublishedPort": 80,
+                        "PublishMode": "ingress"
+                    },
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 8080,
+                        "PublishedPort": 8388,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 80,
+                    "PublishedPort": 80,
+                    "PublishMode": "ingress"
+                },
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 8080,
+                    "PublishedPort": 8388,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "Addr": "10.255.0.32/16"
+                },
+                {
+                    "NetworkID": "zpwahcxkew92amuk2hzqjgptt",
+                    "Addr": "10.0.2.2/24"
+                }
+            ]
+        }
+    },
+    {
+        "ID": "mkj1uv36xaz9ydm0o3ooe99lx",
+        "Version": {
+            "Index": 279
+        },
+        "CreatedAt": "2017-06-04T14:36:21.291562797Z",
+        "UpdatedAt": "2017-06-04T14:36:21.296856663Z",
+        "Spec": {
+            "Name": "jarch-infra-docker-registry",
+            "Labels": {
+                "jra.application-name": "jarch-infra-docker-registry",
+                "jra.container-name": "jarch-infra-docker-registry",
+                "jra.domain-name": "qa1.docker.joericearchitect.info",
+                "jra.environment-flip": "blue",
+                "traefik.docker.network": "jarch-proxy-traefik-network",
+                "traefik.frontend.rule": "Host:qa1.docker.joericearchitect.info",
+                "traefik.port": "5000"
+            },
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "registry:2@sha256:a3551c422521617e86927c3ff57e05edf086f1648f4d8524633216ca363d06c2",
+                    "Mounts": [
+                        {
+                            "Type": "bind",
+                            "Source": "/usr/local/jra/docker-data-volumes/jra-infra/docker-registry/data",
+                            "Target": "/var/lib/registry"
+                        },
+                        {
+                            "Type": "bind",
+                            "Source": "/usr/local/jra/docker-data-volumes/jra-infra/docker-registry/certs",
+                            "Target": "/certs"
+                        }
+                    ],
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {}
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Constraints": [
+                        "node.labels.jra.swarm-node-type == infra-build"
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "zpwahcxkew92amuk2hzqjgptt"
+                    }
+                ],
+                "ForceUpdate": 0
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 1
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 5000,
+                        "PublishedPort": 8183,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 5000,
+                        "PublishedPort": 8183,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 5000,
+                    "PublishedPort": 8183,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "Addr": "10.255.0.34/16"
+                },
+                {
+                    "NetworkID": "zpwahcxkew92amuk2hzqjgptt",
+                    "Addr": "10.0.2.4/24"
+                }
+            ]
+        }
+    },
+    {
+        "ID": "nctu98g8tylgyisg45y28ypro",
+        "Version": {
+            "Index": 287
+        },
+        "CreatedAt": "2017-06-04T14:36:37.795177565Z",
+        "UpdatedAt": "2017-06-04T14:36:37.798863876Z",
+        "Spec": {
+            "Name": "jarch-infra-build-jenkins",
+            "Labels": {
+                "jra.application-name": "jarch-infra-build-jenkins",
+                "jra.container-name": "jarch-infra-build-jenkins",
+                "jra.domain-name": "qa1.build.joericearchitect.info",
+                "jra.environment-flip": "blue",
+                "traefik.docker.network": "jarch-proxy-traefik-network",
+                "traefik.frontend.rule": "Host:qa1.build.joericearchitect.info",
+                "traefik.port": "8080"
+            },
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "jenkins:latest@sha256:0e2b101c8802d0ef2de411e9b9b78a5c4403635d96210ab52ada882cea646369",
+                    "Mounts": [
+                        {
+                            "Type": "bind",
+                            "Source": "/usr/local/jra/docker-data-volumes/jra-infra/build-jenkins/home",
+                            "Target": "/var/jenkins_home"
+                        }
+                    ],
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {}
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Constraints": [
+                        "node.labels.jra.swarm-node-type == infra-build"
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "zpwahcxkew92amuk2hzqjgptt"
+                    }
+                ],
+                "ForceUpdate": 0
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 1
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 8080,
+                        "PublishedPort": 8180,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 8080,
+                        "PublishedPort": 8180,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 8080,
+                    "PublishedPort": 8180,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "Addr": "10.255.0.36/16"
+                },
+                {
+                    "NetworkID": "zpwahcxkew92amuk2hzqjgptt",
+                    "Addr": "10.0.2.6/24"
+                }
+            ]
+        }
+    },
+    {
+        "ID": "pae9t6o9uxhurp933wnpkg0wl",
+        "Version": {
+            "Index": 197
+        },
+        "CreatedAt": "2017-06-04T14:29:28.964045873Z",
+        "UpdatedAt": "2017-06-04T14:33:32.002794179Z",
+        "Spec": {
+            "Name": "jarch-infra-logging-fluentd",
+            "Labels": {
+                "jra.application-name": "jarch-infra-logging-fluentd",
+                "jra.container-name": "jarch-infra-logging-fluentd",
+                "jra.domain-name": "qa1.fluentd.joericearchitect.info",
+                "jra.environment-flip": "blue",
+                "traefik.docker.network": "jarch-infra-logging-proxy-traefik-network",
+                "traefik.frontend.rule": "Host:qa1.fluentd.joericearchitect.info",
+                "traefik.port": "24284"
+            },
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "joericearchitect/jarch-infra-fluentd-es:latest@sha256:317586e562eaea64fa610f38f0b6bca1fa3fd707773dce02220b9f92dc505783",
+                    "Mounts": [
+                        {
+                            "Type": "bind",
+                            "Source": "/usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data",
+                            "Target": "/fluentd/log"
+                        }
+                    ],
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {}
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Constraints": [
+                        "node.labels.jra.swarm-node-type == infra-logging"
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "07i8kpwiyzt96tv1bhg3m5lmp"
+                    },
+                    {
+                        "Target": "4b159zozi6o2x9fe7im6sx8zb"
+                    }
+                ],
+                "ForceUpdate": 0
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 3
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 24224,
+                        "PublishedPort": 8282,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 24224,
+                        "PublishedPort": 8282,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 24224,
+                    "PublishedPort": 8282,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "Addr": "10.255.0.28/16"
+                },
+                {
+                    "NetworkID": "07i8kpwiyzt96tv1bhg3m5lmp",
+                    "Addr": "10.0.0.10/24"
+                },
+                {
+                    "NetworkID": "4b159zozi6o2x9fe7im6sx8zb",
+                    "Addr": "10.0.1.8/24"
+                }
+            ]
+        }
+    },
+    {
+        "ID": "u658s79hdn2334wo8j3gk5ksy",
+        "Version": {
+            "Index": 293
+        },
+        "CreatedAt": "2017-06-04T14:36:54.202436184Z",
+        "UpdatedAt": "2017-06-04T14:36:54.206317208Z",
+        "Spec": {
+            "Name": "jarch-infra-docker-ui-portainer",
+            "Labels": {
+                "jra.application-name": "jarch-infra-docker-ui-portainer",
+                "jra.container-name": "jarch-infra-docker-ui-portainer",
+                "jra.domain-name": "qa1.dockerui.joericearchitect.info",
+                "jra.environment-flip": "blue",
+                "traefik.docker.network": "jarch-proxy-traefik-network",
+                "traefik.frontend.rule": "Host:qa1.dockerui.joericearchitect.info",
+                "traefik.port": "9000"
+            },
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "portainer/portainer:latest@sha256:2250da9e8dbe68687c1da8554138cffeed0c64947d85f134f683109de7f29960",
+                    "Args": [
+                        "-H",
+                        "unix:///var/run/docker.sock"
+                    ],
+                    "Mounts": [
+                        {
+                            "Type": "bind",
+                            "Source": "/var/run/docker.sock",
+                            "Target": "/var/run/docker.sock"
+                        },
+                        {
+                            "Type": "bind",
+                            "Source": "/usr/local/jra/docker-data-volumes/jra-infra/docker-ui-portainer/data",
+                            "Target": "/data"
+                        }
+                    ],
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {}
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Constraints": [
+                        "node.role == manager",
+                        "node.labels.jra.failure-zone == us-east-1-az-2"
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "zpwahcxkew92amuk2hzqjgptt"
+                    }
+                ],
+                "ForceUpdate": 0
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 1
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 9000,
+                        "PublishedPort": 8184,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 9000,
+                        "PublishedPort": 8184,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 9000,
+                    "PublishedPort": 8184,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "Addr": "10.255.0.38/16"
+                },
+                {
+                    "NetworkID": "zpwahcxkew92amuk2hzqjgptt",
+                    "Addr": "10.0.2.8/24"
+                }
+            ]
+        }
+    },
+    {
+        "ID": "wk3myyh5bhk4i5xj9c90rfecg",
+        "Version": {
+            "Index": 197
+        },
+        "CreatedAt": "2017-06-04T14:29:21.141858545Z",
+        "UpdatedAt": "2017-06-04T14:33:32.0028231Z",
+        "Spec": {
+            "Name": "jarch-infra-logging-kibana",
+            "Labels": {
+                "jra.application-name": "jarch-infra-logging-kibana",
+                "jra.container-name": "jarch-infra-logging-kibana",
+                "jra.domain-name": "qa1.kibana.joericearchitect.info",
+                "jra.environment-flip": "blue",
+                "traefik.docker.network": "jarch-infra-logging-proxy-traefik-network",
+                "traefik.frontend.rule": "Host:qa1.kibana.joericearchitect.info",
+                "traefik.port": "5601"
+            },
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "kibana:latest@sha256:4139adc143608396c79d6dd55c15ef55d7c882357c276f62920773ed1dbd19a8",
+                    "Env": [
+                        "ELASTICSEARCH_URL=http://jarch-infra-logging-elasticsearch:9200"
+                    ],
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {}
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Constraints": [
+                        "node.labels.jra.swarm-node-type == infra-logging"
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "07i8kpwiyzt96tv1bhg3m5lmp"
+                    },
+                    {
+                        "Target": "4b159zozi6o2x9fe7im6sx8zb"
+                    }
+                ],
+                "ForceUpdate": 0
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 3
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 5601,
+                        "PublishedPort": 8187,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 5601,
+                        "PublishedPort": 8187,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 5601,
+                    "PublishedPort": 8187,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "Addr": "10.255.0.24/16"
+                },
+                {
+                    "NetworkID": "07i8kpwiyzt96tv1bhg3m5lmp",
+                    "Addr": "10.0.0.6/24"
+                },
+                {
+                    "NetworkID": "4b159zozi6o2x9fe7im6sx8zb",
+                    "Addr": "10.0.1.4/24"
+                }
+            ]
+        }
+    },
+    {
+        "ID": "yeuuknp4jh9624hka9hpny50s",
+        "Version": {
+            "Index": 302
+        },
+        "CreatedAt": "2017-06-04T14:37:01.962957093Z",
+        "UpdatedAt": "2017-06-04T14:37:01.966319428Z",
+        "Spec": {
+            "Name": "jarch-infra-docker-ui-visualizer",
+            "Labels": {
+                "jra.application-name": "jarch-infra-docker-ui-visualizer",
+                "jra.container-name": "jarch-infra-docker-ui-visualizer",
+                "jra.domain-name": "qa1.dockervisual.joericearchitect.info",
+                "jra.environment-flip": "blue",
+                "traefik.docker.network": "jarch-proxy-traefik-network",
+                "traefik.frontend.rule": "Host:qa1.dockervisual.joericearchitect.info",
+                "traefik.port": "8080"
+            },
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "manomarks/visualizer:latest@sha256:e37a1349a680964b58033bdcfaec04abccd9294acf112b6043871ff5b4dbcaba",
+                    "Mounts": [
+                        {
+                            "Type": "bind",
+                            "Source": "/var/run/docker.sock",
+                            "Target": "/var/run/docker.sock"
+                        }
+                    ],
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {}
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Constraints": [
+                        "node.role == manager",
+                        "node.labels.jra.failure-zone == us-east-1-az-3"
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "zpwahcxkew92amuk2hzqjgptt"
+                    }
+                ],
+                "ForceUpdate": 0
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 1
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 8080,
+                        "PublishedPort": 8190,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 8080,
+                        "PublishedPort": 8190,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 8080,
+                    "PublishedPort": 8190,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "Addr": "10.255.0.40/16"
+                },
+                {
+                    "NetworkID": "zpwahcxkew92amuk2hzqjgptt",
+                    "Addr": "10.0.2.10/24"
+                }
+            ]
+        }
+    }
+]

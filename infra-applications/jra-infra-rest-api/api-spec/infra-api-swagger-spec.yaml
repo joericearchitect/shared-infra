@@ -1,0 +1,272 @@
+---
+# Quick n dirty swagger spect.  rushing to hack something together to achieve a larger goal.  it ain't prettyd  
+swagger: "2.0"
+info:
+  description: JRA Infra API
+  version: 1.0.0
+  title: JRA Infra API
+host: joericearchitect.com
+basePath: /infra-api
+schemes:
+- http
+
+paths:
+
+  # Each Path Item Object describes a resource, containing a set of operations
+  # at a specified path.  The Path Item object can define parameters and 
+  # responses common all of its contained operations.
+  /environments:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Environment
+      description: retrieves and searches through a list of environments
+      operationId: getEnvironments
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: environmentType
+        in: query
+        description: filter field on environment type
+        required: false
+        type: string
+      - name: environmentName
+        in: query
+        description: <@TODO>
+        required: false
+        type: string
+      - name: environmentStatus
+        in: query
+        description: <@TODO>
+        required: false
+        type: string
+      - name: environmentDurabilityType
+        in: query
+        description: <@TODO>
+        required: false
+        type: string
+      responses:
+        200:
+          description: Successful response, with a representation of the list of matching environments.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/Environments"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                  "environmentCanonicalId": "349023nsddf",
+                  "environmentName": "latest",
+                  "alternateIds": [
+                    {
+                      "id": "234uff2u34234",
+                      "idName": "awsVpcId",
+                      "idSource": "aws-ec2"
+                    }
+                  ],
+                  "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+                  "environmentStatus": "active",
+                  "environmentDurabilityType": "fixed",
+                  "links": {
+                    "self": {
+                      "href": "http://localhost/infra-api/environments/349023nsdf"
+                    }
+                  }
+                },
+                {
+                  "environmentCanonicalId": "234sldfjsdflj234",
+                  "environmentName": "UAT-Magic-Band-Project",
+                  "alternateIds": [
+                    {
+                      "id": "234uff2u34234",
+                      "idName": "awsVpcId",
+                      "idSource": "aws-ec2"
+                    }
+                  ],
+                  "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+                  "environmentStatus": "terminated",
+                  "environmentDurabilityType": "short-term",
+                  "links": {
+                    "self": {
+                      "href": "http://localhost/infra-api/environments/234sldfjsdflj234"
+                    }
+                  }
+                }
+              ] 
+        404:
+          description: The requested tax filing was not found.
+
+  # Each Path Item Object describes a resource, containing a set of operations
+  # at a specified path.  The Path Item object can define parameters and 
+  # responses common all of its contained operations.
+  /environments/{environmentCanonicalId}:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Environment
+      description: <@TODO>
+      operationId: getEnvironments
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: environmentCanonicalId
+        in: path
+        description: <@TODO>
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/Environments"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                  "environmentCanonicalId": "349023nsddf",
+                  "environmentName": "latest",
+                  "alternateIds": [
+                    {
+                      "id": "234uff2u34234",
+                      "idName": "awsVpcId",
+                      "idSource": "aws-ec2"
+                    }
+                  ],
+                  "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+                  "environmentStatus": "active",
+                  "environmentDurabilityType": "fixed",
+                  "links": {
+                    "self": {
+                      "href": "http://localhost/infra-api/environments/349023nsdf"
+                    }
+                  }
+                },
+                {
+                  "environmentCanonicalId": "234sldfjsdflj234",
+                  "environmentName": "UAT-Magic-Band-Project",
+                  "alternateIds": [
+                    {
+                      "id": "234uff2u34234",
+                      "idName": "awsVpcId",
+                      "idSource": "aws-ec2"
+                    }
+                  ],
+                  "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+                  "environmentStatus": "terminated",
+                  "environmentDurabilityType": "short-term",
+                  "links": {
+                    "self": {
+                      "href": "http://localhost/infra-api/environments/234sldfjsdflj234"
+                    }
+                  }
+                }
+              ] 
+        404:
+          description: The requested tax filing was not found.
+
+# The definitions section contains a set of named Schema Objects.  Each schema
+# object describes a reusable data type, which can be reference by name.
+definitions:
+  EnvironmentSummary:
+    type: object
+    description: An summary of the environment meant to returned in collection.
+    properties:
+      environmentCanonicalId:
+        type: string
+        description: <@TODO>
+      alternateIds:
+        $ref: '#/definitions/Identifiers'
+      environmentName:
+        type: string
+      descriptionn:
+        type: string
+      environmentStatus:
+        type: string
+        enum: ["active", "paused", "terminated"]
+      environmentDurabilityType:
+        type: string
+        enum: ["fixed", "disposable", "short-term"]
+      links:
+        $ref: '#/definitions/Links' 
+
+  Environments:
+    type: array
+    items:
+      $ref: '#/definitions/EnvironmentSummary'
+
+  EnvironmentDetails:
+    type: object
+    description: <@TODO>
+    properties:
+      environmentCanonicalId:
+        type: string
+      alternateIds:
+        $ref: '#/definitions/Identifiers'
+      environmentName:
+        type: string
+      descriptionn:
+        type: string
+      environmentStatus:
+        type: string
+        enum: ["active", "paused", "terminated"]
+      environmentDurabilityType:
+        type: string
+        enum: ["fixed", "disposable", "short-term"]
+      environmentStartDateTime:
+        type: string
+        format: dateTime
+      environmentEndDateTime:
+        type: string
+        format: dateTime
+      environmentLastStatusDateTime:
+        type: string
+        format: dateTime
+      links:
+        $ref: '#/definitions/Links' 
+
+  Identifiers:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+        idSource:
+          type: string
+        idName:
+          type: string
+
+  ContainerClusters:
+    type: object
+
+  Link:
+    type: object
+    properties:
+      href:
+        type: string
+        format: uri
+        example: https://api.example.com/sales-orders/10101058747628
+    required:
+      - href
+  Links:
+    type: object
+    description: |
+      Values can be either a single Link or an array of Links
+      See https://docs.pennybags.zalan.do/ for more.
+    additionalProperties:
+      # keys are link relations
+      type: array
+      items:
+        $ref: '#/definitions/Link'
+    example:
+      'self':
+        - href: https://api.example.com/sales-orders/10101058747628

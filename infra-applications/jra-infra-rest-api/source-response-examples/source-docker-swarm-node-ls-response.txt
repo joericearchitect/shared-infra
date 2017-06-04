@@ -1,0 +1,19 @@
+ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS
+0cjihhjws5l3m95x2ldlum6ey     ip-10-0-3-254       Ready               Active              
+1j4jdy6sksx253engijrnzz47     ip-10-0-1-171       Ready               Active              
+2h65knajmwmbqo5j31he79of2     ip-10-0-5-187       Ready               Active              
+5bl5iuqebipyvh2yzevu5jaoa     ip-10-0-3-12        Ready               Active              
+f5zucdn6cnkpylmkkf50jjios     ip-10-0-3-121       Ready               Active              
+kvqyi05hp6gd5rz9j1w9f7h99     ip-10-0-4-136       Ready               Active              
+leheohkbf9cy9z9lxyixaoxoa     ip-10-0-3-251       Ready               Active              Reachable
+lex68k2z3nw2nmic42qt4jaml     ip-10-0-1-39        Ready               Active              
+lylcdytdzolboh45pe8fklf5n *   ip-10-0-1-231       Ready               Active              Leader
+n1j030msfn8j1uy46xgc3njx4     ip-10-0-3-244       Ready               Active              
+noomifav7kxn7jajzg9vpjgl1     ip-10-0-5-90        Ready               Active              Reachable
+okdq9jslh0m2iea9csrx15xd3     ip-10-0-5-93        Ready               Active              
+pbcj91k7dm43omlc825jhj1hn     ip-10-0-5-52        Ready               Active              
+qh3dxpf4tniv4xwpdtmajuiov     ip-10-0-0-208       Ready               Active              
+tbzmhj0wkq85uhbx0koxo7rmi     ip-10-0-1-151       Ready               Active              
+u671sf35l67ncc5y5i1hfj47r     ip-10-0-5-175       Ready               Active              
+yfyuqkgvv71wn8ar97mmxszml     ip-10-0-2-221       Ready               Active              
+yhwa2n8cev7b3vy39kcyd946d     ip-10-0-1-196       Ready               Active              

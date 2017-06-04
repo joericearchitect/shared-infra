@@ -1,0 +1,67 @@
+++++Docker Engine Details for 	Instance:  34.200.252.92
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+ 
+++++Docker Engine Details for 	Instance:  54.237.194.116
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+ 
+++++Docker Engine Details for 	Instance:  52.23.241.112
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+ 
+++++Docker Engine Details for 	Instance:  52.90.156.252
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+ 
+++++Docker Engine Details for 	Instance:  54.165.245.122
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+4f5bf963469e        traefik:v1.1.0      "/traefik --docker..."   3 hours ago         Up 3 hours          80/tcp              jarch-infra-proxy-traefik.1.ruytlpf3dlr4fh7n9u4vpdst1
+ 
+++++Docker Engine Details for 	Instance:  107.23.79.89
+CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS               NAMES
+4444a333a15b        portainer/portainer:latest   "/portainer -H uni..."   3 hours ago         Up 3 hours          9000/tcp            jarch-infra-docker-ui-portainer.1.hijcypnjb1p9q2nloxdt3z6m0
+7d86b2f5d8a2        traefik:v1.1.0               "/traefik --docker..."   3 hours ago         Up 3 hours          80/tcp              jarch-infra-logging-proxy-traefik.1.ta1i1csrpeoesuf0z6bmqohrt
+ 
+++++Docker Engine Details for 	Instance:  34.201.21.13
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+ 
+++++Docker Engine Details for 	Instance:  34.200.249.234
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+ 
+++++Docker Engine Details for 	Instance:  34.201.26.123
+CONTAINER ID        IMAGE                                            COMMAND                  CREATED             STATUS              PORTS                 NAMES
+2ec40738cb0e        kibana:latest                                    "/docker-entrypoin..."   3 hours ago         Up 3 hours          5601/tcp              jarch-infra-logging-kibana.1.ivya9416akop2in5tkf2ogmt7
+2959b7312ff5        joericearchitect/jarch-infra-fluentd-es:latest   "/bin/sh -c 'exec ..."   3 hours ago         Up 3 hours          5140/tcp, 24224/tcp   jarch-infra-logging-fluentd.3.dd20zfpbi750r7pd39s4i02qh
+ 
+++++Docker Engine Details for 	Instance:  54.145.159.93
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+ 
+++++Docker Engine Details for 	Instance:  52.23.227.1
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+ 
+++++Docker Engine Details for 	Instance:  184.73.43.101
+CONTAINER ID        IMAGE                         COMMAND             CREATED             STATUS              PORTS               NAMES
+7cdd08c851ac        manomarks/visualizer:latest   "npm start"         3 hours ago         Up 3 hours          8080/tcp            jarch-infra-docker-ui-visualizer.1.epd2bkpcb1ekmximsa6uamgcr
+ 
+++++Docker Engine Details for 	Instance:  34.204.100.97
+CONTAINER ID        IMAGE                                            COMMAND                  CREATED             STATUS              PORTS                 NAMES
+4942214a8186        elasticsearch:latest                             "/docker-entrypoin..."   3 hours ago         Up 3 hours          9200/tcp, 9300/tcp    jarch-infra-logging-elasticsearch.1.tm6lfequfdwq6tkogdyjb04ga
+37dd2f904d8f        kibana:latest                                    "/docker-entrypoin..."   3 hours ago         Up 3 hours          5601/tcp              jarch-infra-logging-kibana.2.ivlzx4elnlu3lqukx3nifmyb1
+cf5df83845a3        joericearchitect/jarch-infra-fluentd-es:latest   "/bin/sh -c 'exec ..."   3 hours ago         Up 3 hours          5140/tcp, 24224/tcp   jarch-infra-logging-fluentd.1.8maem8l7tf5lj1r8smy8d9oz6
+ 
+++++Docker Engine Details for 	Instance:  54.196.17.50
+CONTAINER ID        IMAGE                                            COMMAND                  CREATED             STATUS              PORTS                 NAMES
+f782228e88fb        kibana:latest                                    "/docker-entrypoin..."   3 hours ago         Up 3 hours          5601/tcp              jarch-infra-logging-kibana.3.q7852j4jhku2e4h0mw4xxmgvl
+b72d8a9be376        joericearchitect/jarch-infra-fluentd-es:latest   "/bin/sh -c 'exec ..."   3 hours ago         Up 3 hours          5140/tcp, 24224/tcp   jarch-infra-logging-fluentd.2.q22seyzoqwv8mzqwfmp11mqlb
+ 
+++++Docker Engine Details for 	Instance:  54.165.70.97
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+ 
+++++Docker Engine Details for 	Instance:  52.55.212.255
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+ 
+++++Docker Engine Details for 	Instance:  54.208.105.78
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                 NAMES
+5c819441be89        jenkins:latest      "/bin/tini -- /usr..."   3 hours ago         Up 3 hours          8080/tcp, 50000/tcp   jarch-infra-build-jenkins.1.j98jz1d7hb5l6uq4afc0n8r91
+ 
+++++Docker Engine Details for 	Instance:  52.71.119.41
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+29e9cfe1eb74        registry:2          "/entrypoint.sh /e..."   3 hours ago         Up 3 hours          5000/tcp            jarch-infra-docker-registry.1.er30ahnkmf4utg7aib3d89nk0
+ 

@@ -100,12 +100,64 @@ STARTing a Docker Swarm
 
 
 
+#######
+# get swarm system details
+#######
+infra-swarm-ssh-manager.sh "docker system info --format '{{json .}}'" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-system-info-response.json
+infra-swarm-ssh-manager.sh "docker system info" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-system-info-response.txt
+
+#######
+# get list of swarm nodes
+#######
+infra-swarm-ssh-manager.sh "docker node ls --format '{{json .}}'" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-node-ls-response.json
+infra-swarm-ssh-manager.sh "docker node ls" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-node-ls-response.txt
 
 
+######
+# Get node processes
+#######
+infra-swarm-ssh-manager.sh "docker node ps ip-10-0-3-152 --format '{{json .}}'" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-node-ps-response.json
+infra-swarm-ssh-manager.sh "docker node ps ip-10-0-3-152" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-node-ps-response.txt
+
+######
+# Get node details
+#######
+infra-swarm-ssh-manager.sh "docker node inspect ip-10-0-1-203" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-node-inspect-manager-response.json
+infra-swarm-ssh-manager.sh "docker node inspect ip-10-0-1-203 --pretty" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-node-inspect-manager-response.txt
+infra-swarm-ssh-manager.sh "docker node inspect ip-10-0-3-152" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-node-inspect-worker-response.json
+infra-swarm-ssh-manager.sh "docker node inspect ip-10-0-3-152 --pretty" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-node-inspect-worker-response.txt
+
+######
+# Get service list
+#######
+
+infra-swarm-ssh-manager.sh "docker service ls --format '{{json .}}'" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-service-ls-response.json
+infra-swarm-ssh-manager.sh "docker service ls" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-service-ls-response.txt
+ 
+######
+# Get service processes
+#######
+
+infra-swarm-ssh-manager.sh "docker service ps jarch-infra-logging-kibana --format '{{json .}}'" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-service-ps-response.json
+infra-swarm-ssh-manager.sh "docker service ps jarch-infra-logging-kibana" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-service-ps-response.txt
+
+######
+# Get service details
+#######
+
+infra-swarm-ssh-manager.sh "docker service inspect jarch-infra-logging-kibana" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-service-inspect-response.json
+infra-swarm-ssh-manager.sh "docker service inspect jarch-infra-logging-kibana --pretty" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-service-inspect-response.txt
 
 
+######
+# Get network list
+#######
 
+infra-swarm-ssh-manager.sh "docker network ls --format '{{json .}}'" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-network-ls-response.json
+infra-swarm-ssh-manager.sh "docker network ls" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-network-ls-response.txt
 
+######
+# Get network info
+#######
 
-
-
+infra-swarm-ssh-manager.sh "docker network inspect jarch-infra-logging-network" > /home/vagrant/git/shared-infra/infra-applications/jra-infra-rest-api/source-response-examples/source-docker-swarm-network-inspect-response.json

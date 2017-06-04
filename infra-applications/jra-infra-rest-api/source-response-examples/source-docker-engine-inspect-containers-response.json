@@ -1,0 +1,3167 @@
+++++Docker Engine Details for 	Instance:  34.200.252.92
+
+ 
+++++Docker Engine Details for 	Instance:  54.237.194.116
+
+ 
+++++Docker Engine Details for 	Instance:  52.23.241.112
+
+ 
+++++Docker Engine Details for 	Instance:  52.90.156.252
+
+ 
+++++Docker Engine Details for 	Instance:  54.165.245.122
+[
+    {
+        "Id": "4f5bf963469e461eceab979ed473e60b5b9e523e1abce254f58edc761260023b",
+        "Created": "2017-06-04T14:36:01.769802465Z",
+        "Path": "/traefik",
+        "Args": [
+            "--docker",
+            "--docker.swarmmode",
+            "--docker.domain=traefik",
+            "--docker.watch",
+            "--web"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 28686,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:36:02.224583446Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:65f50fad61bf7f03c016756f3dc1df7716d5f6b5d27255f49ed2736d761f7a8f",
+        "ResolvConfPath": "/var/lib/docker/containers/4f5bf963469e461eceab979ed473e60b5b9e523e1abce254f58edc761260023b/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/4f5bf963469e461eceab979ed473e60b5b9e523e1abce254f58edc761260023b/hostname",
+        "HostsPath": "/var/lib/docker/containers/4f5bf963469e461eceab979ed473e60b5b9e523e1abce254f58edc761260023b/hosts",
+        "LogPath": "",
+        "Name": "/jarch-infra-proxy-traefik.1.ruytlpf3dlr4fh7n9u4vpdst1",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "fluentd",
+                "Config": {
+                    "fluentd-address": "localhost:8282",
+                    "tag": "docker.infra-swarm-manager-us-east-1-az-1.{{.ID}}"
+                }
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/var/run/docker.sock",
+                    "Target": "/var/run/docker.sock"
+                }
+            ]
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/var/run/docker.sock",
+                "Destination": "/var/run/docker.sock",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "4f5bf963469e",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "--docker",
+                "--docker.swarmmode",
+                "--docker.domain=traefik",
+                "--docker.watch",
+                "--web"
+            ],
+            "Image": "traefik:v1.1.0@sha256:8fd0e3ee0aca5a4019a981eae81c46c283c36e2463f2c04d7b144e672777cffe",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/traefik"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.swarm.node.id": "lylcdytdzolboh45pe8fklf5n",
+                "com.docker.swarm.service.id": "gqal20wda5r1fmz4j2kkevzmv",
+                "com.docker.swarm.service.name": "jarch-infra-proxy-traefik",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "ruytlpf3dlr4fh7n9u4vpdst1",
+                "com.docker.swarm.task.name": "jarch-infra-proxy-traefik.1.ruytlpf3dlr4fh7n9u4vpdst1",
+                "org.label-schema.description": "A modern reverse-proxy",
+                "org.label-schema.docker.schema-version": "1.0",
+                "org.label-schema.name": "Traefik",
+                "org.label-schema.url": "https://traefik.io",
+                "org.label-schema.vendor": "Containous",
+                "org.label-schema.version": "v1.1.0"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "73a967f4cf2f8bf9f4cde6e40628fbf2945193fbf95e3a0dd82322c8c8d8db97",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/73a967f4cf2f",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.33"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "4f5bf963469e"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "74c7a6edb6b298bd62963f56c027ed5435ddcdee8009140266d200b8adfc0582",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.33",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:21"
+                },
+                "jarch-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.2.3"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "4f5bf963469e"
+                    ],
+                    "NetworkID": "zpwahcxkew92amuk2hzqjgptt",
+                    "EndpointID": "2ff4a5b0bf1f4306c3363c0f36f785bd1ed108400297b1a0aacb11a13f07ae21",
+                    "Gateway": "",
+                    "IPAddress": "10.0.2.3",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:02:03"
+                }
+            }
+        }
+    }
+]
+ 
+++++Docker Engine Details for 	Instance:  107.23.79.89
+[
+    {
+        "Id": "4444a333a15b7d4bcbf2ed56b16d5474bd395c983dee756f65470b41afcb4507",
+        "Created": "2017-06-04T14:36:56.152477188Z",
+        "Path": "/portainer",
+        "Args": [
+            "-H",
+            "unix:///var/run/docker.sock"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 28111,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:36:56.639827355Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:f11b231ae3e9a730417a514edffcabc8178c436192e0c599e1970f3e1b5705d9",
+        "ResolvConfPath": "/var/lib/docker/containers/4444a333a15b7d4bcbf2ed56b16d5474bd395c983dee756f65470b41afcb4507/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/4444a333a15b7d4bcbf2ed56b16d5474bd395c983dee756f65470b41afcb4507/hostname",
+        "HostsPath": "/var/lib/docker/containers/4444a333a15b7d4bcbf2ed56b16d5474bd395c983dee756f65470b41afcb4507/hosts",
+        "LogPath": "",
+        "Name": "/jarch-infra-docker-ui-portainer.1.hijcypnjb1p9q2nloxdt3z6m0",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "fluentd",
+                "Config": {
+                    "fluentd-address": "localhost:8282",
+                    "tag": "docker.infra-swarm-manager-us-east-1-az-2.{{.ID}}"
+                }
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/var/run/docker.sock",
+                    "Target": "/var/run/docker.sock"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/usr/local/jra/docker-data-volumes/jra-infra/docker-ui-portainer/data",
+                    "Target": "/data"
+                }
+            ]
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/var/run/docker.sock",
+                "Destination": "/var/run/docker.sock",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "bind",
+                "Source": "/usr/local/jra/docker-data-volumes/jra-infra/docker-ui-portainer/data",
+                "Destination": "/data",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "4444a333a15b",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "9000/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "-H",
+                "unix:///var/run/docker.sock"
+            ],
+            "Image": "portainer/portainer:latest@sha256:2250da9e8dbe68687c1da8554138cffeed0c64947d85f134f683109de7f29960",
+            "Volumes": {
+                "/data": {}
+            },
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "/portainer"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.swarm.node.id": "leheohkbf9cy9z9lxyixaoxoa",
+                "com.docker.swarm.service.id": "u658s79hdn2334wo8j3gk5ksy",
+                "com.docker.swarm.service.name": "jarch-infra-docker-ui-portainer",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "hijcypnjb1p9q2nloxdt3z6m0",
+                "com.docker.swarm.task.name": "jarch-infra-docker-ui-portainer.1.hijcypnjb1p9q2nloxdt3z6m0"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "adf6d7b7d9e2bb0f96be6c85abd7562a3c14aec39816a2148884099a8d7cb3d3",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "9000/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/adf6d7b7d9e2",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.39"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "4444a333a15b"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "0b1ebe6f10802d135988233bca0e3d1dc012b50b1cc573458453b360f4dacd66",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.39",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:27"
+                },
+                "jarch-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.2.9"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "4444a333a15b"
+                    ],
+                    "NetworkID": "zpwahcxkew92amuk2hzqjgptt",
+                    "EndpointID": "56284e47903778f096748b7f3bdff3840f92b9306c973add883bbf75a721cdba",
+                    "Gateway": "",
+                    "IPAddress": "10.0.2.9",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:02:09"
+                }
+            }
+        }
+    },
+    {
+        "Id": "7d86b2f5d8a2791126f551c1ece1371d2767aa9f86165f40dfa8972ae778dd26",
+        "Created": "2017-06-04T14:33:37.365880816Z",
+        "Path": "/traefik",
+        "Args": [
+            "--docker",
+            "--docker.swarmmode",
+            "--docker.domain=traefik",
+            "--docker.watch",
+            "--web"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 27175,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:33:42.645847203Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:65f50fad61bf7f03c016756f3dc1df7716d5f6b5d27255f49ed2736d761f7a8f",
+        "ResolvConfPath": "/var/lib/docker/containers/7d86b2f5d8a2791126f551c1ece1371d2767aa9f86165f40dfa8972ae778dd26/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/7d86b2f5d8a2791126f551c1ece1371d2767aa9f86165f40dfa8972ae778dd26/hostname",
+        "HostsPath": "/var/lib/docker/containers/7d86b2f5d8a2791126f551c1ece1371d2767aa9f86165f40dfa8972ae778dd26/hosts",
+        "LogPath": "",
+        "Name": "/jarch-infra-logging-proxy-traefik.1.ta1i1csrpeoesuf0z6bmqohrt",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "fluentd",
+                "Config": {
+                    "fluentd-address": "localhost:8282",
+                    "tag": "docker.infra-swarm-manager-us-east-1-az-2.{{.ID}}"
+                }
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/var/run/docker.sock",
+                    "Target": "/var/run/docker.sock"
+                }
+            ]
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/var/run/docker.sock",
+                "Destination": "/var/run/docker.sock",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "7d86b2f5d8a2",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "--docker",
+                "--docker.swarmmode",
+                "--docker.domain=traefik",
+                "--docker.watch",
+                "--web"
+            ],
+            "Image": "traefik:v1.1.0@sha256:8fd0e3ee0aca5a4019a981eae81c46c283c36e2463f2c04d7b144e672777cffe",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/traefik"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.swarm.node.id": "leheohkbf9cy9z9lxyixaoxoa",
+                "com.docker.swarm.service.id": "g2p9puclkywnf18mj920ozlmn",
+                "com.docker.swarm.service.name": "jarch-infra-logging-proxy-traefik",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "ta1i1csrpeoesuf0z6bmqohrt",
+                "com.docker.swarm.task.name": "jarch-infra-logging-proxy-traefik.1.ta1i1csrpeoesuf0z6bmqohrt",
+                "org.label-schema.description": "A modern reverse-proxy",
+                "org.label-schema.docker.schema-version": "1.0",
+                "org.label-schema.name": "Traefik",
+                "org.label-schema.url": "https://traefik.io",
+                "org.label-schema.vendor": "Containous",
+                "org.label-schema.version": "v1.1.0"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "af8be659ed3b14960504e7cfe728bfc3c49db3e10205b912bce76b2fa35bdb19",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/af8be659ed3b",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.21"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "7d86b2f5d8a2"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "2b11b5db83e98a799f038c8c7789424c65115e177be151db0c1a4ca5871b598f",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.21",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:15"
+                },
+                "jarch-infra-logging-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.0.3"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "7d86b2f5d8a2"
+                    ],
+                    "NetworkID": "07i8kpwiyzt96tv1bhg3m5lmp",
+                    "EndpointID": "46668ee902c87b0bdd0abe7715cd35e4f09c41484abd425547478ca6f57597ff",
+                    "Gateway": "",
+                    "IPAddress": "10.0.0.3",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:00:03"
+                }
+            }
+        }
+    }
+]
+ 
+++++Docker Engine Details for 	Instance:  34.201.21.13
+
+ 
+++++Docker Engine Details for 	Instance:  34.200.249.234
+
+ 
+++++Docker Engine Details for 	Instance:  34.201.26.123
+[
+    {
+        "Id": "2ec40738cb0ee3698d2bf4b8b094fa5f7eaf9810bac45431be8f2a619dfa0571",
+        "Created": "2017-06-04T14:34:55.21693281Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "kibana"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 28828,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:34:55.895609633Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:dec65f4e714d8fa51b7d530e75b725dfdec91a682e6fd14e33fd7031610c1f54",
+        "ResolvConfPath": "/var/lib/docker/containers/2ec40738cb0ee3698d2bf4b8b094fa5f7eaf9810bac45431be8f2a619dfa0571/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/2ec40738cb0ee3698d2bf4b8b094fa5f7eaf9810bac45431be8f2a619dfa0571/hostname",
+        "HostsPath": "/var/lib/docker/containers/2ec40738cb0ee3698d2bf4b8b094fa5f7eaf9810bac45431be8f2a619dfa0571/hosts",
+        "LogPath": "/var/lib/docker/containers/2ec40738cb0ee3698d2bf4b8b094fa5f7eaf9810bac45431be8f2a619dfa0571/2ec40738cb0ee3698d2bf4b8b094fa5f7eaf9810bac45431be8f2a619dfa0571-json.log",
+        "Name": "/jarch-infra-logging-kibana.1.ivya9416akop2in5tkf2ogmt7",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "2ec40738cb0e",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "5601/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "ELASTICSEARCH_URL=http://jarch-infra-logging-elasticsearch:9200",
+                "PATH=/usr/share/kibana/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.7",
+                "TINI_VERSION=v0.9.0",
+                "KIBANA_VERSION=5.4.1"
+            ],
+            "Cmd": [
+                "kibana"
+            ],
+            "ArgsEscaped": true,
+            "Image": "kibana:latest@sha256:4139adc143608396c79d6dd55c15ef55d7c882357c276f62920773ed1dbd19a8",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.swarm.node.id": "0cjihhjws5l3m95x2ldlum6ey",
+                "com.docker.swarm.service.id": "wk3myyh5bhk4i5xj9c90rfecg",
+                "com.docker.swarm.service.name": "jarch-infra-logging-kibana",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "ivya9416akop2in5tkf2ogmt7",
+                "com.docker.swarm.task.name": "jarch-infra-logging-kibana.1.ivya9416akop2in5tkf2ogmt7"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "75943b31f010b594e5b0689679cd6e8f5d8ca97ae6e81f9e45f8c5351b1eb4da",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "5601/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/75943b31f010",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.25"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "2ec40738cb0e"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "d57bc9e54135ee05bb391eed04d490680e9feee361d4367b4daac824e6036c2f",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.25",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:19"
+                },
+                "jarch-infra-logging-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.1.5"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "2ec40738cb0e"
+                    ],
+                    "NetworkID": "4b159zozi6o2x9fe7im6sx8zb",
+                    "EndpointID": "bc2fa0d7c19b029cc4d546320ae60df3f51568a8bc901a190323578e80510334",
+                    "Gateway": "",
+                    "IPAddress": "10.0.1.5",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:01:05"
+                },
+                "jarch-infra-logging-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.0.7"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "2ec40738cb0e"
+                    ],
+                    "NetworkID": "07i8kpwiyzt96tv1bhg3m5lmp",
+                    "EndpointID": "ed5cefead1c704f6c173f79447e9df7c858b310072c0eedab8b12e057c65255c",
+                    "Gateway": "",
+                    "IPAddress": "10.0.0.7",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:00:07"
+                }
+            }
+        }
+    },
+    {
+        "Id": "2959b7312ff59672c5c6f0bf0b65437a55db4d942526d772990bc1936371684a",
+        "Created": "2017-06-04T14:34:25.231159774Z",
+        "Path": "/bin/sh",
+        "Args": [
+            "-c",
+            "exec fluentd -c /fluentd/etc/$FLUENTD_CONF -p /fluentd/plugins $FLUENTD_OPT"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 28393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:34:26.039973642Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:f118abf52d633e76f637147f9c05c7d53e98616f4f39ebd9a85c11d233c25712",
+        "ResolvConfPath": "/var/lib/docker/containers/2959b7312ff59672c5c6f0bf0b65437a55db4d942526d772990bc1936371684a/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/2959b7312ff59672c5c6f0bf0b65437a55db4d942526d772990bc1936371684a/hostname",
+        "HostsPath": "/var/lib/docker/containers/2959b7312ff59672c5c6f0bf0b65437a55db4d942526d772990bc1936371684a/hosts",
+        "LogPath": "/var/lib/docker/containers/2959b7312ff59672c5c6f0bf0b65437a55db4d942526d772990bc1936371684a/2959b7312ff59672c5c6f0bf0b65437a55db4d942526d772990bc1936371684a-json.log",
+        "Name": "/jarch-infra-logging-fluentd.3.dd20zfpbi750r7pd39s4i02qh",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data",
+                    "Target": "/fluentd/log"
+                }
+            ]
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data",
+                "Destination": "/fluentd/log",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "2959b7312ff5",
+            "Domainname": "",
+            "User": "fluent",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "24224/tcp": {},
+                "5140/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/home/fluent/.gem/ruby/2.3.0/bin:/home/fluent/.gem/ruby/2.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GEM_PATH=/home/fluent/.gem/ruby/2.3.0:",
+                "FLUENTD_OPT=",
+                "FLUENTD_CONF=fluent.conf"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "exec fluentd -c /fluentd/etc/$FLUENTD_CONF -p /fluentd/plugins $FLUENTD_OPT"
+            ],
+            "ArgsEscaped": true,
+            "Image": "joericearchitect/jarch-infra-fluentd-es:latest@sha256:317586e562eaea64fa610f38f0b6bca1fa3fd707773dce02220b9f92dc505783",
+            "Volumes": null,
+            "WorkingDir": "/home/fluent",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "Description": "Fluentd docker image",
+                "Vendor": "Fluent Organization",
+                "Version": "1.1",
+                "com.docker.swarm.node.id": "0cjihhjws5l3m95x2ldlum6ey",
+                "com.docker.swarm.service.id": "pae9t6o9uxhurp933wnpkg0wl",
+                "com.docker.swarm.service.name": "jarch-infra-logging-fluentd",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "dd20zfpbi750r7pd39s4i02qh",
+                "com.docker.swarm.task.name": "jarch-infra-logging-fluentd.3.dd20zfpbi750r7pd39s4i02qh"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "862cb008bfb95bd7754de42a4b218139fbbf855a3795571162772f66a977dfff",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "24224/tcp": null,
+                "5140/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/862cb008bfb9",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.30"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "2959b7312ff5"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "73e48b3301747fa4b3e7d9f51d3092b498f06b5ce7c0e84468a273ae1e564471",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.30",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:1e"
+                },
+                "jarch-infra-logging-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.1.10"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "2959b7312ff5"
+                    ],
+                    "NetworkID": "4b159zozi6o2x9fe7im6sx8zb",
+                    "EndpointID": "162f6f143f1e93ea4010351d3e3a3dff2b8d359c281bb908e7f55e5345018f83",
+                    "Gateway": "",
+                    "IPAddress": "10.0.1.10",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:01:0a"
+                },
+                "jarch-infra-logging-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.0.12"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "2959b7312ff5"
+                    ],
+                    "NetworkID": "07i8kpwiyzt96tv1bhg3m5lmp",
+                    "EndpointID": "e329e00d3a8eab46b4dc07185bbdd543e7703fc3a40efcef1121bf5f9cb117f7",
+                    "Gateway": "",
+                    "IPAddress": "10.0.0.12",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:00:0c"
+                }
+            }
+        }
+    }
+]
+ 
+++++Docker Engine Details for 	Instance:  54.145.159.93
+
+ 
+++++Docker Engine Details for 	Instance:  52.23.227.1
+
+ 
+++++Docker Engine Details for 	Instance:  184.73.43.101
+[
+    {
+        "Id": "7cdd08c851ac0c7efdce2d654b7dc54bab3e18aa2144c50cb325120e8e679c45",
+        "Created": "2017-06-04T14:37:21.297996611Z",
+        "Path": "npm",
+        "Args": [
+            "start"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 27450,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:37:21.827219819Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:aec99d785ee4dc7f8d0f023d67b9376440ff7962d2a08f4d4a8eaf664d3439d1",
+        "ResolvConfPath": "/var/lib/docker/containers/7cdd08c851ac0c7efdce2d654b7dc54bab3e18aa2144c50cb325120e8e679c45/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/7cdd08c851ac0c7efdce2d654b7dc54bab3e18aa2144c50cb325120e8e679c45/hostname",
+        "HostsPath": "/var/lib/docker/containers/7cdd08c851ac0c7efdce2d654b7dc54bab3e18aa2144c50cb325120e8e679c45/hosts",
+        "LogPath": "",
+        "Name": "/jarch-infra-docker-ui-visualizer.1.epd2bkpcb1ekmximsa6uamgcr",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "fluentd",
+                "Config": {
+                    "fluentd-address": "localhost:8282",
+                    "tag": "docker.infra-swarm-manager-us-east-1-az-3.{{.ID}}"
+                }
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/var/run/docker.sock",
+                    "Target": "/var/run/docker.sock"
+                }
+            ]
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/var/run/docker.sock",
+                "Destination": "/var/run/docker.sock",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "7cdd08c851ac",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NPM_CONFIG_LOGLEVEL=info",
+                "NODE_VERSION=4.1.2",
+                "MS=1000"
+            ],
+            "Cmd": [
+                "npm",
+                "start"
+            ],
+            "ArgsEscaped": true,
+            "Image": "manomarks/visualizer:latest@sha256:e37a1349a680964b58033bdcfaec04abccd9294acf112b6043871ff5b4dbcaba",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.swarm.node.id": "noomifav7kxn7jajzg9vpjgl1",
+                "com.docker.swarm.service.id": "yeuuknp4jh9624hka9hpny50s",
+                "com.docker.swarm.service.name": "jarch-infra-docker-ui-visualizer",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "epd2bkpcb1ekmximsa6uamgcr",
+                "com.docker.swarm.task.name": "jarch-infra-docker-ui-visualizer.1.epd2bkpcb1ekmximsa6uamgcr"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "ee62b6b884173a43a97dfd54d97e89ea2a7b932e5582130ade3aa90b43c35ec8",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "8080/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/ee62b6b88417",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.41"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "7cdd08c851ac"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "b1bad7357e91b509c3d0844a19179a20cbbf5500c3d04ae76d4a4c63f90f70f7",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.41",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:29"
+                },
+                "jarch-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.2.11"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "7cdd08c851ac"
+                    ],
+                    "NetworkID": "zpwahcxkew92amuk2hzqjgptt",
+                    "EndpointID": "408de815dabadef3ae70d61c98335f40adda1e8fcd6413af9c5a12dcac55cf0e",
+                    "Gateway": "",
+                    "IPAddress": "10.0.2.11",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:02:0b"
+                }
+            }
+        }
+    }
+]
+ 
+++++Docker Engine Details for 	Instance:  34.204.100.97
+[
+    {
+        "Id": "4942214a8186994828c4b0e7902f044a7b41644d638f4f1931bf114d695a3136",
+        "Created": "2017-06-04T14:34:25.673412214Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "elasticsearch"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 29707,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:34:30.154568313Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:d781cd4e3228009a22d212ff36c9275314404badeb4249138fb17cad7cb9b431",
+        "ResolvConfPath": "/var/lib/docker/containers/4942214a8186994828c4b0e7902f044a7b41644d638f4f1931bf114d695a3136/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/4942214a8186994828c4b0e7902f044a7b41644d638f4f1931bf114d695a3136/hostname",
+        "HostsPath": "/var/lib/docker/containers/4942214a8186994828c4b0e7902f044a7b41644d638f4f1931bf114d695a3136/hosts",
+        "LogPath": "/var/lib/docker/containers/4942214a8186994828c4b0e7902f044a7b41644d638f4f1931bf114d695a3136/4942214a8186994828c4b0e7902f044a7b41644d638f4f1931bf114d695a3136-json.log",
+        "Name": "/jarch-infra-logging-elasticsearch.1.tm6lfequfdwq6tkogdyjb04ga",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data",
+                    "Target": "/data"
+                }
+            ]
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data",
+                "Destination": "/data",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "volume",
+                "Name": "a22509737439871ba7721acba40b1b1f00326fb6f620a05c106f22af4bf08663",
+                "Source": "/var/lib/docker/volumes/a22509737439871ba7721acba40b1b1f00326fb6f620a05c106f22af4bf08663/_data",
+                "Destination": "/usr/share/elasticsearch/data",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "4942214a8186",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "9200/tcp": {},
+                "9300/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/share/elasticsearch/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "JAVA_HOME=/docker-java-home/jre",
+                "JAVA_VERSION=8u131",
+                "JAVA_DEBIAN_VERSION=8u131-b11-1~bpo8+1",
+                "CA_CERTIFICATES_JAVA_VERSION=20161107~bpo8+1",
+                "GOSU_VERSION=1.7",
+                "ELASTICSEARCH_VERSION=5.4.0",
+                "ELASTICSEARCH_DEB_VERSION=5.4.0"
+            ],
+            "Cmd": [
+                "elasticsearch"
+            ],
+            "Image": "elasticsearch:latest@sha256:b8697c807aa65316714a5074ef039c42e6c4b400a6986c18b9a88ef37636acbc",
+            "Volumes": {
+                "/usr/share/elasticsearch/data": {}
+            },
+            "WorkingDir": "/usr/share/elasticsearch",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.swarm.node.id": "yhwa2n8cev7b3vy39kcyd946d",
+                "com.docker.swarm.service.id": "2er0hb4nq6ujaduvgrweljjx7",
+                "com.docker.swarm.service.name": "jarch-infra-logging-elasticsearch",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "tm6lfequfdwq6tkogdyjb04ga",
+                "com.docker.swarm.task.name": "jarch-infra-logging-elasticsearch.1.tm6lfequfdwq6tkogdyjb04ga"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "cc702ff1828e41b6dd6c0e8f011b7f459c25756770bd8eff00cce9ad518ac997",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "9200/tcp": null,
+                "9300/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/cc702ff1828e",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.31"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "4942214a8186"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "d85abcf860ff3ee9879aace91d389c8c9b8a85a4ee74db41ed5b3aeb3672cc29",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.31",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:1f"
+                },
+                "jarch-infra-logging-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.1.11"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "4942214a8186"
+                    ],
+                    "NetworkID": "4b159zozi6o2x9fe7im6sx8zb",
+                    "EndpointID": "3947cc13058db3641710cb55fe7d85faccdd9bab79eb7f98586854af7d08a60d",
+                    "Gateway": "",
+                    "IPAddress": "10.0.1.11",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:01:0b"
+                },
+                "jarch-infra-logging-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.0.13"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "4942214a8186"
+                    ],
+                    "NetworkID": "07i8kpwiyzt96tv1bhg3m5lmp",
+                    "EndpointID": "7a740c7202ba8cba2c5ed96ed2c147fcf07f41570bd588f25b8bf2956f1f02c1",
+                    "Gateway": "",
+                    "IPAddress": "10.0.0.13",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:00:0d"
+                }
+            }
+        }
+    },
+    {
+        "Id": "37dd2f904d8fb75035c183cab85ea914212687f777aeff1d244a3263a4f37c78",
+        "Created": "2017-06-04T14:34:25.671918302Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "kibana"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 29660,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:34:30.386660221Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:dec65f4e714d8fa51b7d530e75b725dfdec91a682e6fd14e33fd7031610c1f54",
+        "ResolvConfPath": "/var/lib/docker/containers/37dd2f904d8fb75035c183cab85ea914212687f777aeff1d244a3263a4f37c78/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/37dd2f904d8fb75035c183cab85ea914212687f777aeff1d244a3263a4f37c78/hostname",
+        "HostsPath": "/var/lib/docker/containers/37dd2f904d8fb75035c183cab85ea914212687f777aeff1d244a3263a4f37c78/hosts",
+        "LogPath": "/var/lib/docker/containers/37dd2f904d8fb75035c183cab85ea914212687f777aeff1d244a3263a4f37c78/37dd2f904d8fb75035c183cab85ea914212687f777aeff1d244a3263a4f37c78-json.log",
+        "Name": "/jarch-infra-logging-kibana.2.ivlzx4elnlu3lqukx3nifmyb1",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "37dd2f904d8f",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "5601/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "ELASTICSEARCH_URL=http://jarch-infra-logging-elasticsearch:9200",
+                "PATH=/usr/share/kibana/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.7",
+                "TINI_VERSION=v0.9.0",
+                "KIBANA_VERSION=5.4.1"
+            ],
+            "Cmd": [
+                "kibana"
+            ],
+            "ArgsEscaped": true,
+            "Image": "kibana:latest@sha256:4139adc143608396c79d6dd55c15ef55d7c882357c276f62920773ed1dbd19a8",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.swarm.node.id": "yhwa2n8cev7b3vy39kcyd946d",
+                "com.docker.swarm.service.id": "wk3myyh5bhk4i5xj9c90rfecg",
+                "com.docker.swarm.service.name": "jarch-infra-logging-kibana",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "ivlzx4elnlu3lqukx3nifmyb1",
+                "com.docker.swarm.task.name": "jarch-infra-logging-kibana.2.ivlzx4elnlu3lqukx3nifmyb1"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "f849806d08b5e780473fac70498e2d29fa2ef1d138fa3d7f3dbbaab869f30caa",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "5601/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/f849806d08b5",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.26"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "37dd2f904d8f"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "e705468b4f6bf6abf2d4330f452c3adc018087af5647cdd8faffcd79273ad003",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.26",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:1a"
+                },
+                "jarch-infra-logging-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.1.6"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "37dd2f904d8f"
+                    ],
+                    "NetworkID": "4b159zozi6o2x9fe7im6sx8zb",
+                    "EndpointID": "ef914b65dcbf965f26e072b4e4a8f6b6d465f7a186025c6419709baa1c1f8a61",
+                    "Gateway": "",
+                    "IPAddress": "10.0.1.6",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:01:06"
+                },
+                "jarch-infra-logging-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.0.8"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "37dd2f904d8f"
+                    ],
+                    "NetworkID": "07i8kpwiyzt96tv1bhg3m5lmp",
+                    "EndpointID": "252421cda7bba0b597bc318d8df41ad9a7e8a1a19ec1adcf5797b6ee2e22421a",
+                    "Gateway": "",
+                    "IPAddress": "10.0.0.8",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:00:08"
+                }
+            }
+        }
+    },
+    {
+        "Id": "cf5df83845a3ce5bc56fe58a02aa2f1626e5cb740a7ef73accd98dd9f82d880a",
+        "Created": "2017-06-04T14:34:25.671655579Z",
+        "Path": "/bin/sh",
+        "Args": [
+            "-c",
+            "exec fluentd -c /fluentd/etc/$FLUENTD_CONF -p /fluentd/plugins $FLUENTD_OPT"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 29566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:34:30.113082945Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:f118abf52d633e76f637147f9c05c7d53e98616f4f39ebd9a85c11d233c25712",
+        "ResolvConfPath": "/var/lib/docker/containers/cf5df83845a3ce5bc56fe58a02aa2f1626e5cb740a7ef73accd98dd9f82d880a/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/cf5df83845a3ce5bc56fe58a02aa2f1626e5cb740a7ef73accd98dd9f82d880a/hostname",
+        "HostsPath": "/var/lib/docker/containers/cf5df83845a3ce5bc56fe58a02aa2f1626e5cb740a7ef73accd98dd9f82d880a/hosts",
+        "LogPath": "/var/lib/docker/containers/cf5df83845a3ce5bc56fe58a02aa2f1626e5cb740a7ef73accd98dd9f82d880a/cf5df83845a3ce5bc56fe58a02aa2f1626e5cb740a7ef73accd98dd9f82d880a-json.log",
+        "Name": "/jarch-infra-logging-fluentd.1.8maem8l7tf5lj1r8smy8d9oz6",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data",
+                    "Target": "/fluentd/log"
+                }
+            ]
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data",
+                "Destination": "/fluentd/log",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "cf5df83845a3",
+            "Domainname": "",
+            "User": "fluent",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "24224/tcp": {},
+                "5140/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/home/fluent/.gem/ruby/2.3.0/bin:/home/fluent/.gem/ruby/2.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GEM_PATH=/home/fluent/.gem/ruby/2.3.0:",
+                "FLUENTD_OPT=",
+                "FLUENTD_CONF=fluent.conf"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "exec fluentd -c /fluentd/etc/$FLUENTD_CONF -p /fluentd/plugins $FLUENTD_OPT"
+            ],
+            "ArgsEscaped": true,
+            "Image": "joericearchitect/jarch-infra-fluentd-es:latest@sha256:317586e562eaea64fa610f38f0b6bca1fa3fd707773dce02220b9f92dc505783",
+            "Volumes": null,
+            "WorkingDir": "/home/fluent",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "Description": "Fluentd docker image",
+                "Vendor": "Fluent Organization",
+                "Version": "1.1",
+                "com.docker.swarm.node.id": "yhwa2n8cev7b3vy39kcyd946d",
+                "com.docker.swarm.service.id": "pae9t6o9uxhurp933wnpkg0wl",
+                "com.docker.swarm.service.name": "jarch-infra-logging-fluentd",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "8maem8l7tf5lj1r8smy8d9oz6",
+                "com.docker.swarm.task.name": "jarch-infra-logging-fluentd.1.8maem8l7tf5lj1r8smy8d9oz6"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "a5f857d2b2c65e2f65aff4d44b0b56954ff60c5013dcdb1ce4f5de31591c083d",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "24224/tcp": null,
+                "5140/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/a5f857d2b2c6",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.23"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "cf5df83845a3"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "4c0bdf8163308ad476f1d97015097f17ebc53a47eaad0ca372c97389e44aa50d",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.23",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:17"
+                },
+                "jarch-infra-logging-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.1.3"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "cf5df83845a3"
+                    ],
+                    "NetworkID": "4b159zozi6o2x9fe7im6sx8zb",
+                    "EndpointID": "3ea46dba832f447f62451668b853359cc131c0bb0d8c9928cbb811f112b1f542",
+                    "Gateway": "",
+                    "IPAddress": "10.0.1.3",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:01:03"
+                },
+                "jarch-infra-logging-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.0.5"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "cf5df83845a3"
+                    ],
+                    "NetworkID": "07i8kpwiyzt96tv1bhg3m5lmp",
+                    "EndpointID": "191cdc40ca79bb364f264eee2ea009a600ba1f4c99b4df13f2f3de59e571de71",
+                    "Gateway": "",
+                    "IPAddress": "10.0.0.5",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:00:05"
+                }
+            }
+        }
+    }
+]
+ 
+++++Docker Engine Details for 	Instance:  54.196.17.50
+[
+    {
+        "Id": "f782228e88fb6a457ef20a9c5466bb19f9124dc7ca3c791997479c18ad3aa36f",
+        "Created": "2017-06-04T14:33:53.923137212Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "kibana"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 28554,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:33:59.700022311Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:dec65f4e714d8fa51b7d530e75b725dfdec91a682e6fd14e33fd7031610c1f54",
+        "ResolvConfPath": "/var/lib/docker/containers/f782228e88fb6a457ef20a9c5466bb19f9124dc7ca3c791997479c18ad3aa36f/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/f782228e88fb6a457ef20a9c5466bb19f9124dc7ca3c791997479c18ad3aa36f/hostname",
+        "HostsPath": "/var/lib/docker/containers/f782228e88fb6a457ef20a9c5466bb19f9124dc7ca3c791997479c18ad3aa36f/hosts",
+        "LogPath": "/var/lib/docker/containers/f782228e88fb6a457ef20a9c5466bb19f9124dc7ca3c791997479c18ad3aa36f/f782228e88fb6a457ef20a9c5466bb19f9124dc7ca3c791997479c18ad3aa36f-json.log",
+        "Name": "/jarch-infra-logging-kibana.3.q7852j4jhku2e4h0mw4xxmgvl",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "f782228e88fb",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "5601/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "ELASTICSEARCH_URL=http://jarch-infra-logging-elasticsearch:9200",
+                "PATH=/usr/share/kibana/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.7",
+                "TINI_VERSION=v0.9.0",
+                "KIBANA_VERSION=5.4.1"
+            ],
+            "Cmd": [
+                "kibana"
+            ],
+            "ArgsEscaped": true,
+            "Image": "kibana:latest@sha256:4139adc143608396c79d6dd55c15ef55d7c882357c276f62920773ed1dbd19a8",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.swarm.node.id": "okdq9jslh0m2iea9csrx15xd3",
+                "com.docker.swarm.service.id": "wk3myyh5bhk4i5xj9c90rfecg",
+                "com.docker.swarm.service.name": "jarch-infra-logging-kibana",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "q7852j4jhku2e4h0mw4xxmgvl",
+                "com.docker.swarm.task.name": "jarch-infra-logging-kibana.3.q7852j4jhku2e4h0mw4xxmgvl"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "33e85f7070acc2cf6d76dbcd7f5fbe524164497cb29c03f0c8e2182664f9ef65",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "5601/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/33e85f7070ac",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.27"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "f782228e88fb"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "1d30ec5b271f5361b3bffcb91c638473ab3120fd019d5fe05230a4e96f9a0ff7",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.27",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:1b"
+                },
+                "jarch-infra-logging-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.1.7"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "f782228e88fb"
+                    ],
+                    "NetworkID": "4b159zozi6o2x9fe7im6sx8zb",
+                    "EndpointID": "678def396ae39918e7237e500d0317c06cf6c859a86ce789ccb0ad4203d03cd8",
+                    "Gateway": "",
+                    "IPAddress": "10.0.1.7",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:01:07"
+                },
+                "jarch-infra-logging-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.0.9"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "f782228e88fb"
+                    ],
+                    "NetworkID": "07i8kpwiyzt96tv1bhg3m5lmp",
+                    "EndpointID": "ecf45715d45e6646682122fc94e145119786796587d33cba512c1af1311b9042",
+                    "Gateway": "",
+                    "IPAddress": "10.0.0.9",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:00:09"
+                }
+            }
+        }
+    },
+    {
+        "Id": "b72d8a9be376b433f87e292853e094463925187d2f6705085086f143bf16375e",
+        "Created": "2017-06-04T14:33:53.839752674Z",
+        "Path": "/bin/sh",
+        "Args": [
+            "-c",
+            "exec fluentd -c /fluentd/etc/$FLUENTD_CONF -p /fluentd/plugins $FLUENTD_OPT"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 28551,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:34:00.826212895Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:f118abf52d633e76f637147f9c05c7d53e98616f4f39ebd9a85c11d233c25712",
+        "ResolvConfPath": "/var/lib/docker/containers/b72d8a9be376b433f87e292853e094463925187d2f6705085086f143bf16375e/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/b72d8a9be376b433f87e292853e094463925187d2f6705085086f143bf16375e/hostname",
+        "HostsPath": "/var/lib/docker/containers/b72d8a9be376b433f87e292853e094463925187d2f6705085086f143bf16375e/hosts",
+        "LogPath": "/var/lib/docker/containers/b72d8a9be376b433f87e292853e094463925187d2f6705085086f143bf16375e/b72d8a9be376b433f87e292853e094463925187d2f6705085086f143bf16375e-json.log",
+        "Name": "/jarch-infra-logging-fluentd.2.q22seyzoqwv8mzqwfmp11mqlb",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data",
+                    "Target": "/fluentd/log"
+                }
+            ]
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data",
+                "Destination": "/fluentd/log",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "b72d8a9be376",
+            "Domainname": "",
+            "User": "fluent",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "24224/tcp": {},
+                "5140/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/home/fluent/.gem/ruby/2.3.0/bin:/home/fluent/.gem/ruby/2.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GEM_PATH=/home/fluent/.gem/ruby/2.3.0:",
+                "FLUENTD_OPT=",
+                "FLUENTD_CONF=fluent.conf"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "exec fluentd -c /fluentd/etc/$FLUENTD_CONF -p /fluentd/plugins $FLUENTD_OPT"
+            ],
+            "ArgsEscaped": true,
+            "Image": "joericearchitect/jarch-infra-fluentd-es:latest@sha256:317586e562eaea64fa610f38f0b6bca1fa3fd707773dce02220b9f92dc505783",
+            "Volumes": null,
+            "WorkingDir": "/home/fluent",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "Description": "Fluentd docker image",
+                "Vendor": "Fluent Organization",
+                "Version": "1.1",
+                "com.docker.swarm.node.id": "okdq9jslh0m2iea9csrx15xd3",
+                "com.docker.swarm.service.id": "pae9t6o9uxhurp933wnpkg0wl",
+                "com.docker.swarm.service.name": "jarch-infra-logging-fluentd",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "q22seyzoqwv8mzqwfmp11mqlb",
+                "com.docker.swarm.task.name": "jarch-infra-logging-fluentd.2.q22seyzoqwv8mzqwfmp11mqlb"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "d5c4e56c8ae8dc06d4f435645a2cdc833b01e8442f48b5c71e2a2f106f4e2f8a",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "24224/tcp": null,
+                "5140/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/d5c4e56c8ae8",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.29"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "b72d8a9be376"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "c39a8d6dbd01a478237e08ec53d5fae94aa2ec11dc56788fb7d25dfa047c9caa",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.29",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:1d"
+                },
+                "jarch-infra-logging-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.1.9"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "b72d8a9be376"
+                    ],
+                    "NetworkID": "4b159zozi6o2x9fe7im6sx8zb",
+                    "EndpointID": "44199322978f0ffb45e918ebd734ede1fbe6a5b153341ce60c2f8eb74abe0ef5",
+                    "Gateway": "",
+                    "IPAddress": "10.0.1.9",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:01:09"
+                },
+                "jarch-infra-logging-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.0.11"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "b72d8a9be376"
+                    ],
+                    "NetworkID": "07i8kpwiyzt96tv1bhg3m5lmp",
+                    "EndpointID": "5903c4bd9c87dff9843a62f1d3d66a382b6625cbdb6e4f796bbab5b310c4914a",
+                    "Gateway": "",
+                    "IPAddress": "10.0.0.11",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:00:0b"
+                }
+            }
+        }
+    }
+]
+ 
+++++Docker Engine Details for 	Instance:  54.165.70.97
+
+ 
+++++Docker Engine Details for 	Instance:  52.55.212.255
+
+ 
+++++Docker Engine Details for 	Instance:  54.208.105.78
+[
+    {
+        "Id": "5c819441be890b09517c09c11dee1d3db59209bf47bb4c2fe5cf1f7739065b16",
+        "Created": "2017-06-04T14:37:00.484560123Z",
+        "Path": "/bin/tini",
+        "Args": [
+            "--",
+            "/usr/local/bin/jenkins.sh"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 27231,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:37:02.245268876Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:59b08e8f6e37951d7d3b95b7c29d4285dba579f7f3111204e85d99633d929985",
+        "ResolvConfPath": "/var/lib/docker/containers/5c819441be890b09517c09c11dee1d3db59209bf47bb4c2fe5cf1f7739065b16/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/5c819441be890b09517c09c11dee1d3db59209bf47bb4c2fe5cf1f7739065b16/hostname",
+        "HostsPath": "/var/lib/docker/containers/5c819441be890b09517c09c11dee1d3db59209bf47bb4c2fe5cf1f7739065b16/hosts",
+        "LogPath": "",
+        "Name": "/jarch-infra-build-jenkins.1.j98jz1d7hb5l6uq4afc0n8r91",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "fluentd",
+                "Config": {
+                    "fluentd-address": "localhost:8282",
+                    "tag": "docker.infra-build-us-east-1-az-1.{{.ID}}"
+                }
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/usr/local/jra/docker-data-volumes/jra-infra/build-jenkins/home",
+                    "Target": "/var/jenkins_home"
+                }
+            ]
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/usr/local/jra/docker-data-volumes/jra-infra/build-jenkins/home",
+                "Destination": "/var/jenkins_home",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "5c819441be89",
+            "Domainname": "",
+            "User": "jenkins",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "50000/tcp": {},
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "JAVA_HOME=/docker-java-home",
+                "JAVA_VERSION=8u131",
+                "JAVA_DEBIAN_VERSION=8u131-b11-1~bpo8+1",
+                "CA_CERTIFICATES_JAVA_VERSION=20161107~bpo8+1",
+                "JENKINS_HOME=/var/jenkins_home",
+                "JENKINS_SLAVE_AGENT_PORT=50000",
+                "TINI_VERSION=0.14.0",
+                "TINI_SHA=6c41ec7d33e857d4779f14d9c74924cab0c7973485d2972419a3b7c7620ff5fd",
+                "JENKINS_VERSION=2.46.3",
+                "JENKINS_UC=https://updates.jenkins.io",
+                "COPY_REFERENCE_FILE_LOG=/var/jenkins_home/copy_reference_file.log"
+            ],
+            "Cmd": null,
+            "ArgsEscaped": true,
+            "Image": "jenkins:latest@sha256:0e2b101c8802d0ef2de411e9b9b78a5c4403635d96210ab52ada882cea646369",
+            "Volumes": {
+                "/var/jenkins_home": {}
+            },
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/bin/tini",
+                "--",
+                "/usr/local/bin/jenkins.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.swarm.node.id": "lex68k2z3nw2nmic42qt4jaml",
+                "com.docker.swarm.service.id": "nctu98g8tylgyisg45y28ypro",
+                "com.docker.swarm.service.name": "jarch-infra-build-jenkins",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "j98jz1d7hb5l6uq4afc0n8r91",
+                "com.docker.swarm.task.name": "jarch-infra-build-jenkins.1.j98jz1d7hb5l6uq4afc0n8r91"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "8d0e0b4a5137dffede611adf46d716f21f8ab3768a00ffd1158817bb5db43706",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "50000/tcp": null,
+                "8080/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/8d0e0b4a5137",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.37"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "5c819441be89"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "91037fb27d4ba63f4e5e3160229fe003873039a9814aa8085c10684cdfbd0f93",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.37",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:25"
+                },
+                "jarch-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.2.7"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "5c819441be89"
+                    ],
+                    "NetworkID": "zpwahcxkew92amuk2hzqjgptt",
+                    "EndpointID": "34b51948d586a2968f3e2b3e53b317f3055d78063a723af2fd96fa6c0ae23436",
+                    "Gateway": "",
+                    "IPAddress": "10.0.2.7",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:02:07"
+                }
+            }
+        }
+    }
+]
+ 
+++++Docker Engine Details for 	Instance:  52.71.119.41
+[
+    {
+        "Id": "29e9cfe1eb745257a96965371832fc5b599bbb2539750e570300da583884f230",
+        "Created": "2017-06-04T14:36:23.112368388Z",
+        "Path": "/entrypoint.sh",
+        "Args": [
+            "/etc/docker/registry/config.yml"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 27038,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-06-04T14:36:23.634271441Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:9d0c4eabab4d63150d9c17bc7d31ea392680b15a1485c3206fdaa88d30f0f891",
+        "ResolvConfPath": "/var/lib/docker/containers/29e9cfe1eb745257a96965371832fc5b599bbb2539750e570300da583884f230/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/29e9cfe1eb745257a96965371832fc5b599bbb2539750e570300da583884f230/hostname",
+        "HostsPath": "/var/lib/docker/containers/29e9cfe1eb745257a96965371832fc5b599bbb2539750e570300da583884f230/hosts",
+        "LogPath": "",
+        "Name": "/jarch-infra-docker-registry.1.er30ahnkmf4utg7aib3d89nk0",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "fluentd",
+                "Config": {
+                    "fluentd-address": "localhost:8282",
+                    "tag": "docker.infra-build-us-east-1-az-2.{{.ID}}"
+                }
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/usr/local/jra/docker-data-volumes/jra-infra/docker-registry/data",
+                    "Target": "/var/lib/registry"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/usr/local/jra/docker-data-volumes/jra-infra/docker-registry/certs",
+                    "Target": "/certs"
+                }
+            ]
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/usr/local/jra/docker-data-volumes/jra-infra/docker-registry/data",
+                "Destination": "/var/lib/registry",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "bind",
+                "Source": "/usr/local/jra/docker-data-volumes/jra-infra/docker-registry/certs",
+                "Destination": "/certs",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "29e9cfe1eb74",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "5000/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/etc/docker/registry/config.yml"
+            ],
+            "ArgsEscaped": true,
+            "Image": "registry:2@sha256:a3551c422521617e86927c3ff57e05edf086f1648f4d8524633216ca363d06c2",
+            "Volumes": {
+                "/var/lib/registry": {}
+            },
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.swarm.node.id": "5bl5iuqebipyvh2yzevu5jaoa",
+                "com.docker.swarm.service.id": "mkj1uv36xaz9ydm0o3ooe99lx",
+                "com.docker.swarm.service.name": "jarch-infra-docker-registry",
+                "com.docker.swarm.task": "",
+                "com.docker.swarm.task.id": "er30ahnkmf4utg7aib3d89nk0",
+                "com.docker.swarm.task.name": "jarch-infra-docker-registry.1.er30ahnkmf4utg7aib3d89nk0"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "0a19faa532d7745e2b46308fd24747e7a7ac3ccbaf91e36f24415eb6c9d8a78b",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "5000/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/0a19faa532d7",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "ingress": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.255.0.35"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "29e9cfe1eb74"
+                    ],
+                    "NetworkID": "fyjinunyjxppuyzwc7yd3rlsb",
+                    "EndpointID": "c85d903bb5ad6b8838029aea60abd7b053921c25349a3aa0c377aa1e5952801f",
+                    "Gateway": "",
+                    "IPAddress": "10.255.0.35",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:ff:00:23"
+                },
+                "jarch-proxy-traefik-network": {
+                    "IPAMConfig": {
+                        "IPv4Address": "10.0.2.5"
+                    },
+                    "Links": null,
+                    "Aliases": [
+                        "29e9cfe1eb74"
+                    ],
+                    "NetworkID": "zpwahcxkew92amuk2hzqjgptt",
+                    "EndpointID": "d178190061cf952b8615f7a2eff8ac30d7653cbf5f840c74c8153cb3f69fc4c4",
+                    "Gateway": "",
+                    "IPAddress": "10.0.2.5",
+                    "IPPrefixLen": 24,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:0a:00:02:05"
+                }
+            }
+        }
+    }
+]
+ 

@@ -1,0 +1,450 @@
+RESERVATIONS	478650753675	r-0137ba6dbcbf0ee91
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-0f5a87ac92d7c26ed	t2.micro	jra-swarm-key-pair	2017-06-04T14:21:15.000Z	ip-10-0-3-121.ec2.internal	10.0.3.121	ec2-34-200-252-92.compute-1.amazonaws.com	34.200.252.92	/dev/sda1	ebs	True		subnet-25635940	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:16.000Z	True	attached	vol-00faa58d317fae491
+MONITORING	disabled
+NETWORKINTERFACES		02:9d:fc:65:2a:b4	eni-f57277e1	478650753675	ip-10-0-3-121.ec2.internal	10.0.3.121	True	in-use	subnet-25635940	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-34-200-252-92.compute-1.amazonaws.com	34.200.252.92
+ATTACHMENT	2017-06-04T14:21:15.000Z	eni-attach-ee409276	True	0	attached
+GROUPS	sg-b7a1acc9	qa1.jra-sg.us-east-1-private-app-api-service
+PRIVATEIPADDRESSES	True	ip-10-0-3-121.ec2.internal	10.0.3.121
+ASSOCIATION	amazon	ec2-34-200-252-92.compute-1.amazonaws.com	34.200.252.92
+PLACEMENT	us-east-1b		default
+SECURITYGROUPS	sg-b7a1acc9	qa1.jra-sg.us-east-1-private-app-api-service
+STATE	16	running
+TAGS	Name	qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b
+TAGS	jra.swarm-node-type	app-api-service
+TAGS	jra.environment	qa1
+TAGS	jra.failure-zone	us-east-1-az-2
+TAGS	jra.environment_type	latest
+TAGS	jra.instance-name	app-api-service-us-east-1-az-2
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.environment-size	small
+TAGS	jra.subnet-type	private
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+RESERVATIONS	478650753675	r-02657c12c4fd587aa
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-0d8303095f02948e3	t2.micro	jra-swarm-key-pair	2017-06-04T14:21:12.000Z	ip-10-0-5-175.ec2.internal	10.0.5.175	ec2-54-237-194-116.compute-1.amazonaws.com	54.237.194.116	/dev/sda1	ebs	True		subnet-8e68cda2	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:13.000Z	True	attached	vol-06ba3cbb10358e13d
+MONITORING	disabled
+NETWORKINTERFACES		12:84:15:51:11:66	eni-5ca12594	478650753675	ip-10-0-5-175.ec2.internal	10.0.5.175	True	in-use	subnet-8e68cda2	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-54-237-194-116.compute-1.amazonaws.com	54.237.194.116
+ATTACHMENT	2017-06-04T14:21:12.000Z	eni-attach-52ed807c	True	0	attached
+GROUPS	sg-90a3aeee	qa1.jra-sg.us-east-1-private-build
+PRIVATEIPADDRESSES	True	ip-10-0-5-175.ec2.internal	10.0.5.175
+ASSOCIATION	amazon	ec2-54-237-194-116.compute-1.amazonaws.com	54.237.194.116
+PLACEMENT	us-east-1c		default
+SECURITYGROUPS	sg-90a3aeee	qa1.jra-sg.us-east-1-private-build
+STATE	16	running
+TAGS	jra.failure-zone	us-east-1-az-3
+TAGS	jra.environment	qa1
+TAGS	jra.subnet-type	private
+TAGS	jra.environment_type	latest
+TAGS	Name	qa1.instance.swarm-worker.infra-build.qa1.us-east-1c
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.swarm-node-type	infra-build
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.infra-build.qa1.us-east-1c
+TAGS	jra.environment-size	small
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.instance-name	infra-build-us-east-1-az-3
+RESERVATIONS	478650753675	r-024f5c8a825ff50f2
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-014ae0c4c307dc08b	t2.micro	jra-swarm-key-pair	2017-06-04T14:21:15.000Z	ip-10-0-5-187.ec2.internal	10.0.5.187	ec2-52-23-241-112.compute-1.amazonaws.com	52.23.241.112	/dev/sda1	ebs	True		subnet-8e68cda2	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:16.000Z	True	attached	vol-005f2e8f4da84af6e
+MONITORING	disabled
+NETWORKINTERFACES		12:50:62:84:47:42	eni-35991dfd	478650753675	ip-10-0-5-187.ec2.internal	10.0.5.187	True	in-use	subnet-8e68cda2	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-52-23-241-112.compute-1.amazonaws.com	52.23.241.112
+ATTACHMENT	2017-06-04T14:21:15.000Z	eni-attach-e3ed80cd	True	0	attached
+GROUPS	sg-b7a1acc9	qa1.jra-sg.us-east-1-private-app-api-service
+PRIVATEIPADDRESSES	True	ip-10-0-5-187.ec2.internal	10.0.5.187
+ASSOCIATION	amazon	ec2-52-23-241-112.compute-1.amazonaws.com	52.23.241.112
+PLACEMENT	us-east-1c		default
+SECURITYGROUPS	sg-b7a1acc9	qa1.jra-sg.us-east-1-private-app-api-service
+STATE	16	running
+TAGS	jra.environment_type	latest
+TAGS	jra.subnet-type	private
+TAGS	Name	qa1.instance.swarm-worker.app-api-service.qa1.us-east-1c
+TAGS	jra.failure-zone	us-east-1-az-3
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.swarm-node-type	app-api-service
+TAGS	jra.instance-name	app-api-service-us-east-1-az-3
+TAGS	jra.environment	qa1
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.app-api-service.qa1.us-east-1c
+TAGS	jra.environment-size	small
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+RESERVATIONS	478650753675	r-0aa4265a950900650
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-04a26abf69442d338	t2.micro	jra-swarm-key-pair	2017-06-04T14:21:43.000Z	ip-10-0-0-208.ec2.internal	10.0.0.208	ec2-52-90-156-252.compute-1.amazonaws.com	52.90.156.252	/dev/sda1	ebs	True		subnet-ccd40696	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:44.000Z	True	attached	vol-09eafd38ad04ec88c
+MONITORING	disabled
+NETWORKINTERFACES		0e:9f:6c:2e:29:ba	eni-7e2f62a4	478650753675	ip-10-0-0-208.ec2.internal	10.0.0.208	True	in-use	subnet-ccd40696	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-52-90-156-252.compute-1.amazonaws.com	52.90.156.252
+ATTACHMENT	2017-06-04T14:21:43.000Z	eni-attach-a329dcaf	True	0	attached
+GROUPS	sg-05a0ad7b	qa1.jra-sg.us-east-1-public-app-ui-web
+PRIVATEIPADDRESSES	True	ip-10-0-0-208.ec2.internal	10.0.0.208
+ASSOCIATION	amazon	ec2-52-90-156-252.compute-1.amazonaws.com	52.90.156.252
+PLACEMENT	us-east-1a		default
+SECURITYGROUPS	sg-05a0ad7b	qa1.jra-sg.us-east-1-public-app-ui-web
+STATE	16	running
+TAGS	jra.environment_type	latest
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.subnet-type	public
+TAGS	jra.instance-name	app-ui-web-us-east-1-az-1
+TAGS	Name	qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1a
+TAGS	jra.environment	qa1
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1a
+TAGS	jra.swarm-node-type	app-ui-web
+TAGS	jra.failure-zone	us-east-1-az-1
+TAGS	jra.environment-size	small
+RESERVATIONS	478650753675	r-0ce441f98de74bd68
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-0a09fd1095b6e999e	t2.micro	jra-swarm-key-pair	2017-06-04T14:21:41.000Z	ip-10-0-1-231.ec2.internal	10.0.1.231	ec2-54-165-245-122.compute-1.amazonaws.com	54.165.245.122	/dev/sda1	ebs	True		subnet-0fd10355	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:42.000Z	True	attached	vol-0f79362aea14554ff
+MONITORING	disabled
+NETWORKINTERFACES		0e:ec:01:e2:f6:a6	eni-94105d4e	478650753675	ip-10-0-1-231.ec2.internal	10.0.1.231	True	in-use	subnet-0fd10355	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-54-165-245-122.compute-1.amazonaws.com	54.165.245.122
+ATTACHMENT	2017-06-04T14:21:41.000Z	eni-attach-4e29dc42	True	0	attached
+GROUPS	sg-24bdb05a	qa1.jra-sg.us-east-1-private-swarm-manager
+PRIVATEIPADDRESSES	True	ip-10-0-1-231.ec2.internal	10.0.1.231
+ASSOCIATION	amazon	ec2-54-165-245-122.compute-1.amazonaws.com	54.165.245.122
+PLACEMENT	us-east-1a		default
+SECURITYGROUPS	sg-24bdb05a	qa1.jra-sg.us-east-1-private-swarm-manager
+STATE	16	running
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.subnet-type	private
+TAGS	jra.swarm-instance-type	swarm-manager
+TAGS	jra.environment_type	latest
+TAGS	Name	qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1a
+TAGS	jra.instance-name-full	qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1a
+TAGS	jra.environment	qa1
+TAGS	jra.failure-zone	us-east-1-az-1
+TAGS	jra.swarm-node-type	infra-swarm-manager
+TAGS	jra.environment-size	small
+TAGS	jra.instance-name	infra-swarm-manager-us-east-1-az-1
+RESERVATIONS	478650753675	r-0e1b86002ef7a2398
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-0f4687eded3484999	t2.micro	jra-swarm-key-pair	2017-06-04T14:21:15.000Z	ip-10-0-3-251.ec2.internal	10.0.3.251	ec2-107-23-79-89.compute-1.amazonaws.com	107.23.79.89	/dev/sda1	ebs	True		subnet-25635940	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:16.000Z	True	attached	vol-04d49fd68cb8cb212
+MONITORING	disabled
+NETWORKINTERFACES		02:e7:7e:7b:ae:fc	eni-d57f7ac1	478650753675	ip-10-0-3-251.ec2.internal	10.0.3.251	True	in-use	subnet-25635940	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-107-23-79-89.compute-1.amazonaws.com	107.23.79.89
+ATTACHMENT	2017-06-04T14:21:15.000Z	eni-attach-8540921d	True	0	attached
+GROUPS	sg-24bdb05a	qa1.jra-sg.us-east-1-private-swarm-manager
+PRIVATEIPADDRESSES	True	ip-10-0-3-251.ec2.internal	10.0.3.251
+ASSOCIATION	amazon	ec2-107-23-79-89.compute-1.amazonaws.com	107.23.79.89
+PLACEMENT	us-east-1b		default
+SECURITYGROUPS	sg-24bdb05a	qa1.jra-sg.us-east-1-private-swarm-manager
+STATE	16	running
+TAGS	jra.instance-name	infra-swarm-manager-us-east-1-az-2
+TAGS	jra.environment	qa1
+TAGS	jra.environment_type	latest
+TAGS	jra.failure-zone	us-east-1-az-2
+TAGS	jra.instance-name-full	qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1b
+TAGS	jra.subnet-type	private
+TAGS	jra.environment-size	small
+TAGS	jra.swarm-instance-type	swarm-manager
+TAGS	Name	qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1b
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.swarm-node-type	infra-swarm-manager
+RESERVATIONS	478650753675	r-083caa909d7ac0217
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-0430f661171d41cd6	t2.micro	jra-swarm-key-pair	2017-06-04T14:22:02.000Z	ip-10-0-3-244.ec2.internal	10.0.3.244	ec2-34-201-21-13.compute-1.amazonaws.com	34.201.21.13	/dev/sda1	ebs	True		subnet-25635940	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:22:03.000Z	True	attached	vol-0a07fb8830eccfbe7
+MONITORING	disabled
+NETWORKINTERFACES		02:0b:d6:0f:a4:88	eni-c00401d4	478650753675	ip-10-0-3-244.ec2.internal	10.0.3.244	True	in-use	subnet-25635940	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-34-201-21-13.compute-1.amazonaws.com	34.201.21.13
+ATTACHMENT	2017-06-04T14:22:02.000Z	eni-attach-9a409202	True	0	attached
+GROUPS	sg-53a0ad2d	qa1.jra-sg.us-east-1-private-app-persistence
+PRIVATEIPADDRESSES	True	ip-10-0-3-244.ec2.internal	10.0.3.244
+ASSOCIATION	amazon	ec2-34-201-21-13.compute-1.amazonaws.com	34.201.21.13
+PLACEMENT	us-east-1b		default
+SECURITYGROUPS	sg-53a0ad2d	qa1.jra-sg.us-east-1-private-app-persistence
+STATE	16	running
+TAGS	jra.environment	qa1
+TAGS	jra.failure-zone	us-east-1-az-2
+TAGS	jra.swarm-node-type	app-persistence
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.subnet-type	private
+TAGS	jra.environment_type	latest
+TAGS	jra.instance-name	app-persistence-us-east-1-az-2
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.app-persistence.qa1.us-east-1b
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	Name	qa1.instance.swarm-worker.app-persistence.qa1.us-east-1b
+TAGS	jra.environment-size	small
+RESERVATIONS	478650753675	r-0506904b04a6620d4
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-04f883816877a7514	t2.micro	jra-swarm-key-pair	2017-06-04T14:21:42.000Z	ip-10-0-2-221.ec2.internal	10.0.2.221	ec2-34-200-249-234.compute-1.amazonaws.com	34.200.249.234	/dev/sda1	ebs	True		subnet-ca655faf	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:43.000Z	True	attached	vol-06ad57276ca161d8f
+MONITORING	disabled
+NETWORKINTERFACES		02:0d:67:4b:eb:04	eni-0e7a7f1a	478650753675	ip-10-0-2-221.ec2.internal	10.0.2.221	True	in-use	subnet-ca655faf	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-34-200-249-234.compute-1.amazonaws.com	34.200.249.234
+ATTACHMENT	2017-06-04T14:21:42.000Z	eni-attach-9f409207	True	0	attached
+GROUPS	sg-05a0ad7b	qa1.jra-sg.us-east-1-public-app-ui-web
+PRIVATEIPADDRESSES	True	ip-10-0-2-221.ec2.internal	10.0.2.221
+ASSOCIATION	amazon	ec2-34-200-249-234.compute-1.amazonaws.com	34.200.249.234
+PLACEMENT	us-east-1b		default
+SECURITYGROUPS	sg-05a0ad7b	qa1.jra-sg.us-east-1-public-app-ui-web
+STATE	16	running
+TAGS	jra.environment-size	small
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1b
+TAGS	jra.swarm-node-type	app-ui-web
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.failure-zone	us-east-1-az-2
+TAGS	jra.environment	qa1
+TAGS	Name	qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1b
+TAGS	jra.instance-name	app-ui-web-us-east-1-az-2
+TAGS	jra.subnet-type	public
+TAGS	jra.environment_type	latest
+RESERVATIONS	478650753675	r-044fb6b325dd9e841
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-03e9558f1fbcf22a7	t2.medium	jra-swarm-key-pair	2017-06-04T14:21:18.000Z	ip-10-0-3-254.ec2.internal	10.0.3.254	ec2-34-201-26-123.compute-1.amazonaws.com	34.201.26.123	/dev/sda1	ebs	True		subnet-25635940	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:19.000Z	True	attached	vol-0807c03f1f593823d
+MONITORING	disabled
+NETWORKINTERFACES		02:97:94:ec:e0:34	eni-7f04016b	478650753675	ip-10-0-3-254.ec2.internal	10.0.3.254	True	in-use	subnet-25635940	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-34-201-26-123.compute-1.amazonaws.com	34.201.26.123
+ATTACHMENT	2017-06-04T14:21:18.000Z	eni-attach-eb409273	True	0	attached
+GROUPS	sg-21a1ac5f	qa1.jra-sg.us-east-1-private-infra-logging
+PRIVATEIPADDRESSES	True	ip-10-0-3-254.ec2.internal	10.0.3.254
+ASSOCIATION	amazon	ec2-34-201-26-123.compute-1.amazonaws.com	34.201.26.123
+PLACEMENT	us-east-1b		default
+SECURITYGROUPS	sg-21a1ac5f	qa1.jra-sg.us-east-1-private-infra-logging
+STATE	16	running
+TAGS	Name	qa1.instance.swarm-worker.infra-logging.qa1.us-east-1b
+TAGS	jra.environment-size	small
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.infra-logging.qa1.us-east-1b
+TAGS	jra.subnet-type	private
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.swarm-node-type	infra-logging
+TAGS	jra.instance-name	infra-logging-us-east-1-az-2
+TAGS	jra.environment_type	latest
+TAGS	jra.environment	qa1
+TAGS	jra.failure-zone	us-east-1-az-2
+RESERVATIONS	478650753675	r-01259a717b8073f0e
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-0147a1d9252b43617	t2.micro	jra-swarm-key-pair	2017-06-04T14:22:02.000Z	ip-10-0-5-52.ec2.internal	10.0.5.52	ec2-54-145-159-93.compute-1.amazonaws.com	54.145.159.93	/dev/sda1	ebs	True		subnet-8e68cda2	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:22:03.000Z	True	attached	vol-0c7c361285eb4b520
+MONITORING	disabled
+NETWORKINTERFACES		12:6a:24:19:71:3a	eni-98a52150	478650753675	ip-10-0-5-52.ec2.internal	10.0.5.52	True	in-use	subnet-8e68cda2	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-54-145-159-93.compute-1.amazonaws.com	54.145.159.93
+ATTACHMENT	2017-06-04T14:22:02.000Z	eni-attach-d7ec81f9	True	0	attached
+GROUPS	sg-53a0ad2d	qa1.jra-sg.us-east-1-private-app-persistence
+PRIVATEIPADDRESSES	True	ip-10-0-5-52.ec2.internal	10.0.5.52
+ASSOCIATION	amazon	ec2-54-145-159-93.compute-1.amazonaws.com	54.145.159.93
+PLACEMENT	us-east-1c		default
+SECURITYGROUPS	sg-53a0ad2d	qa1.jra-sg.us-east-1-private-app-persistence
+STATE	16	running
+TAGS	jra.subnet-type	private
+TAGS	jra.swarm-node-type	app-persistence
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.environment_type	latest
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.app-persistence.qa1.us-east-1c
+TAGS	jra.failure-zone	us-east-1-az-3
+TAGS	Name	qa1.instance.swarm-worker.app-persistence.qa1.us-east-1c
+TAGS	jra.environment	qa1
+TAGS	jra.environment-size	small
+TAGS	jra.instance-name	app-persistence-us-east-1-az-3
+RESERVATIONS	478650753675	r-0b095fc2328771820
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-0bceb76b6310e35ba	t2.micro	jra-swarm-key-pair	2017-06-04T14:21:42.000Z	ip-10-0-4-136.ec2.internal	10.0.4.136	ec2-52-23-227-1.compute-1.amazonaws.com	52.23.227.1	/dev/sda1	ebs	True		subnet-fe6cc9d2	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:43.000Z	True	attached	vol-0e5176d6efbe7d4c9
+MONITORING	disabled
+NETWORKINTERFACES		12:bc:7d:e8:ce:6a	eni-04a521cc	478650753675	ip-10-0-4-136.ec2.internal	10.0.4.136	True	in-use	subnet-fe6cc9d2	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-52-23-227-1.compute-1.amazonaws.com	52.23.227.1
+ATTACHMENT	2017-06-04T14:21:42.000Z	eni-attach-faec81d4	True	0	attached
+GROUPS	sg-05a0ad7b	qa1.jra-sg.us-east-1-public-app-ui-web
+PRIVATEIPADDRESSES	True	ip-10-0-4-136.ec2.internal	10.0.4.136
+ASSOCIATION	amazon	ec2-52-23-227-1.compute-1.amazonaws.com	52.23.227.1
+PLACEMENT	us-east-1c		default
+SECURITYGROUPS	sg-05a0ad7b	qa1.jra-sg.us-east-1-public-app-ui-web
+STATE	16	running
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1c
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.swarm-node-type	app-ui-web
+TAGS	jra.environment	qa1
+TAGS	Name	qa1.instance.swarm-worker.app-ui-web.qa1.us-east-1c
+TAGS	jra.environment-size	small
+TAGS	jra.subnet-type	public
+TAGS	jra.failure-zone	us-east-1-az-3
+TAGS	jra.environment_type	latest
+TAGS	jra.instance-name	app-ui-web-us-east-1-az-3
+RESERVATIONS	478650753675	r-08db2ac654cd9bef5
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-0f725c86a38ba31ab	t2.micro	jra-swarm-key-pair	2017-06-04T14:21:16.000Z	ip-10-0-5-90.ec2.internal	10.0.5.90	ec2-184-73-43-101.compute-1.amazonaws.com	184.73.43.101	/dev/sda1	ebs	True		subnet-8e68cda2	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:17.000Z	True	attached	vol-0bf477014647ffed2
+MONITORING	disabled
+NETWORKINTERFACES		12:8a:e4:ea:87:ce	eni-01a521c9	478650753675	ip-10-0-5-90.ec2.internal	10.0.5.90	True	in-use	subnet-8e68cda2	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-184-73-43-101.compute-1.amazonaws.com	184.73.43.101
+ATTACHMENT	2017-06-04T14:21:16.000Z	eni-attach-e1ed80cf	True	0	attached
+GROUPS	sg-24bdb05a	qa1.jra-sg.us-east-1-private-swarm-manager
+PRIVATEIPADDRESSES	True	ip-10-0-5-90.ec2.internal	10.0.5.90
+ASSOCIATION	amazon	ec2-184-73-43-101.compute-1.amazonaws.com	184.73.43.101
+PLACEMENT	us-east-1c		default
+SECURITYGROUPS	sg-24bdb05a	qa1.jra-sg.us-east-1-private-swarm-manager
+STATE	16	running
+TAGS	Name	qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1c
+TAGS	jra.environment	qa1
+TAGS	jra.swarm-instance-type	swarm-manager
+TAGS	jra.failure-zone	us-east-1-az-3
+TAGS	jra.environment-size	small
+TAGS	jra.instance-name	infra-swarm-manager-us-east-1-az-3
+TAGS	jra.environment_type	latest
+TAGS	jra.swarm-node-type	infra-swarm-manager
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.instance-name-full	qa1.instance.swarm-manager.infra-swarm-manager.qa1.us-east-1c
+TAGS	jra.subnet-type	private
+RESERVATIONS	478650753675	r-0d3655dbdeda8a56d
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-0e08906c26ee12e4f	t2.medium	jra-swarm-key-pair	2017-06-04T14:21:41.000Z	ip-10-0-1-196.ec2.internal	10.0.1.196	ec2-34-204-100-97.compute-1.amazonaws.com	34.204.100.97	/dev/sda1	ebs	True		subnet-0fd10355	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:42.000Z	True	attached	vol-0aa0ff465a5e5cc20
+MONITORING	disabled
+NETWORKINTERFACES		0e:f3:be:27:af:72	eni-552b668f	478650753675	ip-10-0-1-196.ec2.internal	10.0.1.196	True	in-use	subnet-0fd10355	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-34-204-100-97.compute-1.amazonaws.com	34.204.100.97
+ATTACHMENT	2017-06-04T14:21:41.000Z	eni-attach-a229dcae	True	0	attached
+GROUPS	sg-21a1ac5f	qa1.jra-sg.us-east-1-private-infra-logging
+PRIVATEIPADDRESSES	True	ip-10-0-1-196.ec2.internal	10.0.1.196
+ASSOCIATION	amazon	ec2-34-204-100-97.compute-1.amazonaws.com	34.204.100.97
+PLACEMENT	us-east-1a		default
+SECURITYGROUPS	sg-21a1ac5f	qa1.jra-sg.us-east-1-private-infra-logging
+STATE	16	running
+TAGS	jra.failure-zone	us-east-1-az-1
+TAGS	Name	qa1.instance.swarm-worker.infra-logging.qa1.us-east-1a
+TAGS	jra.environment	qa1
+TAGS	jra.environment-size	small
+TAGS	jra.subnet-type	private
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.infra-logging.qa1.us-east-1a
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.swarm-node-type	infra-logging
+TAGS	jra.environment_type	latest
+TAGS	jra.instance-name	infra-logging-us-east-1-az-1
+RESERVATIONS	478650753675	r-0d23f84bea23133ed
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-008f4a176dee67501	t2.medium	jra-swarm-key-pair	2017-06-04T14:21:16.000Z	ip-10-0-5-93.ec2.internal	10.0.5.93	ec2-54-196-17-50.compute-1.amazonaws.com	54.196.17.50	/dev/sda1	ebs	True		subnet-8e68cda2	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:17.000Z	True	attached	vol-0f55db7a772435999
+MONITORING	disabled
+NETWORKINTERFACES		12:03:0a:8f:e8:e2	eni-baa02472	478650753675	ip-10-0-5-93.ec2.internal	10.0.5.93	True	in-use	subnet-8e68cda2	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-54-196-17-50.compute-1.amazonaws.com	54.196.17.50
+ATTACHMENT	2017-06-04T14:21:16.000Z	eni-attach-0eed8020	True	0	attached
+GROUPS	sg-21a1ac5f	qa1.jra-sg.us-east-1-private-infra-logging
+PRIVATEIPADDRESSES	True	ip-10-0-5-93.ec2.internal	10.0.5.93
+ASSOCIATION	amazon	ec2-54-196-17-50.compute-1.amazonaws.com	54.196.17.50
+PLACEMENT	us-east-1c		default
+SECURITYGROUPS	sg-21a1ac5f	qa1.jra-sg.us-east-1-private-infra-logging
+STATE	16	running
+TAGS	jra.environment	qa1
+TAGS	jra.environment_type	latest
+TAGS	jra.failure-zone	us-east-1-az-3
+TAGS	jra.swarm-node-type	infra-logging
+TAGS	Name	qa1.instance.swarm-worker.infra-logging.qa1.us-east-1c
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.infra-logging.qa1.us-east-1c
+TAGS	jra.subnet-type	private
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.instance-name	infra-logging-us-east-1-az-3
+TAGS	jra.environment-size	small
+RESERVATIONS	478650753675	r-0ae9ad9921109c0e4
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-08939ab05789d71ce	t2.micro	jra-swarm-key-pair	2017-06-04T14:21:35.000Z	ip-10-0-1-151.ec2.internal	10.0.1.151	ec2-54-165-70-97.compute-1.amazonaws.com	54.165.70.97	/dev/sda1	ebs	True		subnet-0fd10355	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:36.000Z	True	attached	vol-055ca9289edf69719
+MONITORING	disabled
+NETWORKINTERFACES		0e:5d:13:b8:03:b0	eni-332b66e9	478650753675	ip-10-0-1-151.ec2.internal	10.0.1.151	True	in-use	subnet-0fd10355	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-54-165-70-97.compute-1.amazonaws.com	54.165.70.97
+ATTACHMENT	2017-06-04T14:21:35.000Z	eni-attach-692edb65	True	0	attached
+GROUPS	sg-b7a1acc9	qa1.jra-sg.us-east-1-private-app-api-service
+PRIVATEIPADDRESSES	True	ip-10-0-1-151.ec2.internal	10.0.1.151
+ASSOCIATION	amazon	ec2-54-165-70-97.compute-1.amazonaws.com	54.165.70.97
+PLACEMENT	us-east-1a		default
+SECURITYGROUPS	sg-b7a1acc9	qa1.jra-sg.us-east-1-private-app-api-service
+STATE	16	running
+TAGS	jra.environment_type	latest
+TAGS	Name	qa1.instance.swarm-worker.app-api-service.qa1.us-east-1a
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.app-api-service.qa1.us-east-1a
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.environment	qa1
+TAGS	jra.environment-size	small
+TAGS	jra.instance-name	app-api-service-us-east-1-az-1
+TAGS	jra.subnet-type	private
+TAGS	jra.failure-zone	us-east-1-az-1
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.swarm-node-type	app-api-service
+RESERVATIONS	478650753675	r-0b1c45d930d26f9ad
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-0179d689f86928f71	t2.micro	jra-swarm-key-pair	2017-06-04T14:22:08.000Z	ip-10-0-1-171.ec2.internal	10.0.1.171	ec2-52-55-212-255.compute-1.amazonaws.com	52.55.212.255	/dev/sda1	ebs	True		subnet-0fd10355	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:22:09.000Z	True	attached	vol-08fbb57e1b0d869c6
+MONITORING	disabled
+NETWORKINTERFACES		0e:eb:83:be:ee:ba	eni-372b66ed	478650753675	ip-10-0-1-171.ec2.internal	10.0.1.171	True	in-use	subnet-0fd10355	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-52-55-212-255.compute-1.amazonaws.com	52.55.212.255
+ATTACHMENT	2017-06-04T14:22:08.000Z	eni-attach-0629dc0a	True	0	attached
+GROUPS	sg-53a0ad2d	qa1.jra-sg.us-east-1-private-app-persistence
+PRIVATEIPADDRESSES	True	ip-10-0-1-171.ec2.internal	10.0.1.171
+ASSOCIATION	amazon	ec2-52-55-212-255.compute-1.amazonaws.com	52.55.212.255
+PLACEMENT	us-east-1a		default
+SECURITYGROUPS	sg-53a0ad2d	qa1.jra-sg.us-east-1-private-app-persistence
+STATE	16	running
+TAGS	Name	qa1.instance.swarm-worker.app-persistence.qa1.us-east-1a
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.environment-size	small
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.app-persistence.qa1.us-east-1a
+TAGS	jra.subnet-type	private
+TAGS	jra.instance-name	app-persistence-us-east-1-az-1
+TAGS	jra.failure-zone	us-east-1-az-1
+TAGS	jra.environment_type	latest
+TAGS	jra.environment	qa1
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.swarm-node-type	app-persistence
+RESERVATIONS	478650753675	r-0bb88756e175da713
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-0765b3e6d87f805d6	t2.micro	jra-swarm-key-pair	2017-06-04T14:21:41.000Z	ip-10-0-1-39.ec2.internal	10.0.1.39	ec2-54-208-105-78.compute-1.amazonaws.com	54.208.105.78	/dev/sda1	ebs	True		subnet-0fd10355	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:42.000Z	True	attached	vol-05e7f0b2cf4163491
+MONITORING	disabled
+NETWORKINTERFACES		0e:fa:94:44:e9:90	eni-4a2b6690	478650753675	ip-10-0-1-39.ec2.internal	10.0.1.39	True	in-use	subnet-0fd10355	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-54-208-105-78.compute-1.amazonaws.com	54.208.105.78
+ATTACHMENT	2017-06-04T14:21:41.000Z	eni-attach-1529dc19	True	0	attached
+GROUPS	sg-90a3aeee	qa1.jra-sg.us-east-1-private-build
+PRIVATEIPADDRESSES	True	ip-10-0-1-39.ec2.internal	10.0.1.39
+ASSOCIATION	amazon	ec2-54-208-105-78.compute-1.amazonaws.com	54.208.105.78
+PLACEMENT	us-east-1a		default
+SECURITYGROUPS	sg-90a3aeee	qa1.jra-sg.us-east-1-private-build
+STATE	16	running
+TAGS	jra.environment_type	latest
+TAGS	jra.swarm-node-type	infra-build
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.infra-build.qa1.us-east-1a
+TAGS	Name	qa1.instance.swarm-worker.infra-build.qa1.us-east-1a
+TAGS	jra.environment-size	small
+TAGS	jra.instance-name	infra-build-us-east-1-az-1
+TAGS	jra.environment	qa1
+TAGS	jra.failure-zone	us-east-1-az-1
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.subnet-type	private
+RESERVATIONS	478650753675	r-0e7b5fdbdc79e68dc
+INSTANCES	0	x86_64		False	xen	ami-7a265d6c	i-03e19d8671f262e48	t2.micro	jra-swarm-key-pair	2017-06-04T14:21:14.000Z	ip-10-0-3-12.ec2.internal	10.0.3.12	ec2-52-71-119-41.compute-1.amazonaws.com	52.71.119.41	/dev/sda1	ebs	True		subnet-25635940	hvm	vpc-5d79ab24
+BLOCKDEVICEMAPPINGS	/dev/sda1
+EBS	2017-06-04T14:21:15.000Z	True	attached	vol-0bf0303735976a94d
+MONITORING	disabled
+NETWORKINTERFACES		02:bb:b7:48:a4:76	eni-3f787d2b	478650753675	ip-10-0-3-12.ec2.internal	10.0.3.12	True	in-use	subnet-25635940	vpc-5d79ab24
+ASSOCIATION	amazon	ec2-52-71-119-41.compute-1.amazonaws.com	52.71.119.41
+ATTACHMENT	2017-06-04T14:21:14.000Z	eni-attach-564391ce	True	0	attached
+GROUPS	sg-90a3aeee	qa1.jra-sg.us-east-1-private-build
+PRIVATEIPADDRESSES	True	ip-10-0-3-12.ec2.internal	10.0.3.12
+ASSOCIATION	amazon	ec2-52-71-119-41.compute-1.amazonaws.com	52.71.119.41
+PLACEMENT	us-east-1b		default
+SECURITYGROUPS	sg-90a3aeee	qa1.jra-sg.us-east-1-private-build
+STATE	16	running
+TAGS	jra.environment	qa1
+TAGS	jra.failure-zone	us-east-1-az-2
+TAGS	jra.instance-name	infra-build-us-east-1-az-2
+TAGS	Name	qa1.instance.swarm-worker.infra-build.qa1.us-east-1b
+TAGS	jra.environment-size	small
+TAGS	jra.instance-name-full	qa1.instance.swarm-worker.infra-build.qa1.us-east-1b
+TAGS	jra.swarm-instance-type	swarm-worker
+TAGS	jra.swarm-node-type	infra-build
+TAGS	jra.environment-instance-id	lRGNBkaDBSE
+TAGS	jra.environment_type	latest
+TAGS	jra.subnet-type	private

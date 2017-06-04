@@ -1,0 +1,398 @@
+
+ID:		2er0hb4nq6ujaduvgrweljjx7
+Name:		jarch-infra-logging-elasticsearch
+Labels:
+ jra.application-name=jarch-infra-logging-elasticsearch
+ jra.container-name=jarch-infra-logging-elasticsearch
+ jra.domain-name=qa1.es.joericearchitect.info
+ jra.environment-flip=blue
+ traefik.docker.network=jarch-infra-logging-proxy-traefik-network
+ traefik.frontend.rule=Host:qa1.es.joericearchitect.info
+ traefik.port=9200
+Service Mode:	Replicated
+ Replicas:	1
+Placement:
+ Constraints:	[node.labels.jra.swarm-node-type == infra-logging node.labels.jra.failure-zone == us-east-1-az-1]
+UpdateConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:		elasticsearch:latest@sha256:b8697c807aa65316714a5074ef039c42e6c4b400a6986c18b9a88ef37636acbc
+ Args:		elasticsearch 
+Mounts:
+  Target = /data
+   Source = /usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data
+   ReadOnly = false
+   Type = bind
+Resources:
+Networks: jarch-infra-logging-proxy-traefik-network jarch-infra-logging-network 
+Endpoint Mode:	vip
+Ports:
+ PublishedPort = 8191
+  Protocol = tcp
+  TargetPort = 9200
+  PublishMode = ingress
+ PublishedPort = 8192
+  Protocol = tcp
+  TargetPort = 9300
+  PublishMode = ingress 
+
+ID:		g2p9puclkywnf18mj920ozlmn
+Name:		jarch-infra-logging-proxy-traefik
+Labels:
+ jra.application-name=jarch-infra-logging-proxy-traefik
+ jra.container-name=jarch-infra-logging-proxy-traefik
+ jra.domain-name=qa1.logging-proxy.joericearchitect.info
+ jra.environment-flip=blue
+ traefik.docker.network=jarch-infra-logging-proxy-traefik-network
+ traefik.frontend.rule=Host:qa1.logging-proxy.joericearchitect.info
+ traefik.port=8080
+Service Mode:	Replicated
+ Replicas:	1
+Placement:
+ Constraints:	[node.role == manager]
+UpdateConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:		traefik:v1.1.0@sha256:8fd0e3ee0aca5a4019a981eae81c46c283c36e2463f2c04d7b144e672777cffe
+ Args:		--docker --docker.swarmmode --docker.domain=traefik --docker.watch --web 
+Mounts:
+  Target = /var/run/docker.sock
+   Source = /var/run/docker.sock
+   ReadOnly = false
+   Type = bind
+Resources:
+Networks: jarch-infra-logging-proxy-traefik-network 
+Endpoint Mode:	vip
+Ports:
+ PublishedPort = 81
+  Protocol = tcp
+  TargetPort = 80
+  PublishMode = ingress
+ PublishedPort = 8188
+  Protocol = tcp
+  TargetPort = 8080
+  PublishMode = ingress 
+
+ID:		gqal20wda5r1fmz4j2kkevzmv
+Name:		jarch-infra-proxy-traefik
+Labels:
+ jra.application-name=jarch-infra-proxy-traefik
+ jra.container-name=jarch-infra-proxy-traefik
+ jra.domain-name=qa1.proxy.joericearchitect.info
+ jra.environment-flip=blue
+ traefik.docker.network=jarch-proxy-traefik-network
+ traefik.frontend.rule=Host:qa1.proxy.joericearchitect.info
+ traefik.port=8080
+Service Mode:	Replicated
+ Replicas:	1
+Placement:
+ Constraints:	[node.role == manager node.labels.jra.failure-zone == us-east-1-az-1]
+UpdateConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:		traefik:v1.1.0@sha256:8fd0e3ee0aca5a4019a981eae81c46c283c36e2463f2c04d7b144e672777cffe
+ Args:		--docker --docker.swarmmode --docker.domain=traefik --docker.watch --web 
+Mounts:
+  Target = /var/run/docker.sock
+   Source = /var/run/docker.sock
+   ReadOnly = false
+   Type = bind
+Resources:
+Networks: jarch-proxy-traefik-network 
+Endpoint Mode:	vip
+Ports:
+ PublishedPort = 80
+  Protocol = tcp
+  TargetPort = 80
+  PublishMode = ingress
+ PublishedPort = 8388
+  Protocol = tcp
+  TargetPort = 8080
+  PublishMode = ingress 
+
+ID:		mkj1uv36xaz9ydm0o3ooe99lx
+Name:		jarch-infra-docker-registry
+Labels:
+ jra.application-name=jarch-infra-docker-registry
+ jra.container-name=jarch-infra-docker-registry
+ jra.domain-name=qa1.docker.joericearchitect.info
+ jra.environment-flip=blue
+ traefik.docker.network=jarch-proxy-traefik-network
+ traefik.frontend.rule=Host:qa1.docker.joericearchitect.info
+ traefik.port=5000
+Service Mode:	Replicated
+ Replicas:	1
+Placement:
+ Constraints:	[node.labels.jra.swarm-node-type == infra-build]
+UpdateConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:		registry:2@sha256:a3551c422521617e86927c3ff57e05edf086f1648f4d8524633216ca363d06c2
+Mounts:
+  Target = /var/lib/registry
+   Source = /usr/local/jra/docker-data-volumes/jra-infra/docker-registry/data
+   ReadOnly = false
+   Type = bind
+  Target = /certs
+   Source = /usr/local/jra/docker-data-volumes/jra-infra/docker-registry/certs
+   ReadOnly = false
+   Type = bind
+Resources:
+Networks: jarch-proxy-traefik-network 
+Endpoint Mode:	vip
+Ports:
+ PublishedPort = 8183
+  Protocol = tcp
+  TargetPort = 5000
+  PublishMode = ingress 
+
+ID:		nctu98g8tylgyisg45y28ypro
+Name:		jarch-infra-build-jenkins
+Labels:
+ jra.application-name=jarch-infra-build-jenkins
+ jra.container-name=jarch-infra-build-jenkins
+ jra.domain-name=qa1.build.joericearchitect.info
+ jra.environment-flip=blue
+ traefik.docker.network=jarch-proxy-traefik-network
+ traefik.frontend.rule=Host:qa1.build.joericearchitect.info
+ traefik.port=8080
+Service Mode:	Replicated
+ Replicas:	1
+Placement:
+ Constraints:	[node.labels.jra.swarm-node-type == infra-build]
+UpdateConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:		jenkins:latest@sha256:0e2b101c8802d0ef2de411e9b9b78a5c4403635d96210ab52ada882cea646369
+Mounts:
+  Target = /var/jenkins_home
+   Source = /usr/local/jra/docker-data-volumes/jra-infra/build-jenkins/home
+   ReadOnly = false
+   Type = bind
+Resources:
+Networks: jarch-proxy-traefik-network 
+Endpoint Mode:	vip
+Ports:
+ PublishedPort = 8180
+  Protocol = tcp
+  TargetPort = 8080
+  PublishMode = ingress 
+
+ID:		pae9t6o9uxhurp933wnpkg0wl
+Name:		jarch-infra-logging-fluentd
+Labels:
+ jra.application-name=jarch-infra-logging-fluentd
+ jra.container-name=jarch-infra-logging-fluentd
+ jra.domain-name=qa1.fluentd.joericearchitect.info
+ jra.environment-flip=blue
+ traefik.docker.network=jarch-infra-logging-proxy-traefik-network
+ traefik.frontend.rule=Host:qa1.fluentd.joericearchitect.info
+ traefik.port=24284
+Service Mode:	Replicated
+ Replicas:	3
+Placement:
+ Constraints:	[node.labels.jra.swarm-node-type == infra-logging]
+UpdateConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:		joericearchitect/jarch-infra-fluentd-es:latest@sha256:317586e562eaea64fa610f38f0b6bca1fa3fd707773dce02220b9f92dc505783
+Mounts:
+  Target = /fluentd/log
+   Source = /usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data
+   ReadOnly = false
+   Type = bind
+Resources:
+Networks: jarch-infra-logging-proxy-traefik-network jarch-infra-logging-network 
+Endpoint Mode:	vip
+Ports:
+ PublishedPort = 8282
+  Protocol = tcp
+  TargetPort = 24224
+  PublishMode = ingress 
+
+ID:		u658s79hdn2334wo8j3gk5ksy
+Name:		jarch-infra-docker-ui-portainer
+Labels:
+ jra.application-name=jarch-infra-docker-ui-portainer
+ jra.container-name=jarch-infra-docker-ui-portainer
+ jra.domain-name=qa1.dockerui.joericearchitect.info
+ jra.environment-flip=blue
+ traefik.docker.network=jarch-proxy-traefik-network
+ traefik.frontend.rule=Host:qa1.dockerui.joericearchitect.info
+ traefik.port=9000
+Service Mode:	Replicated
+ Replicas:	1
+Placement:
+ Constraints:	[node.role == manager node.labels.jra.failure-zone == us-east-1-az-2]
+UpdateConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:		portainer/portainer:latest@sha256:2250da9e8dbe68687c1da8554138cffeed0c64947d85f134f683109de7f29960
+ Args:		-H unix:///var/run/docker.sock 
+Mounts:
+  Target = /var/run/docker.sock
+   Source = /var/run/docker.sock
+   ReadOnly = false
+   Type = bind
+  Target = /data
+   Source = /usr/local/jra/docker-data-volumes/jra-infra/docker-ui-portainer/data
+   ReadOnly = false
+   Type = bind
+Resources:
+Networks: jarch-proxy-traefik-network 
+Endpoint Mode:	vip
+Ports:
+ PublishedPort = 8184
+  Protocol = tcp
+  TargetPort = 9000
+  PublishMode = ingress 
+
+ID:		wk3myyh5bhk4i5xj9c90rfecg
+Name:		jarch-infra-logging-kibana
+Labels:
+ jra.application-name=jarch-infra-logging-kibana
+ jra.container-name=jarch-infra-logging-kibana
+ jra.domain-name=qa1.kibana.joericearchitect.info
+ jra.environment-flip=blue
+ traefik.docker.network=jarch-infra-logging-proxy-traefik-network
+ traefik.frontend.rule=Host:qa1.kibana.joericearchitect.info
+ traefik.port=5601
+Service Mode:	Replicated
+ Replicas:	3
+Placement:
+ Constraints:	[node.labels.jra.swarm-node-type == infra-logging]
+UpdateConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:		kibana:latest@sha256:4139adc143608396c79d6dd55c15ef55d7c882357c276f62920773ed1dbd19a8
+ Env:		ELASTICSEARCH_URL=http://jarch-infra-logging-elasticsearch:9200 
+Resources:
+Networks: jarch-infra-logging-proxy-traefik-network jarch-infra-logging-network 
+Endpoint Mode:	vip
+Ports:
+ PublishedPort = 8187
+  Protocol = tcp
+  TargetPort = 5601
+  PublishMode = ingress 
+
+ID:		yeuuknp4jh9624hka9hpny50s
+Name:		jarch-infra-docker-ui-visualizer
+Labels:
+ jra.application-name=jarch-infra-docker-ui-visualizer
+ jra.container-name=jarch-infra-docker-ui-visualizer
+ jra.domain-name=qa1.dockervisual.joericearchitect.info
+ jra.environment-flip=blue
+ traefik.docker.network=jarch-proxy-traefik-network
+ traefik.frontend.rule=Host:qa1.dockervisual.joericearchitect.info
+ traefik.port=8080
+Service Mode:	Replicated
+ Replicas:	1
+Placement:
+ Constraints:	[node.role == manager node.labels.jra.failure-zone == us-east-1-az-3]
+UpdateConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:	1
+ On failure:	pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:		manomarks/visualizer:latest@sha256:e37a1349a680964b58033bdcfaec04abccd9294acf112b6043871ff5b4dbcaba
+Mounts:
+  Target = /var/run/docker.sock
+   Source = /var/run/docker.sock
+   ReadOnly = false
+   Type = bind
+Resources:
+Networks: jarch-proxy-traefik-network 
+Endpoint Mode:	vip
+Ports:
+ PublishedPort = 8190
+  Protocol = tcp
+  TargetPort = 8080
+  PublishMode = ingress 
