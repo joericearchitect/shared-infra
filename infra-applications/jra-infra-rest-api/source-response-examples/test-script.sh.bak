@@ -1,0 +1,40 @@
+SWARM_INSTANCE_IPS=$(echo $(infra-swarm-list-all-instance-public-ips.sh))
+
+RESPONSE_STRING_JSON=""
+
+COMMAND_JSON="docker ps --format '{{json .}}'"
+COMMAND_TEXT="docker info"
+
+runCommandOnAllInstanceIps () {
+   swarmInstanceIPs=$1
+   commandString=$2
+   outputFile=$3
+   
+   printf "swarmInstanceIPs=%s\ncommandString=%s\noutputFile=%s\n" "${swarmInstanceIPs}" "${commandString}" "${outputFile}"
+
+	for swarmInstanceIP in $swarmInstanceIPs; do
+
+     printf '%b \n' "* processing instance:  $swarmInstanceIP\n"
+
+	 responsestringHeader="******* Instance:  $swarmInstanceIP		\n\n"
+	
+	 responseString="$responseString$responsestringHeader"
+	 
+	 commandResponse=$(ssh-aws.sh $swarmInstanceIP "$commandString")
+	
+	 if [ -z "$commandResponse" ]; 
+	 then 
+	     commandResponse="++no response++"; 
+	 fi;
+	
+	 responseString=$responseString$commandResponse
+	
+	 responseString=$responseString"\n\n\n"
+	
+	done
+	
+	printf '%b \n' "responseString = $responseString" > $outputFile
+}
+
+runCommandOnAllInstanceIps "$SWARM_INSTANCE_IPS" "$COMMAND_JSON" /home/vagrant/share/out2.txt
+

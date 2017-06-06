@@ -217,7 +217,7 @@ definitions:
         type: string
       environmentStatus:
         type: string
-        enum: ["active", "paused", "terminated"]
+        enum: ["active", "stopped", "terminated"]
       environmentDurabilityType:
         type: string
         enum: ["fixed", "disposable", "short-term"]
@@ -227,7 +227,7 @@ definitions:
       environmentEndDateTime:
         type: string
         format: dateTime
-      environmentLastStatusDateTime:
+      environmentLastModifiedDateTime:
         type: string
         format: dateTime
       links:
