@@ -181,11 +181,11 @@ They build on top of each other.  Basically,
 
 ### Orgnization of API
 
-See [JRA Infra API Notes Graffiti Board](jra-infra-api\infra-jra-api-notes-graffiti-board.md)
+See [JRA Infra API Notes Graffiti Board](jra-infra-api/infra-jra-api-notes-graffiti-board.md)
 
 ### Organization of CLI
 
-See [JRA Infra CLI Notes Graffiti Board](jra-infra-api\infra-jra-cli-notes-graffiti-board.md)
+See [JRA Infra CLI Notes Graffiti Board](jra-infra-api/infra-jra-cli-notes-graffiti-board.md)
 
 ## TO-DO - Tags that gotta be added to ec2 instances, docker engines, and nodes
 
