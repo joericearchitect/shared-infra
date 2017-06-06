@@ -1,0 +1,17 @@
+{
+	"id": 
+	{
+		"canonicalId": "124124saf",
+		"displayId": "349023nsddf"
+	},
+
+	"name": "latest-container-node",
+	"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+	"links": 
+	{
+		"self": 
+		{
+			"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+		}
+	}
+}

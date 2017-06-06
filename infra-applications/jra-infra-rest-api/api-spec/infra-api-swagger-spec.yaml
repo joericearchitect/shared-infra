@@ -33,19 +33,19 @@ paths:
         description: filter field on environment type
         required: false
         type: string
-      - name: environmentName
+      - name: name
         in: query
-        description: <@TODO>
+        description: <@TODO> - Add Description
         required: false
         type: string
       - name: environmentStatus
         in: query
-        description: <@TODO>
+        description: <@TODO> - Add Description
         required: false
         type: string
       - name: environmentDurabilityType
         in: query
-        description: <@TODO>
+        description: <@TODO> - Add Description
         required: false
         type: string
       responses:
@@ -59,15 +59,18 @@ paths:
             application/json :
               [
                 {
-                  "environmentCanonicalId": "349023nsddf",
-                  "environmentName": "latest",
-                  "alternateIds": [
-                    {
-                      "id": "234uff2u34234",
-                      "idName": "awsVpcId",
-                      "idSource": "aws-ec2"
-                    }
-                  ],
+                  "id": {
+                    "canonicalId": "349023nsddf",
+                    "displayId": "latest-ddf",
+                    "alternateIds": [
+                      {
+                        "id": "234uff2u34234",
+                        "idName": "awsVpcId",
+                        "idSource": "aws-ec2"
+                      }
+                    ]
+                  },
+                  "name": "latest",
                   "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
                   "environmentStatus": "active",
                   "environmentDurabilityType": "fixed",
@@ -78,15 +81,18 @@ paths:
                   }
                 },
                 {
-                  "environmentCanonicalId": "234sldfjsdflj234",
-                  "environmentName": "UAT-Magic-Band-Project",
-                  "alternateIds": [
-                    {
-                      "id": "234uff2u34234",
-                      "idName": "awsVpcId",
-                      "idSource": "aws-ec2"
-                    }
-                  ],
+                  "id": {
+                    "canonicalId": "234sldfjsdflj234",
+                    "displayId": "UAT-Magic-Band-Project",
+                    "alternateIds": [
+                      {
+                        "id": "234uff2u34234",
+                        "idName": "awsVpcId",
+                        "idSource": "aws-ec2"
+                      }
+                    ]
+                  },
+                  "name": "UAT-Magic-Band-Project",
                   "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
                   "environmentStatus": "terminated",
                   "environmentDurabilityType": "short-term",
@@ -98,19 +104,17 @@ paths:
                 }
               ] 
         404:
-          description: The requested tax filing was not found.
+          description: The requested environments were not found
 
-  # Each Path Item Object describes a resource, containing a set of operations
-  # at a specified path.  The Path Item object can define parameters and 
-  # responses common all of its contained operations.
+  # @TODO - Document
   /environments/{environmentCanonicalId}:
 
     # Operations are identified by an HTTP method.  
     get:
       tags:
       - Environment
-      description: <@TODO>
-      operationId: getEnvironments
+      description: <@TODO> - Add Description
+      operationId: getEnvironmentDetails
       consumes:
       - application/json
       produces:
@@ -118,7 +122,7 @@ paths:
       parameters:
       - name: environmentCanonicalId
         in: path
-        description: <@TODO>
+        description: <@TODO> - Add Description
         required: true
         type: string
       responses:
@@ -126,52 +130,703 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/Environments"
+            $ref: "#/definitions/EnvironmentDetails"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              {
+                "id": {
+                  "canonicalId": "349023nsddf",
+                  "displayId": "349023nsddf",
+                  "alternateIds": [
+                    {
+                      "id": "234uff2u34234",
+                      "idName": "awsVpcId",
+                      "idSource": "aws-ec2"
+                    }
+                  ]
+                },
+                "name": "latest",
+                "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+                "environmentStatus": "active",
+                "environmentStartDateTime": "2017-06-06T08:08:02+00:00",
+                "environmentEndDateTime": "2017-06-07T08:08:02+00:00",
+                "environmentLastModifiedDateTime": "2017-06-0708:08:02+00:00",
+                "environmentDurabilityType": "fixed",
+                "containerClusters": [
+                  {
+                    "id": {
+                      "canonicalId": "34234wdflsjf",
+                      "displayId": "349023nsddf"
+                    },
+                    "name": "latest-container-cluster",
+                    "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+                    "links": {
+                      "self": {
+                        "href": "http://localhost/infra-api/container-clusters/34234wdflsjf"
+                      }
+                    }
+                  },
+                  {
+                    "id": {
+                      "canonicalId": "124124saf",
+                      "displayId": "349023nsddf"
+                    },
+                    "name": "latest-container-cluster",
+                    "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+                    "links": {
+                      "self": {
+                        "href": "http://localhost/infra-api/container-clusters/234sldfjsdflj234"
+                      }
+                    }
+                  }
+                ],
+                "containerNodes": [
+                  {
+                    "id": {
+                      "canonicalId": "34234wdflsjf",
+                      "displayId": "349023nsddf"
+                    },
+                    "name": "latest-container-node",
+                    "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+                    "links": {
+                      "self": {
+                        "href": "http://localhost/infra-api/container-nodes/34234wdflsjf"
+                      }
+                    }
+                  },
+                  {
+                    "id": {
+                      "canonicalId": "124124saf",
+                      "displayId": "349023nsddf"
+                    },
+                    "name": "latest-container-node",
+                    "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+                    "links": {
+                      "self": {
+                        "href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+                      }
+                    }
+                  }
+                ],
+                "applicationGroups": [
+                  {
+                    "id": {
+                      "canonicalId": "34234wdflsjf",
+                      "displayId": "349023nsddf"
+                    },
+                    "name": "latest-application-group",
+                    "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+                    "links": {
+                      "self": {
+                        "href": "http://localhost/infra-api/application-groups/34234wdflsjf"
+                      }
+                    }
+                  },
+                  {
+                    "id": {
+                      "canonicalId": "124124saf",
+                      "displayId": "349023nsddf"
+                    },
+                    "name": "latest-application-group",
+                    "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+                    "links": {
+                      "self": {
+                        "href": "http://localhost/infra-api/application-groups/234sldfjsdflj234"
+                      }
+                    }
+                  }
+                ],
+                "applications": [
+                  {
+                    "id": {
+                      "canonicalId": "34234wdflsjf",
+                      "displayId": "349023nsddf"
+                    },
+                    "name": "latest-application",
+                    "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+                    "links": {
+                      "self": {
+                        "href": "http://localhost/infra-api/applications/34234wdflsjf"
+                      }
+                    }
+                  },
+                  {
+                    "id": {
+                      "canonicalId": "124124saf",
+                      "displayId": "349023nsddf"
+                    },
+                    "name": "latest-application",
+                    "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+                    "links": {
+                      "self": {
+                        "href": "http://localhost/infra-api/applications/234sldfjsdflj234"
+                      }
+                    }
+                  }
+                ],
+                "applicationServices": [
+                  {
+                    "id": {
+                      "canonicalId": "34234wdflsjf",
+                      "displayId": "349023nsddf"
+                    },
+                    "name": "latest-application-service",
+                    "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+                    "links": {
+                      "self": {
+                        "href": "http://localhost/infra-api/application-services/34234wdflsjf"
+                      }
+                    }
+                  },
+                  {
+                    "id": {
+                      "canonicalId": "124124saf",
+                      "displayId": "349023nsddf"
+                    },
+                    "name": "latest-application-service",
+                    "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+                    "links": {
+                      "self": {
+                        "href": "http://localhost/infra-api/application-services/234sldfjsdflj234"
+                      }
+                    }
+                  }
+                ],
+                "links": {
+                  "self": {
+                    "href": "http://localhost/infra-api/environments/349023nsddf"
+                  }
+                }
+              }
+        404:
+          description: The requested tax filing was not found.
+
+  # @TODO - Document
+  /container-clusters:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Container Cluster
+      - Container Clusters
+      description: <@TODO> - Add Description
+      operationId: getContainerClusters
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: YYY
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/containerClusterList"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                  {
+                    "id": {
+                      "canonicalId": "34234wdflsjf",
+                      "displayId": "349023nsddf"
+                    },
+                    "name": "latest-container-cluster",
+                    "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+                    "links": {
+                      "self": {
+                        "href": "http://localhost/infra-api/container-clusters/34234wdflsjf"
+                      }
+                    }
+                  },
+                  {
+                    "id": {
+                      "canonicalId": "124124saf",
+                      "displayId": "349023nsddf"
+                    },
+                    "name": "latest-container-cluster",
+                    "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+                    "links": {
+                      "self": {
+                        "href": "http://localhost/infra-api/container-clusters/234sldfjsdflj234"
+                      }
+                    }
+                  }
+                ]
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /container-clustera/{containerClusterCanonicalId}:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Container Cluster
+      - Container Clusters
+      description: <@TODO> - Add Description
+      operationId: getContainerCluster
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: containerClusterCanonicalId
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/containerClusterDetails"
           examples:
             # Example message, keyed by media type
             application/json :
               [
                 {
-                  "environmentCanonicalId": "349023nsddf",
-                  "environmentName": "latest",
-                  "alternateIds": [
-                    {
-                      "id": "234uff2u34234",
-                      "idName": "awsVpcId",
-                      "idSource": "aws-ec2"
-                    }
-                  ],
-                  "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-                  "environmentStatus": "active",
-                  "environmentDurabilityType": "fixed",
-                  "links": {
-                    "self": {
-                      "href": "http://localhost/infra-api/environments/349023nsdf"
-                    }
-                  }
-                },
-                {
-                  "environmentCanonicalId": "234sldfjsdflj234",
-                  "environmentName": "UAT-Magic-Band-Project",
-                  "alternateIds": [
-                    {
-                      "id": "234uff2u34234",
-                      "idName": "awsVpcId",
-                      "idSource": "aws-ec2"
-                    }
-                  ],
-                  "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-                  "environmentStatus": "terminated",
-                  "environmentDurabilityType": "short-term",
-                  "links": {
-                    "self": {
-                      "href": "http://localhost/infra-api/environments/234sldfjsdflj234"
-                    }
-                  }
                 }
               ] 
         404:
-          description: The requested tax filing was not found.
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /container-nodes:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Container Cluster
+      - Container Nodes
+      description: <@TODO> - Add Description
+      operationId: getContainerClusterNodeList
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: YYY
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/containerNodeList"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /container-node/{containerNodeCanonicalId}:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Container Cluster
+      - Container Nodes
+      description: <@TODO> - Add Description
+      operationId: getContainerNodeDetails
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: containerNodeCanonicalId
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/containerNodeDetails"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /containers:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Container Cluster
+      - Containers
+      description: <@TODO> - Add Description
+      operationId: getContainerList
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: YYY
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/containerList"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /containers/{containerCanonicalId}:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Container Cluster
+      - Containers
+      description: <@TODO> - Add Description
+      operationId: getContainerDetails
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: containerCanonicalId
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/containerDetails"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /application-groups:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Application
+      - Application Groups
+      description: <@TODO> - Add Description
+      operationId: getApplicationGroupList
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: YYY
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/applicationGroupList"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /application-groups/{applicationGroupCanonicalId}:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Application
+      - Application Groups
+      description: <@TODO> - Add Description
+      operationId: getApplicationGroupDetails
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: applicationGroupCanonicalId
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/applicationGroupDetails"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /applications:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Application
+      - Applications
+      description: <@TODO> - Add Description
+      operationId: getApplicationList
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: YYY
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/applicationList"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /applications/{applicationCanonicalId}:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Application
+      - Applications
+      description: <@TODO> - Add Description
+      operationId: getApplicationDetails
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: applicationCanonicalId
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/applicationDetails"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /application-services:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Application
+      - Application Services
+      description: <@TODO> - Add Description
+      operationId: getApplicationServiceList
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: YYY
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/applicationServiceList"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /application-services/{applicationServiceCanonicalId}:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - Application
+      - Application Services
+      description: <@TODO> - Add Description
+      operationId: getApplicationServiceDetails
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: applicationServiceCanonicalId
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/applicationServiceDetails"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /XXX:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - XXX
+      description: <@TODO> - Add Description
+      operationId: getEnvironments
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: YYY
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/YYY"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /XXX/{XXXCanonicalId}:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - XXX
+      description: <@TODO> - Add Description
+      operationId: getEnvironments
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: XXXCanonicalId
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/YYY"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
 
 # The definitions section contains a set of named Schema Objects.  Each schema
 # object describes a reusable data type, which can be reference by name.
@@ -180,12 +835,10 @@ definitions:
     type: object
     description: An summary of the environment meant to returned in collection.
     properties:
-      environmentCanonicalId:
-        type: string
-        description: <@TODO>
-      alternateIds:
-        $ref: '#/definitions/Identifiers'
-      environmentName:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
         type: string
       descriptionn:
         type: string
@@ -203,15 +856,16 @@ definitions:
     items:
       $ref: '#/definitions/EnvironmentSummary'
 
+
+
   EnvironmentDetails:
     type: object
-    description: <@TODO>
+    description: <@TODO> - Add Description
     properties:
-      environmentCanonicalId:
-        type: string
-      alternateIds:
-        $ref: '#/definitions/Identifiers'
-      environmentName:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
         type: string
       descriptionn:
         type: string
@@ -230,23 +884,252 @@ definitions:
       environmentLastModifiedDateTime:
         type: string
         format: dateTime
+      containerClusters:
+        type: object
+        $ref: '#/definitions/containerClusterList' 
+      containerNodes:
+        type: object
+        $ref: '#/definitions/containerNodeList'
+      applicationGroups:
+        type: object
+        $ref: '#/definitions/applicationGroupList'
+      applications:
+        type: object
+        $ref: '#/definitions/applicationList'
+      applicationServices:
+        type: object
+        $ref: '#/definitions/applicationServiceList'
       links:
         $ref: '#/definitions/Links' 
 
-  Identifiers:
+  containerClusterSummary:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier' 
+      links:
+        $ref: '#/definitions/Links' 
+
+  containerClusterDetails:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier' 
+      links:
+        $ref: '#/definitions/Links' 
+
+  containerClusterList:
     type: array
     items:
-      type: object
-      properties:
-        id:
-          type: string
-        idSource:
-          type: string
-        idName:
-          type: string
+      $ref: '#/definitions/containerClusterSummary'
 
-  ContainerClusters:
+  containerNodeSummary:
     type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier' 
+      links:
+        $ref: '#/definitions/Links' 
+
+  containerNodeDetails:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier' 
+      links:
+        $ref: '#/definitions/Links' 
+
+  containerNodeList:
+    type: array
+    items:
+      $ref: '#/definitions/containerNodeSummary'
+
+  containerSummary:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier' 
+      links:
+        $ref: '#/definitions/Links' 
+
+  containerDetails:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier' 
+      links:
+        $ref: '#/definitions/Links' 
+
+  containerList:
+    type: array
+    items:
+      $ref: '#/definitions/containerNodeSummary'
+
+  applicationGroupSummary:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier' 
+      links:
+        $ref: '#/definitions/Links' 
+
+  applicationGroupDetails:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier' 
+      links:
+        $ref: '#/definitions/Links' 
+
+  applicationGroupList:
+    type: array
+    items:
+      $ref: '#/definitions/applicationGroupSummary'
+
+  applicationSummary:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier' 
+      links:
+        $ref: '#/definitions/Links' 
+
+  applicationDetails:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier' 
+      links:
+        $ref: '#/definitions/Links' 
+
+  applicationList:
+    type: array
+    items:
+      $ref: '#/definitions/applicationSummary'
+
+  applicationServiceSummary:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier' 
+      links:
+        $ref: '#/definitions/Links' 
+
+  applicationServiceDetails:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier' 
+      links:
+        $ref: '#/definitions/Links' 
+
+  applicationServiceList:
+    type: array
+    items:
+      $ref: '#/definitions/applicationServiceSummary'
+  
+  Identifier:
+    type: object
+    properties:
+      canonicalId:
+        type: string
+      displayId:
+        type: string
+      alternateIds:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            idSource:
+              type: string
+            idName:
+              type: string
 
   Link:
     type: object

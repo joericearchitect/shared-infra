@@ -1,14 +1,17 @@
 [
 	{
-		"environmentCanonicalId": "349023nsddf",
-		"environmentName": "latest",
-		"alternateIds": [
-			{
-				"id": "234uff2u34234",
-				"idName": "awsVpcId",
-				"idSource": "aws-ec2"
-			}
-		],
+		"id": {
+			"canonicalId": "349023nsddf",
+			"displayId": "latest-ddf",
+			"alternateIds": [
+				{
+					"id": "234uff2u34234",
+					"idName": "awsVpcId",
+					"idSource": "aws-ec2"
+				}
+			]
+		},
+		"name": "latest",
 		"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
 		"environmentStatus": "active",
 		"environmentDurabilityType": "fixed",
@@ -19,15 +22,18 @@
 		}
 	},
 	{
-		"environmentCanonicalId": "234sldfjsdflj234",
-		"environmentName": "UAT-Magic-Band-Project",
-		"alternateIds": [
-			{
-				"id": "234uff2u34234",
-				"idName": "awsVpcId",
-				"idSource": "aws-ec2"
-			}
-		],
+		"id": {
+			"canonicalId": "234sldfjsdflj234",
+			"displayId": "UAT-Magic-Band-Project",
+			"alternateIds": [
+				{
+					"id": "234uff2u34234",
+					"idName": "awsVpcId",
+					"idSource": "aws-ec2"
+				}
+			]
+		},
+		"name": "UAT-Magic-Band-Project",
 		"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
 		"environmentStatus": "terminated",
 		"environmentDurabilityType": "short-term",

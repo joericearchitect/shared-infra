@@ -1,0 +1,28 @@
+[
+		{
+			"id": {
+				"canonicalId": "34234wdflsjf",
+				"displayId": "349023nsddf"
+			},
+			"name": "latest-application",
+			"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+			"links": {
+				"self": {
+					"href": "http://localhost/infra-api/applications/34234wdflsjf"
+				}
+			}
+		},
+		{
+			"id": {
+				"canonicalId": "124124saf",
+				"displayId": "349023nsddf"
+			},
+			"name": "latest-application",
+			"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+			"links": {
+				"self": {
+					"href": "http://localhost/infra-api/applications/234sldfjsdflj234"
+				}
+			}
+		}
+	]

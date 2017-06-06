@@ -1,0 +1,17 @@
+{
+	"id": 
+	{
+		"canonicalId": "124124saf",
+		"displayId": "349023nsddf"
+	},
+
+	"name": "latest-application-group",
+	"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+	"links": 
+	{
+		"self": 
+		{
+			"href": "http://localhost/infra-api/application-groups/234sldfjsdflj234"
+		}
+	}
+}
