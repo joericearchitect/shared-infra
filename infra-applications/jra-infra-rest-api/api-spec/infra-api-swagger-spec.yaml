@@ -20,7 +20,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Environment
+      - 0 - Environment
       description: retrieves and searches through a list of environments
       operationId: getEnvironments
       consumes:
@@ -112,7 +112,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Environment
+      - 0 - Environment
       description: <@TODO> - Add Description
       operationId: getEnvironmentDetails
       consumes:
@@ -308,7 +308,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Container Cluster
+      - 0 - Container Cluster
       - Container Clusters
       description: <@TODO> - Add Description
       operationId: getContainerClusters
@@ -368,7 +368,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Container Cluster
+      - 0 - Container Cluster
       - Container Clusters
       description: <@TODO> - Add Description
       operationId: getContainerCluster
@@ -404,7 +404,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Container Cluster
+      - 0 - Container Cluster
       - Container Nodes
       description: <@TODO> - Add Description
       operationId: getContainerClusterNodeList
@@ -440,7 +440,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Container Cluster
+      - 0 - Container Cluster
       - Container Nodes
       description: <@TODO> - Add Description
       operationId: getContainerNodeDetails
@@ -476,7 +476,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Container Cluster
+      - 0 - Container Cluster
       - Containers
       description: <@TODO> - Add Description
       operationId: getContainerList
@@ -512,7 +512,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Container Cluster
+      - 0 - Container Cluster
       - Containers
       description: <@TODO> - Add Description
       operationId: getContainerDetails
@@ -548,7 +548,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Application
+      - 0 - Application
       - Application Groups
       description: <@TODO> - Add Description
       operationId: getApplicationGroupList
@@ -584,7 +584,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Application
+      - 0 - Application
       - Application Groups
       description: <@TODO> - Add Description
       operationId: getApplicationGroupDetails
@@ -620,7 +620,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Application
+      - 0 - Application
       - Applications
       description: <@TODO> - Add Description
       operationId: getApplicationList
@@ -656,7 +656,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Application
+      - 0 - Application
       - Applications
       description: <@TODO> - Add Description
       operationId: getApplicationDetails
@@ -692,7 +692,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Application
+      - 0 - Application
       - Application Services
       description: <@TODO> - Add Description
       operationId: getApplicationServiceList
@@ -728,7 +728,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - Application
+      - 0 - Application
       - Application Services
       description: <@TODO> - Add Description
       operationId: getApplicationServiceDetails
@@ -748,76 +748,6 @@ paths:
           schema:
             # Reference to a Schema Object described in 'definitions' section
             $ref: "#/definitions/applicationServiceDetails"
-          examples:
-            # Example message, keyed by media type
-            application/json :
-              [
-                {
-                }
-              ] 
-        404:
-          description: <@TODO> - Add Description
-
-  # @TODO - Document
-  /XXX:
-
-    # Operations are identified by an HTTP method.  
-    get:
-      tags:
-      - XXX
-      description: <@TODO> - Add Description
-      operationId: getEnvironments
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - name: YYY
-        in: path
-        description: <@TODO> - Add Description
-        required: true
-        type: string
-      responses:
-        200:
-          description: Successful response, with details about an environment.
-          schema:
-            # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/YYY"
-          examples:
-            # Example message, keyed by media type
-            application/json :
-              [
-                {
-                }
-              ] 
-        404:
-          description: <@TODO> - Add Description
-
-  # @TODO - Document
-  /XXX/{XXXCanonicalId}:
-
-    # Operations are identified by an HTTP method.  
-    get:
-      tags:
-      - XXX
-      description: <@TODO> - Add Description
-      operationId: getEnvironments
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - name: XXXCanonicalId
-        in: path
-        description: <@TODO> - Add Description
-        required: true
-        type: string
-      responses:
-        200:
-          description: Successful response, with details about an environment.
-          schema:
-            # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/YYY"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -928,7 +858,51 @@ definitions:
         $ref: '#/definitions/Identifier' 
         description: <@TODO> - Add Description
       description:
-        $ref: '#/definitions/Identifier' 
+        $ref: '#/definitions/Identifier'
+      clusterConfiguration:
+        type: object
+        properties:
+          dockerSwarmConfiguration:
+            type: object
+            properties:
+              clusterAdvertiseAddress:
+                type: string
+              clusterListenAddress:
+                type: string
+              managerJoinToken:
+                type: string
+              workerJoinToken:
+                type: string
+      containerClustertStartDateTime:
+        type: string
+        format: dateTime
+      containerClusterEndDateTime:
+        type: string
+        format: dateTime
+      containerClusterLastModifiedDateTime:
+        type: string
+        format: dateTime
+      containerClusterHealthStatus:
+        type: object
+        $ref: '#/definitions/healthStatus'
+      containerClusterCurrentState:
+        type: object
+        $ref: '#/definitions/currentState'
+      managerContainerNodes:
+        type: object
+        $ref: '#/definitions/containerNodeList'
+      workerContainerNodes:
+        type: object
+        $ref: '#/definitions/containerNodeList'
+      applicationGroups:
+        type: object
+        $ref: '#/definitions/applicationGroupList'
+      applications:
+        type: object
+        $ref: '#/definitions/applicationList'
+      applicationServices:
+        type: object
+        $ref: '#/definitions/applicationServiceList'
       links:
         $ref: '#/definitions/Links' 
 
@@ -964,6 +938,12 @@ definitions:
         description: <@TODO> - Add Description
       description:
         $ref: '#/definitions/Identifier' 
+      applicationServices:
+        type: object
+        $ref: '#/definitions/applicationServiceList'
+      containers:
+        type: object
+        $ref: '#/definitions/containerList'
       links:
         $ref: '#/definitions/Links' 
 
@@ -1034,6 +1014,12 @@ definitions:
         description: <@TODO> - Add Description
       description:
         $ref: '#/definitions/Identifier' 
+      applications:
+        type: object
+        $ref: '#/definitions/applicationList'
+      applicationServices:
+        type: object
+        $ref: '#/definitions/applicationServiceList'
       links:
         $ref: '#/definitions/Links' 
 
@@ -1069,6 +1055,9 @@ definitions:
         description: <@TODO> - Add Description
       description:
         $ref: '#/definitions/Identifier' 
+      applicationServices:
+        type: object
+        $ref: '#/definitions/applicationServiceList'
       links:
         $ref: '#/definitions/Links' 
 
@@ -1104,6 +1093,9 @@ definitions:
         description: <@TODO> - Add Description
       description:
         $ref: '#/definitions/Identifier' 
+      containers:
+        type: object
+        $ref: '#/definitions/containerList'
       links:
         $ref: '#/definitions/Links' 
 
@@ -1130,6 +1122,14 @@ definitions:
               type: string
             idName:
               type: string
+
+  healthStatus: 
+    type: object
+    
+
+  currentState:
+    type: string
+    enum: ["active", "paused", "terminated"]
 
   Link:
     type: object
