@@ -1,5 +1,161 @@
 ++++Docker Engine Details for 	Instance:  34.200.252.92
-{"ID":"YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X","Containers":0,"ContainersRunning":0,"ContainersPaused":0,"ContainersStopped":0,"Images":0,"Driver":"aufs","DriverStatus":[["Root Dir","/var/lib/docker/aufs"],["Backing Filesystem","extfs"],["Dirs","0"],["Dirperm1 Supported","true"]],"SystemStatus":null,"Plugins":{"Volume":["local"],"Network":["bridge","host","ipvlan","macvlan","null","overlay"],"Authorization":[]},"MemoryLimit":true,"SwapLimit":false,"KernelMemory":true,"CpuCfsPeriod":true,"CpuCfsQuota":true,"CPUShares":true,"CPUSet":true,"IPv4Forwarding":true,"BridgeNfIptables":true,"BridgeNfIp6tables":true,"Debug":false,"NFd":38,"OomKillDisable":true,"NGoroutines":75,"SystemTime":"2017-06-04T17:14:04.112044057Z","LoggingDriver":"fluentd","CgroupDriver":"cgroupfs","NEventsListener":0,"KernelVersion":"4.4.0-78-generic","OperatingSystem":"Ubuntu 16.04.1 LTS","OSType":"linux","Architecture":"x86_64","IndexServerAddress":"https://index.docker.io/v1/","RegistryConfig":{"InsecureRegistryCIDRs":["127.0.0.0/8"],"IndexConfigs":{"docker.io":{"Name":"docker.io","Mirrors":[],"Secure":true,"Official":true}},"Mirrors":[]},"NCPU":1,"MemTotal":1038696448,"DockerRootDir":"/var/lib/docker","HttpProxy":"","HttpsProxy":"","NoProxy":"","Name":"ip-10-0-3-121","Labels":["jra.instance-name=app-api-service-us-east-1-az-2","jra.instance-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b","jra.swarm-node-name=app-api-service-us-east-1-az-2","jra.swarm-node-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b","jra.environment=qa1","jra.environment-size=small","jra.environment-type=latest","jra.environment-instance-id=lRGNBkaDBSE","jra.failure-zone=us-east-1-az-2","jra.subnet-type=private","jra.swarm-instance-type=swarm-worker","jra.swarm-node-type=app-api-service"],"ExperimentalBuild":true,"ServerVersion":"17.05.0-ce-rc3","ClusterStore":"","ClusterAdvertise":"","Runtimes":{"runc":{"path":"docker-runc"}},"DefaultRuntime":"runc","Swarm":{"NodeID":"f5zucdn6cnkpylmkkf50jjios","NodeAddr":"10.0.3.121","LocalNodeState":"active","ControlAvailable":false,"Error":"","RemoteManagers":[{"NodeID":"leheohkbf9cy9z9lxyixaoxoa","Addr":"10.0.3.251:2377"},{"NodeID":"lylcdytdzolboh45pe8fklf5n","Addr":"10.0.1.231:2377"},{"NodeID":"noomifav7kxn7jajzg9vpjgl1","Addr":"10.0.5.90:2377"}]},"LiveRestoreEnabled":false,"Isolation":"","InitBinary":"docker-init","ContainerdCommit":{"ID":"9048e5e50717ea4497b757314bad98ea3763c145","Expected":"9048e5e50717ea4497b757314bad98ea3763c145"},"RuncCommit":{"ID":"9c2d8d184e5da67c95d601382adf14862e4f2228","Expected":"9c2d8d184e5da67c95d601382adf14862e4f2228"},"InitCommit":{"ID":"949e6fa","Expected":"949e6fa"},"SecurityOptions":["name=apparmor","name=seccomp,profile=default"]}
+{  
+   "ID":"YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X",
+   "Containers":0,
+   "ContainersRunning":0,
+   "ContainersPaused":0,
+   "ContainersStopped":0,
+   "Images":0,
+   "Driver":"aufs",
+   "DriverStatus":[  
+      [  
+         "Root Dir",
+         "/var/lib/docker/aufs"
+      ],
+      [  
+         "Backing Filesystem",
+         "extfs"
+      ],
+      [  
+         "Dirs",
+         "0"
+      ],
+      [  
+         "Dirperm1 Supported",
+         "true"
+      ]
+   ],
+   "SystemStatus":null,
+   "Plugins":{  
+      "Volume":[  
+         "local"
+      ],
+      "Network":[  
+         "bridge",
+         "host",
+         "ipvlan",
+         "macvlan",
+         "null",
+         "overlay"
+      ],
+      "Authorization":[  
+
+      ]
+   },
+   "MemoryLimit":true,
+   "SwapLimit":false,
+   "KernelMemory":true,
+   "CpuCfsPeriod":true,
+   "CpuCfsQuota":true,
+   "CPUShares":true,
+   "CPUSet":true,
+   "IPv4Forwarding":true,
+   "BridgeNfIptables":true,
+   "BridgeNfIp6tables":true,
+   "Debug":false,
+   "NFd":38,
+   "OomKillDisable":true,
+   "NGoroutines":75,
+   "SystemTime":"2017-06-04T17:14:04.112044057Z",
+   "LoggingDriver":"fluentd",
+   "CgroupDriver":"cgroupfs",
+   "NEventsListener":0,
+   "KernelVersion":"4.4.0-78-generic",
+   "OperatingSystem":"Ubuntu 16.04.1 LTS",
+   "OSType":"linux",
+   "Architecture":"x86_64",
+   "IndexServerAddress":"https://index.docker.io/v1/",
+   "RegistryConfig":{  
+      "InsecureRegistryCIDRs":[  
+         "127.0.0.0/8"
+      ],
+      "IndexConfigs":{  
+         "docker.io":{  
+            "Name":"docker.io",
+            "Mirrors":[  
+
+            ],
+            "Secure":true,
+            "Official":true
+         }
+      },
+      "Mirrors":[  
+
+      ]
+   },
+   "NCPU":1,
+   "MemTotal":1038696448,
+   "DockerRootDir":"/var/lib/docker",
+   "HttpProxy":"",
+   "HttpsProxy":"",
+   "NoProxy":"",
+   "Name":"ip-10-0-3-121",
+   "Labels":[  
+      "jra.instance-name=app-api-service-us-east-1-az-2",
+      "jra.instance-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b",
+      "jra.swarm-node-name=app-api-service-us-east-1-az-2",
+      "jra.swarm-node-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b",
+      "jra.environment=qa1",
+      "jra.environment-size=small",
+      "jra.environment-type=latest",
+      "jra.environment-instance-id=lRGNBkaDBSE",
+      "jra.failure-zone=us-east-1-az-2",
+      "jra.subnet-type=private",
+      "jra.swarm-instance-type=swarm-worker",
+      "jra.swarm-node-type=app-api-service"
+   ],
+   "ExperimentalBuild":true,
+   "ServerVersion":"17.05.0-ce-rc3",
+   "ClusterStore":"",
+   "ClusterAdvertise":"",
+   "Runtimes":{  
+      "runc":{  
+         "path":"docker-runc"
+      }
+   },
+   "DefaultRuntime":"runc",
+   "Swarm":{  
+      "NodeID":"f5zucdn6cnkpylmkkf50jjios",
+      "NodeAddr":"10.0.3.121",
+      "LocalNodeState":"active",
+      "ControlAvailable":false,
+      "Error":"",
+      "RemoteManagers":[  
+         {  
+            "NodeID":"leheohkbf9cy9z9lxyixaoxoa",
+            "Addr":"10.0.3.251:2377"
+         },
+         {  
+            "NodeID":"lylcdytdzolboh45pe8fklf5n",
+            "Addr":"10.0.1.231:2377"
+         },
+         {  
+            "NodeID":"noomifav7kxn7jajzg9vpjgl1",
+            "Addr":"10.0.5.90:2377"
+         }
+      ]
+   },
+   "LiveRestoreEnabled":false,
+   "Isolation":"",
+   "InitBinary":"docker-init",
+   "ContainerdCommit":{  
+      "ID":"9048e5e50717ea4497b757314bad98ea3763c145",
+      "Expected":"9048e5e50717ea4497b757314bad98ea3763c145"
+   },
+   "RuncCommit":{  
+      "ID":"9c2d8d184e5da67c95d601382adf14862e4f2228",
+      "Expected":"9c2d8d184e5da67c95d601382adf14862e4f2228"
+   },
+   "InitCommit":{  
+      "ID":"949e6fa",
+      "Expected":"949e6fa"
+   },
+   "SecurityOptions":[  
+      "name=apparmor",
+      "name=seccomp,profile=default"
+   ]
+}
+
  
 ++++Docker Engine Details for 	Instance:  54.237.194.116
 {"ID":"YMZ7:3WRV:B326:33FQ:BYRN:AKJO:YDC3:DBO7:NFJM:ENLG:5MPU:3M3X","Containers":0,"ContainersRunning":0,"ContainersPaused":0,"ContainersStopped":0,"Images":0,"Driver":"aufs","DriverStatus":[["Root Dir","/var/lib/docker/aufs"],["Backing Filesystem","extfs"],["Dirs","0"],["Dirperm1 Supported","true"]],"SystemStatus":null,"Plugins":{"Volume":["local"],"Network":["bridge","host","ipvlan","macvlan","null","overlay"],"Authorization":[]},"MemoryLimit":true,"SwapLimit":false,"KernelMemory":true,"CpuCfsPeriod":true,"CpuCfsQuota":true,"CPUShares":true,"CPUSet":true,"IPv4Forwarding":true,"BridgeNfIptables":true,"BridgeNfIp6tables":true,"Debug":false,"NFd":38,"OomKillDisable":true,"NGoroutines":75,"SystemTime":"2017-06-04T17:14:10.446868598Z","LoggingDriver":"fluentd","CgroupDriver":"cgroupfs","NEventsListener":0,"KernelVersion":"4.4.0-78-generic","OperatingSystem":"Ubuntu 16.04.1 LTS","OSType":"linux","Architecture":"x86_64","IndexServerAddress":"https://index.docker.io/v1/","RegistryConfig":{"InsecureRegistryCIDRs":["127.0.0.0/8"],"IndexConfigs":{"docker.io":{"Name":"docker.io","Mirrors":[],"Secure":true,"Official":true}},"Mirrors":[]},"NCPU":1,"MemTotal":1038696448,"DockerRootDir":"/var/lib/docker","HttpProxy":"","HttpsProxy":"","NoProxy":"","Name":"ip-10-0-5-175","Labels":["jra.instance-name=infra-build-us-east-1-az-3","jra.instance-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1c","jra.swarm-node-name=infra-build-us-east-1-az-3","jra.swarm-node-name-full=qa1.instance.swarm-worker.infra-build.qa1.us-east-1c","jra.environment=qa1","jra.environment-size=small","jra.environment-type=latest","jra.environment-instance-id=lRGNBkaDBSE","jra.failure-zone=us-east-1-az-3","jra.subnet-type=private","jra.swarm-instance-type=swarm-worker","jra.swarm-node-type=infra-build"],"ExperimentalBuild":true,"ServerVersion":"17.05.0-ce-rc3","ClusterStore":"","ClusterAdvertise":"","Runtimes":{"runc":{"path":"docker-runc"}},"DefaultRuntime":"runc","Swarm":{"NodeID":"u671sf35l67ncc5y5i1hfj47r","NodeAddr":"10.0.5.175","LocalNodeState":"active","ControlAvailable":false,"Error":"","RemoteManagers":[{"NodeID":"leheohkbf9cy9z9lxyixaoxoa","Addr":"10.0.3.251:2377"},{"NodeID":"lylcdytdzolboh45pe8fklf5n","Addr":"10.0.1.231:2377"},{"NodeID":"noomifav7kxn7jajzg9vpjgl1","Addr":"10.0.5.90:2377"}]},"LiveRestoreEnabled":false,"Isolation":"","InitBinary":"docker-init","ContainerdCommit":{"ID":"9048e5e50717ea4497b757314bad98ea3763c145","Expected":"9048e5e50717ea4497b757314bad98ea3763c145"},"RuncCommit":{"ID":"9c2d8d184e5da67c95d601382adf14862e4f2228","Expected":"9c2d8d184e5da67c95d601382adf14862e4f2228"},"InitCommit":{"ID":"949e6fa","Expected":"949e6fa"},"SecurityOptions":["name=apparmor","name=seccomp,profile=default"]}

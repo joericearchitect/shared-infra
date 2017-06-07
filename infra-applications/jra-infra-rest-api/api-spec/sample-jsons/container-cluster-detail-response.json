@@ -1,13 +1,76 @@
 	{
-		"id": {
-			"canonicalId": "124124saf",
-			"displayId": "349023nsddf"
+	"id": {
+		"canonicalId": "124124saf",
+		"displayId": "349023nsddf"
+	},
+	"name": "latest-container-cluster",
+	"descriptionn": "Temporary containerCluster for UAT TEsting for the magic band project",
+	"containerClusterHealthStatus": {
+		
+	},
+	"containerClusterCurrentState" : "active",
+	"containerClusterStartDateTime": "2017-06-06T08:08:02+00:00",
+	"containerClusterEndDateTime": "2017-06-07T08:08:02+00:00",
+	"containerClusterLastModifiedDateTime": "2017-06-0708:08:02+00:00",
+	"managerContainerNodes" : [
+		{
+			"id": {
+				"canonicalId": "34234wdflsjf",
+				"displayId": "349023nsddf"
+			},
+			"name": "latest-container-node",
+			"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+			"links": {
+				"self": {
+					"href": "http://localhost/infra-api/container-nodes/34234wdflsjf"
+				}
+			}
 		},
-		"name": "latest-container-cluster",
-		"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-		"links": {
-			"self": {
-				"href": "http://localhost/infra-api/container-clusters/234sldfjsdflj234"
+		{
+			"id": {
+				"canonicalId": "124124saf",
+				"displayId": "349023nsddf"
+			},
+			"name": "latest-container-node",
+			"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+			"links": {
+				"self": {
+					"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+				}
 			}
 		}
+	],
+	"workerContainerNodes" : [
+		{
+			"id": {
+				"canonicalId": "34234wdflsjf",
+				"displayId": "349023nsddf"
+			},
+			"name": "latest-container-node",
+			"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+			"links": {
+				"self": {
+					"href": "http://localhost/infra-api/container-nodes/34234wdflsjf"
+				}
+			}
+		},
+		{
+			"id": {
+				"canonicalId": "124124saf",
+				"displayId": "349023nsddf"
+			},
+			"name": "latest-container-node",
+			"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+			"links": {
+				"self": {
+					"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+				}
+			}
+		}
+	],
+	"links": {
+		"self": {
+			"href": "http://localhost/infra-api/container-clusters/234sldfjsdflj234"
+		}
 	}
+}

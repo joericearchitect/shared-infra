@@ -1,4 +1,11 @@
-{"Availability":"Active","Hostname":"ip-10-0-3-254","ID":"0cjihhjws5l3m95x2ldlum6ey","ManagerStatus":"","Self":false,"Status":"Ready"}
+{  
+   "Availability":"Active",
+   "Hostname":"ip-10-0-3-254",
+   "ID":"0cjihhjws5l3m95x2ldlum6ey",
+   "ManagerStatus":"",
+   "Self":false,
+   "Status":"Ready"
+}
 {"Availability":"Active","Hostname":"ip-10-0-1-171","ID":"1j4jdy6sksx253engijrnzz47","ManagerStatus":"","Self":false,"Status":"Ready"}
 {"Availability":"Active","Hostname":"ip-10-0-5-187","ID":"2h65knajmwmbqo5j31he79of2","ManagerStatus":"","Self":false,"Status":"Ready"}
 {"Availability":"Active","Hostname":"ip-10-0-3-12","ID":"5bl5iuqebipyvh2yzevu5jaoa","ManagerStatus":"","Self":false,"Status":"Ready"}

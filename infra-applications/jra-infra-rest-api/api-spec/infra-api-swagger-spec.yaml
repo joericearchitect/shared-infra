@@ -5,7 +5,7 @@ info:
   description: JRA Infra API
   version: 1.0.0
   title: JRA Infra API
-host: joericearchitect.com
+host: joericearchitegct.com
 basePath: /infra-api
 schemes:
 - http
@@ -308,7 +308,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 0 - Container Cluster
+      - 1 - Container Cluster
       - Container Clusters
       description: <@TODO> - Add Description
       operationId: getContainerClusters
@@ -368,7 +368,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 0 - Container Cluster
+      - 1 - Container Cluster
       - Container Clusters
       description: <@TODO> - Add Description
       operationId: getContainerCluster
@@ -404,7 +404,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 0 - Container Cluster
+      - 1 - Container Cluster
       - Container Nodes
       description: <@TODO> - Add Description
       operationId: getContainerClusterNodeList
@@ -440,7 +440,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 0 - Container Cluster
+      - 1 - Container Cluster
       - Container Nodes
       description: <@TODO> - Add Description
       operationId: getContainerNodeDetails
@@ -476,7 +476,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 0 - Container Cluster
+      - 1 - Container Cluster
       - Containers
       description: <@TODO> - Add Description
       operationId: getContainerList
@@ -512,7 +512,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 0 - Container Cluster
+      - 1 - Container Cluster
       - Containers
       description: <@TODO> - Add Description
       operationId: getContainerDetails
@@ -548,7 +548,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 0 - Application
+      - 2 - Application
       - Application Groups
       description: <@TODO> - Add Description
       operationId: getApplicationGroupList
@@ -584,7 +584,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 0 - Application
+      - 2 - Application
       - Application Groups
       description: <@TODO> - Add Description
       operationId: getApplicationGroupDetails
@@ -620,7 +620,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 0 - Application
+      - 2 - Application
       - Applications
       description: <@TODO> - Add Description
       operationId: getApplicationList
@@ -656,7 +656,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 0 - Application
+      - 2 - Application
       - Applications
       description: <@TODO> - Add Description
       operationId: getApplicationDetails
@@ -692,7 +692,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 0 - Application
+      - 2 - Application
       - Application Services
       description: <@TODO> - Add Description
       operationId: getApplicationServiceList
@@ -728,7 +728,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 0 - Application
+      - 2 - Application
       - Application Services
       description: <@TODO> - Add Description
       operationId: getApplicationServiceDetails
@@ -873,38 +873,31 @@ definitions:
                 type: string
               workerJoinToken:
                 type: string
-      containerClustertStartDateTime:
+      auditInfo:
         type: string
         format: dateTime
-      containerClusterEndDateTime:
+        $ref: '#/definitions/AuditInfo'
+      systemStats:
         type: string
         format: dateTime
-      containerClusterLastModifiedDateTime:
-        type: string
-        format: dateTime
-      containerClusterHealthStatus:
-        type: object
+        $ref: '#/definitions/SystemStats'
+      healthStatus:
         $ref: '#/definitions/healthStatus'
-      containerClusterCurrentState:
-        type: object
+      state:
         $ref: '#/definitions/currentState'
       managerContainerNodes:
-        type: object
         $ref: '#/definitions/containerNodeList'
       workerContainerNodes:
-        type: object
         $ref: '#/definitions/containerNodeList'
-      applicationGroups:
-        type: object
-        $ref: '#/definitions/applicationGroupList'
       applications:
-        type: object
         $ref: '#/definitions/applicationList'
       applicationServices:
-        type: object
         $ref: '#/definitions/applicationServiceList'
       links:
         $ref: '#/definitions/Links' 
+    required: 
+      - id
+      - clusterConfiguration
 
   containerClusterList:
     type: array
@@ -1119,7 +1112,7 @@ definitions:
             id:
               type: string
             idSource:
-              type: string
+              $ref: '#/definitions/DataSource'
             idName:
               type: string
 
@@ -1131,6 +1124,85 @@ definitions:
     type: string
     enum: ["active", "paused", "terminated"]
 
+  AuditInfo:
+    type: object
+    properties:
+      startDateTime:
+        type: string
+        format: dateTime
+      startedByUserName:
+        type: string
+      endDateTime:
+        type: string
+        format: dateTime
+      endedByUserName:
+        type: string
+      lastModifiedDateTime:
+        type: string
+        format: dateTime
+      lastModifiedByUserName:
+        type: string
+      auditEventCountTotal:
+        type: integer
+      auditEventCountMostRecent:
+        type: integer
+      mostRecentAuditEvents:
+        type: array
+        items:
+          $ref: '#/definitions/AuditEvent'
+          
+  DataSource:
+    type: string
+    enum: ['aws', 'docker-engine', 'docker-swarm', 'config-consul', 'jra']
+            
+  AuditEvent:
+    type: object
+    properties:
+      eventDateTime:
+        type: string
+        format: dateTime
+      userName:
+        type: string
+      eventId:
+        type: string
+      eventName:
+        type: string
+      resourcesReferenced:
+        type: object
+        properties:
+          resourceName:
+            type: string
+          resourceId:
+            type: string
+          resourceType:
+            type: string
+      eventType:
+        type: string
+      eventSource:
+        $ref: '#/definitions/DataSource'
+      eventContext:
+        $ref: '#/definitions/EventContext'
+
+  EventContext:
+    type: object
+    properties:
+      contextMessages:
+        type: array
+        items:
+          type: string
+      contextData:
+        type: array
+        items:
+          $ref: '#/definitions/KeyValuePair'
+          
+  KeyValuePair:
+    type: object
+    properties:
+      key:
+        type: string
+      value:
+        type: object
+  
   Link:
     type: object
     properties:
@@ -1138,8 +1210,7 @@ definitions:
         type: string
         format: uri
         example: https://api.example.com/sales-orders/10101058747628
-    required:
-      - href
+
   Links:
     type: object
     description: |
@@ -1153,3 +1224,90 @@ definitions:
     example:
       'self':
         - href: https://api.example.com/sales-orders/10101058747628
+        
+  SystemStats:
+    type: object
+    properties:
+      systemType:
+        type: string
+        enum: ['physical', 'vm', 'vm-cloud', 'container', 'jvm']
+        
+      osInfo:
+        type: object
+        properties:
+          kernelVersion:
+            type: string
+          operatingSystem:
+            type: string
+          oSType:
+            type: string
+          architecture:
+            type: string
+      memoryInfo:
+        type: object
+        properties: 
+          primaryStats:
+            $ref: '#/definitions/FreeAndUsedStats'
+          statsByType:
+            type: array
+            items:
+              $ref: '#/definitions/FreeAndUsedStats'
+      cpuInfo:
+        type: object
+        properties:
+          cpuCoreCount:
+            type:  number
+          primaryStats:
+            $ref: '#/definitions/FreeAndUsedStats'
+          statsByType:
+            type: array
+            items:
+              $ref: '#/definitions/FreeAndUsedStats'
+      threadInfo:
+        type: object
+        properties:
+          primaryStats:
+            $ref: '#/definitions/FreeAndUsedStats'
+          statsByType:
+            type: array
+            items:
+              $ref: '#/definitions/FreeAndUsedStats'
+      diskInfo:
+        type: object
+        properties:
+          primaryStats:
+            $ref: '#/definitions/FreeAndUsedStats'
+          statsByType:
+            type: array
+            items:
+              $ref: '#/definitions/FreeAndUsedStats'
+            
+            
+  FreeAndUsedStats:
+    type: object
+    properties:
+      type:
+        type:  string
+      dataSource:
+        $ref: '#/definitions/DataSource'
+      totalAllocated:
+        type: number
+      freeCount:
+        type: number
+      usedCount:
+        type: number
+      activeCount:
+        type: number
+      idleCount:
+        type: number
+      percentFree:
+        type: number
+      percentUsed:
+        type: number
+      unitOfMesaure:
+        type: string
+        enum: ['bytes', 'kb', 'mb',gb', 'tb', 'percent', 'count']
+      timestampLastMeasured:
+        type: string
+        format: dateTime
+      

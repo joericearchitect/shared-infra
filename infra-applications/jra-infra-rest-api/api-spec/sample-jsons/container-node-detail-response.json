@@ -1,16 +1,251 @@
 {
-	"id": 
-	{
+	"id": {
 		"canonicalId": "124124saf",
-		"displayId": "349023nsddf"
+		"displayId": "349023nsddf",
+		"alternateIds": [
+			{
+				"id": "2424wfsf",
+				"idName": "awsInstanceId",
+				"idSource": "aws-ec2"
+			},
+			{
+				"id": "r-02657c12c4fd587aa",
+				"idName": "awsReservationId",
+				"idSource": "aws-ec2"
+			},
+			{
+				"id": "f5zucdn6cnkpylmkkf50jjios",
+				"idName": "dockerSwarmNodeId",
+				"idSource": "docker-swarm"
+			},
+			{
+				"id": "f5zucdn6cnkpylmkkf50jjios",
+				"idName": "dockerSwarmNodeHostname",
+				"idSource": "docker-swarm"
+			},
+			{
+				"id": "f5zucdn6cnkpylmkkf50jjios",
+				"idName": "dockerEngineId",
+				"idSource": "docker-engine",
+				"AvailabilityZone": "us-east-1a"
+			}
+		]
 	},
-
-	"name": "latest-container-node",
+	"name": "qa1.instance.swarm-worker.app-api-service.qa1.us-east-1c",
+	"shortName": "app-api-service-us-east-1-az-3",
 	"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-	"links": 
-	{
-		"self": 
+	"sourceInfo": {
+		"aws": {
+			"dataSource": "aws",
+			"InstanceId": "i-0f5a87ac92d7c26ed",
+			"instanceName": "jarch-blah",
+			"VpcId": "vpc-5d79ab24",
+			"AvailabilityZone": "us-east-1a",
+			"Tags": [
+				{
+					"Value": "lRGNBkaDBSE",
+					"Key": "jra.environment-instance-id"
+				},
+				{
+					"Value": "private",
+					"Key": "jra.subnet-type"
+				}
+			]
+		},
+		"dockerEngine": {
+			"dataSource": "docker-engine",
+			"dockerEngineId": "i-0f5a87ac92d7c26ed",
+			"name": "ip-10-0-3-121",
+			"Containers": 0,
+			"ContainersRunning": 0,
+			"ContainersPaused": 0,
+			"ContainersStopped": 0,
+			"SystemStatus": null,
+			"SystemTime": "2017-06-04T17:14:04.112044057Z",
+			"KernelVersion": "4.4.0-78-generic",
+			"OperatingSystem": "Ubuntu 16.04.1 LTS",
+			"OSType": "linux",
+			"MemTotal": 1038696448,
+			"DockerRootDir": "/var/lib/docker",
+			"HttpProxy": "",
+			"HttpsProxy": "",
+			"NoProxy": "",
+			"Name": "ip-10-0-3-121",
+			"Labels": [
+				"jra.instance-name=app-api-service-us-east-1-az-2",
+				"jra.instance-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b",
+				"jra.swarm-node-name=app-api-service-us-east-1-az-2",
+				"jra.swarm-node-name-full=qa1.instance.swarm-worker.app-api-service.qa1.us-east-1b",
+				"jra.environment=qa1",
+				"jra.environment-size=small",
+				"jra.environment-type=latest",
+				"jra.environment-instance-id=lRGNBkaDBSE",
+				"jra.failure-zone=us-east-1-az-2",
+				"jra.subnet-type=private",
+				"jra.swarm-instance-type=swarm-worker",
+				"jra.swarm-node-type=app-api-service"
+			],
+			"ExperimentalBuild": true,
+			"ServerVersion": "17.05.0-ce-rc3"
+		},
+		"docker-swarm": {
+			
+		}
+	},
+	"networkInfo": {
+		"publicIpAddress": "54.165.245.122",
+		"publicDnsName": "ec2-54-165-245-122.compute-1.amazonaws.com",
+		"privateIpAddress": "54.165.245.122",
+		"privateDnsName": "ec2-54-165-245-122.compute-1.amazonaws.com"
+	},
+	"auditInfo": {
+		"startDateTime": "2017-06-06T08:08:02+00:00",
+		"startedByUserName": "jrice",
+		"endDateTime": "2017-06-07T08:08:02+00:00",
+		"endedByUserName": "jrice",
+		"lastModifiedDateTime": "2017-06-0708:08:02+00:00",
+		"lastModifiedByUserName": "jrice",
+		"auditEventCountTotal": 250,
+		"auditEventCountMostRecent": 10,
+		"mostRecentAuditEvents": [
+			{
+				"eventDateTime": "2017-06-0708:08:02+00:00",
+				"userName": "jrice",
+				"eventId": "0234304r0werwerwer",
+				"eventName": "createInstance",
+				"eventType": "AwsApiCall",
+				"eventSource": "aws",
+				"resourcesReferenced": [
+					{
+						"resourceName": "jra-ec2-trail",
+						"resourceId": "23uqwerwefwerwr",
+						"resourceType": "aws-instance"
+					},
+					{
+						"resourceName": "jra-ec2-trail",
+						"resourceId": "23uqwerwefwerwr",
+						"resourceType": "aws-instance"
+					}
+				],
+				"eventContext": {
+					"contextData": [
+						{
+							"key": "awsRegion",
+							"value": "us-east-1"
+						},
+						{
+							"key": "recipientAccountId",
+							"value": "slflej2332"
+						},
+						{
+							"key": "sourceIPAddress",
+							"value": "142.197.183.91"
+						}
+					]
+				}
+			},
+			{
+				"eventDateTime": "2017-06-0708:08:02+00:00",
+				"userName": "jrice",
+				"eventId": "0234304r0werwerwer",
+				"eventName": "createInstance",
+				"eventType": "AwsApiCall",
+				"eventSource": "aws",
+				"resourcesReferenced": [
+					{
+						"resourceName": "jra-ec2-trail",
+						"resourceId": "23uqwerwefwerwr",
+						"resourceType": "aws-instance"
+					},
+					{
+						"resourceName": "jra-ec2-trail",
+						"resourceId": "23uqwerwefwerwr",
+						"resourceType": "aws-instance"
+					}
+				],
+				"eventContext": {
+					"contextMessages": [
+						"",
+						""
+					],
+					"contextData": [
+						{
+							"key": "awsRegion",
+							"value": "us-east-1",
+							"logLevel": "info-1"
+						},
+						{
+							"key": "recipientAccountId",
+							"value": "slflej2332"
+						},
+						{
+							"key": "sourceIPAddress",
+							"value": "142.197.183.91"
+						}
+					]
+				}
+			}
+		]
+	},
+	"nodeType": "app-api-service",
+	"applicationServices": [
 		{
+			"id": {
+				"canonicalId": "34234wdflsjf",
+				"displayId": "349023nsddf"
+			},
+			"name": "latest-application-service",
+			"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+			"links": {
+				"self": {
+					"href": "http://localhost/infra-api/application-services/34234wdflsjf"
+				}
+			}
+		},
+		{
+			"id": {
+				"canonicalId": "124124saf",
+				"displayId": "349023nsddf"
+			},
+			"name": "latest-application-service",
+			"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+			"links": {
+				"self": {
+					"href": "http://localhost/infra-api/application-services/234sldfjsdflj234"
+				}
+			}
+		}
+	],
+	"containers": [
+		{
+			"id": {
+				"canonicalId": "34234wdflsjf",
+				"displayId": "349023nsddf"
+			},
+			"name": "latest-application-service",
+			"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+			"links": {
+				"self": {
+					"href": "http://localhost/infra-api/containers/34234wdflsjf"
+				}
+			}
+		},
+		{
+			"id": {
+				"canonicalId": "124124saf",
+				"displayId": "349023nsddf"
+			},
+			"name": "latest-application-service",
+			"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+			"links": {
+				"self": {
+					"href": "http://localhost/infra-api/containers/234sldfjsdflj234"
+				}
+			}
+		}
+	],
+	"links": {
+		"self": {
 			"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
 		}
 	}
