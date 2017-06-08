@@ -1155,6 +1155,25 @@ definitions:
         description: <@TODO> - Add Description
       description:
         type:  string
+      metaDataInformation:
+        type: object
+        properties:  
+          sourceInfo:
+            type: object
+            properties:
+              jraInfra:
+                $ref: '#/definitions/JraInfraInfo'
+              dockerSwarm:
+                type:  object
+                properties:  
+                  dataSource:
+                     $ref: '#/definitions/DataSource'
+                  dockerSwarmNetworks:
+                     $ref: '#/definitions/DockerSwarmNetworkList'
+                  links:
+                    $ref: '#/definitions/Links' 
+          publishedPortsAndUrls:
+            $ref: '#/definitions/PublishedUrlList'
       statusInformation:
         $ref: '#/definitions/ResourceStatusInformation'
       resources:
@@ -1246,6 +1265,25 @@ definitions:
         description: <@TODO> - Add Description
       description:
         type:  string 
+      metaDataInformation:
+        type: object
+        properties:  
+          sourceInfo:
+            type: object
+            properties:
+              jraInfra:
+                $ref: '#/definitions/JraInfraInfo'
+              dockerSwarm:
+                type:  object
+                properties:  
+                  dataSource:
+                     $ref: '#/definitions/DataSource'
+                  dockerSwarmNetworks:
+                     $ref: '#/definitions/DockerSwarmNetworkList'
+                  links:
+                    $ref: '#/definitions/Links' 
+          publishedPortsAndUrls:
+            $ref: '#/definitions/PublishedUrlList'
       statusInformation:
         $ref: '#/definitions/ResourceStatusInformation'
       resources:
@@ -1338,6 +1376,41 @@ definitions:
         type:  string 
       metaDataInformation:
         type: object
+        properties:  
+          sourceInfo:
+            type: object
+            properties:
+              jraInfra:
+                $ref: '#/definitions/JraInfraInfo'
+              dockerSwarm:
+                type:  object
+                properties:  
+                  dataSource:
+                     $ref: '#/definitions/DataSource'
+                  dockerSwarmServiceId:
+                    type:  string
+                  dockerSwarmServiceDisplayId:
+                    type:  string
+                  dockerSwarmServiceName:
+                    type:  string
+                  timestampCreated:
+                    type:  string
+                    format: date-time
+                  timestampLastModified:
+                    type:  string
+                    format: date-time
+                  version:
+                    type: object
+                    properties:
+                      index:
+                        type: number
+                  labels:
+                     $ref: '#/definitions/Labels'
+                  links:
+                    $ref: '#/definitions/Links' 
+                  
+          publishedPortsAndUrls:
+            $ref: '#/definitions/PublishedUrlList'
       statusInformation:
         $ref: '#/definitions/ResourceStatusInformation'
       resources:
@@ -1389,9 +1462,9 @@ definitions:
       items:
         type: array
         items:
-          $ref: '#/definitions/ApplicationServiceSummary
+          $ref: '#/definitions/ApplicationServiceSummary' 
       links:
-        $ref: '#/definitions/Links' '
+        $ref: '#/definitions/Links' 
       
   InfrastructureResourceSummary:
     type: object
@@ -2139,3 +2212,59 @@ definitions:
       resourceUsedType:
         type: string
         enum: ['hours-running', 'bytes-transfered', 'disk-space-stored']
+
+
+  DockerSwarmNetworkList:
+    type:  array
+    items:
+      type: object
+      properties:
+        dockerSwarmNetworkId:
+          type: string
+        dockerSwarmNetworkName:
+          type:  string
+        attachedApplicationGroups:
+          type: array
+          items:
+            type: object
+            properties:
+              dockerApplicationGroupId:
+                type:  string
+              dockerApplicationGroupDisplayId:
+                type:  string
+              dockerApplicationGroupName:
+                type:  string
+              dockerApplicationGroupDisplayName:
+                type:  string
+              links:
+                $ref: '#/definitions/Links'
+        attachedApplications:
+          type: array
+          items:
+            type: object
+            properties:
+              applicationId:
+                type:  string
+              applicationDisplayId:
+                type:  string
+              applicationName:
+                type:  string
+              applicationDisplayName:
+                type:  string
+              links:
+                $ref: '#/definitions/Links'
+        attachedApplicationServices:
+          type: array
+          items:
+            type: object
+            properties:
+              dockerSwarmServiceId:
+                type:  string
+              dockerSwarmServiceDisplayId:
+                type:  string
+              dockerSwarmServiceName:
+                type:  string
+              links:
+                $ref: '#/definitions/Links'
+        links:
+          $ref: '#/definitions/Links'
