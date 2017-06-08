@@ -567,7 +567,7 @@ paths:
     # Operations are identified by an HTTP method.  
     get:
       tags:
-      - 2 - Infrastructure
+      - 3 - Infrastructure
       - Infrastructure Resources
       description: <@TODO> - Add Description
       operationId: getInfrastructureResourceDetails
@@ -700,27 +700,31 @@ definitions:
       resources:
         type: object
         properties:
-          containerClusters:
-            $ref: '#/definitions/ContainerClusterList' 
-          containerClusterNodes:
-            $ref: '#/definitions/ContainerClusterNodeList'
-          applicationGroups:
-            $ref: '#/definitions/ApplicationGroupList'
-          applications:
-            $ref: '#/definitions/ApplicationList'
-          applicationServices:
-            $ref: '#/definitions/ApplicationServiceList'
-          containers:
+          childResources:
             type: object
             properties:
-              dockerEngineContainers:
+              containerClusters:
+                $ref: '#/definitions/ContainerClusterList' 
+              containerClusterNodes:
+                $ref: '#/definitions/ContainerClusterNodeList'
+              applicationGroups:
+                $ref: '#/definitions/ApplicationGroupList'
+              applications:
+                $ref: '#/definitions/ApplicationList'
+              applicationServices:
+                $ref: '#/definitions/ApplicationServiceList'
+              containers:
                 type: object
-                $ref: '#/definitions/ContainerList'
-              dockerSwarmServiceContainers:
-                type: object
-                $ref: '#/definitions/ContainerList'
-          infrastructureResources:
-            $ref: '#/definitions/InfrastructureResourceList'
+                properties:
+                  dockerEngineContainers:
+                    type: object
+                    $ref: '#/definitions/ContainerList'
+                  dockerSwarmServiceContainers:
+                    type: object
+                    $ref: '#/definitions/ContainerList'
+              infrastructureResources:
+                $ref: '#/definitions/InfrastructureResourceList' 
+
       links:
         $ref: '#/definitions/Links' 
 
@@ -790,25 +794,33 @@ definitions:
       resources:
         type: object
         properties:
-          containerClusterNodes:
-            $ref: '#/definitions/ContainerClusterNodeList'
-          applicationGroups:
-            $ref: '#/definitions/ApplicationGroupList'
-          applications:
-            $ref: '#/definitions/ApplicationList'
-          applicationServices:
-            $ref: '#/definitions/ApplicationServiceList'
-          containers:
+          parentResources:
             type: object
             properties:
-              dockerEngineContainers:
+              environment:
+                $ref: '#/definitions/EnvironmentSummary'
+          childResources:
+            type: object
+            properties:
+              containerClusterNodes:
+                $ref: '#/definitions/ContainerClusterNodeList'
+              applicationGroups:
+                $ref: '#/definitions/ApplicationGroupList'
+              applications:
+                $ref: '#/definitions/ApplicationList'
+              applicationServices:
+                $ref: '#/definitions/ApplicationServiceList'
+              containers:
                 type: object
-                $ref: '#/definitions/ContainerList'
-              dockerSwarmServiceContainers:
-                type: object
-                $ref: '#/definitions/ContainerList'
-          infrastructureResources:
-            $ref: '#/definitions/InfrastructureResourceList'
+                properties:
+                  dockerEngineContainers:
+                    type: object
+                    $ref: '#/definitions/ContainerList'
+                  dockerSwarmServiceContainers:
+                    type: object
+                    $ref: '#/definitions/ContainerList'
+              infrastructureResources:
+                $ref: '#/definitions/InfrastructureResourceList'
       links:
         $ref: '#/definitions/Links' 
     required: 
@@ -982,23 +994,36 @@ definitions:
       resources:
         type: object
         properties:
-          applicationGroups:
-            $ref: '#/definitions/ApplicationGroupList'
-          applications:
-            $ref: '#/definitions/ApplicationList'
-          applicationServices:
-            $ref: '#/definitions/ApplicationServiceList'
-          containers:
+          parentResources:
             type: object
             properties:
-              dockerEngineContainers:
+              environment:
+                $ref: '#/definitions/EnvironmentSummary'
+              containerClusters=:
+                $ref: '#/definitions/ContainerClusterSummary' 
+          childResources:
+            type: object
+            properties:
+              containers:
                 type: object
-                $ref: '#/definitions/ContainerList'
-              dockerSwarmServiceContainers:
-                type: object
-                $ref: '#/definitions/ContainerList'
-          infrastructureItems:
-            $ref: '#/definitions/InfrastructureResourceList' 
+                properties:
+                  dockerEngineContainers:
+                    type: object
+                    $ref: '#/definitions/ContainerList'
+                  dockerSwarmServiceContainers:
+                    type: object
+                    $ref: '#/definitions/ContainerList' 
+          containsResources:
+            type: object
+            properties:
+              applicationGroups:
+                $ref: '#/definitions/ApplicationGroupList'
+              applications:
+                $ref: '#/definitions/ApplicationList'
+              applicationServices:
+                $ref: '#/definitions/ApplicationServiceList'
+              infrastructureResources:
+                $ref: '#/definitions/InfrastructureResourceList'
       links:
         $ref: '#/definitions/Links'
 
@@ -1067,6 +1092,13 @@ definitions:
         $ref: '#/definitions/ResourceStatusInformation'
       resources:
         type: object
+        properties:
+          childResources:
+            type: object
+          parentResources:
+            type: object
+          runningOnResources:
+            type: object
       links:
         $ref: '#/definitions/Links' 
 
@@ -1101,6 +1133,8 @@ definitions:
         description: <@TODO> - Add Description
       description:
         type:  string
+      metaDataInformation:
+        type: object
       statusInformation:
         $ref: '#/definitions/ResourceStatusInformation'
       links:
@@ -1126,12 +1160,38 @@ definitions:
       resources:
         type: object
         properties:
-          applications:
+          parentResources:
             type: object
-            $ref: '#/definitions/ApplicationList'
-          applicationServices:
+            properties: 
+              environment:
+                $ref: '#/definitions/EnvironmentSummary'
+              containerCluster:
+                $ref: '#/definitions/ContainerClusterSummary' 
+          childResources:
             type: object
-            $ref: '#/definitions/ApplicationServiceList'
+            properties: 
+              applications:
+                type: object
+                $ref: '#/definitions/ApplicationList'
+              applicationServices:
+                type: object
+                $ref: '#/definitions/ApplicationServiceList'
+              infrastructureResources:
+                $ref: '#/definitions/InfrastructureResourceList' 
+          runningOnResources:
+            type: object
+            properties: 
+              containerClusterNodes:
+                $ref: '#/definitions/ContainerClusterNodeList'
+              containers:
+                type: object
+                properties:
+                  dockerEngineContainers:
+                    type: object
+                    $ref: '#/definitions/ContainerList'
+                  dockerSwarmServiceContainers:
+                    type: object
+                    $ref: '#/definitions/ContainerList'
       links:
         $ref: '#/definitions/Links' 
 
@@ -1191,9 +1251,37 @@ definitions:
       resources:
         type: object
         properties:
-          applicationServices:
+          parentResources:
             type: object
-            $ref: '#/definitions/ApplicationServiceList'
+            properties:
+              environment:
+                $ref: '#/definitions/EnvironmentSummary'
+              containerCluster:
+                $ref: '#/definitions/ContainerClusterSummary' 
+              applicationGroups:
+                $ref: '#/definitions/ApplicationGroupList'
+          childResources:
+            type: object
+            properties:
+              applicationServices:
+                type: object
+                $ref: '#/definitions/ApplicationServiceList'
+              infrastructureResources:
+                $ref: '#/definitions/InfrastructureResourceList' 
+          runningOnResources:
+            type: object
+            properties:
+              containerClusterNodes:
+                $ref: '#/definitions/ContainerClusterNodeList'
+              containers:
+                type: object
+                properties:
+                  dockerEngineContainers:
+                    type: object
+                    $ref: '#/definitions/ContainerList'
+                  dockerSwarmServiceContainers:
+                    type: object
+                    $ref: '#/definitions/ContainerList'
       links:
         $ref: '#/definitions/Links' 
 
@@ -1255,9 +1343,37 @@ definitions:
       resources:
         type: object
         properties:
-          containers:
+          parentResources:
             type: object
-            $ref: '#/definitions/ContainerList'
+            properties:
+              environment:
+                $ref: '#/definitions/EnvironmentSummary'
+              containerCluster:
+                $ref: '#/definitions/ContainerClusterSummary' 
+              applicationGroups:
+                $ref: '#/definitions/ApplicationGroupList'
+              application:
+                type: object
+                $ref: '#/definitions/ApplicationSummary'
+          childResources:
+            type: object
+            properties:
+              infrastructureResource:
+                $ref: '#/definitions/InfrastructureResourceSummary' 
+          runningOnResources:
+            type: object
+            properties:
+              containerClusterNodes:
+                $ref: '#/definitions/ContainerClusterNodeList'
+              containers:
+                type: object
+                properties:
+                  dockerEngineContainers:
+                    type: object
+                    $ref: '#/definitions/ContainerList'
+                  dockerSwarmServiceContainers:
+                    type: object
+                    $ref: '#/definitions/ContainerList'
       links:
         $ref: '#/definitions/Links' 
 
@@ -1853,3 +1969,173 @@ definitions:
         $ref: '#/definitions/ResourceStateInfo'
       alertInfo:
         $ref: '#/definitions/AlertInfo'
+      costInfo:
+        $ref: '#/definitions/CostInfo'
+        
+  CostInfo:
+    type: object
+    properties: 
+      costComparison:
+        type:  object
+        properties:
+          day:
+            type: object
+            properties:
+              thisWeeksCosts:
+                $ref: '#/definitions/CostInfoDetails' 
+              lastWeeksCosts:
+                $ref: '#/definitions/CostInfoDetails' 
+              costDifference:
+                $ref: '#/definitions/CostInfoDetails' 
+          week:
+            type: object
+            properties:
+              thisWeeksCosts:
+                $ref: '#/definitions/CostInfoDetails' 
+              lastWeeksCosts:
+                $ref: '#/definitions/CostInfoDetails' 
+              costDifference:
+                $ref: '#/definitions/CostInfoDetails' 
+          month:
+            type: object
+            properties:
+              thisWeeksCosts:
+                $ref: '#/definitions/CostInfoDetails' 
+              lastWeeksCosts:
+                $ref: '#/definitions/CostInfoDetails' 
+              costDifference:
+                $ref: '#/definitions/CostInfoDetails' 
+          year:
+            type: object
+            properties:
+              thisWeeksCosts:
+                $ref: '#/definitions/CostInfoDetails' 
+              lastWeeksCosts:
+                $ref: '#/definitions/CostInfoDetails' 
+              costDifference:
+                $ref: '#/definitions/CostInfoDetails' 
+      yearToDateTotalCost:
+        $ref: '#/definitions/CostInfoDetails'
+      monthToDateTotalCost:
+        $ref: '#/definitions/CostInfoDetails'
+      yearToDateCostByMonth:
+        type:  array
+        items:
+          type: object
+          properties:
+            month:
+              type: string
+              format: date
+            cost:
+              $ref: '#/definitions/CostInfoDetails' 
+      yearToDateCostByWeek:
+        type:  array
+        items:
+          type: object
+          properties:
+            week:
+              type: string
+              format: date
+            cost:
+              $ref: '#/definitions/CostInfoDetails'   
+      monthToDateCostByWeek:
+        type:  array
+        items:
+          type: object
+          properties:
+            month:
+              type: string
+              format: date
+            cost:
+              $ref: '#/definitions/CostInfoDetails'
+      monthToDateCostByDay:
+        type:  array
+        items:
+          type: object
+          properties:
+            day:
+              type: string
+              format: date
+            cost:
+              $ref: '#/definitions/CostInfoDetails'
+      monthToDateCostByResourceByWeek:
+        type:  array
+        items:
+          type: object
+          properties:
+            week:
+              type: string
+              format: date
+            resourceTypeCosts:
+              type:  array
+              items:
+                type: object
+                properties:
+                  resourceType:
+                    type:  string
+                  cost:
+                    $ref: '#/definitions/CostInfoDetails'
+            resourceCosts:
+              type:  array
+              items:
+                type: object
+                properties:
+                  resourceId:
+                    type:  string
+                  resourceType:
+                    type:  string
+                  resourceName:
+                    type:  string
+                  cost:
+                    $ref: '#/definitions/CostInfoDetails'
+      monthToDateCostByResourceByDay:
+        type:  array
+        items:
+          type: object
+          properties:
+            week:
+              type: string
+              format: date
+            resourceTypeCosts:
+              type:  array
+              items:
+                type: object
+                properties:
+                  resourceType:
+                    type:  string
+                  cost:
+                    $ref: '#/definitions/CostInfoDetails'
+            resourceCosts:
+              type:  array
+              items:
+                type: object
+                properties:
+                  resourceId:
+                    type:  string
+                  resourceType:
+                    type:  string
+                  resourceName:
+                    type:  string
+                  cost:
+                    $ref: '#/definitions/CostInfoDetails'
+
+  CostInfoDetails: 
+    type: object
+    properties:
+      costDateRange:
+        type: object
+        properties:
+          startDateRange:
+            type: string
+            format: date-time
+          endDateRange:
+            type: string
+            format: date-time
+      totalSpendAmount:
+        type: number
+        format: double
+      totalResourcesUsed:
+        type: number
+      resourceUsedType:
+        type: string
+        enum: ['hours-running', 'bytes-transfered', 'disk-space-stored']

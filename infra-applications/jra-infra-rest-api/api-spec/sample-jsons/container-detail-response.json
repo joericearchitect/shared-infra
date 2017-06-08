@@ -188,8 +188,19 @@
 
       }
    },
-   "resources":{  
-
+   "resources":{ 
+		"parentResources": {
+			
+		},
+		"childResources": {
+			
+		},
+		"containsResources": {
+			
+		},
+		"runningOnResources": {
+			
+		} 
    },
    "links":{  
       "self":{  
