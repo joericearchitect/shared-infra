@@ -1,36 +1,100 @@
-[
-	{
-		"id": 
-		{
-			"canonicalId": "34234wdflsjf",
-			"displayId": "349023nsddf"
-		},
+{  
+   "totalCount":3,
+   "currentOffset":0,
+   "currentLimit":3,
+   "items":[  
+      {  
+         "id":{  
+            "canonicalId":"34234wdflsjf",
+            "displayId":"349023nsddf"
+         },
+         "name":"latest-application-group",
+         "displayName":"",
+         "description":"Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+         "statusInformation":{  
+            "stateInfo":{  
+               "currentState":{  
+                  "state":"active",
+                  "stateCategory":"green",
+                  "stateStatusIndicator":"green",
+                  "timestampStateEntered":"2017-06-0708:08:02+00:00"
+               }
+            },
+            "auditInfo":{  
+               "timestampStarted":"2017-06-06T08:08:02+00:00",
+               "startedByUserName":"jrice",
+               "timestampEnded":"2017-06-07T08:08:02+00:00",
+               "endedByUserName":"jrice",
+               "timestampLastModified":"2017-06-0708:08:02+00:00",
+               "lastModifiedByUserName":"jrice"
+            },
+            "heathStatusInfo":{  
 
-		"name": "latest-application-group",
-		"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-		"links": 
-		{
-			"self": 
-			{
-				"href": "http://localhost/infra-api/application-groups/34234wdflsjf"
-			}
-		}
-	},
-	{
-		"id": 
-		{
-			"canonicalId": "124124saf",
-			"displayId": "349023nsddf"
-		},
+            },
+            "alertInfo":{  
 
-		"name": "latest-application-group",
-		"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-		"links": 
-		{
-			"self": 
-			{
-				"href": "http://localhost/infra-api/application-groups/234sldfjsdflj234"
-			}
-		}
-	}
-]
+            }
+         },
+         "links":{  
+            "self":{  
+               "href":"http://localhost/infra-api/application-groups/34234wdflsjf"
+            }
+         }
+      },
+      {  
+         "id":{  
+            "canonicalId":"124124saf",
+            "displayId":"349023nsddf"
+         },
+         "name":"latest-application-group",
+         "displayName":"",
+         "description":"Temporary environment for UAT TEsting for the magic band project",
+         "statusInformation":{  
+            "stateInfo":{  
+               "currentState":{  
+                  "state":"active",
+                  "stateCategory":"green",
+                  "stateStatusIndicator":"green",
+                  "timestampStateEntered":"2017-06-0708:08:02+00:00"
+               }
+            },
+            "auditInfo":{  
+               "timestampStarted":"2017-06-06T08:08:02+00:00",
+               "startedByUserName":"jrice",
+               "timestampEnded":"2017-06-07T08:08:02+00:00",
+               "endedByUserName":"jrice",
+               "timestampLastModified":"2017-06-0708:08:02+00:00",
+               "lastModifiedByUserName":"jrice"
+            },
+            "heathStatusInfo":{  
+
+            },
+            "alertInfo":{  
+
+            }
+         },
+         "links":{  
+            "self":{  
+               "href":"http://localhost/infra-api/application-groups/234sldfjsdflj234"
+            }
+         }
+      }
+   ],
+   "links":{  
+      "self":{  
+         "href":"http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+      },
+      "next":{  
+         "href":"http://localhost/infra-api/container-nodes?offset=0?limit=5"
+      },
+      "previous":{  
+         "href":"http://localhost/infra-api/container-nodes?offset=0?limit=5"
+      },
+      "first":{  
+         "href":"http://localhost/infra-api/container-nodes?offset=0?limit=5"
+      },
+      "last":{  
+         "href":"http://localhost/infra-api/container-nodes?offset=0?limit=5"
+      }
+   }
+}

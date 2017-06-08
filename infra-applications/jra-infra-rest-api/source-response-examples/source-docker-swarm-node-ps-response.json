@@ -1,4 +1,14 @@
-{"CurrentState":"Running 3 hours ago","DesiredState":"Running","Error":"","ID":"epd2bkpcb1ek","Image":"manomarks/visualizer:latest","Name":"jarch-infra-docker-ui-visualizer.1","Node":"ip-10-0-5-90","Ports":""}
+{  
+   "CurrentState":"Running 3 hours ago",
+   "DesiredState":"Running",
+   "Error":"",
+   "ID":"epd2bkpcb1ek",
+   "Image":"manomarks/visualizer:latest",
+   "Name":"jarch-infra-docker-ui-visualizer.1",
+   "Node":"ip-10-0-5-90",
+   "Ports":""
+}
+
 {"CurrentState":"Running 3 hours ago","DesiredState":"Running","Error":"","ID":"epd2bkpcb1ek","Image":"manomarks/visualizer:latest","Name":"jarch-infra-docker-ui-visualizer.1","Node":"ip-10-0-5-90","Ports":""}
 {"CurrentState":"Running 3 hours ago","DesiredState":"Running","Error":"","ID":"epd2bkpcb1ek","Image":"manomarks/visualizer:latest","Name":"jarch-infra-docker-ui-visualizer.1","Node":"ip-10-0-5-90","Ports":""}
 {"CurrentState":"Running 3 hours ago","DesiredState":"Running","Error":"","ID":"epd2bkpcb1ek","Image":"manomarks/visualizer:latest","Name":"jarch-infra-docker-ui-visualizer.1","Node":"ip-10-0-5-90","Ports":""}

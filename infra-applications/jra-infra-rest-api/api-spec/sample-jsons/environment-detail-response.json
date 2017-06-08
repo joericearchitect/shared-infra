@@ -11,152 +11,1239 @@
 		]
 	},
 	"name": "latest",
-	"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-	"environmentStatus": "active",
-	"environmentStartDateTime": "2017-06-06T08:08:02+00:00",
-	"environmentEndDateTime": "2017-06-07T08:08:02+00:00",
-	"environmentLastModifiedDateTime": "2017-06-0708:08:02+00:00",
+	"displayName": "latest",
+	"description": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+	"environmentType": "latest",
+	"environmentSize": "high-availability",
 	"environmentDurabilityType": "fixed",
-	"containerClusters": [
-		{
-			"id": {
-				"canonicalId": "34234wdflsjf",
-				"displayId": "349023nsddf"
-			},
-			"name": "latest-container-cluster",
-			"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-			"links": {
-				"self": {
-					"href": "http://localhost/infra-api/container-clusters/34234wdflsjf"
-				}
+	"metaDataInformation": {
+		"sourceInfo": {
+			"aws": {
+				"dataSource": "aws",
+				"regions": [
+					{
+						"regionId": "us-east-1",
+						"vpcInfo": {
+							"vpcId": "i-0f5a87ac92d7c26ed",
+							"vpcState": "available",
+							"cidrBlock": "10.0.0.0/16",
+							"isDefault": true,
+							"labels": {
+								"jra.instance-name-full": "leheohkbf9cy9z9lxyixaoxoa",
+								"jra.instance-name": "leheohkbf9cy9z9lxyixaoxoa",
+								"jra.environment_type": "leheohkbf9cy9z9lxyixaoxoa",
+								"jra.environment": "leheohkbf9cy9z9lxyixaoxoa"
+							},
+							"links": {
+								"awsVpcInfo": {
+									"href": "http://docker-engine-info"
+								}
+							}
+						},
+						"availabilityZones": [
+							{
+								"availabilityZoneId": "us-east-1a",
+								"availabilityZoneName": "us-east-1a",
+								"cidrBlock": "10.0.0.0/16",
+								"subnets": [
+									{
+										"subnetId": "",
+										"subnetName": "",
+										"isPublic": true,
+										"isPrivate": true,
+										"labels": {
+											"jra.instance-name-full": "leheohkbf9cy9z9lxyixaoxoa",
+											"jra.instance-name": "leheohkbf9cy9z9lxyixaoxoa",
+											"jra.environment_type": "leheohkbf9cy9z9lxyixaoxoa",
+											"jra.environment": "leheohkbf9cy9z9lxyixaoxoa"
+										},
+										"links": {
+											"awsSubnetInfo": {
+												"href": "http://docker-engine-info"
+											}
+										}
+									},
+									{
+										"subnetId": "",
+										"subnetName": "",
+										"isPublic": true,
+										"labels": {
+											"jra.instance-name-full": "leheohkbf9cy9z9lxyixaoxoa",
+											"jra.instance-name": "leheohkbf9cy9z9lxyixaoxoa",
+											"jra.environment_type": "leheohkbf9cy9z9lxyixaoxoa",
+											"jra.environment": "leheohkbf9cy9z9lxyixaoxoa"
+										},
+										"links": {
+											"awsSubnetInfo": {
+												"href": "http://docker-engine-info"
+											}
+										}
+									}
+								]
+							},
+							{
+								"availabilityZoneId": "us-east-1b",
+								"availabilityZoneName": "us-east-1a",
+								"cidrBlock": "10.0.0.0/16",
+								"subnets": [
+									{
+										"subnetId": "",
+										"subnetName": "",
+										"isPublic": true,
+										"labels": {
+											"jra.instance-name-full": "leheohkbf9cy9z9lxyixaoxoa",
+											"jra.instance-name": "leheohkbf9cy9z9lxyixaoxoa",
+											"jra.environment_type": "leheohkbf9cy9z9lxyixaoxoa",
+											"jra.environment": "leheohkbf9cy9z9lxyixaoxoa"
+										},
+										"links": {
+											"awsSubnetInfo": {
+												"href": "http://docker-engine-info"
+											}
+										}
+									},
+									{
+										"subnetId": "",
+										"subnetName": "",
+										"isPublic": true,
+										"labels": {
+											"jra.instance-name-full": "leheohkbf9cy9z9lxyixaoxoa",
+											"jra.instance-name": "leheohkbf9cy9z9lxyixaoxoa",
+											"jra.environment_type": "leheohkbf9cy9z9lxyixaoxoa",
+											"jra.environment": "leheohkbf9cy9z9lxyixaoxoa"
+										},
+										"links": {
+											"awsSubnetInfo": {
+												"href": "http://docker-engine-info"
+											}
+										}
+									}
+								]
+							}
+						]
+					}
+				],
+				"peerVpcs": [
+					{
+						"regionId": "us-east-1",
+						"vpcInfo": {
+							"vpcId": "i-0f5a87ac92d7c26ed",
+							"vpcState": "available",
+							"cidrBlock": "10.0.0.0/16",
+							"isDefault": true,
+							"labels": {
+								"jra.instance-name-full": "leheohkbf9cy9z9lxyixaoxoa",
+								"jra.instance-name": "leheohkbf9cy9z9lxyixaoxoa",
+								"jra.environment_type": "leheohkbf9cy9z9lxyixaoxoa",
+								"jra.environment": "leheohkbf9cy9z9lxyixaoxoa"
+							},
+							"links": {
+								"dockerNodeInfo": {
+									"href": "http://docker-engine-info"
+								}
+							}
+						}
+					},
+					{
+						"regionId": "us-east-1",
+						"vpcInfo": {
+							"vpcId": "i-0f5a87ac92d7c26ed",
+							"vpcState": "available",
+							"cidrBlock": "10.0.0.0/16",
+							"isDefault": true,
+							"labels": {
+								"jra.instance-name-full": "leheohkbf9cy9z9lxyixaoxoa",
+								"jra.instance-name": "leheohkbf9cy9z9lxyixaoxoa",
+								"jra.environment_type": "leheohkbf9cy9z9lxyixaoxoa",
+								"jra.environment": "leheohkbf9cy9z9lxyixaoxoa"
+							},
+							"links": {
+								"dockerNodeInfo": {
+									"href": "http://docker-engine-info"
+								}
+							}
+						}
+					}
+				]
 			}
 		},
-		{
-			"id": {
-				"canonicalId": "124124saf",
-				"displayId": "349023nsddf"
-			},
-			"name": "latest-container-cluster",
-			"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-			"links": {
-				"self": {
-					"href": "http://localhost/infra-api/container-clusters/234sldfjsdflj234"
+		"publishedPortsAndUrls": {
+			"cluster-1": [
+				{
+					"publishedPort": 8080,
+					"containerPort": 8080,
+					"applicationName": "jra-infra",
+					"applicationDisplayName": "jra-infra",
+					"applicationId": "",
+					"serviceName": "",
+					"serviceDisplayName": "",
+					"serviceId": "",
+					"pathContext": "",
+					"proxyRoutingPathContext": "",
+					"proxyDomainName": "",
+					"urls": [
+						{
+							"urlName": "jra-application",
+							"urlType": "index",
+							"urlPath": "/admin"
+						},
+						{
+							"urlName": "jra-health-check",
+							"urlType": "health-check",
+							"urlPath": "/admin"
+						},
+						{
+							"urlName": "jra-swagger-api",
+							"urlType": "api-spec",
+							"urlPath": "/api/doc"
+						}
+					]
+				},
+				{
+					"publishedPort": 8080,
+					"containerPort": 8080,
+					"applicationName": "jra-infra",
+					"applicationDisplayName": "jra-infra",
+					"applicationId": "",
+					"serviceName": "",
+					"serviceDisplayName": "",
+					"serviceId": "",
+					"pathContext": "",
+					"proxyRoutingPathContext": "",
+					"proxyDomainName": "",
+					"urls": [
+						{
+							"urlName": "jra-application",
+							"urlType": "index",
+							"urlPath": "/admin"
+						},
+						{
+							"urlName": "jra-health-check",
+							"urlType": "health-check",
+							"urlPath": "/admin"
+						},
+						{
+							"urlName": "jra-swagger-api",
+							"urlType": "api-spec",
+							"urlPath": "/api/doc"
+						}
+					]
 				}
-			}
+			],
+			"cluster-2": [
+				{
+					"publishedPort": 8080,
+					"containerPort": 8080,
+					"applicationName": "jra-infra",
+					"applicationDisplayName": "jra-infra",
+					"applicationId": "",
+					"serviceName": "",
+					"serviceDisplayName": "",
+					"serviceId": "",
+					"pathContext": "",
+					"proxyRoutingPathContext": "",
+					"proxyDomainName": "",
+					"urls": [
+						{
+							"urlName": "jra-application",
+							"urlType": "index",
+							"urlPath": "/admin"
+						},
+						{
+							"urlName": "jra-health-check",
+							"urlType": "health-check",
+							"urlPath": "/admin"
+						},
+						{
+							"urlName": "jra-swagger-api",
+							"urlType": "api-spec",
+							"urlPath": "/api/doc"
+						}
+					]
+				},
+				{
+					"publishedPort": 8080,
+					"containerPort": 8080,
+					"applicationName": "jra-infra",
+					"applicationDisplayName": "jra-infra",
+					"applicationId": "",
+					"serviceName": "",
+					"serviceDisplayName": "",
+					"serviceId": "",
+					"pathContext": "",
+					"proxyRoutingPathContext": "",
+					"proxyDomainName": "",
+					"urls": [
+						{
+							"urlName": "jra-application",
+							"urlType": "index",
+							"urlPath": "/admin"
+						},
+						{
+							"urlName": "jra-health-check",
+							"urlType": "health-check",
+							"urlPath": "/admin"
+						},
+						{
+							"urlName": "jra-swagger-api",
+							"urlType": "api-spec",
+							"urlPath": "/api/doc"
+						}
+					]
+				}
+			]
 		}
-	],
-	"containerNodes": [
-		{
-			"id": {
-				"canonicalId": "34234wdflsjf",
-				"displayId": "349023nsddf"
-			},
-			"name": "latest-container-node",
-			"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-			"links": {
-				"self": {
-					"href": "http://localhost/infra-api/container-nodes/34234wdflsjf"
+	},
+	"statusInformation": {
+		"auditInfo": {
+			"timestampStarted": "2017-06-06T08:08:02+00:00",
+			"startedByUserName": "jrice",
+			"timestampEnded": "2017-06-07T08:08:02+00:00",
+			"endedByUserName": "jrice",
+			"timestampLastModified": "2017-06-0708:08:02+00:00",
+			"lastModifiedByUserName": "jrice",
+			"auditEventCountTotal": 250,
+			"auditEventCountMostRecent": 10,
+			"mostRecentAuditEvents": [
+				{
+					"eventTimestamp": "2017-06-0708:08:02+00:00",
+					"userName": "jrice",
+					"eventId": "0234304r0werwerwer",
+					"eventName": "createInstance",
+					"eventType": "AwsApiCall",
+					"eventSource": "aws",
+					"resourcesReferenced": [
+						{
+							"resourceName": "jra-ec2-trail",
+							"resourceId": "23uqwerwefwerwr",
+							"resourceType": "aws-instance"
+						},
+						{
+							"resourceName": "jra-ec2-trail",
+							"resourceId": "23uqwerwefwerwr",
+							"resourceType": "aws-instance"
+						}
+					],
+					"eventContext": {
+						"contextMessages": [
+							"failed to start",
+							"don't know why"
+						],
+						"contextData": [
+							{
+								"key": "awsRegion",
+								"value": "us-east-1"
+							},
+							{
+								"key": "recipientAccountId",
+								"value": "slflej2332"
+							},
+							{
+								"key": "sourceIPAddress",
+								"value": "142.197.183.91"
+							}
+						]
+					}
+				},
+				{
+					"eventTimestamp": "2017-06-0708:08:02+00:00",
+					"userName": "jrice",
+					"eventId": "0234304r0werwerwer",
+					"eventName": "createInstance",
+					"eventType": "AwsApiCall",
+					"eventSource": "aws",
+					"resourcesReferenced": [
+						{
+							"resourceName": "jra-ec2-trail",
+							"resourceId": "23uqwerwefwerwr",
+							"resourceType": "aws-instance"
+						},
+						{
+							"resourceName": "jra-ec2-trail",
+							"resourceId": "23uqwerwefwerwr",
+							"resourceType": "aws-instance"
+						}
+					],
+					"eventContext": {
+						"contextMessages": [
+							"failed to start",
+							"don't know why"
+						],
+						"contextData": [
+							{
+								"key": "awsRegion",
+								"value": "us-east-1",
+								"logLevel": "info"
+							},
+							{
+								"key": "recipientAccountId",
+								"value": "slflej2332"
+							},
+							{
+								"key": "sourceIPAddress",
+								"value": "142.197.183.91"
+							}
+						]
+					}
 				}
-			}
+			]
 		},
-		{
-			"id": {
-				"canonicalId": "124124saf",
-				"displayId": "349023nsddf"
+		"stateInfo": {
+			"currentState": {
+				"state": "active",
+				"stateCategory": "green",
+				"stateStatusIndicator": "green",
+				"errors": {
+					
+				},
+				"warnings": {
+					
+				},
+				"timestampStateEntered": "2017-06-0708:08:02+00:00"
 			},
-			"name": "latest-container-node",
-			"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+			"stateChangeHistory": [
+				{
+					"timestampStateChanged": "2017-06-0708:08:02+00:00",
+					"stateChangeAuditEvent": {
+						"eventTimestamp": "2017-06-0708:08:02+00:00",
+						"userName": "jrice",
+						"eventId": "0234304r0werwerwer",
+						"eventName": "createInstance",
+						"eventType": "AwsApiCall",
+						"eventSource": "aws",
+						"resourcesReferenced": [
+							{
+								"resourceName": "jra-ec2-trail",
+								"resourceId": "23uqwerwefwerwr",
+								"resourceType": "aws-instance"
+							},
+							{
+								"resourceName": "jra-ec2-trail",
+								"resourceId": "23uqwerwefwerwr",
+								"resourceType": "aws-instance"
+							}
+						]
+					},
+					"fromState": {
+						"state": "active",
+						"stateStatusCategory": "green"
+					},
+					"totate": {
+						"state": "error",
+						"stateStatusCategory": "red"
+					}
+				},
+				{
+					"timestampStateChanged": "2017-06-0708:08:02+00:00",
+					"stateChangeAuditEvent": {
+						"eventTimestamp": "2017-06-0708:08:02+00:00",
+						"userName": "jrice",
+						"eventId": "0234304r0werwerwer",
+						"eventName": "createInstance",
+						"eventType": "AwsApiCall",
+						"eventSource": "aws",
+						"resourcesReferenced": [
+							{
+								"resourceName": "jra-ec2-trail",
+								"resourceId": "23uqwerwefwerwr",
+								"resourceType": "aws-instance"
+							},
+							{
+								"resourceName": "jra-ec2-trail",
+								"resourceId": "23uqwerwefwerwr",
+								"resourceType": "aws-instance"
+							}
+						]
+					},
+					"fromState": {
+						"state": "active",
+						"stateStatusCategory": "green"
+					},
+					"totate": {
+						"state": "error",
+						"stateStatusCategory": "red"
+					}
+				}
+			]
+		},
+		"heathStatusInfo": {
+			
+		},
+		"alertInfo": {
+			
+		}
+	},
+	"resources": {
+		"containerClusters": {
+			"totalCount": 3,
+			"currentOffset": 0,
+			"currentLimit": 3,
+			"items": [
+				{
+					"id": {
+						"canonicalId": "34234wdflsjf",
+						"displayId": "349023nsddf"
+					},
+					"name": "latest-container-cluster",
+					"displayName": "",
+					"description": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+					"statusInformation": {
+						"stateInfo": {
+							"currentState": {
+								"state": "active",
+								"stateCategory": "green",
+								"stateStatusIndicator": "green",
+								"timestampStateEntered": "2017-06-0708:08:02+00:00"
+							}
+						},
+						"auditInfo": {
+							"timestampStarted": "2017-06-06T08:08:02+00:00",
+							"startedByUserName": "jrice",
+							"timestampEnded": "2017-06-07T08:08:02+00:00",
+							"endedByUserName": "jrice",
+							"timestampLastModified": "2017-06-0708:08:02+00:00",
+							"lastModifiedByUserName": "jrice"
+						},
+						"heathStatusInfo": {
+							
+						},
+						"alertInfo": {
+							
+						}
+					},
+					"links": {
+						"self": {
+							"href": "http://localhost/infra-api/container-clusters/34234wdflsjf"
+						}
+					}
+				},
+				{
+					"id": {
+						"canonicalId": "124124saf",
+						"displayId": "349023nsddf"
+					},
+					"name": "latest-container-cluster",
+					"displayName": "",
+					"description": "Temporary environment for UAT TEsting for the magic band project",
+					"statusInformation": {
+						"stateInfo": {
+							"currentState": {
+								"state": "active",
+								"stateCategory": "green",
+								"stateStatusIndicator": "green",
+								"timestampStateEntered": "2017-06-0708:08:02+00:00"
+							}
+						},
+						"auditInfo": {
+							"timestampStarted": "2017-06-06T08:08:02+00:00",
+							"startedByUserName": "jrice",
+							"timestampEnded": "2017-06-07T08:08:02+00:00",
+							"endedByUserName": "jrice",
+							"timestampLastModified": "2017-06-0708:08:02+00:00",
+							"lastModifiedByUserName": "jrice"
+						},
+						"heathStatusInfo": {
+							
+						},
+						"alertInfo": {
+							
+						}
+					},
+					"links": {
+						"self": {
+							"href": "http://localhost/infra-api/container-clusters/234sldfjsdflj234"
+						}
+					}
+				}
+			],
 			"links": {
 				"self": {
 					"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
-				}
-			}
-		}
-	],
-	"applicationGroups": [
-		{
-			"id": {
-				"canonicalId": "34234wdflsjf",
-				"displayId": "349023nsddf"
-			},
-			"name": "latest-application-group",
-			"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-			"links": {
-				"self": {
-					"href": "http://localhost/infra-api/application-groups/34234wdflsjf"
+				},
+				"next": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"previous": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"first": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"last": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
 				}
 			}
 		},
-		{
-			"id": {
-				"canonicalId": "124124saf",
-				"displayId": "349023nsddf"
-			},
-			"name": "latest-application-group",
-			"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-			"links": {
-				"self": {
-					"href": "http://localhost/infra-api/application-groups/234sldfjsdflj234"
+		"containerClusterNodes": {
+			"totalCount": 3,
+			"currentOffset": 0,
+			"currentLimit": 3,
+			"items": [
+				{
+					"id": {
+						"canonicalId": "34234wdflsjf",
+						"displayId": "349023nsddf"
+					},
+					"name": "latest-container-node",
+					"displayName": "",
+					"description": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+					"metaDataInformation": {
+						"machineInfo": {
+							"networkInfo": {
+								"publicIpAddress": "54.165.245.122",
+								"publicDnsName": "ec2-54-165-245-122.compute-1.amazonaws.com",
+								"publicHostName": "",
+								"privateIpAddress": "54.165.245.122",
+								"privateDnsName": "ec2-54-165-245-122.compute-1.amazonaws.com",
+								"privateHostName": ""
+							}
+						},
+						"sourceInfo": {
+							"jraInfra": {
+								"failureZone": "us-east-1a",
+								"swarmNodeType": "manager"
+							},
+							"dockerSwarm": {
+								"swarmRole": "manager",
+								"hostname": "20-39-29383"
+							}
+						}
+					},
+					"statusInformation": {
+						"stateInfo": {
+							"currentState": {
+								"state": "active",
+								"stateCategory": "green",
+								"stateStatusIndicator": "green",
+								"timestampStateEntered": "2017-06-0708:08:02+00:00"
+							}
+						},
+						"auditInfo": {
+							"timestampStarted": "2017-06-06T08:08:02+00:00",
+							"startedByUserName": "jrice",
+							"timestampEnded": "2017-06-07T08:08:02+00:00",
+							"endedByUserName": "jrice",
+							"timestampLastModified": "2017-06-0708:08:02+00:00",
+							"lastModifiedByUserName": "jrice"
+						},
+						"heathStatusInfo": {
+							
+						},
+						"alertInfo": {
+							
+						}
+					},
+					"links": {
+						"self": {
+							"href": "http://localhost/infra-api/container-nodes/34234wdflsjf"
+						}
+					}
+				},
+				{
+					"id": {
+						"canonicalId": "124124saf",
+						"displayId": "349023nsddf"
+					},
+					"name": "latest-container-node",
+					"displayName": "",
+					"description": "Temporary environment for UAT TEsting for the magic band project",
+					"metaDataInformation": {
+						"machineInfo": {
+							"networkInfo": {
+								"publicIpAddress": "54.165.245.122",
+								"publicDnsName": "ec2-54-165-245-122.compute-1.amazonaws.com",
+								"publicHostName": "",
+								"privateIpAddress": "54.165.245.122",
+								"privateDnsName": "ec2-54-165-245-122.compute-1.amazonaws.com",
+								"privateHostName": ""
+							}
+						},
+						"sourceInfo": {
+							"jraInfra": {
+								"failureZone": "us-east-1a",
+								"swarmNodeType": "manager"
+							},
+							"dockerSwarm": {
+								"swarmRole": "manager",
+								"hostname": "20-39-29383"
+							}
+						}
+					},
+					"statusInformation": {
+						"stateInfo": {
+							"currentState": {
+								"state": "active",
+								"stateCategory": "green",
+								"stateStatusIndicator": "green",
+								"timestampStateEntered": "2017-06-0708:08:02+00:00"
+							}
+						},
+						"auditInfo": {
+							"timestampStarted": "2017-06-06T08:08:02+00:00",
+							"startedByUserName": "jrice",
+							"timestampEnded": "2017-06-07T08:08:02+00:00",
+							"endedByUserName": "jrice",
+							"timestampLastModified": "2017-06-0708:08:02+00:00",
+							"lastModifiedByUserName": "jrice"
+						},
+						"heathStatusInfo": {
+							
+						},
+						"alertInfo": {
+							
+						}
+					},
+					"links": {
+						"self": {
+							"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+						}
+					}
 				}
-			}
-		}
-	],
-	"applications": [
-		{
-			"id": {
-				"canonicalId": "34234wdflsjf",
-				"displayId": "349023nsddf"
-			},
-			"name": "latest-application",
-			"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+			],
 			"links": {
 				"self": {
-					"href": "http://localhost/infra-api/applications/34234wdflsjf"
+					"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+				},
+				"next": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"previous": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"first": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"last": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
 				}
 			}
 		},
-		{
-			"id": {
-				"canonicalId": "124124saf",
-				"displayId": "349023nsddf"
-			},
-			"name": "latest-application",
-			"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-			"links": {
-				"self": {
-					"href": "http://localhost/infra-api/applications/234sldfjsdflj234"
+		"applicationGroups": {
+			"totalCount": 3,
+			"currentOffset": 0,
+			"currentLimit": 3,
+			"items": [
+				{
+					"id": {
+						"canonicalId": "34234wdflsjf",
+						"displayId": "349023nsddf"
+					},
+					"name": "latest-application-group",
+					"displayName": "",
+					"description": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+					"statusInformation": {
+						"stateInfo": {
+							"currentState": {
+								"state": "active",
+								"stateCategory": "green",
+								"stateStatusIndicator": "green",
+								"timestampStateEntered": "2017-06-0708:08:02+00:00"
+							}
+						},
+						"auditInfo": {
+							"timestampStarted": "2017-06-06T08:08:02+00:00",
+							"startedByUserName": "jrice",
+							"timestampEnded": "2017-06-07T08:08:02+00:00",
+							"endedByUserName": "jrice",
+							"timestampLastModified": "2017-06-0708:08:02+00:00",
+							"lastModifiedByUserName": "jrice"
+						},
+						"heathStatusInfo": {
+							
+						},
+						"alertInfo": {
+							
+						}
+					},
+					"links": {
+						"self": {
+							"href": "http://localhost/infra-api/application-groups/34234wdflsjf"
+						}
+					}
+				},
+				{
+					"id": {
+						"canonicalId": "124124saf",
+						"displayId": "349023nsddf"
+					},
+					"name": "latest-application-group",
+					"displayName": "",
+					"description": "Temporary environment for UAT TEsting for the magic band project",
+					"statusInformation": {
+						"stateInfo": {
+							"currentState": {
+								"state": "active",
+								"stateCategory": "green",
+								"stateStatusIndicator": "green",
+								"timestampStateEntered": "2017-06-0708:08:02+00:00"
+							}
+						},
+						"auditInfo": {
+							"timestampStarted": "2017-06-06T08:08:02+00:00",
+							"startedByUserName": "jrice",
+							"timestampEnded": "2017-06-07T08:08:02+00:00",
+							"endedByUserName": "jrice",
+							"timestampLastModified": "2017-06-0708:08:02+00:00",
+							"lastModifiedByUserName": "jrice"
+						},
+						"heathStatusInfo": {
+							
+						},
+						"alertInfo": {
+							
+						}
+					},
+					"links": {
+						"self": {
+							"href": "http://localhost/infra-api/application-groups/234sldfjsdflj234"
+						}
+					}
 				}
-			}
-		}
-	],
-	"applicationServices": [
-		{
-			"id": {
-				"canonicalId": "34234wdflsjf",
-				"displayId": "349023nsddf"
-			},
-			"name": "latest-application-service",
-			"descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+			],
 			"links": {
 				"self": {
-					"href": "http://localhost/infra-api/application-services/34234wdflsjf"
+					"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+				},
+				"next": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"previous": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"first": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"last": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
 				}
 			}
 		},
-		{
-			"id": {
-				"canonicalId": "124124saf",
-				"displayId": "349023nsddf"
-			},
-			"name": "latest-application-service",
-			"descriptionn": "Temporary environment for UAT TEsting for the magic band project",
+		"applications": {
+			"totalCount": 3,
+			"currentOffset": 0,
+			"currentLimit": 3,
+			"items": [
+				{
+					"id": {
+						"canonicalId": "34234wdflsjf",
+						"displayId": "349023nsddf"
+					},
+					"name": "latest-application",
+					"displayName": "",
+					"description": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+					"statusInformation": {
+						"stateInfo": {
+							"currentState": {
+								"state": "active",
+								"stateCategory": "green",
+								"stateStatusIndicator": "green",
+								"timestampStateEntered": "2017-06-0708:08:02+00:00"
+							}
+						},
+						"auditInfo": {
+							"timestampStarted": "2017-06-06T08:08:02+00:00",
+							"startedByUserName": "jrice",
+							"timestampEnded": "2017-06-07T08:08:02+00:00",
+							"endedByUserName": "jrice",
+							"timestampLastModified": "2017-06-0708:08:02+00:00",
+							"lastModifiedByUserName": "jrice"
+						},
+						"heathStatusInfo": {
+							
+						},
+						"alertInfo": {
+							
+						}
+					},
+					"links": {
+						"self": {
+							"href": "http://localhost/infra-api/applications/34234wdflsjf"
+						}
+					}
+				},
+				{
+					"id": {
+						"canonicalId": "124124saf",
+						"displayId": "349023nsddf"
+					},
+					"name": "latest-application",
+					"displayName": "",
+					"description": "Temporary environment for UAT TEsting for the magic band project",
+					"statusInformation": {
+						"stateInfo": {
+							"currentState": {
+								"state": "active",
+								"stateCategory": "green",
+								"stateStatusIndicator": "green",
+								"timestampStateEntered": "2017-06-0708:08:02+00:00"
+							}
+						},
+						"auditInfo": {
+							"timestampStarted": "2017-06-06T08:08:02+00:00",
+							"startedByUserName": "jrice",
+							"timestampEnded": "2017-06-07T08:08:02+00:00",
+							"endedByUserName": "jrice",
+							"timestampLastModified": "2017-06-0708:08:02+00:00",
+							"lastModifiedByUserName": "jrice"
+						},
+						"heathStatusInfo": {
+							
+						},
+						"alertInfo": {
+							
+						}
+					},
+					"links": {
+						"self": {
+							"href": "http://localhost/infra-api/applications/234sldfjsdflj234"
+						}
+					}
+				}
+			],
 			"links": {
 				"self": {
-					"href": "http://localhost/infra-api/application-services/234sldfjsdflj234"
+					"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+				},
+				"next": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"previous": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"first": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"last": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				}
+			}
+		},
+		"applicationServices": {
+			"totalCount": 3,
+			"currentOffset": 0,
+			"currentLimit": 3,
+			"items": [
+				{
+					"id": {
+						"canonicalId": "34234wdflsjf",
+						"displayId": "349023nsddf"
+					},
+					"name": "latest-application-service",
+					"displayName": "",
+					"description": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+					"statusInformation": {
+						"stateInfo": {
+							"currentState": {
+								"state": "active",
+								"stateCategory": "green",
+								"stateStatusIndicator": "green",
+								"timestampStateEntered": "2017-06-0708:08:02+00:00"
+							}
+						},
+						"auditInfo": {
+							"timestampStarted": "2017-06-06T08:08:02+00:00",
+							"startedByUserName": "jrice",
+							"timestampEnded": "2017-06-07T08:08:02+00:00",
+							"endedByUserName": "jrice",
+							"timestampLastModified": "2017-06-0708:08:02+00:00",
+							"lastModifiedByUserName": "jrice"
+						},
+						"heathStatusInfo": {
+							
+						},
+						"alertInfo": {
+							
+						}
+					},
+					"links": {
+						"self": {
+							"href": "http://localhost/infra-api/application-services/34234wdflsjf"
+						}
+					}
+				},
+				{
+					"id": {
+						"canonicalId": "124124saf",
+						"displayId": "349023nsddf"
+					},
+					"name": "latest-application-service",
+					"displayName": "",
+					"description": "Temporary environment for UAT TEsting for the magic band project",
+					"statusInformation": {
+						"stateInfo": {
+							"currentState": {
+								"state": "active",
+								"stateCategory": "green",
+								"stateStatusIndicator": "green",
+								"timestampStateEntered": "2017-06-0708:08:02+00:00"
+							}
+						},
+						"auditInfo": {
+							"timestampStarted": "2017-06-06T08:08:02+00:00",
+							"startedByUserName": "jrice",
+							"timestampEnded": "2017-06-07T08:08:02+00:00",
+							"endedByUserName": "jrice",
+							"timestampLastModified": "2017-06-0708:08:02+00:00",
+							"lastModifiedByUserName": "jrice"
+						},
+						"heathStatusInfo": {
+							
+						},
+						"alertInfo": {
+							
+						}
+					},
+					"links": {
+						"self": {
+							"href": "http://localhost/infra-api/application-services/234sldfjsdflj234"
+						}
+					}
+				}
+			],
+			"links": {
+				"self": {
+					"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+				},
+				"next": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"previous": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"first": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"last": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				}
+			}
+		},
+		"containers": {
+			"dockerEngineContainers": {
+				"totalCount": 3,
+				"currentOffset": 0,
+				"currentLimit": 3,
+				"items": [
+					{
+						"id": {
+							"canonicalId": "34234wdflsjf",
+							"displayId": "349023nsddf"
+						},
+						"name": "latest-application-service",
+						"displayName": "",
+						"description": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+						"statusInformation": {
+							"stateInfo": {
+								"currentState": {
+									"state": "active",
+									"stateCategory": "green",
+									"stateStatusIndicator": "green",
+									"timestampStateEntered": "2017-06-0708:08:02+00:00"
+								}
+							},
+							"auditInfo": {
+								"timestampStarted": "2017-06-06T08:08:02+00:00",
+								"startedByUserName": "jrice",
+								"timestampEnded": "2017-06-07T08:08:02+00:00",
+								"endedByUserName": "jrice",
+								"timestampLastModified": "2017-06-0708:08:02+00:00",
+								"lastModifiedByUserName": "jrice"
+							},
+							"heathStatusInfo": {
+								
+							},
+							"alertInfo": {
+								
+							}
+						},
+						"links": {
+							"self": {
+								"href": "http://localhost/infra-api/containers/34234wdflsjf"
+							}
+						}
+					},
+					{
+						"id": {
+							"canonicalId": "124124saf",
+							"displayId": "349023nsddf"
+						},
+						"name": "latest-application-service",
+						"displayName": "",
+						"description": "Temporary environment for UAT TEsting for the magic band project",
+						"statusInformation": {
+							"stateInfo": {
+								"currentState": {
+									"state": "active",
+									"stateCategory": "green",
+									"stateStatusIndicator": "green",
+									"timestampStateEntered": "2017-06-0708:08:02+00:00"
+								}
+							},
+							"auditInfo": {
+								"timestampStarted": "2017-06-06T08:08:02+00:00",
+								"startedByUserName": "jrice",
+								"timestampEnded": "2017-06-07T08:08:02+00:00",
+								"endedByUserName": "jrice",
+								"timestampLastModified": "2017-06-0708:08:02+00:00",
+								"lastModifiedByUserName": "jrice"
+							},
+							"heathStatusInfo": {
+								
+							},
+							"alertInfo": {
+								
+							}
+						},
+						"links": {
+							"self": {
+								"href": "http://localhost/infra-api/containers/234sldfjsdflj234"
+							}
+						}
+					}
+				],
+				"links": {
+					"self": {
+						"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+					},
+					"next": {
+						"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+					},
+					"previous": {
+						"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+					},
+					"first": {
+						"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+					},
+					"last": {
+						"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+					}
+				}
+			},
+			"dockerSwarmServiceContainers": {
+				"totalCount": 3,
+				"currentOffset": 0,
+				"currentLimit": 3,
+				"items": [
+					{
+						"id": {
+							"canonicalId": "34234wdflsjf",
+							"displayId": "349023nsddf"
+						},
+						"name": "latest-application-service",
+						"displayName": "",
+						"description": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+						"statusInformation": {
+							"stateInfo": {
+								"currentState": {
+									"state": "active",
+									"stateCategory": "green",
+									"stateStatusIndicator": "green",
+									"timestampStateEntered": "2017-06-0708:08:02+00:00"
+								}
+							},
+							"auditInfo": {
+								"timestampStarted": "2017-06-06T08:08:02+00:00",
+								"startedByUserName": "jrice",
+								"timestampEnded": "2017-06-07T08:08:02+00:00",
+								"endedByUserName": "jrice",
+								"timestampLastModified": "2017-06-0708:08:02+00:00",
+								"lastModifiedByUserName": "jrice"
+							},
+							"heathStatusInfo": {
+								
+							},
+							"alertInfo": {
+								
+							}
+						},
+						"links": {
+							"self": {
+								"href": "http://localhost/infra-api/containers/34234wdflsjf"
+							}
+						}
+					},
+					{
+						"id": {
+							"canonicalId": "124124saf",
+							"displayId": "349023nsddf"
+						},
+						"name": "latest-application-service",
+						"displayName": "",
+						"description": "Temporary environment for UAT TEsting for the magic band project",
+						"statusInformation": {
+							"stateInfo": {
+								"currentState": {
+									"state": "active",
+									"stateCategory": "green",
+									"stateStatusIndicator": "green",
+									"timestampStateEntered": "2017-06-0708:08:02+00:00"
+								}
+							},
+							"auditInfo": {
+								"timestampStarted": "2017-06-06T08:08:02+00:00",
+								"startedByUserName": "jrice",
+								"timestampEnded": "2017-06-07T08:08:02+00:00",
+								"endedByUserName": "jrice",
+								"timestampLastModified": "2017-06-0708:08:02+00:00",
+								"lastModifiedByUserName": "jrice"
+							},
+							"heathStatusInfo": {
+								
+							},
+							"alertInfo": {
+								
+							}
+						},
+						"links": {
+							"self": {
+								"href": "http://localhost/infra-api/containers/234sldfjsdflj234"
+							}
+						}
+					}
+				],
+				"links": {
+					"self": {
+						"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+					},
+					"next": {
+						"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+					},
+					"previous": {
+						"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+					},
+					"first": {
+						"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+					},
+					"last": {
+						"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+					}
+				}
+			}
+		},
+		"infrastructureResources": {
+			"totalCount": 3,
+			"currentOffset": 0,
+			"currentLimit": 3,
+			"items": [],
+			"links": {
+				"self": {
+					"href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
+				},
+				"next": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"previous": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"first": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
+				},
+				"last": {
+					"href": "http://localhost/infra-api/container-nodes?offset=0?limit=5"
 				}
 			}
 		}
-	],
+	},
 	"links": {
 		"self": {
 			"href": "http://localhost/infra-api/environments/349023nsddf"

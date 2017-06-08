@@ -53,55 +53,11 @@ paths:
           description: Successful response, with a representation of the list of matching environments.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/Environments"
+            $ref: "#/definitions/EnvironmentList"
           examples:
             # Example message, keyed by media type
             application/json :
               [
-                {
-                  "id": {
-                    "canonicalId": "349023nsddf",
-                    "displayId": "latest-ddf",
-                    "alternateIds": [
-                      {
-                        "id": "234uff2u34234",
-                        "idName": "awsVpcId",
-                        "idSource": "aws-ec2"
-                      }
-                    ]
-                  },
-                  "name": "latest",
-                  "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-                  "environmentStatus": "active",
-                  "environmentDurabilityType": "fixed",
-                  "links": {
-                    "self": {
-                      "href": "http://localhost/infra-api/environments/349023nsdf"
-                    }
-                  }
-                },
-                {
-                  "id": {
-                    "canonicalId": "234sldfjsdflj234",
-                    "displayId": "UAT-Magic-Band-Project",
-                    "alternateIds": [
-                      {
-                        "id": "234uff2u34234",
-                        "idName": "awsVpcId",
-                        "idSource": "aws-ec2"
-                      }
-                    ]
-                  },
-                  "name": "UAT-Magic-Band-Project",
-                  "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-                  "environmentStatus": "terminated",
-                  "environmentDurabilityType": "short-term",
-                  "links": {
-                    "self": {
-                      "href": "http://localhost/infra-api/environments/234sldfjsdflj234"
-                    }
-                  }
-                }
               ] 
         404:
           description: The requested environments were not found
@@ -135,169 +91,6 @@ paths:
             # Example message, keyed by media type
             application/json :
               {
-                "id": {
-                  "canonicalId": "349023nsddf",
-                  "displayId": "349023nsddf",
-                  "alternateIds": [
-                    {
-                      "id": "234uff2u34234",
-                      "idName": "awsVpcId",
-                      "idSource": "aws-ec2"
-                    }
-                  ]
-                },
-                "name": "latest",
-                "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-                "environmentStatus": "active",
-                "environmentStartDateTime": "2017-06-06T08:08:02+00:00",
-                "environmentEndDateTime": "2017-06-07T08:08:02+00:00",
-                "environmentLastModifiedDateTime": "2017-06-0708:08:02+00:00",
-                "environmentDurabilityType": "fixed",
-                "containerClusters": [
-                  {
-                    "id": {
-                      "canonicalId": "34234wdflsjf",
-                      "displayId": "349023nsddf"
-                    },
-                    "name": "latest-container-cluster",
-                    "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-                    "links": {
-                      "self": {
-                        "href": "http://localhost/infra-api/container-clusters/34234wdflsjf"
-                      }
-                    }
-                  },
-                  {
-                    "id": {
-                      "canonicalId": "124124saf",
-                      "displayId": "349023nsddf"
-                    },
-                    "name": "latest-container-cluster",
-                    "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-                    "links": {
-                      "self": {
-                        "href": "http://localhost/infra-api/container-clusters/234sldfjsdflj234"
-                      }
-                    }
-                  }
-                ],
-                "containerNodes": [
-                  {
-                    "id": {
-                      "canonicalId": "34234wdflsjf",
-                      "displayId": "349023nsddf"
-                    },
-                    "name": "latest-container-node",
-                    "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-                    "links": {
-                      "self": {
-                        "href": "http://localhost/infra-api/container-nodes/34234wdflsjf"
-                      }
-                    }
-                  },
-                  {
-                    "id": {
-                      "canonicalId": "124124saf",
-                      "displayId": "349023nsddf"
-                    },
-                    "name": "latest-container-node",
-                    "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-                    "links": {
-                      "self": {
-                        "href": "http://localhost/infra-api/container-nodes/234sldfjsdflj234"
-                      }
-                    }
-                  }
-                ],
-                "applicationGroups": [
-                  {
-                    "id": {
-                      "canonicalId": "34234wdflsjf",
-                      "displayId": "349023nsddf"
-                    },
-                    "name": "latest-application-group",
-                    "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-                    "links": {
-                      "self": {
-                        "href": "http://localhost/infra-api/application-groups/34234wdflsjf"
-                      }
-                    }
-                  },
-                  {
-                    "id": {
-                      "canonicalId": "124124saf",
-                      "displayId": "349023nsddf"
-                    },
-                    "name": "latest-application-group",
-                    "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-                    "links": {
-                      "self": {
-                        "href": "http://localhost/infra-api/application-groups/234sldfjsdflj234"
-                      }
-                    }
-                  }
-                ],
-                "applications": [
-                  {
-                    "id": {
-                      "canonicalId": "34234wdflsjf",
-                      "displayId": "349023nsddf"
-                    },
-                    "name": "latest-application",
-                    "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-                    "links": {
-                      "self": {
-                        "href": "http://localhost/infra-api/applications/34234wdflsjf"
-                      }
-                    }
-                  },
-                  {
-                    "id": {
-                      "canonicalId": "124124saf",
-                      "displayId": "349023nsddf"
-                    },
-                    "name": "latest-application",
-                    "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-                    "links": {
-                      "self": {
-                        "href": "http://localhost/infra-api/applications/234sldfjsdflj234"
-                      }
-                    }
-                  }
-                ],
-                "applicationServices": [
-                  {
-                    "id": {
-                      "canonicalId": "34234wdflsjf",
-                      "displayId": "349023nsddf"
-                    },
-                    "name": "latest-application-service",
-                    "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-                    "links": {
-                      "self": {
-                        "href": "http://localhost/infra-api/application-services/34234wdflsjf"
-                      }
-                    }
-                  },
-                  {
-                    "id": {
-                      "canonicalId": "124124saf",
-                      "displayId": "349023nsddf"
-                    },
-                    "name": "latest-application-service",
-                    "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-                    "links": {
-                      "self": {
-                        "href": "http://localhost/infra-api/application-services/234sldfjsdflj234"
-                      }
-                    }
-                  }
-                ],
-                "links": {
-                  "self": {
-                    "href": "http://localhost/infra-api/environments/349023nsddf"
-                  }
-                }
               }
         404:
           description: The requested tax filing was not found.
@@ -327,43 +120,17 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/containerClusterList"
+            $ref: "#/definitions/ContainerClusterList"
           examples:
             # Example message, keyed by media type
             application/json :
               [
-                  {
-                    "id": {
-                      "canonicalId": "34234wdflsjf",
-                      "displayId": "349023nsddf"
-                    },
-                    "name": "latest-container-cluster",
-                    "descriptionn": "Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
-                    "links": {
-                      "self": {
-                        "href": "http://localhost/infra-api/container-clusters/34234wdflsjf"
-                      }
-                    }
-                  },
-                  {
-                    "id": {
-                      "canonicalId": "124124saf",
-                      "displayId": "349023nsddf"
-                    },
-                    "name": "latest-container-cluster",
-                    "descriptionn": "Temporary environment for UAT TEsting for the magic band project",
-                    "links": {
-                      "self": {
-                        "href": "http://localhost/infra-api/container-clusters/234sldfjsdflj234"
-                      }
-                    }
-                  }
-                ]
+              ]
         404:
           description: <@TODO> - Add Description
 
   # @TODO - Document
-  /container-clustera/{containerClusterCanonicalId}:
+  /container-clusters/{containerClusterCanonicalId}:
 
     # Operations are identified by an HTTP method.  
     get:
@@ -387,7 +154,7 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/containerClusterDetails"
+            $ref: "#/definitions/ContainerClusterDetails"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -399,7 +166,7 @@ paths:
           description: <@TODO> - Add Description
 
   # @TODO - Document
-  /container-nodes:
+  /container-cluster-nodes:
 
     # Operations are identified by an HTTP method.  
     get:
@@ -423,7 +190,7 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/containerNodeList"
+            $ref: "#/definitions/ContainerClusterNodeList"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -435,7 +202,7 @@ paths:
           description: <@TODO> - Add Description
 
   # @TODO - Document
-  /container-node/{containerNodeCanonicalId}:
+  /container-cluster-nodes/{containerNodeCanonicalId}:
 
     # Operations are identified by an HTTP method.  
     get:
@@ -459,7 +226,7 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/containerNodeDetails"
+            $ref: "#/definitions/ContainerClusterNodeDetails"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -495,7 +262,7 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/containerList"
+            $ref: "#/definitions/ContainerList"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -531,7 +298,7 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/containerDetails"
+            $ref: "#/definitions/ContainerDetails"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -567,7 +334,7 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/applicationGroupList"
+            $ref: "#/definitions/ApplicationGroupList"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -603,7 +370,7 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/applicationGroupDetails"
+            $ref: "#/definitions/ApplicationGroupDetails"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -639,7 +406,7 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/applicationList"
+            $ref: "#/definitions/ApplicationList"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -675,7 +442,7 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/applicationDetails"
+            $ref: "#/definitions/ApplicationDetails"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -711,7 +478,7 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/applicationServiceList"
+            $ref: "#/definitions/ApplicationServiceList"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -747,7 +514,79 @@ paths:
           description: Successful response, with details about an environment.
           schema:
             # Reference to a Schema Object described in 'definitions' section
-            $ref: "#/definitions/applicationServiceDetails"
+            $ref: "#/definitions/ApplicationServiceDetails"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /infrastructure-resources:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - 3 - Infrastructure
+      - Infrastructure Resources
+      description: <@TODO> - Add Description
+      operationId: getInfrastructureResourceList
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: YYY
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/InfrastructureResourceList"
+          examples:
+            # Example message, keyed by media type
+            application/json :
+              [
+                {
+                }
+              ] 
+        404:
+          description: <@TODO> - Add Description
+
+  # @TODO - Document
+  /infrastructure-resources/{infrastructureResourcesCanonicalId}:
+
+    # Operations are identified by an HTTP method.  
+    get:
+      tags:
+      - 2 - Infrastructure
+      - Infrastructure Resources
+      description: <@TODO> - Add Description
+      operationId: getInfrastructureResourceDetails
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: infrastructureResourcesCanonicalId
+        in: path
+        description: <@TODO> - Add Description
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful response, with details about an environment.
+          schema:
+            # Reference to a Schema Object described in 'definitions' section
+            $ref: "#/definitions/InfrastructureResourceDetails"
           examples:
             # Example message, keyed by media type
             application/json :
@@ -770,23 +609,44 @@ definitions:
         description: <@TODO> - Add Description
       name:
         type: string
-      descriptionn:
+      displayName:
         type: string
-      environmentStatus:
+      description:
         type: string
-        enum: ["active", "paused", "terminated"]
+        enum: ["active", "stopped", "terminated"]
+      environmentType:
+        type: string
+        enum: ["latest", "stage", "functional-test", "integration-test", "qa-automated", "qa-manual", "production", "shadow", "performance", "uat"]
       environmentDurabilityType:
         type: string
         enum: ["fixed", "disposable", "short-term"]
+      environmentSize:
+        type: string
+        enum: ["small", "large", "high-availability"]
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
       links:
         $ref: '#/definitions/Links' 
 
-  Environments:
-    type: array
-    items:
-      $ref: '#/definitions/EnvironmentSummary'
+  EnvironmentList:
+    type: object
+    properties:
+      totalCount:
+        type: number
+      currentOffset:
+        type: number
+      currentLimit:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/EnvironmentSummary'
+      links:
+        $ref: '#/definitions/Links' 
 
-
+  Collection:
+    type: object
+    
 
   EnvironmentDetails:
     type: object
@@ -797,129 +657,182 @@ definitions:
         description: <@TODO> - Add Description
       name:
         type: string
-      descriptionn:
+      displayName:
+        type: string
+      description:
         type: string
       environmentStatus:
         type: string
         enum: ["active", "stopped", "terminated"]
+      environmentType:
+        type: string
+        enum: ["latest", "stage", "functional-test", "integration-test", "qa-automated", "qa-manual", "production", "shadow", "performance", "uat"]
+      environmentSize:
+        type: string
+        enum: ["small", "large", "high-availability"]
       environmentDurabilityType:
         type: string
         enum: ["fixed", "disposable", "short-term"]
-      environmentStartDateTime:
-        type: string
-        format: dateTime
-      environmentEndDateTime:
-        type: string
-        format: dateTime
-      environmentLastModifiedDateTime:
-        type: string
-        format: dateTime
-      containerClusters:
+      metaDataInformation:
         type: object
-        $ref: '#/definitions/containerClusterList' 
-      containerNodes:
-        type: object
-        $ref: '#/definitions/containerNodeList'
-      applicationGroups:
-        type: object
-        $ref: '#/definitions/applicationGroupList'
-      applications:
-        type: object
-        $ref: '#/definitions/applicationList'
-      applicationServices:
-        type: object
-        $ref: '#/definitions/applicationServiceList'
-      links:
-        $ref: '#/definitions/Links' 
-
-  containerClusterSummary:
-    type: object
-    description: <@TODO> - Add Description
-    properties:
-      id:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      name:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      description:
-        $ref: '#/definitions/Identifier' 
-      links:
-        $ref: '#/definitions/Links' 
-
-  containerClusterDetails:
-    type: object
-    description: <@TODO> - Add Description
-    properties:
-      id:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      name:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      description:
-        $ref: '#/definitions/Identifier'
-      clusterConfiguration:
-        type: object
-        properties:
-          dockerSwarmConfiguration:
+        properties: 
+          sourceInfo:
             type: object
             properties:
-              clusterAdvertiseAddress:
-                type: string
-              clusterListenAddress:
-                type: string
-              managerJoinToken:
-                type: string
-              workerJoinToken:
-                type: string
-      auditInfo:
+              aws:
+                type: object
+                properties:
+                  dataSource:
+                     $ref: '#/definitions/DataSource'
+                  regions:
+                    $ref: '#/definitions/AwsRegionInfoList'
+                  peerVpcs:
+                    $ref: '#/definitions/AwsRegionInfoList'
+          publishedPortsAndUrls:
+            type: object
+            additionalProperties:
+              type: array
+              # key is the cluster id.  The map contains a set of publish ports for each cluster.
+              items:
+                $ref: '#/definitions/PublishedUrlList'
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      resources:
+        type: object
+        properties:
+          containerClusters:
+            $ref: '#/definitions/ContainerClusterList' 
+          containerClusterNodes:
+            $ref: '#/definitions/ContainerClusterNodeList'
+          applicationGroups:
+            $ref: '#/definitions/ApplicationGroupList'
+          applications:
+            $ref: '#/definitions/ApplicationList'
+          applicationServices:
+            $ref: '#/definitions/ApplicationServiceList'
+          containers:
+            type: object
+            properties:
+              dockerEngineContainers:
+                type: object
+                $ref: '#/definitions/ContainerList'
+              dockerSwarmServiceContainers:
+                type: object
+                $ref: '#/definitions/ContainerList'
+          infrastructureResources:
+            $ref: '#/definitions/InfrastructureResourceList'
+      links:
+        $ref: '#/definitions/Links' 
+
+  ContainerClusterSummary:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
         type: string
-        format: dateTime
-        $ref: '#/definitions/AuditInfo'
-      systemStats:
+        description: <@TODO> - Add Description
+      displayName:
         type: string
-        format: dateTime
-        $ref: '#/definitions/SystemStats'
-      healthStatus:
-        $ref: '#/definitions/healthStatus'
-      state:
-        $ref: '#/definitions/currentState'
-      managerContainerNodes:
-        $ref: '#/definitions/containerNodeList'
-      workerContainerNodes:
-        $ref: '#/definitions/containerNodeList'
-      applications:
-        $ref: '#/definitions/applicationList'
-      applicationServices:
-        $ref: '#/definitions/applicationServiceList'
+      description:
+        $ref: '#/definitions/Identifier' 
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      links:
+        $ref: '#/definitions/Links' 
+
+  ContainerClusterDetails:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        type: string 
+      displayName:
+        type: string
+      description:
+        $ref: '#/definitions/Identifier'
+      metaDataInformation:
+        type: object
+        properties: 
+          sourceInfo:
+            type: object
+            properties:
+              aws:
+                type: object
+                properties:
+                  dataSource:
+                     $ref: '#/definitions/DataSource'
+                  regions:
+                    $ref: '#/definitions/AwsRegionInfoList'
+                     
+              jraInfra:
+                $ref: '#/definitions/JraInfraInfo'
+              dockerSwarm:
+                type:  object
+                properties:  
+                  clusterAdvertiseAddress:
+                    type: string
+                  clusterListenAddress:
+                    type: string
+                  managerJoinToken:
+                    type: string
+                  workerJoinToken:
+                    type: string
+          publishedPortsAndUrls:
+            $ref: '#/definitions/PublishedUrlList'
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      resources:
+        type: object
+        properties:
+          containerClusterNodes:
+            $ref: '#/definitions/ContainerClusterNodeList'
+          applicationGroups:
+            $ref: '#/definitions/ApplicationGroupList'
+          applications:
+            $ref: '#/definitions/ApplicationList'
+          applicationServices:
+            $ref: '#/definitions/ApplicationServiceList'
+          containers:
+            type: object
+            properties:
+              dockerEngineContainers:
+                type: object
+                $ref: '#/definitions/ContainerList'
+              dockerSwarmServiceContainers:
+                type: object
+                $ref: '#/definitions/ContainerList'
+          infrastructureResources:
+            $ref: '#/definitions/InfrastructureResourceList'
       links:
         $ref: '#/definitions/Links' 
     required: 
       - id
-      - clusterConfiguration
 
-  containerClusterList:
-    type: array
-    items:
-      $ref: '#/definitions/containerClusterSummary'
 
-  containerNodeSummary:
+
+  ContainerClusterList:
     type: object
-    description: <@TODO> - Add Description
     properties:
-      id:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      name:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      description:
-        $ref: '#/definitions/Identifier' 
+      totalCount:
+        type: number
+      currentOffset:
+        type: number
+      currentLimit:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/ContainerClusterSummary'
       links:
         $ref: '#/definitions/Links' 
 
-  containerNodeDetails:
+  ContainerClusterNodeSummary:
     type: object
     description: <@TODO> - Add Description
     properties:
@@ -927,101 +840,193 @@ definitions:
         $ref: '#/definitions/Identifier' 
         description: <@TODO> - Add Description
       name:
-        $ref: '#/definitions/Identifier' 
+        type:  string
+        description: <@TODO> - Add Description
+      displayName:
+        type:  string
         description: <@TODO> - Add Description
       description:
         $ref: '#/definitions/Identifier' 
-      applicationServices:
+      metaDataInformation:
         type: object
-        $ref: '#/definitions/applicationServiceList'
-      containers:
+        properties: 
+          machineInfo:
+            $ref: '#/definitions/MachineInfo' 
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      links:
+        $ref: '#/definitions/Links' 
+
+  ContainerClusterNodeDetails:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        type:  string
+        description: <@TODO> - Add Description
+      displayName:
+        type:  string
+        description: <@TODO> - Add Description
+      description:
+        $ref: '#/definitions/Identifier'
+      metaDataInformation:
         type: object
-        $ref: '#/definitions/containerList'
-      links:
-        $ref: '#/definitions/Links' 
-
-  containerNodeList:
-    type: array
-    items:
-      $ref: '#/definitions/containerNodeSummary'
-
-  containerSummary:
-    type: object
-    description: <@TODO> - Add Description
-    properties:
-      id:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      name:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      description:
-        $ref: '#/definitions/Identifier' 
-      links:
-        $ref: '#/definitions/Links' 
-
-  containerDetails:
-    type: object
-    description: <@TODO> - Add Description
-    properties:
-      id:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      name:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      description:
-        $ref: '#/definitions/Identifier' 
-      links:
-        $ref: '#/definitions/Links' 
-
-  containerList:
-    type: array
-    items:
-      $ref: '#/definitions/containerNodeSummary'
-
-  applicationGroupSummary:
-    type: object
-    description: <@TODO> - Add Description
-    properties:
-      id:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      name:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      description:
-        $ref: '#/definitions/Identifier' 
-      links:
-        $ref: '#/definitions/Links' 
-
-  applicationGroupDetails:
-    type: object
-    description: <@TODO> - Add Description
-    properties:
-      id:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      name:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      description:
-        $ref: '#/definitions/Identifier' 
-      applications:
+        properties: 
+          machineInfo:
+            $ref: '#/definitions/MachineInfo' 
+          sourceInfo:
+            type: object
+            properties:
+              aws:
+                type: object
+                properties:
+                  dataSource:
+                     $ref: '#/definitions/DataSource'
+                  regionId:
+                    type: string
+                  instanceInfo:
+                    $ref: '#/definitions/AwsInstanceInfo'
+                  vpcInfo:
+                    $ref: '#/definitions/AwsVpcInfo'
+                  availabilityZone:
+                    $ref: '#/definitions/AwsAvailabilityZoneInfo' 
+                  subnet:
+                    $ref: '#/definitions/AwsSubnetInfo'
+                  systemStats:
+                    $ref: '#/definitions/SystemStats'
+              dockerEngine:
+                type: object
+                properties:
+                  dataSource:
+                     $ref: '#/definitions/DataSource'
+                  dockerEngineId:
+                     type:  string
+                  dockerEngineName:
+                     type:  string
+                  dockerEngineContainers:
+                     $ref: '#/definitions/ContainersInfoSummary'
+                  systemStatus:
+                     type:  string
+                  systemTime:
+                     type:  string
+                     format: date-time
+                  systemStats:
+                    $ref: '#/definitions/SystemStats'
+                  dockerRootDir:
+                     type:  string
+                  httpProxy:
+                     type:  string
+                  httpsProxy:
+                     type:  string
+                  noProxy:
+                     type:  string
+                  experimentalBuild:
+                     type:  boolean
+                  serverVersion:
+                     type:  string
+                  labels:
+                     $ref: '#/definitions/Labels'
+                  links:
+                    $ref: '#/definitions/Links' 
+              jraInfra:
+                $ref: '#/definitions/JraInfraInfo'
+              dockerSwarm:
+                type:  object
+                properties:  
+                  dockerSwarmNodeId:
+                    type:  string
+                  dockerSwarmNodeName:
+                    type:  string
+                  swarmRole:
+                    type:  string
+                    enum: ['manager', 'worker']
+                  hostname:
+                    type:  string
+                  timestampCreated:
+                    type:  string
+                    format: date-time
+                  timestampLastModified:
+                    type:  string
+                    format: date-time
+                  status:
+                    type:  object
+                    properties:
+                      state:
+                        type: string
+                      availability:
+                        type: string
+                      address:
+                        type:  string
+                  managerStatus:
+                    type:  object
+                    properties:
+                      leader:
+                        type: string
+                      reachability:
+                        type: string
+                      address:
+                        type: string
+                  systemStats:
+                    $ref: '#/definitions/SystemStats'
+                  labels:
+                     $ref: '#/definitions/Labels'
+                  links:
+                    $ref: '#/definitions/Links' 
+          publishedPortsAndUrls:
+            $ref: '#/definitions/PublishedUrlList'
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      resources:
         type: object
-        $ref: '#/definitions/applicationList'
-      applicationServices:
+        properties:
+          applicationGroups:
+            $ref: '#/definitions/ApplicationGroupList'
+          applications:
+            $ref: '#/definitions/ApplicationList'
+          applicationServices:
+            $ref: '#/definitions/ApplicationServiceList'
+          containers:
+            type: object
+            properties:
+              dockerEngineContainers:
+                type: object
+                $ref: '#/definitions/ContainerList'
+              dockerSwarmServiceContainers:
+                type: object
+                $ref: '#/definitions/ContainerList'
+          infrastructureItems:
+            $ref: '#/definitions/InfrastructureResourceList' 
+      links:
+        $ref: '#/definitions/Links'
+
+  MachineInfo:
         type: object
-        $ref: '#/definitions/applicationServiceList'
+        properties:
+          networkInfo:
+            $ref: '#/definitions/NetworkInfo' 
+          systemStats:
+            $ref: '#/definitions/SystemStats'
+
+  ContainerClusterNodeList:
+    type: object
+    properties:
+      totalCount:
+        type: number
+      currentOffset:
+        type: number
+      currentLimit:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/ContainerClusterNodeSummary'
       links:
         $ref: '#/definitions/Links' 
 
-  applicationGroupList:
-    type: array
-    items:
-      $ref: '#/definitions/applicationGroupSummary'
-
-  applicationSummary:
+  ContainerSummary:
     type: object
     description: <@TODO> - Add Description
     properties:
@@ -1029,14 +1034,19 @@ definitions:
         $ref: '#/definitions/Identifier' 
         description: <@TODO> - Add Description
       name:
-        $ref: '#/definitions/Identifier' 
+        type:  string
+        description: <@TODO> - Add Description
+      displayName:
+        type:  string
         description: <@TODO> - Add Description
       description:
         $ref: '#/definitions/Identifier' 
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
       links:
         $ref: '#/definitions/Links' 
 
-  applicationDetails:
+  ContainerDetails:
     type: object
     description: <@TODO> - Add Description
     properties:
@@ -1044,59 +1054,287 @@ definitions:
         $ref: '#/definitions/Identifier' 
         description: <@TODO> - Add Description
       name:
-        $ref: '#/definitions/Identifier' 
+        type:  string
+        description: <@TODO> - Add Description
+      displayName:
+        type:  string
         description: <@TODO> - Add Description
       description:
-        $ref: '#/definitions/Identifier' 
-      applicationServices:
+        type:  string
+      metaDataInformation:
         type: object
-        $ref: '#/definitions/applicationServiceList'
-      links:
-        $ref: '#/definitions/Links' 
-
-  applicationList:
-    type: array
-    items:
-      $ref: '#/definitions/applicationSummary'
-
-  applicationServiceSummary:
-    type: object
-    description: <@TODO> - Add Description
-    properties:
-      id:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      name:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      description:
-        $ref: '#/definitions/Identifier' 
-      links:
-        $ref: '#/definitions/Links' 
-
-  applicationServiceDetails:
-    type: object
-    description: <@TODO> - Add Description
-    properties:
-      id:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      name:
-        $ref: '#/definitions/Identifier' 
-        description: <@TODO> - Add Description
-      description:
-        $ref: '#/definitions/Identifier' 
-      containers:
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      resources:
         type: object
-        $ref: '#/definitions/containerList'
       links:
         $ref: '#/definitions/Links' 
 
-  applicationServiceList:
-    type: array
-    items:
-      $ref: '#/definitions/applicationServiceSummary'
-  
+  ContainerList:
+    type: object
+    properties:
+      totalCount:
+        type: number
+      currentOffset:
+        type: number
+      currentLimit:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/ContainerSummary'
+      links:
+        $ref: '#/definitions/Links' 
+
+  ApplicationGroupSummary:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        type:  string
+        description: <@TODO> - Add Description
+      displayName:
+        type:  string
+        description: <@TODO> - Add Description
+      description:
+        type:  string
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      links:
+        $ref: '#/definitions/Links' 
+
+  ApplicationGroupDetails:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        type:  string
+        description: <@TODO> - Add Description
+      displayName:
+        type:  string
+        description: <@TODO> - Add Description
+      description:
+        type:  string
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      resources:
+        type: object
+        properties:
+          applications:
+            type: object
+            $ref: '#/definitions/ApplicationList'
+          applicationServices:
+            type: object
+            $ref: '#/definitions/ApplicationServiceList'
+      links:
+        $ref: '#/definitions/Links' 
+
+  ApplicationGroupList:
+    type: object
+    properties:
+      totalCount:
+        type: number
+      currentOffset:
+        type: number
+      currentLimit:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationGroupSummary'
+      links:
+        $ref: '#/definitions/Links' 
+
+  ApplicationSummary:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        type:  string
+        description: <@TODO> - Add Description
+      displayName:
+        type:  string
+        description: <@TODO> - Add Description
+      description:
+        type:  string 
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      links:
+        $ref: '#/definitions/Links' 
+
+  ApplicationDetails:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        type:  string
+        description: <@TODO> - Add Description
+      displayName:
+        type:  string
+        description: <@TODO> - Add Description
+      description:
+        type:  string 
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      resources:
+        type: object
+        properties:
+          applicationServices:
+            type: object
+            $ref: '#/definitions/ApplicationServiceList'
+      links:
+        $ref: '#/definitions/Links' 
+
+  ApplicationList:
+    type: object
+    properties:
+      totalCount:
+        type: number
+      currentOffset:
+        type: number
+      currentLimit:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationSummary'
+      links:
+        $ref: '#/definitions/Links' 
+
+  ApplicationServiceSummary:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        type:  string
+        description: <@TODO> - Add Description
+      displayName:
+        type:  string
+        description: <@TODO> - Add Description
+      description:
+        type:  string 
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      links:
+        $ref: '#/definitions/Links' 
+
+  ApplicationServiceDetails:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        type:  string
+        description: <@TODO> - Add Description
+      displayName:
+        type:  string
+        description: <@TODO> - Add Description
+      description:
+        type:  string 
+      metaDataInformation:
+        type: object
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      resources:
+        type: object
+        properties:
+          containers:
+            type: object
+            $ref: '#/definitions/ContainerList'
+      links:
+        $ref: '#/definitions/Links' 
+
+  ApplicationServiceList:
+    type: object
+    properties:
+      totalCount:
+        type: number
+      currentOffset:
+        type: number
+      currentLimit:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationServiceSummary
+      links:
+        $ref: '#/definitions/Links' '
+      
+  InfrastructureResourceSummary:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        type:  string
+        description: <@TODO> - Add Description
+      displayName:
+        type:  string
+        description: <@TODO> - Add Description
+      description:
+        type:  string 
+      links:
+        $ref: '#/definitions/Links' 
+      
+  InfrastructureResourceDetails:
+    type: object
+    description: <@TODO> - Add Description
+    properties:
+      id:
+        $ref: '#/definitions/Identifier' 
+        description: <@TODO> - Add Description
+      name:
+        type:  string
+        description: <@TODO> - Add Description
+      displayName:
+        type:  string
+        description: <@TODO> - Add Description
+      description:
+        type:  string 
+      metaDataInformation:
+        type: object
+      statusInformation:
+        $ref: '#/definitions/ResourceStatusInformation'
+      resources:
+        type: object
+      links:
+        $ref: '#/definitions/Links' 
+      
+  InfrastructureResourceList:
+    type: object
+    properties:
+      totalCount:
+        type: number
+      currentOffset:
+        type: number
+      currentLimit:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/InfrastructureResourceSummary'
+      links:
+        $ref: '#/definitions/Links' 
+      
   Identifier:
     type: object
     properties:
@@ -1116,31 +1354,81 @@ definitions:
             idName:
               type: string
 
-  healthStatus: 
+  HealthStatusInfo: 
+    type: object
+
+  AlertInfo: 
     type: object
     
-
-  currentState:
-    type: string
-    enum: ["active", "paused", "terminated"]
+  ResourceStateInfo:
+    type:  object
+    properties:
+      currentState:
+        $ref: '#/definitions/StateDetails'
+      stateChangeHistory:
+        type: array
+        items:
+          type: object
+          properties:
+            timestampStateChanged:
+              type: string
+              format: date-time
+            stateChangeAuditEvent:
+              $ref: '#/definitions/AuditEvent'
+            fromState:
+              $ref: '#/definitions/StateDetails'
+            toState:
+              $ref: '#/definitions/StateDetails'
+        
+      
+  StateDetails:
+    type: object
+    properties:
+      state:
+        type: string
+        enum: ['active', 'paused', 'error', 'warning', 'stopped', 'disabled', 'terminated']
+      stateCategory:
+        type: string
+        enum: ['active', 'inactive']
+      errors:
+        type: array
+        items:
+          type: string
+      warnings:
+        type: array
+        items:
+          type: string
+      timestampStateEntered:
+        type: string
+        format: date-time
 
   AuditInfo:
     type: object
     properties:
-      startDateTime:
+      timestampCreated:
+        type: string
+        format: dateTime
+      createdByUserName:
+        type: string
+      timestampStarted:
         type: string
         format: dateTime
       startedByUserName:
         type: string
-      endDateTime:
+      timestampEnded:
         type: string
         format: dateTime
       endedByUserName:
         type: string
-      lastModifiedDateTime:
+      timestampLastModified:
         type: string
         format: dateTime
       lastModifiedByUserName:
+        type: string
+      timestampTerminated:
+        type: string
+        format: dateTime
+      terminatedByUserName:
         type: string
       auditEventCountTotal:
         type: integer
@@ -1158,7 +1446,7 @@ definitions:
   AuditEvent:
     type: object
     properties:
-      eventDateTime:
+      eventTimestamp:
         type: string
         format: dateTime
       userName:
@@ -1182,6 +1470,17 @@ definitions:
         $ref: '#/definitions/DataSource'
       eventContext:
         $ref: '#/definitions/EventContext'
+      relatedAuditEvents:
+        type: object
+        properties:
+          triggeredByAuditEvents:
+            type: array
+            items:
+              $ref: '#/definitions/AuditEvent'
+          downstreamAuditEvents:
+            type: array
+            items:
+              $ref: '#/definitions/AuditEvent'
 
   EventContext:
     type: object
@@ -1193,7 +1492,7 @@ definitions:
       contextData:
         type: array
         items:
-          $ref: '#/definitions/KeyValuePair'
+          $ref: '#/definitions/ContextDataKeyValuePair'
           
   KeyValuePair:
     type: object
@@ -1202,6 +1501,17 @@ definitions:
         type: string
       value:
         type: object
+
+  ContextDataKeyValuePair:
+    type: object
+    properties:
+      key:
+        type: string
+      value:
+        type: object
+      logLevel:
+        type: string
+        enum: ['info', 'debug', 'error', 'warn', 'trace']
   
   Link:
     type: object
@@ -1230,7 +1540,7 @@ definitions:
     properties:
       systemType:
         type: string
-        enum: ['physical', 'vm', 'vm-cloud', 'container', 'jvm']
+        enum: ['machine-physical', 'machine-vm', 'machine-vm-cloud', 'docker-engine', 'docker-swarm-node', 'container', 'jvm', 'node-process']
         
       osInfo:
         type: object
@@ -1290,12 +1600,18 @@ definitions:
         type:  string
       dataSource:
         $ref: '#/definitions/DataSource'
-      totalAllocated:
+      totalAmountAllocated:
         type: number
-      freeCount:
+      totalAmountAllocatedDisplay:
+        type: string
+      amountFree:
         type: number
-      usedCount:
+      amountFreeDisplay:
+        type: string
+      amountUsed:
         type: number
+      amountUsedDisplay:
+        type: string
       activeCount:
         type: number
       idleCount:
@@ -1311,3 +1627,229 @@ definitions:
         type: string
         format: dateTime
       
+  NetworkInfo:
+    type: object
+    properties:
+      publicIpAddress:
+        type: string
+      publicDnsName:
+        type:  string
+      privateIpAddress:
+        type:  string
+      privateDnsName:
+        type:  string
+        
+  Labels:
+    type: object
+    additionalProperties:
+      type: string
+        
+  ContainersInfoSummary:
+    type: object
+    properties:
+      containerCountTotal:
+        type: number
+      containerCountRunning:
+        type: number
+      containerCountPaused:
+        type: number
+      containerCountStopped:
+        type: number
+      runningContainers:
+        type: array
+        items:
+          $ref: '#/definitions/ContainerQuickInfo'
+      pausedContainers:
+        type: array
+        items:
+          $ref: '#/definitions/ContainerQuickInfo'
+      stoppedContainers:
+        type: array
+        items:
+          $ref: '#/definitions/ContainerQuickInfo'
+          
+  ContainerQuickInfo:
+    type: object
+    properties:
+      containerId:
+        type:  string
+      containerName:
+        type:  string
+      status:
+        type:  string
+        
+  JraInfraInfo:
+    type: object
+    properties:
+      environment:
+        $ref: '#/definitions/EnvironmentSummary'
+      containerCluster:
+        $ref: '#/definitions/ContainerClusterSummary'
+      failureZone:
+        type:  string
+      failureZones:
+        type:  array
+        items:
+          type:  string
+      swarmNodeType:
+        type:  string
+      swarmNodeTypes:
+        type:  array
+        items:
+          type:  string
+      loggingTag:
+        type:  string
+      swarmInstanceType:
+        type:  string
+      subnetType:
+        type:  string
+      labels:
+        $ref: '#/definitions/Labels'
+      
+  PublishedUrlList:
+    type: array
+    items:
+      type: object
+      properties:
+        publishedPort:
+          type: number
+        containerPort:
+          type: number
+        applicationName:
+          type: string
+        applicationDisplayName:
+          type: string
+        applicationId:
+          type: string
+        serviceName:
+          type: string
+        serviceDisplayName:
+          type: string
+        serviceId:
+          type: string
+        pathContext:
+          type: string
+        proxyRoutingPathContext:
+          type: string
+        proxyDomainName:
+          type: string
+        urls:
+          $ref: '#/definitions/UrlInfoList'
+
+  UrlInfoList:
+    type: array
+    items:
+      $ref: '#/definitions/UrlInfo'
+
+  UrlInfo:
+    type: object
+    properties:
+      urlName:
+        type: string
+      urlType:
+        type: string
+      urlPath:
+        type: string
+
+  AwsRegionInfoList:
+    type: array
+    items:
+      $ref: '#/definitions/AwsRegionInfo'
+
+  AwsRegionInfo:
+    type: object
+    properties:
+      regionId:
+        type: string
+      vpcInfo:
+        $ref: '#/definitions/AwsVpcInfo'
+      availabilityZones:
+        $ref: '#/definitions/AwsAvailabilityZoneInfoList'
+        
+  AwsAvailabilityZoneInfoList:
+    type: array
+    items:
+      $ref: '#/definitions/AwsAvailabilityZoneInfo'
+
+  AwsVpcInfo:
+    type: object
+    properties:
+      vpcId:
+         type:  string
+      vpcState:
+         type:  string
+      cidrBlock:
+         type:  string
+      isDefault:
+         type:  boolean
+      labels:
+         $ref: '#/definitions/Labels'
+      links:
+        $ref: '#/definitions/Links' 
+        
+  AwsAvailabilityZoneInfo:
+    type: object
+    properties:
+      availabilityZoneId:
+         type:  string
+      availabilityZoneName:
+         type:  string
+      cidrBlock:
+         type:  string
+      subnets:
+        $ref: '#/definitions/AwsSubnetInfoList'
+      labels:
+         $ref: '#/definitions/Labels'
+      links:
+        $ref: '#/definitions/Links' 
+        
+  AwsSubnetInfo:
+     type:  object
+     properties:
+       subnetId:
+         type: string
+       subnetName:
+         type: string
+       isPublic:
+         type: boolean
+       isPrivate:
+         type: boolean
+       labels:
+         $ref: '#/definitions/Labels'
+       links:
+         $ref: '#/definitions/Links' 
+     
+
+  AwsSubnetInfoList:
+    type: array
+    items:
+      $ref: '#/definitions/AwsSubnetInfo'
+
+  AwsInstanceInfo:
+    type: object
+    properties:
+      instanceId:
+         type:  string
+      instanceName:
+         type:  string
+      networkInfo:
+        $ref: '#/definitions/NetworkInfo' 
+      labels:
+         $ref: '#/definitions/Labels'
+      links:
+        $ref: '#/definitions/Links' 
+        
+
+  ResourceStatusInformation:
+    type: object
+    properties:
+      auditInfo:
+        type: string
+        format: dateTime
+        $ref: '#/definitions/AuditInfo'
+      healthStatusInfo:
+        $ref: '#/definitions/HealthStatusInfo'
+      stateInfo:
+        $ref: '#/definitions/ResourceStateInfo'
+      alertInfo:
+        $ref: '#/definitions/AlertInfo'

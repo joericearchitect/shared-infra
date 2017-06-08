@@ -8,9 +8,21 @@
             "canonicalId":"34234wdflsjf",
             "displayId":"349023nsddf"
          },
-         "name":"latest-container-cluster",
+         "name":"latest-container-node",
          "displayName":"",
          "description":"Latest Environment - Fixed environment - Where applications are continually deployed on check-in and pass the CI build",
+         "metaDataInformation":{  
+            "machineInfo":{  
+               "networkInfo":{  
+                  "publicIpAddress":"54.165.245.122",
+                  "publicDnsName":"ec2-54-165-245-122.compute-1.amazonaws.com",
+                  "publicHostName":"",
+                  "privateIpAddress":"54.165.245.122",
+                  "privateDnsName":"ec2-54-165-245-122.compute-1.amazonaws.com",
+                  "privateHostName":""
+               }
+            }
+         },
          "statusInformation":{  
             "stateInfo":{  
                "currentState":{  
@@ -37,7 +49,7 @@
          },
          "links":{  
             "self":{  
-               "href":"http://localhost/infra-api/container-clusters/34234wdflsjf"
+               "href":"http://localhost/infra-api/container-nodes/34234wdflsjf"
             }
          }
       },
@@ -46,9 +58,21 @@
             "canonicalId":"124124saf",
             "displayId":"349023nsddf"
          },
-         "name":"latest-container-cluster",
+         "name":"latest-container-node",
          "displayName":"",
          "description":"Temporary environment for UAT TEsting for the magic band project",
+         "metaDataInformation":{  
+            "machineInfo":{  
+               "networkInfo":{  
+                  "publicIpAddress":"54.165.245.122",
+                  "publicDnsName":"ec2-54-165-245-122.compute-1.amazonaws.com",
+                  "publicHostName":"",
+                  "privateIpAddress":"54.165.245.122",
+                  "privateDnsName":"ec2-54-165-245-122.compute-1.amazonaws.com",
+                  "privateHostName":""
+               }
+            }
+         },
          "statusInformation":{  
             "stateInfo":{  
                "currentState":{  
@@ -75,7 +99,7 @@
          },
          "links":{  
             "self":{  
-               "href":"http://localhost/infra-api/container-clusters/234sldfjsdflj234"
+               "href":"http://localhost/infra-api/container-nodes/234sldfjsdflj234"
             }
          }
       }
