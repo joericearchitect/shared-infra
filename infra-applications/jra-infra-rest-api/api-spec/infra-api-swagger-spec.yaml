@@ -907,8 +907,6 @@ definitions:
                     $ref: '#/definitions/AwsAvailabilityZoneInfo' 
                   subnet:
                     $ref: '#/definitions/AwsSubnetInfo'
-                  systemStats:
-                    $ref: '#/definitions/SystemStats'
               dockerEngine:
                 type: object
                 properties:
@@ -922,7 +920,7 @@ definitions:
                      $ref: '#/definitions/ContainersInfoSummary'
                   systemStatus:
                      type:  string
-                  systemTime:
+                  timestampStarted:
                      type:  string
                      format: date-time
                   systemStats:
@@ -1088,6 +1086,81 @@ definitions:
         type:  string
       metaDataInformation:
         type: object
+        properties:
+          sourceInfo:
+            type: object
+            properties:
+              dockerEngine:
+                type: object
+                properties:
+                  dataSource:
+                     $ref: '#/definitions/DataSource'
+                  dockerContainerInfo:
+                     type:  object
+                     properties:
+                       containerId:
+                         type: string
+                       containerDisplayId:
+                         type: string
+                       containerName:
+                         type: string
+                       containerDisplayName:
+                         type: string
+                       timestampStarted:
+                         type: string
+                         format: date-time
+                       args:
+                         type: array
+                         items:
+                           type: string
+                       state:
+                         type: object
+                         properties:
+                           status:
+                             type: string
+                           isRunning:
+                             type: boolean
+                           isPaused:
+                             type:  boolean
+                           isDead:
+                             type: boolean
+                           error:
+                             type: string
+                           timestampStarted:
+                             type: string
+                             format: date-time
+                           timestampFinished:
+                             type: string
+                             format: date-time
+                           exitCode:
+                             type: number
+                       path:
+                         type: string
+                       systemStats:
+                         $ref: '#/definitions/SystemStats'
+                       mounts:
+                         $ref: '#/definitions/DockerMount'
+              dockerSwarm:
+                type:  object
+                properties:  
+                  swarmServiceTaskInfo:
+                    type:  object
+                    properties:
+                      swarmServiceTaskInfo:
+                        type: object
+                        properties:
+                          swarmServiceTaskId:
+                            type: string
+                          swarmServiceTaskDisplayId:
+                            type: string
+                          swarmServiceTaskName:
+                            type: string
+                          swarmServiceTaskDisplayName:
+                            type: string
+                          timestampStarted:
+                            type: string
+                            format: date-time
+
       statusInformation:
         $ref: '#/definitions/ResourceStatusInformation'
       resources:
@@ -1387,27 +1460,84 @@ definitions:
                 properties:  
                   dataSource:
                      $ref: '#/definitions/DataSource'
-                  dockerSwarmServiceId:
-                    type:  string
-                  dockerSwarmServiceDisplayId:
-                    type:  string
-                  dockerSwarmServiceName:
-                    type:  string
-                  timestampCreated:
-                    type:  string
-                    format: date-time
-                  timestampLastModified:
-                    type:  string
-                    format: date-time
-                  version:
+                  dockerSwarmNetworks:
+                     $ref: '#/definitions/DockerSwarmNetworkList'
+                  swarmServiceInfo:
                     type: object
                     properties:
-                      index:
-                        type: number
-                  labels:
-                     $ref: '#/definitions/Labels'
-                  links:
-                    $ref: '#/definitions/Links' 
+                      swarmServiceId:
+                        type:  string
+                      swarmServiceDisplayId:
+                        type:  string
+                      swarmServiceInstanceId:
+                        type:  string
+                      swarmServiceDisplayInstanceId:
+                        type:  string
+                      swarmServiceName:
+                        type:  string
+                      timestampCreated:
+                        type:  string
+                        format: date-time
+                      timestampLastModified:
+                        type:  string
+                        format: date-time
+                      version:
+                        type: object
+                        properties:
+                          index:
+                            type: number
+                      swarmServicePorts:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            protocol:
+                              type: string
+                            targetPort:
+                              type: string
+                            publishedPort:
+                              type: string
+                            PublishMode:
+                              type: string
+                      swarmServiceVirtualIPs:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            networkId:
+                              type: string
+                            address:
+                              type: string
+                      swarmServiceTaskConfiguration:
+                        type: object
+                        properties:
+                          imageId:
+                            type: string
+                          args:
+                            type: array
+                            items:
+                              type: string
+                          mounts:
+                            $ref: '#/definitions/DockerMount'
+                          placements:
+                            type: object
+                            properties:
+                              constraints:
+                                type: array
+                                items:
+                                  type: string
+                          networks:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                target:
+                                  type: string
+                        
+                      labels:
+                         $ref: '#/definitions/Labels'
+                      links:
+                        $ref: '#/definitions/Links' 
                   
           publishedPortsAndUrls:
             $ref: '#/definitions/PublishedUrlList'
@@ -1815,6 +1945,11 @@ definitions:
       timestampLastMeasured:
         type: string
         format: dateTime
+      durtionSinceLastMeasuredMilis:
+        type: number
+        format: long
+      durtionSinceLastMeasuredDisplay:
+        type: string
       
   NetworkInfo:
     type: object
@@ -2021,8 +2156,28 @@ definitions:
          type:  string
       instanceName:
          type:  string
+      timestampLaunched:
+         type:  string
+         format: date-time
+      state:
+        type: object
+        properties:
+          instanceStateCode:
+            type:  string
+          instanceStateName:
+            type:  string
+          monitoringState:
+            type:  string
+      imageId:
+         type: string
+      keyName:
+        type: string
+      instanceType:
+        type: string
       networkInfo:
         $ref: '#/definitions/NetworkInfo' 
+      systemStats:
+        $ref: '#/definitions/SystemStats'
       labels:
          $ref: '#/definitions/Labels'
       links:
@@ -2213,6 +2368,15 @@ definitions:
         type: string
         enum: ['hours-running', 'bytes-transfered', 'disk-space-stored']
 
+  DockerMount:
+    type: object
+    properties:
+      type:
+        type:  string
+      source:
+        type:  string
+      target:
+        type:  string
 
   DockerSwarmNetworkList:
     type:  array

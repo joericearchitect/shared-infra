@@ -7,6 +7,13 @@
 	"displayName": "latest-application-service",
 	"description": "Temporary environment for UAT TEsting for the magic band project",
 	"metaDataInformation": {
+		"sourceInfo": {
+			"dockerSwarm": {
+				"dataSource": "docker-swarm-node",
+			    "dockerSwarmNetworks" : [
+			    ]
+			}
+		},
 		"publishedPortsAndUrls": [
 			{
 				"publishedPort": 8080,

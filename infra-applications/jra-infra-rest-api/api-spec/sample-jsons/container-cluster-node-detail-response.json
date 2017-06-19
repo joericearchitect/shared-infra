@@ -130,6 +130,41 @@
 				"instanceInfo": {
 					"instanceId": "i-0f5a87ac92d7c26ed",
 					"instanceName": "jarch-blah",
+					"timestampLaunched": "2017-06-0708:08:02+00:00",
+					"state": {
+						"instanceStateCoded": "16",
+						"instanceStateName": "running",
+						"monitoringState": "disabled"
+					},
+					"imageId": "i-0f5a87ac92d7c26ed",
+					"keyName": "YYY",
+					"instanceType": "t2.micro",
+					"systemStats": {
+						"systemType": "machine-vm-cloud",
+						"osInfo": {
+							"dataSource": "aws-ec2",
+							"kernelVersion": "4.4.0-78-generic",
+							"operatingSystem": "Ubuntu 16.04.1 LTS",
+							"oSType": "linux",
+							"architecture": "x86_64"
+						},
+						"memoryInfo": {
+							"primaryStats": {
+								"type": "physical-memory",
+								"dataSource": "aws-ec2",
+								"totalAmountAllocated": 3900000000,
+								"totalAmountAllocatedDisplay": "3.9 GB",
+								"timestampLastMeasured": "2017-06-0708:08:02+00:00",
+								"durtionSinceLastMeasuredMilis": 230234234234,
+								"durtionSinceLastMeasuredDisplay": "6 minutes, 26 seconds"
+							}
+						},
+						"cpuInfo": {
+							"dataSource": "aws-ec2",
+							"cpuCount": 1,
+							"cpuType": "vcpu"
+						}
+					},
 					"networkInfo": {
 						"publicIpAddress": "54.165.245.122",
 						"publicDnsName": "ec2-54-165-245-122.compute-1.amazonaws.com",
@@ -169,80 +204,14 @@
 					"availabilityZoneId": "us-east-1a",
 					"availabilityZoneName": "us-east-1a",
 					"cidrBlock": "10.0.0.0/16"
-				},
-				"subnet": {
-					"systemType": "machine-vm-cloud",
-					"osInfo": {
-						"dataSource": "aws-ec2",
-						"kernelVersion": "4.4.0-78-generic",
-						"operatingSystem": "Ubuntu 16.04.1 LTS",
-						"oSType": "linux",
-						"architecture": "x86_64"
-					},
-					"memoryInfo": {
-						"primaryStats": {
-							"type": "physical-memory",
-							"dataSource": "aws-ec2",
-							"totalAmountAllocated": 3900000000,
-							"totalAmountAllocatedDisplay": "3.9 GB",
-							"timestampLastMeasured": "2017-06-0708:08:02+00:00"
-						}
-					},
-					"cpuInfo": {
-						"dataSource": "aws-ec2",
-						"cpuCount": 1,
-						"cpuType": "vcpu"
-					}
 				}
 			},
 			"dockerEngine": {
 				"dataSource": "docker-engine",
 				"dockerEngineId": "i-0f5a87ac92d7c26ed",
 				"dockerEngineName": "ip-10-0-3-121",
-				"dockerEngineContainers": {
-					"containerCountTotal": 0,
-					"containerCountRunning": 0,
-					"containerCountPaused": 0,
-					"containerCountStopped": 0,
-					"runningContainers": [
-						{
-							"containerId": "343sfsd",
-							"containerName": "jra-infa-cint-2",
-							"status": "RUNNING"
-						},
-						{
-							"containerId": "343sfsd",
-							"containerName": "jra-infa-cint-2",
-							"status": "RUNNING"
-						}
-					],
-					"pausedContainers": [
-						{
-							"containerId": "343sfsd",
-							"containerName": "jra-infa-cint-2",
-							"status": "RUNNING"
-						},
-						{
-							"containerId": "343sfsd",
-							"containerName": "jra-infa-cint-2",
-							"status": "RUNNING"
-						}
-					],
-					"stoppedContainers": [
-						{
-							"containerId": "343sfsd",
-							"containerName": "jra-infa-cint-2",
-							"status": "RUNNING"
-						},
-						{
-							"containerId": "343sfsd",
-							"containerName": "jra-infa-cint-2",
-							"status": "RUNNING"
-						}
-					]
-				},
 				"systemStatus": null,
-				"systemTime": "2017-06-04T17:14:04.112044057Z",
+				"timestampStarted": "2017-06-04T17:14:04.112044057Z",
 				"systemStats": {
 					"systemType": "docker-engine",
 					"osInfo": {
@@ -286,32 +255,6 @@
 				}
 			},
 			"jraInfra": {
-				"environment": {
-					"id": {
-						"canonicalId": "234sldfjsdflj234",
-						"displayId": "UAT-Magic-Band-Project"
-					},
-					"name": "UAT-Magic-Band-Project",
-					"displayName": "",
-					"links": {
-						"self": {
-							"href": "http://localhost/infra-api/environments/234sldfjsdflj234"
-						}
-					}
-				},
-				"containerCluster": {
-					"id": {
-						"canonicalId": "234sldfjsdflj234",
-						"displayId": "UAT-Magic-Band-Project"
-					},
-					"name": "UAT-Magic-Band-Project",
-					"displayName": "",
-					"links": {
-						"self": {
-							"href": "http://localhost/infra-api/environments/234sldfjsdflj234"
-						}
-					}
-				},
 				"failureZone": "us-east-1a",
 				"swarmInstanceType": "logging",
 				"swarmNodeType": "manager"

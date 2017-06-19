@@ -128,8 +128,7 @@
 * /infra-api/containers/{container-canonical-id}
 
 
-#### Applications & Services
-
+#### Applications & Service
 **Resources**
 * Services (list & detail)
 
@@ -156,3 +155,47 @@
 #### Application Health and Status
 
 #### Metrics
+
+
+## General Notes
+
+* This is how ApplicationGroups will work - super flexible
+  -  Appliccation Groups are an arbitrary way to group resources together.  They can be used for different purposes:
+     1) get rolled up views of costs, alerts, status info, etc, etc, etc 
+     2) group resources into different application views:  For example you might have:
+        -  an "availability service" application group that groups all the smaller micro-services that make up the availabiliy api
+        -  an application group that groups just the services your team manages.
+        -  multiple groupings:
+	        -  a "persistence" application group that groups all containers running databases and other persistent stores .
+	        -  or you could have an "elasticSearch" and "MongoDB" application group that groups just the all services running elasticsearch or mongodb.
+	 3) Use Cases
+	    -  Tag all MySql instances with "MySql" application group so you can set up sql Monitoring tools to auto-discover all MySql dataases in environment
+	    -  Set up dashboards & monitoring alerts for only the resources & services your team supports.
+	 4) You get the idea
+
+* A resource can belong to mutliple application groups.  And any resource that can be tagged or labeled can be part of an application group, both infrastructure & applications, including:
+  - AWS EC2 instances
+  - AWS VPCs, security groups, subnets, ELBs, Nat Gateways, etc, etc
+  - Docker Engine running on a VM or physical machine
+  - Containers deployed to Docker Engine
+  - Docker Swarm Node
+  - Swarm Services and containers deployed to Docker Swarm
+  
+
+* difference betweeen application stack and application group:
+  -  Both are a way to group different resources together.
+  -  But Applicaton Stack is meant to be a fixed grouping.  It allows multiple swarm servies to be considered as an isolated, self-contained, single deployable unit.
+  -  Application Groups are flexible way to group resourcs for purposes of organizing, reporting, and getting different cost views.
+  -  Application Groups can be applied to any resource.  Appliction Stacks ponly grup together related Docker Swarm Services & Docker Engine containers.
+  -  Examples:
+     *  App Stack - WordPress app - UI & MySql - considered as 1 app.  MySql is dedicated to WordPres and no other service will share it.
+     *  App Stack - Small Admin App - UI, 2 REST services, & MySql - self-contained.  Deployed & updated as a unit.
+     *  Application Group - Enterprise UI that relies on a number of REST services.  
+        - We may want to group them together for billing & monitoring purposes, 
+        - but they are independent services that communicate with each other.  Independently deployed.
+        - They will all be tagged with the same application gorup, but not deployed as part of the same app stack.
+        
+
+
+  -  
+     

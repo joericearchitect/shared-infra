@@ -1,4 +1,12 @@
-{"ID":"2er0hb4nq6uj","Image":"elasticsearch:latest","Mode":"replicated","Name":"jarch-infra-logging-elasticsearch","Ports":"*:8191-\u003e9200/tcp,*:8192-\u003e9300/tcp","Replicas":"1/1"}
+{  
+   "ID":"2er0hb4nq6uj",
+   "Image":"elasticsearch:latest",
+   "Mode":"replicated",
+   "Name":"jarch-infra-logging-elasticsearch",
+   "Ports":"*:8191-\u003e9200/tcp,*:8192-\u003e9300/tcp",
+   "Replicas":"1/1"
+}
+
 {"ID":"g2p9puclkywn","Image":"traefik:v1.1.0","Mode":"replicated","Name":"jarch-infra-logging-proxy-traefik","Ports":"*:81-\u003e80/tcp,*:8188-\u003e8080/tcp","Replicas":"1/1"}
 {"ID":"gqal20wda5r1","Image":"traefik:v1.1.0","Mode":"replicated","Name":"jarch-infra-proxy-traefik","Ports":"*:80-\u003e80/tcp,*:8388-\u003e8080/tcp","Replicas":"1/1"}
 {"ID":"mkj1uv36xaz9","Image":"registry:2","Mode":"replicated","Name":"jarch-infra-docker-registry","Ports":"*:8183-\u003e5000/tcp","Replicas":"1/1"}

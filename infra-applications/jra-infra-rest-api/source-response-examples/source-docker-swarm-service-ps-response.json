@@ -1,4 +1,14 @@
-{"CurrentState":"Running 3 hours ago","DesiredState":"Running","Error":"","ID":"epd2bkpcb1ek","Image":"manomarks/visualizer:latest","Name":"jarch-infra-docker-ui-visualizer.1","Node":"ip-10-0-5-90","Ports":""}
+{  
+   "CurrentState":"Running 3 hours ago",
+   "DesiredState":"Running",
+   "Error":"",
+   "ID":"epd2bkpcb1ek",
+   "Image":"manomarks/visualizer:latest",
+   "Name":"jarch-infra-docker-ui-visualizer.1",
+   "Node":"ip-10-0-5-90",
+   "Ports":""
+}
+
 {"CurrentState":"Running 3 hours ago","DesiredState":"Running","Error":"","ID":"hijcypnjb1p9","Image":"portainer/portainer:latest","Name":"jarch-infra-docker-ui-portainer.1","Node":"ip-10-0-3-251","Ports":""}
 {"CurrentState":"Running 3 hours ago","DesiredState":"Running","Error":"","ID":"j98jz1d7hb5l","Image":"jenkins:latest","Name":"jarch-infra-build-jenkins.1","Node":"ip-10-0-1-39","Ports":""}
 {"CurrentState":"Running 3 hours ago","DesiredState":"Running","Error":"","ID":"er30ahnkmf4u","Image":"registry:2","Name":"jarch-infra-docker-registry.1","Node":"ip-10-0-3-12","Ports":""}
