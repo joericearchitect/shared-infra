@@ -79,6 +79,7 @@
 **Inputs**
 
 * Environment MetaData
+  - environment canonical id
   - environment display id
   - environment name
   - environment display name
@@ -109,10 +110,12 @@
 * Regions, Availability Zones, and AMIs
 
 * Container Cluster
+  - container cluster canonicals id
   - container cluster display id
   - container cluster name
   - container cluster display name
-  - Public Cluster Nodes
+  - Manager Cluster Nodes
+    - container cluster node canonicals id
     - num of instances
     - container cluster node display id
     - container cluster node name
@@ -120,15 +123,43 @@
     - application groups
     - node type
     - swarm cluster node role
-  - Private Cluster Nodes
+  - Public Worker Cluster Nodes
+    - container cluster node canonicals id
+    - num of instances
+    - container cluster node display id
+    - container cluster node name
+    - container cluster node display name
+    - application groups
+    - node type
+    - swarm cluster node role
+  - Private Worker Cluster Nodes
+    - container cluster node canonicals id
+    - num of instances
+    - container cluster node display id
+    - container cluster node name
+    - container cluster node display name
+    - application groups
+    - node type
+    - swarm cluster node role
 
 * 
 
 **Outputs**
 
+* env canonical id
+
 * vpc ids
 
-* 
+* status info
+  - timestamp creation started
+  - timestamp creation ended
+  - creation duration millis
+  - creation duration display
+  - env creation status
+  - env validation status
+  - env state
+
+* jra infra api environment url
 
 ### Ansible
 
