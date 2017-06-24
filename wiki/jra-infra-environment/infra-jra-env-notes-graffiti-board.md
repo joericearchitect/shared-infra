@@ -73,6 +73,48 @@
 
 **Outputs**
 
+* env canonical id
+
+* vpc ids
+
+* env creation status info
+  - timestamp creation started
+  - timestamp creation ended
+  - creation duration millis
+  - creation duration display
+  - env creation status
+  - env validation status
+  - env state
+
+* env resource creation status info
+  - timestamp creation started
+  - timestamp creation ended
+  - creation duration millis
+  - creation duration display
+  - env creation status
+  - env validation status
+  - env state
+
+* env docker swarm provisioning status info
+  - timestamp creation started
+  - timestamp creation ended
+  - creation duration millis
+  - creation duration display
+  - env creation status
+  - env validation status
+  - env state
+
+* env docker swarm configuration status info
+  - timestamp creation started
+  - timestamp creation ended
+  - creation duration millis
+  - creation duration display
+  - env creation status
+  - env validation status
+  - env state
+
+* jra infra api environment url
+
 
 ### Terraform
 
@@ -149,17 +191,6 @@
 * env canonical id
 
 * vpc ids
-
-* status info
-  - timestamp creation started
-  - timestamp creation ended
-  - creation duration millis
-  - creation duration display
-  - env creation status
-  - env validation status
-  - env state
-
-* jra infra api environment url
 
 ### Ansible
 
