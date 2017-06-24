@@ -78,6 +78,57 @@
 
 **Inputs**
 
+* Environment MetaData
+  - environment display id
+  - environment name
+  - environment display name
+  - environment description
+  - environment type
+  - environment size
+  - environmentDurabilityType
+  - environmentDomainPrefix
+  - environmentDomainName
+  - environmentStartPortRange
+  - environmentEndPortRange
+  - vpcCidr
+  - public subnet cidr
+  - private subnet cider
+  - central admin infra
+    - logging-driver
+    - logging-server-url
+    - metrics-server-url
+    - monitoring-server-url
+    - jra-infra-api-url
+  - local admin infra
+    - logging-driver
+    - logging-server-url
+    - metrics-server-url
+    - monitoring-server-url
+    - jra-infra-api-url
+
+* Regions, Availability Zones, and AMIs
+
+* Container Cluster
+  - container cluster display id
+  - container cluster name
+  - container cluster display name
+  - 
+  - Public Cluster Nodes
+    - 
+  - Private Cluster Nodes
+
+* 
+
+**Outputs**
+
+* vpc ids
+
+* 
+
+### Ansible
+
+**Inputs**
+
 **Outputs**
 
 
