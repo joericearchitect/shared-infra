@@ -62,7 +62,29 @@
 | JRA Jenkins CI / CD Pipeline | manage environments through CI / CD pipelines.  Automated and Manual Push-button.  The only interface non-ops users use to interact with environments  | | 
 
 
-## Environments
+# Notes on Environment Operations
+
+## Create Environment
+
+### Jenkins Pipeline
+
+**Inputs**
+
+**Outputs**
+
+
+### JRA Infra CLI
+
+**Inputs**
+
+**Outputs**
+
+
+### Terraform
+
+**Inputs**
+
+**Outputs**
 
 
   -  
