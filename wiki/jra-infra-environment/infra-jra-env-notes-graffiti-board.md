@@ -112,9 +112,14 @@
   - container cluster display id
   - container cluster name
   - container cluster display name
-  - 
   - Public Cluster Nodes
-    - 
+    - num of instances
+    - container cluster node display id
+    - container cluster node name
+    - container cluster node display name
+    - application groups
+    - node type
+    - swarm cluster node role
   - Private Cluster Nodes
 
 * 
