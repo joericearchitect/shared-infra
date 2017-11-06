@@ -1,0 +1,71 @@
+---
+# determine the status of each manager node and break them
+# into two groups:
+#   - swarm_manager_operational (swarm is running and active)
+#   - swarm_manager_bootstrap (host needs to be joined to the cluster)
+- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_instance_type_swarm_manager
+  become: true
+  tasks:
+    - name: determine swarm status
+      shell: >
+        docker info | egrep '^Swarm: ' | cut -d ' ' -f2
+      register: swarm_status
+
+    - name: create swarm_manager_operational group
+      add_host:
+        hostname: "{{ item }}"
+        groups: swarm_manager_operational
+      with_items: "{{ ansible_play_hosts | default(play_hosts) }}"
+      when: "'active' in hostvars[item].swarm_status.stdout_lines"
+      run_once: true
+
+    - name: create swarm_manager_bootstrap group
+      add_host:
+        hostname: "{{ item }}"
+        groups: swarm_manager_bootstrap
+      with_items: "{{ ansible_play_hosts | default(play_hosts) }}"
+      when: "'active' not in hostvars[item].swarm_status.stdout_lines"
+      run_once: true
+      
+# Make sure the proper volume mount points are created on all the swarm manager nodes
+- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_node_type_infra_build
+  become: true
+  tasks:
+    - name: create the jenkins mount directory if it doesn't already exist
+      shell: >
+        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/build-jenkins/home
+      ignore_errors: yes
+
+    - name: make sure the processes running inside containers have access to the directories
+      shell: >
+        sudo chmod -R 777 /usr/local/jra/docker-data-volumes
+      ignore_errors: yes
+
+# Deploy the Jenkins service
+- hosts: swarm_manager_operational[0]
+  become: true
+  tasks:
+    - name: remove the jarch-infra-build-jenkins service if it exists (ignore failure if it does not exist)
+      shell: >
+        docker service rm jarch-infra-build-jenkins
+      ignore_errors: yes
+
+    - name: deploy Jenkins service
+      shell: >
+        docker service create
+        --name jarch-infra-build-jenkins
+        --publish 8180:8080
+        --replicas=1
+        --constraint 'node.labels.jra.swarm-node-type == infra-build'
+        --network jarch-proxy-traefik-network
+        --mount type=bind,src=/usr/local/jra/docker-data-volumes/jra-infra/build-jenkins/home,dst=/var/jenkins_home 
+        --label traefik.docker.network=jarch-proxy-traefik-network
+        --label traefik.port=8080
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}build.joericearchitect.com
+        --label jra.environment-flip="blue"
+        --label jra.application-name="jarch-infra-build-jenkins"
+        --label jra.container-name="jarch-infra-build-jenkins"
+        --label jra.domain-name={{ env_domain_prefix }}build.joericearchitect.com
+        jenkinsci/blueocean
+
+

@@ -9,6 +9,7 @@ resource "aws_instance" "swarm-manager-az-1" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_swarm-manager.id}"]
 	subnet_id = "${aws_subnet.az-1-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -34,6 +35,7 @@ resource "aws_instance" "swarm-manager-az-2" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_swarm-manager.id}"]
 	subnet_id = "${aws_subnet.az-2-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -59,6 +61,7 @@ resource "aws_instance" "swarm-manager-az-3" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_swarm-manager.id}"]
 	subnet_id = "${aws_subnet.az-3-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -89,6 +92,7 @@ resource "aws_instance" "build-az-1" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_build.id}"]
 	subnet_id = "${aws_subnet.az-1-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -114,6 +118,7 @@ resource "aws_instance" "build-az-2" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_build.id}"]
 	subnet_id = "${aws_subnet.az-2-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -139,6 +144,7 @@ resource "aws_instance" "build-az-3" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_build.id}"]
 	subnet_id = "${aws_subnet.az-3-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -169,6 +175,7 @@ resource "aws_instance" "app-api-service-az-1" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_app-api-service.id}"]
 	subnet_id = "${aws_subnet.az-1-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -194,6 +201,7 @@ resource "aws_instance" "app-api-service-az-2" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_app-api-service.id}"]
 	subnet_id = "${aws_subnet.az-2-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -219,6 +227,7 @@ resource "aws_instance" "app-api-service-az-3" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_app-api-service.id}"]
 	subnet_id = "${aws_subnet.az-3-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -249,6 +258,7 @@ resource "aws_instance" "app-persistence-az-1" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_app-persistence.id}"]
 	subnet_id = "${aws_subnet.az-1-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -274,6 +284,7 @@ resource "aws_instance" "app-persistence-az-2" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_app-persistence.id}"]
 	subnet_id = "${aws_subnet.az-2-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -299,6 +310,7 @@ resource "aws_instance" "app-persistence-az-3" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_app-persistence.id}"]
 	subnet_id = "${aws_subnet.az-3-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -329,6 +341,7 @@ resource "aws_instance" "infra-logging-az-1" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_infra-logging.id}"]
 	subnet_id = "${aws_subnet.az-1-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -354,6 +367,7 @@ resource "aws_instance" "infra-logging-az-2" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_infra-logging.id}"]
 	subnet_id = "${aws_subnet.az-2-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -379,6 +393,7 @@ resource "aws_instance" "infra-logging-az-3" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.private_infra-logging.id}"]
 	subnet_id = "${aws_subnet.az-3-private.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }

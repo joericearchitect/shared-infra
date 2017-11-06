@@ -55,11 +55,11 @@
         --constraint 'node.labels.jra.failure-zone == us-east-1-az-1'
         --label traefik.docker.network=jarch-proxy-traefik-network
         --label traefik.port=8080
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}proxy.joericearchitect.info
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}proxy.joericearchitect.com
         --label jra.environment-flip=blue
         --label jra.application-name=jarch-infra-proxy-traefik
         --label jra.container-name=jarch-infra-proxy-traefik
-        --label jra.domain-name={{ env_domain_prefix }}proxy.joericearchitect.info
+        --label jra.domain-name={{ env_domain_prefix }}proxy.joericearchitect.com
         --publish 80:80
         --publish 8388:8080
         --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock
@@ -112,53 +112,13 @@
         --constraint 'node.labels.jra.swarm-node-type == infra-build'
         --label traefik.docker.network=jarch-proxy-traefik-network
         --label traefik.port=5000
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}docker.joericearchitect.info
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}docker.joericearchitect.com
         --label jra.environment-flip=blue
         --label jra.application-name=jarch-infra-docker-registry
         --label jra.container-name="jarch-infra-docker-registry"
-        --label jra.domain-name={{ env_domain_prefix }}docker.joericearchitect.info
+        --label jra.domain-name={{ env_domain_prefix }}docker.joericearchitect.com
         registry:2
 
-# Make sure the proper volume mount points are created on all the swarm manager nodes
-- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_node_type_infra_build
-  become: true
-  tasks:
-    - name: create the jenkins mount directory if it doesn't already exist
-      shell: >
-        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/build-jenkins/home
-      ignore_errors: yes
-
-    - name: make sure the processes running inside containers have access to the directories
-      shell: >
-        sudo chmod -R 777 /usr/local/jra/docker-data-volumes
-      ignore_errors: yes
-
-# Deploy the Jenkins service
-- hosts: swarm_manager_operational[0]
-  become: true
-  tasks:
-    - name: remove the jarch-infra-build-jenkins service if it exists (ignore failure if it does not exist)
-      shell: >
-        docker service rm jarch-infra-build-jenkins
-      ignore_errors: yes
-
-    - name: deploy Jenkins service
-      shell: >
-        docker service create
-        --name jarch-infra-build-jenkins
-        --publish 8180:8080
-        --replicas=1
-        --constraint 'node.labels.jra.swarm-node-type == infra-build'
-        --network jarch-proxy-traefik-network
-        --mount type=bind,src=/usr/local/jra/docker-data-volumes/jra-infra/build-jenkins/home,dst=/var/jenkins_home \
-        --label traefik.docker.network=jarch-proxy-traefik-network
-        --label traefik.port=8080
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}build.joericearchitect.info
-        --label jra.environment-flip="blue"
-        --label jra.application-name="jarch-infra-build-jenkins"
-        --label jra.container-name="jarch-infra-build-jenkins"
-        --label jra.domain-name={{ env_domain_prefix }}build.joericearchitect.info
-        jenkins
 
 # Make sure the proper volume mount points are created on all the swarm manager nodes
 - hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_instance_type_swarm_manager
@@ -195,11 +155,11 @@
         --mount type=bind,src=/usr/local/jra/docker-data-volumes/jra-infra/docker-ui-portainer/data,dst=/data
         --label traefik.docker.network=jarch-proxy-traefik-network
         --label traefik.port=9000
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}dockerui.joericearchitect.info
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}dockerui.joericearchitect.com
         --label jra.environment-flip=blue
         --label jra.application-name=jarch-infra-docker-ui-portainer
         --label jra.container-name=jarch-infra-docker-ui-portainer
-        --label jra.domain-name={{ env_domain_prefix }}dockerui.joericearchitect.info
+        --label jra.domain-name={{ env_domain_prefix }}dockerui.joericearchitect.com
         portainer/portainer
         -H unix:///var/run/docker.sock
 
@@ -223,11 +183,11 @@
         --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock
         --label traefik.docker.network=jarch-proxy-traefik-network
         --label traefik.port=8080
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}dockervisual.joericearchitect.info
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}dockervisual.joericearchitect.com
         --label jra.environment-flip=blue
         --label jra.application-name=jarch-infra-docker-ui-visualizer
         --label jra.container-name=jarch-infra-docker-ui-visualizer
-        --label jra.domain-name={{ env_domain_prefix }}dockervisual.joericearchitect.info
+        --label jra.domain-name={{ env_domain_prefix }}dockervisual.joericearchitect.com
         manomarks/visualizer
 
 # Make sure the elasticsearch volume mount points are created on all the swarm manager nodes

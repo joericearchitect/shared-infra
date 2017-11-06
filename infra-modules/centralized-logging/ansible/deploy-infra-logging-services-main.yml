@@ -1,0 +1,196 @@
+---
+# determine the status of each manager node and break them
+# into two groups:
+#   - swarm_manager_operational (swarm is running and active)
+#   - swarm_manager_bootstrap (host needs to be joined to the cluster)
+- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_instance_type_swarm_manager
+  become: true
+  tasks:
+    - name: determine swarm status
+      shell: >
+        docker info | egrep '^Swarm: ' | cut -d ' ' -f2
+      register: swarm_status
+
+    - name: create swarm_manager_operational group
+      add_host:
+        hostname: "{{ item }}"
+        groups: swarm_manager_operational
+      with_items: "{{ ansible_play_hosts | default(play_hosts) }}"
+      when: "'active' in hostvars[item].swarm_status.stdout_lines"
+      run_once: true
+
+    - name: create swarm_manager_bootstrap group
+      add_host:
+        hostname: "{{ item }}"
+        groups: swarm_manager_bootstrap
+      with_items: "{{ ansible_play_hosts | default(play_hosts) }}"
+      when: "'active' not in hostvars[item].swarm_status.stdout_lines"
+      run_once: true
+
+
+# Create the traefix proxy logging overlay network
+- hosts: swarm_manager_operational[0]
+  become: true
+  tasks:
+    - name: create proxy traefic logging overlay network
+      shell: >
+        docker network create --driver=overlay jarch-infra-logging-proxy-traefik-network
+      ignore_errors: yes
+
+
+# Deploy the logging Traefik Proxy service
+- hosts: swarm_manager_operational[0]
+  become: true
+  tasks:
+    - name: remove jarch-infra-logging-proxy-traefik service if it exists (ignore failure if it does not exist)
+      shell: >
+        docker service rm jarch-infra-logging-proxy-traefik
+      ignore_errors: yes
+
+    - name: deploy logging traefix service
+      shell: >
+        docker service create
+        --name jarch-infra-logging-proxy-traefik
+        --constraint 'node.role == manager'
+        --label traefik.docker.network=jarch-infra-logging-proxy-traefik-network
+        --label traefik.port=8080
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}logging-proxy.joericearchitect.com
+        --label jra.environment-flip=blue
+        --label jra.application-name=jarch-infra-logging-proxy-traefik
+        --label jra.container-name=jarch-infra-logging-proxy-traefik
+        --label jra.domain-name={{ env_domain_prefix }}logging-proxy.joericearchitect.com
+        --publish 81:80
+        --publish 8188:8080
+        --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock
+        --network jarch-infra-logging-proxy-traefik-network
+        traefik:v1.1.0
+        --docker
+        --docker.swarmmode
+        --docker.domain=traefik
+        --docker.watch
+        --web
+
+# Make sure the elasticsearch volume mount points are created on all the swarm manager nodes
+- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_node_type_infra_logging
+  become: true
+  tasks:
+    - name: create the elasticsearch mount directory if it doesn't already exist
+      shell: >
+        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data
+      ignore_errors: yes
+
+    - name: create the elasticsearch mount directory if it doesn't already exist
+      shell: >
+        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data
+      ignore_errors: yes
+
+    - name: make sure the processes running inside containers have access to the directories
+      shell: >
+        sudo chmod -R 777 /usr/local/jra/docker-data-volumes
+      ignore_errors: yes
+
+    - name: update the mmap limit because elasticsearch needs it
+      shell: >
+        sudo sysctl -w vm.max_map_count=262144 &&
+        sudo bash -c 'sudo echo "vm.max_map_count=262144" >> /etc/sysctl.conf'
+      ignore_errors: yes
+
+# Create the logging overlay network
+- hosts: swarm_manager_operational[0]
+  become: true
+  tasks:
+    - name: create logging overlay network
+      shell: >
+        docker network create --driver=overlay jarch-infra-logging-network
+      ignore_errors: yes
+
+
+# Deploy the ElasticSearch service
+- hosts: swarm_manager_operational[0]
+  become: true
+  tasks:
+    - name: remove jarch-infra-logging-elasticsearch service if it exists (ignore failure if it does not exist)
+      shell: >
+        docker service rm jarch-infra-logging-elasticsearch
+      ignore_errors: yes
+
+    - name: deploy elasticsearch service
+      shell: >
+        docker service create
+        --name jarch-infra-logging-elasticsearch
+        --publish 8191:9200
+        --publish 8192:9300
+        --replicas=1
+        --network jarch-infra-logging-proxy-traefik-network
+        --network jarch-infra-logging-network
+        --constraint 'node.labels.jra.swarm-node-type == infra-logging'
+        --mount type=bind,source=/usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data,target=/data
+        --label traefik.docker.network=jarch-infra-logging-proxy-traefik-network
+        --label traefik.port=9200
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}es.joericearchitect.com
+        --label jra.environment-flip="blue"
+        --label jra.application-name="jarch-infra-logging-elasticsearch"
+        --label jra.container-name="jarch-infra-logging-elasticsearch"
+        --label jra.domain-name={{ env_domain_prefix }}es.joericearchitect.com
+        elasticsearch:latest
+        elasticsearch
+
+# Deploy the Kibana service
+- hosts: swarm_manager_operational[0]
+  become: true
+  tasks:
+    - name: remove jarch-infra-logging-kibana service if it exists (ignore failure if it does not exist)
+      shell: >
+        docker service rm jarch-infra-logging-kibana
+      ignore_errors: yes
+
+#    - name: wait 60 seconds for elasticsearch to come up
+#      shell: >
+#        sleep 60s
+        
+    - name: deploy kibana service
+      shell: >
+        docker service create
+        --name jarch-infra-logging-kibana
+        --publish 8187:5601
+        --replicas=1
+        --network jarch-infra-logging-proxy-traefik-network
+        --network jarch-infra-logging-network
+        --constraint 'node.labels.jra.swarm-node-type == infra-logging'
+        --label traefik.docker.network=jarch-infra-logging-proxy-traefik-network
+        --label traefik.port=5601
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}kibana.joericearchitect.com
+        --label jra.environment-flip="blue"
+        --label jra.application-name="jarch-infra-logging-kibana"
+        --label jra.container-name="jarch-infra-logging-kibana"
+        --label jra.domain-name={{ env_domain_prefix }}kibana.joericearchitect.com
+        --env ELASTICSEARCH_URL=http://jarch-infra-logging-elasticsearch:9200
+        kibana
+
+# Deploy the fluentd service joericearchitect/jarch-infra-  td-es
+- hosts: swarm_manager_operational[0]
+  become: true
+  tasks:
+    - name: remove jarch-infra-logging-fluentd service if it exists (ignore failure if it does not exist)
+      shell: >
+        docker service rm jarch-infra-logging-fluentd
+      ignore_errors: yes
+
+    - name: deploy kibana service
+      shell: >
+        docker service create
+        --name jarch-infra-logging-fluentd
+        --publish 8282:24224
+        --replicas=1
+        --network jarch-infra-logging-proxy-traefik-network
+        --network jarch-infra-logging-network
+        --constraint 'node.labels.jra.swarm-node-type == infra-logging'
+        --mount type=bind,source=/usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data,target=/fluentd/log
+        --label traefik.docker.network=jarch-infra-logging-proxy-traefik-network
+        --label traefik.port=24284
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}fluentd.joericearchitect.com
+        --label jra.environment-flip="blue"
+        --label jra.application-name="jarch-infra-logging-fluentd"
+        --label jra.container-name="jarch-infra-logging-fluentd"
+        --label jra.domain-name={{ env_domain_prefix }}fluentd.joericearchitect.com
+        joericearchitect/jarch-infra-fluentd-es

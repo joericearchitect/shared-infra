@@ -75,6 +75,18 @@ resource "aws_route53_record" "jira" {
     }
 }
 
+resource "aws_route53_record" "wiki" {
+    zone_id = "${var.jra-domain-hosted-zone-id}"
+    name = "${var.environment-domain-prefix}wiki.${var.jra-domain-name}"
+    type = "A"
+
+    alias {
+      name = "${aws_elb.elb-public-swarm.dns_name}"
+      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      evaluate_target_health = true
+    }
+}
+
 resource "aws_route53_record" "nexus" {
     zone_id = "${var.jra-domain-hosted-zone-id}"
     name = "${var.environment-domain-prefix}nexus.${var.jra-domain-name}"

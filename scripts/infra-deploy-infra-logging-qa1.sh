@@ -22,7 +22,13 @@ PLAYBOOK_VAR_DOMAIN_PREFIX="qa1."
 
 cp $INFRA_MODULES_DOCKER_SWARM_ANSIBLE_DIR/ansible.cfg .
 
-time ansible-playbook -i $EC2_INVENTORY_FILE -v -u ubuntu -e env=$PLAYBOOK_VAR_ENV -e env_domain_prefix=$PLAYBOOK_VAR_DOMAIN_PREFIX --private-key $JRA_BUILD_PRIVATE_KEY_FILE $PLAYBOOK_FILE
+time ansible-playbook \
+  -i $EC2_INVENTORY_FILE \
+  -v \
+  -u ubuntu \
+  -e env=$PLAYBOOK_VAR_ENV \
+  -e env_domain_prefix=$PLAYBOOK_VAR_DOMAIN_PREFIX \
+  --private-key $JRA_BUILD_PRIVATE_KEY_FILE $PLAYBOOK_FILE
 
 ls -l ./
 

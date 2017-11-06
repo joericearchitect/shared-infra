@@ -20,6 +20,6 @@ resource "null_resource" "swarm-cluster-provision" {
   }
 
   provisioner "local-exec" {
-    command =  "ansible-playbook -i ${var.ansible-host-inventory-file} -v -u ${var.ansible-remote-host-user} -e env=${var.environment} --private-key '${var.aws_key_path}' ${var.ansible-provision-swarm-cluster-playbook-file}"
+    command =  "ansible-playbook -i ${var.ansible-host-inventory-file} -v -u ${var.ansible-remote-host-user} -e env=${var.environment} -e docker_install_version=${var.ansible-docker-install-version} --private-key '${var.aws_key_path}' ${var.ansible-provision-swarm-cluster-playbook-file}"
   }
 }

@@ -9,6 +9,7 @@ resource "aws_instance" "app-ui-web-az-1" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.public_app-ui-web.id}"]
 	subnet_id = "${aws_subnet.az-1-public.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -35,6 +36,7 @@ resource "aws_instance" "app-ui-web-az-2" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.public_app-ui-web.id}"]
 	subnet_id = "${aws_subnet.az-2-public.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }
@@ -60,6 +62,7 @@ resource "aws_instance" "app-ui-web-az-3" {
 	key_name = "${var.aws_key_name}"
 	security_groups = ["${aws_security_group.public_app-ui-web.id}"]
 	subnet_id = "${aws_subnet.az-3-public.id}",
+	monitoring = "true",
 	provisioner "local-exec" {
        command = "echo "
     }

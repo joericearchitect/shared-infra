@@ -1,0 +1,110 @@
+services:
+ 
+  jarch-infra-logging-proxy-traefik:
+    image: traefik:v1.4.2
+    ports:
+      - 81:80
+      - 8188:8080
+    networks:
+      - jarch-infra-logging-proxy-traefik-network
+    command:
+      - docker
+      - docker.swarmmode
+      - docker.domain=traefik
+      - docker.watch
+      - web
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+      labels:
+        - "traefik.docker.network=jarch-infra-logging-proxy-traefik-network"
+        - "traefik.port=8080"
+        - "traefik.frontend.rule=Host:${env_domain_prefix}logging-proxy.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-logging-proxy-traefik"
+        - "jra.container-name=jarch-infra-logging-proxy-traefik"
+        - "jra.domain-name=${env_domain_prefix}logging-proxy.joericearchitect.com"
+	    
+  db:
+    image: postgres:9.4
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - voteapp
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+ 
+  voting-app:
+    image: gaiadocker/example-voting-app-vote:good
+    ports:
+      - 5000:80
+    networks:
+      - voteapp
+    depends_on:
+      - redis
+    deploy:
+      mode: replicated
+      replicas: 2
+      labels: [APP=VOTING]
+      placement:
+        constraints: [node.role == worker]
+ 
+  result-app:
+    image: gaiadocker/example-voting-app-result:latest
+    ports:
+      - 5001:80
+    networks:
+      - voteapp
+    depends_on:
+      - db
+ 
+  worker:
+    image: gaiadocker/example-voting-app-worker:latest
+    networks:
+      voteapp:
+        aliases:
+          - workers
+    depends_on:
+      - db
+      - redis
+    # service deployment
+    deploy:
+      mode: replicated
+      replicas: 2
+      labels: [APP=VOTING]
+      # service resource management
+      resources:
+        # Hard limit - Docker does not allow to allocate more
+        limits:
+          cpus: '0.25'
+          memory: 512M
+        # Soft limit - Docker makes best effort to return to it
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+      # service restart policy
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      # service update configuration
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: continue
+        monitor: 60s
+        max_failure_ratio: 0.3
+      # placement constraint - in this case on 'worker' nodes only
+      placement:
+        constraints: [node.role == worker]
+ 
+networks:
+    jarch-infra-logging-proxy-traefik-network:
+ 
+volumes:
+  db-data:

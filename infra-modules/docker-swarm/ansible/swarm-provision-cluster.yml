@@ -1,4 +1,49 @@
 ---
+# Install Python on all instances
+- hosts: all
+  gather_facts: False
+  become: true
+  
+  tasks:
+  - name: install python 2
+    raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal && sudo apt install -y python-pip && sudo pip install docker)
+    
+# Install Docker on all instances
+- hosts: tag_jra_environment_{{ env }}
+  become: true
+  tasks:
+    - name: Docker CE Install - Update apt package index
+      shell: >
+        sudo apt-get update
+
+    - name: Docker CE Install - Install Packages to allow install of Dockre
+      shell: >
+        sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+
+    - name: Docker CE Install - Add Docker's official GPG key
+      shell: >
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+    - name: Docker CE Install - Set up the docker repository
+      shell: >
+        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+    - name: Docker CE Install - Update the apt package index again
+      shell: >
+        sudo apt-get update
+
+    - name: Docker CE Install - Install Docker CE
+      shell: >
+        sudo apt-get install -y docker-ce={{ docker_install_version }}
+
+    - name: Docker CE Install - Add the Docker Group
+      shell: >
+        sudo groupadd -f docker
+
+    - name: Docker CE Install - Set user to docker group
+      shell: >
+        sudo usermod -aG docker ubuntu
+
 # determine the status of each manager node and break them
 # into two groups:
 #   - swarm_manager_operational (swarm is running and active)
@@ -195,4 +240,3 @@
         --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
         '{{ swarm_node_host_name }}'
       delegate_to: "{{ swarm_manager_ip }}"
-        

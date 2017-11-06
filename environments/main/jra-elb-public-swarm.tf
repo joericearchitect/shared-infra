@@ -36,7 +36,7 @@ resource "aws_security_group" "elb-public-swarm" {
 # ---------------------------------------------------------------------------
 resource "aws_elb" "elb-public-swarm" {
     name = "${var.environment}-jra-elb-${var.region}-swarm"
-    subnets = ["${aws_subnet.az-1-public.id}","${aws_subnet.az-2-public.id}","${aws_subnet.az-3-public.id}"]
+    subnets = ["${aws_subnet.az-1-public.id}"]
     security_groups = ["${aws_security_group.elb-public-swarm.id}"]
 
     listener {
@@ -54,7 +54,7 @@ resource "aws_elb" "elb-public-swarm" {
         interval = 15
     }
 
-    instances = ["${aws_instance.app-ui-web-az-1.id}", "${aws_instance.app-ui-web-az-2.id}", "${aws_instance.app-ui-web-az-3.id}"]
+    instances = ["${aws_instance.infra-build-az-1.id}", "${aws_instance.app-persistence-az-1.id}", "${aws_instance.infra-persistence-az-1.id}", "${aws_instance.infra-repos-az-1.id}", "${aws_instance.app-ui-web-az-1.id}", "${aws_instance.admin-ui-web-az-1.id}"]
     cross_zone_load_balancing = true
     idle_timeout = 400
     connection_draining = true

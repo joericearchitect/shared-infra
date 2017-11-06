@@ -13,12 +13,12 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 
 source $DIR/setenv.sh
 
-TERRAFORM_DIR=$INFRA_ENVIRONMENTS_HOME_DIR/single
-ENVIRONMENT=prod
-ENVIRONMENT_DOMAIN_PREFIX=
+export TERRAFORM_DIR=$INFRA_ENVIRONMENTS_HOME_DIR/main
+export ENVIRONMENT=prod
+export ENVIRONMENT_DOMAIN_PREFIX=
 
 cd $TERRAFORM_DIR
 
-terraform plan \
+time terraform plan \
   -var "environment=$ENVIRONMENT" \
   -var "environment-domain-prefix=$ENVIRONMENT_DOMAIN_PREFIX"

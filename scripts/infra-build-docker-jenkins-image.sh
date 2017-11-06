@@ -30,5 +30,5 @@ docker build \
    -t $REPO_NAME/$IMAGE_NAME:$IMAGE_TAG_LAGEST \
    .
 
-docker push \
-    $REPO_NAME/$IMAGE_NAME
+# docker push \
+#    $REPO_NAME/$IMAGE_NAME

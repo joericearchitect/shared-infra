@@ -14,7 +14,7 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 
 source $DIR/setenv.sh
 
-PLAYBOOK_FILE=./deploy-infra-apps-services-single.yml
+PLAYBOOK_FILE=./deploy-infra-apps-services-main.yml
 EC2_INVENTORY_FILE=./ec2-inventory/ec2.py
 PLAYBOOK_VAR_ENV=prod
 PLAYBOOK_VAR_DOMAIN_PREFIX=""

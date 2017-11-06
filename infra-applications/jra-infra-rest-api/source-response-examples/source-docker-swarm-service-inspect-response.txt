@@ -4,10 +4,10 @@ Name:		jarch-infra-logging-elasticsearch
 Labels:
  jra.application-name=jarch-infra-logging-elasticsearch
  jra.container-name=jarch-infra-logging-elasticsearch
- jra.domain-name=qa1.es.joericearchitect.info
+ jra.domain-name=qa1.es.joericearchitect.com
  jra.environment-flip=blue
  traefik.docker.network=jarch-infra-logging-proxy-traefik-network
- traefik.frontend.rule=Host:qa1.es.joericearchitect.info
+ traefik.frontend.rule=Host:qa1.es.joericearchitect.com
  traefik.port=9200
 Service Mode:	Replicated
  Replicas:	1
@@ -51,10 +51,10 @@ Name:		jarch-infra-logging-proxy-traefik
 Labels:
  jra.application-name=jarch-infra-logging-proxy-traefik
  jra.container-name=jarch-infra-logging-proxy-traefik
- jra.domain-name=qa1.logging-proxy.joericearchitect.info
+ jra.domain-name=qa1.logging-proxy.joericearchitect.com
  jra.environment-flip=blue
  traefik.docker.network=jarch-infra-logging-proxy-traefik-network
- traefik.frontend.rule=Host:qa1.logging-proxy.joericearchitect.info
+ traefik.frontend.rule=Host:qa1.logging-proxy.joericearchitect.com
  traefik.port=8080
 Service Mode:	Replicated
  Replicas:	1
@@ -98,10 +98,10 @@ Name:		jarch-infra-proxy-traefik
 Labels:
  jra.application-name=jarch-infra-proxy-traefik
  jra.container-name=jarch-infra-proxy-traefik
- jra.domain-name=qa1.proxy.joericearchitect.info
+ jra.domain-name=qa1.proxy.joericearchitect.com
  jra.environment-flip=blue
  traefik.docker.network=jarch-proxy-traefik-network
- traefik.frontend.rule=Host:qa1.proxy.joericearchitect.info
+ traefik.frontend.rule=Host:qa1.proxy.joericearchitect.com
  traefik.port=8080
 Service Mode:	Replicated
  Replicas:	1
@@ -145,10 +145,10 @@ Name:		jarch-infra-docker-registry
 Labels:
  jra.application-name=jarch-infra-docker-registry
  jra.container-name=jarch-infra-docker-registry
- jra.domain-name=qa1.docker.joericearchitect.info
+ jra.domain-name=qa1.docker.joericearchitect.com
  jra.environment-flip=blue
  traefik.docker.network=jarch-proxy-traefik-network
- traefik.frontend.rule=Host:qa1.docker.joericearchitect.info
+ traefik.frontend.rule=Host:qa1.docker.joericearchitect.com
  traefik.port=5000
 Service Mode:	Replicated
  Replicas:	1
@@ -191,10 +191,10 @@ Name:		jarch-infra-build-jenkins
 Labels:
  jra.application-name=jarch-infra-build-jenkins
  jra.container-name=jarch-infra-build-jenkins
- jra.domain-name=qa1.build.joericearchitect.info
+ jra.domain-name=qa1.build.joericearchitect.com
  jra.environment-flip=blue
  traefik.docker.network=jarch-proxy-traefik-network
- traefik.frontend.rule=Host:qa1.build.joericearchitect.info
+ traefik.frontend.rule=Host:qa1.build.joericearchitect.com
  traefik.port=8080
 Service Mode:	Replicated
  Replicas:	1
@@ -233,10 +233,10 @@ Name:		jarch-infra-logging-fluentd
 Labels:
  jra.application-name=jarch-infra-logging-fluentd
  jra.container-name=jarch-infra-logging-fluentd
- jra.domain-name=qa1.fluentd.joericearchitect.info
+ jra.domain-name=qa1.fluentd.joericearchitect.com
  jra.environment-flip=blue
  traefik.docker.network=jarch-infra-logging-proxy-traefik-network
- traefik.frontend.rule=Host:qa1.fluentd.joericearchitect.info
+ traefik.frontend.rule=Host:qa1.fluentd.joericearchitect.com
  traefik.port=24284
 Service Mode:	Replicated
  Replicas:	3
@@ -275,10 +275,10 @@ Name:		jarch-infra-docker-ui-portainer
 Labels:
  jra.application-name=jarch-infra-docker-ui-portainer
  jra.container-name=jarch-infra-docker-ui-portainer
- jra.domain-name=qa1.dockerui.joericearchitect.info
+ jra.domain-name=qa1.dockerui.joericearchitect.com
  jra.environment-flip=blue
  traefik.docker.network=jarch-proxy-traefik-network
- traefik.frontend.rule=Host:qa1.dockerui.joericearchitect.info
+ traefik.frontend.rule=Host:qa1.dockerui.joericearchitect.com
  traefik.port=9000
 Service Mode:	Replicated
  Replicas:	1
@@ -322,10 +322,10 @@ Name:		jarch-infra-logging-kibana
 Labels:
  jra.application-name=jarch-infra-logging-kibana
  jra.container-name=jarch-infra-logging-kibana
- jra.domain-name=qa1.kibana.joericearchitect.info
+ jra.domain-name=qa1.kibana.joericearchitect.com
  jra.environment-flip=blue
  traefik.docker.network=jarch-infra-logging-proxy-traefik-network
- traefik.frontend.rule=Host:qa1.kibana.joericearchitect.info
+ traefik.frontend.rule=Host:qa1.kibana.joericearchitect.com
  traefik.port=5601
 Service Mode:	Replicated
  Replicas:	3
@@ -360,10 +360,10 @@ Name:		jarch-infra-docker-ui-visualizer
 Labels:
  jra.application-name=jarch-infra-docker-ui-visualizer
  jra.container-name=jarch-infra-docker-ui-visualizer
- jra.domain-name=qa1.dockervisual.joericearchitect.info
+ jra.domain-name=qa1.dockervisual.joericearchitect.com
  jra.environment-flip=blue
  traefik.docker.network=jarch-proxy-traefik-network
- traefik.frontend.rule=Host:qa1.dockervisual.joericearchitect.info
+ traefik.frontend.rule=Host:qa1.dockervisual.joericearchitect.com
  traefik.port=8080
 Service Mode:	Replicated
  Replicas:	1

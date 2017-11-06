@@ -66,7 +66,7 @@
         hostname: "{{ item }}"
         groups: swarm_worker_logging
       with_items: "{{ ansible_play_hosts | default(play_hosts) }}"
-      when: "'infra-logging' in hostvars[item].ec2_tag_jra_swarm_node_type"
+      when: "'infra-logging' in hostvars[item].ec2_tag_jra_swarm_node_type or 'infra-logging' in hostvars[item].ec2_tag_jra_swarm_node_type"
       run_once: true
 
     - name: create swarm_worker_non_logging group
@@ -103,7 +103,6 @@
        echo "ExecStart=" >> /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
-       -H tcp://{{ ec2_private_ip_address }}:2375
        --experimental
        --log-driver=fluentd
        --log-opt fluentd-address=localhost:8282
@@ -153,7 +152,6 @@
        echo "ExecStart=" >> /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
-       -H tcp://{{ ec2_private_ip_address }}:2375
        --experimental
        --log-driver=fluentd
        --log-opt fluentd-address=localhost:8282
@@ -198,7 +196,6 @@
        echo "ExecStart=" >> /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
-       -H tcp://{{ ec2_private_ip_address }}:2375
        --experimental
        --label jra.instance-name={{ ec2_tag_jra_instance_name }}
        --label jra.instance-name-full={{ ec2_tag_jra_instance_name_full }}
@@ -239,7 +236,6 @@
        echo "ExecStart=" >> /etc/systemd/system/docker.service.d/jra-docker-config.conf &&
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
-       -H tcp://{{ ec2_private_ip_address }}:2375
        --experimental
        --log-driver=fluentd
        --log-opt fluentd-address=localhost:8282

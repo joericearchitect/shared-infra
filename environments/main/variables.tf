@@ -26,7 +26,7 @@ variable "amis_docker_node" {
   description = "AMIs for docker-engine nodes by region"
   type = "map"
   default = {
-    us-east-1 = "ami-7a265d6c"
+    us-east-1 = "ami-cd0f5cb6"
     us-west-2 = "ami-06b94666"
   }
 }
@@ -67,11 +67,11 @@ variable "environment-flip" {
 # ---------------------------------------------------------------------------
 variable "jra-domain-name" {
     description = "The jra domain name"
-	default = "joericearchitect.info"
+	default = "joericearchitect.com"
 }
 variable "jra-domain-hosted-zone-id" {
     description = "The zone-id of the jra domain hosted zone"
-	default = "Z2ZVLIKT9MX0K8"
+	default = "ZNB07JQ96IG7T"
 }
 variable "environment-domain-prefix" {
     description = "The environment this resource is running in"
@@ -81,6 +81,10 @@ variable "environment-domain-prefix" {
 # ---------------------------------------------------------------------------
 # Ansible Provisioning Variables
 # ---------------------------------------------------------------------------
+variable "ansible-docker-install-version" {
+    description = "The version of docker to install on each ec2 instance"
+	default = "17.09.0~ce-0~ubuntu"
+}
 variable "ansible-remote-host-user" {
     description = "The user ansible will use to ssh into remote machines to provision docker swarm"
 	default = "ubuntu"
@@ -99,7 +103,7 @@ variable "ansible-provision-swarm-cluster-playbook-file" {
 }
 variable "ansible-provision-infra-app-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/docker-swarm/ansible/deploy-infra-apps-services.yml"
+	default = "../../infra-modules/docker-swarm/ansible/deploy-infra-apps-services-main.yml"
 }
 variable "ansible-configure-swarm-cluster-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
@@ -107,7 +111,27 @@ variable "ansible-configure-swarm-cluster-playbook-file" {
 }
 variable "ansible-deploy-infra-logging-services-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/centralized-logging/ansible/deploy-infra-logging-services.yml"
+	default = "../../infra-modules/centralized-logging/ansible/deploy-infra-logging-services-main.yml"
+}
+variable "ansible-deploy-infra-jenkins-services-playbook-file" {
+    description = "The location of the ansible playbook file that will deploy jenkins service.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../../infra-modules/jenkins/ansible/deploy-infra-jenkins-services.yml"
+}
+variable "ansible-deploy-infra-confluence-services-playbook-file" {
+    description = "The location of the ansible playbook file that will deploy confluence service.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../../infra-modules/confluence/ansible/deploy-infra-confluence-services.yml"
+}
+variable "ansible-deploy-infra-jira-services-playbook-file" {
+    description = "The location of the ansible playbook file that will deploy jira service.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../../infra-modules/jira/ansible/deploy-infra-jira-services.yml"
+}
+variable "ansible-deploy-infra-sonar-services-playbook-file" {
+    description = "The location of the ansible playbook file that will deploy sonar service.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../../infra-modules/sonar/ansible/deploy-infra-sonar-services.yml"
+}
+variable "ansible-deploy-infra-nexus-services-playbook-file" {
+    description = "The location of the ansible playbook file that will deploy nexus service.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../../infra-modules/nexus/ansible/deploy-infra-nexus-services.yml"
 }
 variable "ansible-remove-swarm-cluster-playbook-file" {
     description = "The location of the ansible playbook file that will tear down a docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
@@ -129,6 +153,7 @@ variable "ec2-instance-type" {
     small.swarm-manager = "t2.micro"
     small.build = "t2.micro"
     small.app-ui-web = "t2.micro"
+    small.admin-ui-web = "t2.medium"
     small.app-api-web = "t2.micro"
     small.app-api-service = "t2.micro"
     small.app-api-service-large = "t2.micro"
@@ -139,6 +164,9 @@ variable "ec2-instance-type" {
     small.management-persistence = "t2.micro"
     small.admin = "t2.micro"
     small.monitoring = "t2.micro"
+    small.infra-persistence = "t2.micro"
+    small.infra-build = "t2.micro"
+    small.infra-repos = "t2.medium"
 
     medium.swarm-manager = "t2.medium"
     medium.build = "t2.medium"
@@ -152,7 +180,11 @@ variable "ec2-instance-type" {
     medium.admin = "t2.medium"
     medium.monitoring = "t2.medium"
     medium.app-ui-web = "t2.medium"
+    medium.admin-ui-web = "t2.medium"
     medium.app-api-web = "t2.medium"
+    medium.infra-persistence = "t2.micro"
+    medium.infra-build = "t2.micro"
+    medium.infra-repos = "t2.micro"
 
     large.swarm-manager = "m4.large"
     large.build = "m4.large"
@@ -167,5 +199,9 @@ variable "ec2-instance-type" {
     large.monitoring = "m4.large"
     large.app-ui-web = "m4.large"
     large.app-api-web = "m4.large"
+    large.admin-ui-web = "m4.large"
+    large.infra-persistence = "t2.micro"
+    large.infra-build = "t2.micro"
+    large.infra-repos = "t2.micro"
   }
 }

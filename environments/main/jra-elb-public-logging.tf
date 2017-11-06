@@ -31,7 +31,7 @@ resource "aws_security_group" "elb-public-logging" {
 
 resource "aws_elb" "elb-public-logging" {
     name = "${var.environment}-jra-elb-${var.region}-logging"
-    subnets = ["${aws_subnet.az-1-public.id}","${aws_subnet.az-2-public.id}","${aws_subnet.az-3-public.id}"]
+    subnets = ["${aws_subnet.az-1-public.id}"]
     security_groups = ["${aws_security_group.elb-public-logging.id}"]
 
     listener {
@@ -49,7 +49,7 @@ resource "aws_elb" "elb-public-logging" {
         interval = 15
     }
 
-    instances = ["${aws_instance.swarm-manager-az-1.id}", "${aws_instance.swarm-manager-az-2.id}", "${aws_instance.swarm-manager-az-3.id}", "${aws_instance.infra-logging-az-1.id}", "${aws_instance.infra-logging-az-2.id}", "${aws_instance.infra-logging-az-3.id}"]
+    instances = ["${aws_instance.swarm-manager-az-1.id}", "${aws_instance.infra-logging-az-1.id}"]
     cross_zone_load_balancing = true
     idle_timeout = 400
     connection_draining = true

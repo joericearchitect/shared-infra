@@ -15,9 +15,17 @@ source $DIR/setenv.sh
 
 PLAYBOOK_FILE=./swarm-provision-cluster.yml
 EC2_INVENTORY_FILE=./ec2-inventory/ec2.py
-PLAYBOOK_VAR_ENV=qa1
-PLAYBOOK_VAR_DOMAIN_PREFIX="qa1."
+PLAYBOOK_VAR_ENV=prod
+PLAYBOOK_VAR_DOMAIN_PREFIX="prod."
+DOCKER_INSTALL_VERSION=17.09.0~ce-0~ubuntu
 
 cd $INFRA_MODULES_DOCKER_SWARM_ANSIBLE_DIR
 
-ansible-playbook -i $EC2_INVENTORY_FILE -v -u ubuntu -e env=$PLAYBOOK_VAR_ENV -e env_domain_prefix=$PLAYBOOK_VAR_DOMAIN_PREFIX --private-key $JRA_BUILD_PRIVATE_KEY_FILE $PLAYBOOK_FILE
+time ansible-playbook \
+   -i $EC2_INVENTORY_FILE \
+   -v \
+   -u ubuntu \
+   -e env=$PLAYBOOK_VAR_ENV \
+   -e env_domain_prefix=$PLAYBOOK_VAR_DOMAIN_PREFIX \
+   -e docker_install_version=$DOCKER_INSTALL_VERSION \
+   --private-key $JRA_BUILD_PRIVATE_KEY_FILE $PLAYBOOK_FILE

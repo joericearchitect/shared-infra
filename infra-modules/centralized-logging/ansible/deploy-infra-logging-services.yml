@@ -54,11 +54,11 @@
         --constraint 'node.role == manager'
         --label traefik.docker.network=jarch-infra-logging-proxy-traefik-network
         --label traefik.port=8080
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}logging-proxy.joericearchitect.info
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}logging-proxy.joericearchitect.com
         --label jra.environment-flip=blue
         --label jra.application-name=jarch-infra-logging-proxy-traefik
         --label jra.container-name=jarch-infra-logging-proxy-traefik
-        --label jra.domain-name={{ env_domain_prefix }}logging-proxy.joericearchitect.info
+        --label jra.domain-name={{ env_domain_prefix }}logging-proxy.joericearchitect.com
         --publish 81:80
         --publish 8188:8080
         --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock
@@ -128,11 +128,11 @@
         --mount type=bind,source=/usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data,target=/data
         --label traefik.docker.network=jarch-infra-logging-proxy-traefik-network
         --label traefik.port=9200
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}es.joericearchitect.info
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}es.joericearchitect.com
         --label jra.environment-flip="blue"
         --label jra.application-name="jarch-infra-logging-elasticsearch"
         --label jra.container-name="jarch-infra-logging-elasticsearch"
-        --label jra.domain-name={{ env_domain_prefix }}es.joericearchitect.info
+        --label jra.domain-name={{ env_domain_prefix }}es.joericearchitect.com
         elasticsearch:latest
         elasticsearch
 
@@ -160,11 +160,11 @@
         --constraint 'node.labels.jra.swarm-node-type == infra-logging'
         --label traefik.docker.network=jarch-infra-logging-proxy-traefik-network
         --label traefik.port=5601
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}kibana.joericearchitect.info
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}kibana.joericearchitect.com
         --label jra.environment-flip="blue"
         --label jra.application-name="jarch-infra-logging-kibana"
         --label jra.container-name="jarch-infra-logging-kibana"
-        --label jra.domain-name={{ env_domain_prefix }}kibana.joericearchitect.info
+        --label jra.domain-name={{ env_domain_prefix }}kibana.joericearchitect.com
         --env ELASTICSEARCH_URL=http://jarch-infra-logging-elasticsearch:9200
         kibana
 
@@ -189,9 +189,9 @@
         --mount type=bind,source=/usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data,target=/fluentd/log
         --label traefik.docker.network=jarch-infra-logging-proxy-traefik-network
         --label traefik.port=24284
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}fluentd.joericearchitect.info
+        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}fluentd.joericearchitect.com
         --label jra.environment-flip="blue"
         --label jra.application-name="jarch-infra-logging-fluentd"
         --label jra.container-name="jarch-infra-logging-fluentd"
-        --label jra.domain-name={{ env_domain_prefix }}fluentd.joericearchitect.info
+        --label jra.domain-name={{ env_domain_prefix }}fluentd.joericearchitect.com
         joericearchitect/jarch-infra-fluentd-es

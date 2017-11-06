@@ -35,8 +35,9 @@ resource "aws_security_group" "public_app-ui-web" {
 }
 
 
-resource "aws_security_group" "public_infra-ui-web" {
-	name = "${var.environment}.jra-sg.${var.region}-public-infra-ui-web"
+
+resource "aws_security_group" "public_admin-ui-web" {
+	name = "${var.environment}.jra-sg.${var.region}-public-admin-ui-web"
 	description = "Security groups for public web apis"
 
 	ingress {
@@ -56,7 +57,7 @@ resource "aws_security_group" "public_infra-ui-web" {
 	vpc_id = "${aws_vpc.jra_vpc.id}",
 
 	tags {
-        Name = "${var.environment}.sg.${var.region}-public-infra-ui-web",
+        Name = "${var.environment}.sg.${var.region}-public-admin-ui-web",
         jra.environment = "${var.environment}",
         jra.environment_type = "${var.environment_type}",
     	jra.environment-size = "${var.environment-size}",

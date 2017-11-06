@@ -1,4 +1,4 @@
-FROM jenkinsci/blueocean:1.0.1
+FROM jenkinsci/blueocean:latest
  
 MAINTAINER Joe Rice
  

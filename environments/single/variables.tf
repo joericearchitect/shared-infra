@@ -67,7 +67,7 @@ variable "environment-flip" {
 # ---------------------------------------------------------------------------
 variable "jra-domain-name" {
     description = "The jra domain name"
-	default = "joericearchitect.info"
+	default = "joericearchitect.com"
 }
 variable "jra-domain-hosted-zone-id" {
     description = "The zone-id of the jra domain hosted zone"
@@ -81,6 +81,10 @@ variable "environment-domain-prefix" {
 # ---------------------------------------------------------------------------
 # Ansible Provisioning Variables
 # ---------------------------------------------------------------------------
+variable "ansible-docker-install-version" {
+    description = "The version of docker to install on each ec2 instance"
+	default = "17.09.0~ce-0~ubuntu"
+}
 variable "ansible-remote-host-user" {
     description = "The user ansible will use to ssh into remote machines to provision docker swarm"
 	default = "ubuntu"
