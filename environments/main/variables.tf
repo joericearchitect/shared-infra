@@ -113,6 +113,14 @@ variable "ansible-deploy-infra-logging-services-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
 	default = "../../infra-modules/centralized-logging/ansible/deploy-infra-logging-services-main.yml"
 }
+variable "ansible-deploy-infra-logging-services-docker-compose-dir" {
+    description = "The directory that contains the docker compose file for centralized logger"
+	default = "../docker"
+}
+variable "ansible-deploy-infra-logging-services-docker-compose-file" {
+    description = "The docker-compose file for centralized logging"
+	default = "docker-compose.yml"
+}
 variable "ansible-deploy-infra-jenkins-services-playbook-file" {
     description = "The location of the ansible playbook file that will deploy jenkins service.  This includes directory and file name.  Can be fully qualified path or releative"
 	default = "../../infra-modules/jenkins/ansible/deploy-infra-jenkins-services.yml"
@@ -163,7 +171,7 @@ variable "ec2-instance-type" {
     small.management = "t2.micro"
     small.management-persistence = "t2.micro"
     small.admin = "t2.micro"
-    small.monitoring = "t2.micro"
+    small.infra-monitoring = "t2.medium"
     small.infra-persistence = "t2.micro"
     small.infra-build = "t2.micro"
     small.infra-repos = "t2.medium"
@@ -178,7 +186,7 @@ variable "ec2-instance-type" {
     medium.management = "t2.medium"
     medium.management-persistence = "t2.medium"
     medium.admin = "t2.medium"
-    medium.monitoring = "t2.medium"
+    medium.infra-monitoring = "t2.medium"
     medium.app-ui-web = "t2.medium"
     medium.admin-ui-web = "t2.medium"
     medium.app-api-web = "t2.medium"
@@ -196,7 +204,7 @@ variable "ec2-instance-type" {
     large.management = "m4.large"
     large.management-persistence = "m4.large"
     large.admin = "m4.large"
-    large.monitoring = "m4.large"
+    large.infra-monitoring = "m4.large"
     large.app-ui-web = "m4.large"
     large.app-api-web = "m4.large"
     large.admin-ui-web = "m4.large"

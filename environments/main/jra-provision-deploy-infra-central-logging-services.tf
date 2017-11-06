@@ -16,6 +16,6 @@ resource "null_resource" "infra-deploy-central-logging-services" {
   }
 
   provisioner "local-exec" {
-    command =  "ansible-playbook -i ${var.ansible-host-inventory-file} -v -u ${var.ansible-remote-host-user} -e env=${var.environment} -e env_domain_prefix=${var.environment-domain-prefix} --private-key '${var.aws_key_path}' ${var.ansible-deploy-infra-logging-services-playbook-file}"
+    command =  "ansible-playbook -i ${var.ansible-host-inventory-file} -v -u ${var.ansible-remote-host-user} -e env=${var.environment} -e env_domain_prefix=${var.environment-domain-prefix} -e stack_file_dir=${var.ansible-deploy-infra-logging-services-docker-compose-dir} -e stack_file_name=${var.ansible-deploy-infra-logging-services-docker-compose-file} --private-key '${var.aws_key_path}' ${var.ansible-deploy-infra-logging-services-playbook-file}"
   }
 }

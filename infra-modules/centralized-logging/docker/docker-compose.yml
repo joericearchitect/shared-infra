@@ -30,7 +30,80 @@ services:
         - "jra.container-name=jarch-infra-logging-proxy-traefik"
         - "jra.domain-name=${env_domain_prefix}logging-proxy.joericearchitect.com"
 
+  elasticsearch:
+    image: elasticsearch:latest
+    ports:
+      - 8191:9200
+      - 8192:9300
+    networks:
+      - proxy-traefik-network
+      - logging-network
+    command:
+      - elasticsearch
+    volumes:
+      - /usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data:/data
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.labels.jra.swarm-node-type == infra-logging]
+      labels:
+        - "traefik.docker.network=jarch-infra-logging-proxy-traefik-network"
+        - "traefik.port=9200"
+        - "traefik.frontend.rule=Host:${env_domain_prefix}es.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-logging-elasticsearch"
+        - "jra.container-name=jarch-infra-logging-elasticsearch"
+        - "jra.domain-name=${env_domain_prefix}es.joericearchitect.com"
+
+  kibana:
+    image: kibana
+    depends_on:
+      - elasticsearch
+    ports:
+      - 8187:5601
+    networks:
+      - proxy-traefik-network
+      - logging-network
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.labels.jra.swarm-node-type == infra-logging]
+      labels:
+        - "traefik.docker.network=jarch-infra-logging-proxy-traefik-network"
+        - "traefik.port=5601"
+        - "traefik.frontend.rule=Host:${env_domain_prefix}kibana.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-logging-kibana"
+        - "jra.container-name=jarch-infra-logging-kibana"
+        - "jra.domain-name=${env_domain_prefix}kibana.joericearchitect.com"
+
+  fluentd:
+    image: joericearchitect/jarch-infra-fluentd-es
+    depends_on:
+      - elasticsearch
+    ports:
+      - 8282:24224
+    networks:
+      - proxy-traefik-network
+      - logging-network
+    volumes:
+      - /usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data:/fluentd/log
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.labels.jra.swarm-node-type == infra-logging]
+      labels:
+        - "traefik.docker.network=jarch-infra-logging-proxy-traefik-network"
+        - "traefik.port=24284"
+        - "traefik.frontend.rule=Host:${env_domain_prefix}fluentd.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-logging-fluentd"
+        - "jra.container-name=jarch-infra-logging-fluentd"
+        - "jra.domain-name=${env_domain_prefix}fluentd.joericearchitect.com"
+
  
 networks:
     proxy-traefik-network:
- 
+    logging-network:
