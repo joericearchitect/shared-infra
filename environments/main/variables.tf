@@ -121,6 +121,23 @@ variable "ansible-deploy-infra-logging-services-docker-compose-file" {
     description = "The docker-compose file for centralized logging"
 	default = "docker-compose.yml"
 }
+
+
+
+variable "ansible-deploy-infra-monitoring-services-playbook-file" {
+    description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../../infra-modules/centralized-monitoring/ansible/deploy-infra-monitoring-services-main.yml"
+}
+variable "ansible-deploy-infra-monitoring-services-docker-compose-dir" {
+    description = "The directory that contains the docker compose file for centralized logger"
+	default = "../docker"
+}
+variable "ansible-deploy-infra-monitoring-services-docker-compose-file" {
+    description = "The docker-compose file for centralized monitoring"
+	default = "docker-compose.yml"
+}
+
+
 variable "ansible-deploy-infra-jenkins-services-playbook-file" {
     description = "The location of the ansible playbook file that will deploy jenkins service.  This includes directory and file name.  Can be fully qualified path or releative"
 	default = "../../infra-modules/jenkins/ansible/deploy-infra-jenkins-services.yml"

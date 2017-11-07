@@ -13,12 +13,12 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 
 source $DIR/setenv.sh
 
-cd $INFRA_MODULES_LOGGING_ANSIBLE_DIR
+cd $INFRA_MODULES_MONITORING_ANSIBLE_DIR
 
-PLAYBOOK_FILE=./deploy-infra-logging-services-main.yml
+PLAYBOOK_FILE=./deploy-infra-monitoring-services-main.yml
 EC2_INVENTORY_FILE=$INFRA_MODULES_DOCKER_SWARM_ANSIBLE_DIR/ec2-inventory/ec2.py
 PLAYBOOK_VAR_ENV=prod
-PLAYBOOK_VAR_DOMAIN_PREFIX=""
+PLAYBOOK_VAR_DOMAIN_PREFIX="prod."
 STACK_FILE_DIR=../docker
 STACK_FILE_NAME=docker-compose.yml
 
@@ -36,6 +36,6 @@ time ansible-playbook \
 
 ls -l ./
 
-echo $INFRA_MODULES_LOGGING_ANSIBLE_DIR
+echo $INFRA_MODULES_MONITORING_ANSIBLE_DIR
 
 rm ./ansible.cfg

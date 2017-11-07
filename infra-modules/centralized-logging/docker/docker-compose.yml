@@ -1,14 +1,18 @@
 version: '3'
 
+networks:
+    proxy-network:
+    app-network:
+
 services:
  
-  proxy-traefik:
+  logging-proxy:
     image: traefik:v1.4.2
     ports:
       - 81:80
       - 8188:8080
     networks:
-      - proxy-traefik-network
+      - proxy-network
     command:
       - --docker
       - --docker.swarmmode
@@ -22,13 +26,13 @@ services:
       placement:
         constraints: [node.role == manager]
       labels:
-        - "traefik.docker.network=proxy-traefik-network"
+        - "traefik.docker.network=jarch-infra-logging_proxy-network"
         - "traefik.port=8080"
-        - "traefik.frontend.rule=Host:${env_domain_prefix}logging-proxy.joericearchitect.com"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}logging-proxy.joericearchitect.com"
         - "jra.environment-flip=blue"
-        - "jra.application-name=jarch-infra-logging-proxy-traefik"
-        - "jra.container-name=jarch-infra-logging-proxy-traefik"
-        - "jra.domain-name=${env_domain_prefix}logging-proxy.joericearchitect.com"
+        - "jra.application-name=jarch-infra-logging-proxy"
+        - "jra.container-name=jarch-infra-logging-logging-proxy"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}logging-proxy.joericearchitect.com"
 
   elasticsearch:
     image: elasticsearch:latest
@@ -36,8 +40,8 @@ services:
       - 8191:9200
       - 8192:9300
     networks:
-      - proxy-traefik-network
-      - logging-network
+      - proxy-network
+      - app-network
     command:
       - elasticsearch
     volumes:
@@ -47,13 +51,13 @@ services:
       placement:
         constraints: [node.labels.jra.swarm-node-type == infra-logging]
       labels:
-        - "traefik.docker.network=jarch-infra-logging-proxy-traefik-network"
+        - "traefik.docker.network=jarch-infra-logging_proxy-network"
         - "traefik.port=9200"
-        - "traefik.frontend.rule=Host:${env_domain_prefix}es.joericearchitect.com"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}es.joericearchitect.com"
         - "jra.environment-flip=blue"
         - "jra.application-name=jarch-infra-logging-elasticsearch"
         - "jra.container-name=jarch-infra-logging-elasticsearch"
-        - "jra.domain-name=${env_domain_prefix}es.joericearchitect.com"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}es.joericearchitect.com"
 
   kibana:
     image: kibana
@@ -62,8 +66,8 @@ services:
     ports:
       - 8187:5601
     networks:
-      - proxy-traefik-network
-      - logging-network
+      - proxy-network
+      - app-network
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
     deploy:
@@ -71,13 +75,13 @@ services:
       placement:
         constraints: [node.labels.jra.swarm-node-type == infra-logging]
       labels:
-        - "traefik.docker.network=jarch-infra-logging-proxy-traefik-network"
+        - "traefik.docker.network=jarch-infra-logging_proxy-network"
         - "traefik.port=5601"
-        - "traefik.frontend.rule=Host:${env_domain_prefix}kibana.joericearchitect.com"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}kibana.joericearchitect.com"
         - "jra.environment-flip=blue"
         - "jra.application-name=jarch-infra-logging-kibana"
         - "jra.container-name=jarch-infra-logging-kibana"
-        - "jra.domain-name=${env_domain_prefix}kibana.joericearchitect.com"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}kibana.joericearchitect.com"
 
   fluentd:
     image: joericearchitect/jarch-infra-fluentd-es
@@ -86,8 +90,8 @@ services:
     ports:
       - 8282:24224
     networks:
-      - proxy-traefik-network
-      - logging-network
+      - proxy-network
+      - app-network
     volumes:
       - /usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data:/fluentd/log
     deploy:
@@ -95,15 +99,10 @@ services:
       placement:
         constraints: [node.labels.jra.swarm-node-type == infra-logging]
       labels:
-        - "traefik.docker.network=jarch-infra-logging-proxy-traefik-network"
+        - "traefik.docker.network=jarch-infra-logging_proxy-network"
         - "traefik.port=24284"
-        - "traefik.frontend.rule=Host:${env_domain_prefix}fluentd.joericearchitect.com"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}fluentd.joericearchitect.com"
         - "jra.environment-flip=blue"
         - "jra.application-name=jarch-infra-logging-fluentd"
         - "jra.container-name=jarch-infra-logging-fluentd"
-        - "jra.domain-name=${env_domain_prefix}fluentd.joericearchitect.com"
-
- 
-networks:
-    proxy-traefik-network:
-    logging-network:
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}fluentd.joericearchitect.com"

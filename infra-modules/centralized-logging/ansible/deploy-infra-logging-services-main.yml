@@ -57,9 +57,9 @@
 - hosts: swarm_manager_operational[0]
   become: true
   tasks:
-    - name: remove jarch-infra-logging-fluentd service if it exists (ignore failure if it does not exist)
+    - name: remove jarch-infra-logging stack if it exists (ignore failure if it does not exist)
       shell: >
-        docker stack rm jarch-infra-logging-stack
+        docker stack rm jarch-infra-logging
       ignore_errors: yes
 
     - name: create the elasticsearch mount directory if it doesn't already exist
@@ -69,9 +69,11 @@
 
     - name: copy the stack file
       copy:
-        src: "{{ stack_file_dir }}/{{ stack_file_name }}"
-        dest: /usr/local/jra/scripts/compose/jarch-infra-logging-stack/{{ stack_file_name }}
+        src: "{{ stack_file_dir }}/"
+        dest: /usr/local/jra/scripts/compose/jarch-infra-logging-stack/
 
     - name: deploy central logging stack
       shell: >
-        docker stack deploy jarch-infra-logging-stack --compose-file /usr/local/jra/scripts/compose/jarch-infra-logging-stack/{{ stack_file_name }}
+        ENV_DOMAIN_PREFIX={{ env_domain_prefix }} docker stack deploy jarch-infra-logging -c {{ stack_file_name }}
+      args:
+        chdir: /usr/local/jra/scripts/compose/jarch-infra-logging-stack/

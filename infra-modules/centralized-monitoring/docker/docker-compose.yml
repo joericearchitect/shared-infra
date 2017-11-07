@@ -1,0 +1,264 @@
+version: "3.3"
+
+networks:
+  app-network:
+    driver: overlay
+    attachable: true
+  proxy-network:
+    driver: overlay
+    attachable: true
+
+volumes:
+    prometheus: {}
+    grafana: {}
+    alertmanager: {}
+
+configs:
+  caddy_config:
+    file: ./caddy/Caddyfile
+  dockerd_config:
+    file: ./dockerd-exporter/Caddyfile
+  node_rules:
+    file: ./prometheus/rules/swarm_node.rules
+  task_rules:
+    file: ./prometheus/rules/swarm_task.rules
+
+services:
+  monitoring-proxy:
+    image: traefik:v1.4.2
+    ports:
+      - 83:80
+      - 8388:8080
+    networks:
+      -  proxy-network
+    command:
+      - --docker
+      - --docker.swarmmode
+      - --docker.domain=traefik
+      - --docker.watch
+      - --web
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+      labels:
+        - "traefik.docker.network=jarch-infra-monitoring_proxy-network"
+        - "traefik.port=8080"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}monitoring-proxy.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-monitoring-proxy"
+        - "jra.container-name=jarch-infra-monitoring-proxy"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}monitoring-proxy.joericearchitect.com"
+
+  dockerd-exporter:
+    image: stefanprodan/caddy
+    networks:
+      - app-network
+      - proxy-network
+    environment:
+      - DOCKER_GWBRIDGE_IP=172.18.0.1
+    configs:
+      - source: dockerd_config
+        target: /etc/caddy/Caddyfile
+    deploy:
+      mode: global
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+      labels:
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-monitoring-dockerd-exporter"
+        - "jra.container-name=jarch-infra-monitoring-dockerd-exporter"
+
+  cadvisor:
+    image: google/cadvisor
+    networks:
+      - app-network
+      - proxy-network
+    command: -logtostderr -docker_only
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /:/rootfs:ro
+      - /var/run:/var/run
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    deploy:
+      mode: global
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+      labels:
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-monitoring-cadvisor"
+        - "jra.container-name=jarch-infra-monitoring-cadvisor"
+
+  grafana:
+    image: stefanprodan/swarmprom-grafana
+    ports:
+      - 3000:3000
+    networks:
+      - app-network
+      - proxy-network
+    environment:
+      - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana:/var/lib/grafana
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.jra.swarm-node-type == infra-monitoring
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+      labels:
+        - "traefik.docker.network=jarch-infra-monitoring_proxy-network"
+        - "traefik.port=3000"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}grafana.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-grafana"
+        - "jra.container-name=jarch-infra-grafana"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}grafana.joericearchitect.com"
+
+  alertmanager:
+    image: stefanprodan/swarmprom-alertmanager
+    ports:
+      - 9093:9093
+    networks:
+      - app-network
+      - proxy-network
+    environment:
+      - SLACK_URL=${SLACK_URL:-https://hooks.slack.com/services/TOKEN}
+      - SLACK_CHANNEL=${SLACK_CHANNEL:-general}
+      - SLACK_USER=${SLACK_USER:-alertmanager}
+    command:
+      - '-config.file=/etc/alertmanager/alertmanager.yml'
+      - '-storage.path=/alertmanager'
+    volumes:
+      - alertmanager:/alertmanager
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.jra.swarm-node-type == infra-monitoring
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+      labels:
+        - "traefik.docker.network=jarch-infra-monitoring_proxy-network"
+        - "traefik.port=9093"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}alerts.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-alertmanager"
+        - "jra.container-name=jarch-infra-alertmanager"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}alerts.joericearchitect.com"
+
+  unsee:
+    image: cloudflare/unsee:v0.8.0
+    ports:
+      - 9094:9094
+    networks:
+      - app-network
+      - proxy-network
+    environment:
+      - "ALERTMANAGER_URIS=default:http://alertmanager:9093"
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.jra.swarm-node-type == infra-monitoring
+      labels:
+        - "traefik.docker.network=jarch-infra-monitoring_proxy-network"
+        - "traefik.port=9094"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}unsee.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-unsee"
+        - "jra.container-name=jarch-infra-unsee"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}unsee.joericearchitect.com"
+
+  node-exporter:
+    image: stefanprodan/swarmprom-node-exporter
+    networks:
+      - app-network
+      - proxy-network
+    environment:
+      - NODE_ID={{.Node.ID}}
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+      - /etc/hostname:/etc/nodename
+    command:
+      - '-collector.textfile.directory=/etc/node-exporter/'
+      - '-collector.procfs=/host/proc'
+      - '-collector.sysfs=/host/sys'
+      - '-collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+      - '-collectors.enabled=textfile,conntrack,diskstats,entropy,filefd,filesystem,loadavg,mdadm,meminfo,netdev,netstat,stat,time,vmstat'
+    deploy:
+      mode: global
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+      labels:
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-monitoring-node-exporter"
+        - "jra.container-name=jarch-infra-monitoring-node-exporter"
+
+  prometheus:
+    image: stefanprodan/swarmprom-prometheus
+    ports:
+      - 9090:9090
+    networks:
+      - app-network
+      - proxy-network
+    command:
+      - '-config.file=/etc/prometheus/prometheus.yml'
+      - '-storage.local.path=/prometheus'
+      - '-web.console.libraries=/etc/prometheus/console_libraries'
+      - '-web.console.templates=/etc/prometheus/consoles'
+      - '-storage.local.target-heap-size=1073741824'
+      - '-storage.local.retention=24h'
+      - '-alertmanager.url=http://alertmanager:9093'
+    volumes:
+      - prometheus:/prometheus
+    configs:
+      - source: node_rules
+        target: /etc/prometheus/swarm_node.rules
+      - source: task_rules
+        target: /etc/prometheus/swarm_task.rules
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.jra.swarm-node-type == infra-monitoring
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+      labels:
+        - "traefik.docker.network=jarch-infra-monitoring_proxy-network"
+        - "traefik.port=9090"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}prometheus.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-prometheus"
+        - "jra.container-name=jarch-infra-prometheus"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}prometheus.joericearchitect.com"
