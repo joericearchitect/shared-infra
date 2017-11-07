@@ -104,6 +104,7 @@
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
        --experimental
+       --metrics-addr=0.0.0.0:4999
        --log-driver=fluentd
        --log-opt fluentd-address=localhost:8282
        --log-opt tag='docker.{{ ec2_tag_jra_instance_name }}.\{\{.ID\}\}'
@@ -153,6 +154,7 @@
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
        --experimental
+       --metrics-addr=0.0.0.0:4999
        --log-driver=fluentd
        --log-opt fluentd-address=localhost:8282
        --log-opt tag='docker.{{ ec2_tag_jra_instance_name }}.\{\{.ID\}\}'
@@ -197,6 +199,7 @@
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
        --experimental
+       --metrics-addr=0.0.0.0:4999
        --label jra.instance-name={{ ec2_tag_jra_instance_name }}
        --label jra.instance-name-full={{ ec2_tag_jra_instance_name_full }}
        --label jra.swarm-node-name={{ ec2_tag_jra_instance_name }}
@@ -237,6 +240,7 @@
        echo "ExecStart=/usr/bin/dockerd
        -H unix:///var/run/docker.sock
        --experimental
+       --metrics-addr=0.0.0.0:4999
        --log-driver=fluentd
        --log-opt fluentd-address=localhost:8282
        --log-opt tag='docker.{{ ec2_tag_jra_instance_name }}.\{\{.ID\}\}'

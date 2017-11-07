@@ -1,0 +1,43 @@
+Using /etc/ansible/ansible.cfg as config file
+
+PLAY [tag_jra_environment_prod:&tag_jra_swarm_instance_type_swarm_manager] ******************************************************************************************************************
+
+TASK [Gathering Facts] **********************************************************************************************************************************************************************
+ok: [34.229.233.142]
+
+TASK [determine swarm status] ***************************************************************************************************************************************************************
+changed: [34.229.233.142] => {"changed": true, "cmd": "docker info | egrep '^Swarm: ' | cut -d ' ' -f2", "delta": "0:00:00.028004", "end": "2017-10-19 02:57:31.159344", "failed": false, "rc": 0, "start": "2017-10-19 02:57:31.131340", "stderr": "WARNING: labels with duplicate keys and conflicting values have been deprecated\nWARNING: No swap limit support", "stderr_lines": ["WARNING: labels with duplicate keys and conflicting values have been deprecated", "WARNING: No swap limit support"], "stdout": "active", "stdout_lines": ["active"]}
+
+TASK [create swarm_manager_operational group] ***********************************************************************************************************************************************
+changed: [34.229.233.142] => (item=34.229.233.142) => {"add_host": {"groups": ["swarm_manager_operational"], "host_name": "34.229.233.142", "host_vars": {}}, "changed": true, "failed": false, "item": "34.229.233.142"}
+
+TASK [create swarm_manager_bootstrap group] *************************************************************************************************************************************************
+skipping: [34.229.233.142] => (item=34.229.233.142)  => {"changed": false, "item": "34.229.233.142", "skip_reason": "Conditional result was False", "skipped": true}
+
+PLAY [tag_jra_environment_prod:&tag_jra_swarm_node_type_infra_repos] ************************************************************************************************************************
+
+TASK [Gathering Facts] **********************************************************************************************************************************************************************
+ok: [34.235.171.1]
+
+TASK [create the nexus mount directory if it doesn't already exist] *************************************************************************************************************************
+changed: [34.235.171.1] => {"changed": true, "cmd": "sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/repo-nexus/home", "delta": "0:00:00.006674", "end": "2017-10-19 02:57:34.526097", "failed": false, "rc": 0, "start": "2017-10-19 02:57:34.519423", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [make sure the processes running inside containers have access to the directories] *****************************************************************************************************
+changed: [34.235.171.1] => {"changed": true, "cmd": "sudo chmod -R 777 /usr/local/jra/docker-data-volumes", "delta": "0:00:00.028169", "end": "2017-10-19 02:57:35.869665", "failed": false, "rc": 0, "start": "2017-10-19 02:57:35.841496", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+PLAY [swarm_manager_operational[0]] *********************************************************************************************************************************************************
+
+TASK [Gathering Facts] **********************************************************************************************************************************************************************
+ok: [34.229.233.142]
+
+TASK [remove the jarch-infra-repos-nexus service if it exists (ignore failure if it does not exist)] ****************************************************************************************
+fatal: [34.229.233.142]: FAILED! => {"changed": true, "cmd": "docker service rm jarch-infra-repos-nexus", "delta": "0:00:00.015658", "end": "2017-10-19 02:57:38.789751", "failed": true, "msg": "non-zero return code", "rc": 1, "start": "2017-10-19 02:57:38.774093", "stderr": "Error response from daemon: service jarch-infra-repos-nexus not found", "stderr_lines": ["Error response from daemon: service jarch-infra-repos-nexus not found"], "stdout": "", "stdout_lines": []}
+...ignoring
+
+TASK [deploy nexus service] *****************************************************************************************************************************************************************
+changed: [34.229.233.142] => {"changed": true, "cmd": "docker service create --name jarch-infra-repos-nexus --publish 8185:8081 --replicas=1 --constraint 'node.labels.jra.swarm-node-type == infra-repos' --network jarch-proxy-traefik-network --mount type=bind,src=/usr/local/jra/docker-data-volumes/jra-infra/repo-nexus/home,dst=/nexus-data sonatype/nexus3 --label traefik.docker.network=jarch-proxy-traefik-network --label traefik.port=8081 --label traefik.frontend.rule=Host:nexus.joericearchitect.com --label jra.environment-flip=\"blue\" --label jra.application-name=\"jarch-infra-repos-nexus\" --label jra.container-name=\"jarch-infra-repos-nexus\" --label jra.domain-name=nexus.joericearchitect.com sonatype/nexus3", "delta": "0:00:00.110262", "end": "2017-10-19 02:57:40.211428", "failed": false, "rc": 0, "start": "2017-10-19 02:57:40.101166", "stderr": "Since --detach=false was not specified, tasks will be created in the background.\nIn a future release, --detach=false will become the default.", "stderr_lines": ["Since --detach=false was not specified, tasks will be created in the background.", "In a future release, --detach=false will become the default."], "stdout": "u6jrlr8pbqu463g0jct8q5q2c", "stdout_lines": ["u6jrlr8pbqu463g0jct8q5q2c"]}
+
+PLAY RECAP **********************************************************************************************************************************************************************************
+34.229.233.142             : ok=6    changed=4    unreachable=0    failed=0   
+34.235.171.1               : ok=3    changed=2    unreachable=0    failed=0   
+

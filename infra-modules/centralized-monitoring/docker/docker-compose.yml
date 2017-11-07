@@ -28,7 +28,7 @@ services:
     image: traefik:v1.4.2
     ports:
       - 83:80
-      - 8388:8080
+      - 8488:8080
     networks:
       -  proxy-network
     command:

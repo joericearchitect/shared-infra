@@ -3,7 +3,7 @@
 # ---------------------------------------------------------------------------
 
 resource "null_resource" "infra-configure-swarm-cluster" {
-  depends_on = ["null_resource.infra-deploy-central-monitoring-services"]
+  depends_on = ["null_resource.infra-deploy-central-logging-services"]
 
   # Wait 180 seconds to give all the logging services a chance to start up
   provisioner "local-exec" {
