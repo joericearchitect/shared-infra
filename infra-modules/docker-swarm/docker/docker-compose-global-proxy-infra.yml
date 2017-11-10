@@ -1,0 +1,52 @@
+version: '3'
+
+#####################################################################
+# Set up the Global Proxies. 
+#
+# Global proxies are defined outside of stacks and distribute traffic 
+# across multiple stacks.
+#
+# The global proxies use external overlay networks.  These networks 
+# will also be defined outside of stacks and used across multiple stacks
+# The external overlays are expected to already be created before this
+# stack is deployed.
+#####################################################################
+
+networks:
+  jarch-infra-global-network-proxy-admin:
+    external: true
+
+services:
+
+  admin:
+    image: traefik:v1.4.2
+    ports:
+      - 83:80
+      - 8388:8080
+    networks:
+      - jarch-infra-global-network-proxy-admin
+    command:
+      - --docker
+      - --docker.swarmmode
+      - --docker.domain=traefik
+      - --docker.watch
+      - --web
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 28M
+      labels:
+        - "traefik.docker.network=jarch-infra-global-network-proxy-admin"
+        - "traefik.port=8080"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}admin-proxy.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-admin-proxy"
+        - "jra.container-name=jarch-infra-admin-proxy"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}admin-proxy.joericearchitect.com"

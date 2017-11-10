@@ -80,11 +80,8 @@ variable "environment-domain-prefix" {
 
 # ---------------------------------------------------------------------------
 # Ansible Provisioning Variables
+#  - Global
 # ---------------------------------------------------------------------------
-variable "ansible-docker-install-version" {
-    description = "The version of docker to install on each ec2 instance"
-	default = "17.09.0~ce-0~ubuntu"
-}
 variable "ansible-remote-host-user" {
     description = "The user ansible will use to ssh into remote machines to provision docker swarm"
 	default = "ubuntu"
@@ -97,18 +94,58 @@ variable "ansible-custom-configuration-file" {
     description = "The location of the ansible host inventory file.  This includes directory and file name.  Can be fully qualified path or releative"
 	default = "../../infra-modules/docker-swarm/ansible/ansible.cfg"
 }
+
+# ---------------------------------------------------------------------------
+# Ansible Provisioning Variables
+#  - Provision Swarm Cluster
+# ---------------------------------------------------------------------------
+variable "ansible-docker-install-version" {
+    description = "The version of docker to install on each ec2 instance"
+	default = "17.09.0~ce-0~ubuntu"
+}
 variable "ansible-provision-swarm-cluster-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
 	default = "../../infra-modules/docker-swarm/ansible/swarm-provision-cluster.yml"
 }
-variable "ansible-provision-infra-app-playbook-file" {
-    description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/docker-swarm/ansible/deploy-infra-apps-services-main.yml"
-}
+
+# ---------------------------------------------------------------------------
+# Ansible Provisioning Variables
+#  - Configure Swarm
+# ---------------------------------------------------------------------------
 variable "ansible-configure-swarm-cluster-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
 	default = "../../infra-modules/docker-swarm/ansible/swarm-configure-cluster.yml"
 }
+
+# ---------------------------------------------------------------------------
+# Ansible Provisioning Variables
+#  - Deploy Global Infra Services
+# ---------------------------------------------------------------------------
+variable "ansible-provision-infra-app-playbook-file" {
+    description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
+	default = "../../infra-modules/docker-swarm/ansible/deploy-infra-apps-services-main.yml"
+}
+variable "ansible-provision-infra-app-docker-compose-dir" {
+    description = "The directory that contains the docker compose file for infra apps"
+	default = "../docker"
+}
+variable "ansible-provision-infra-app-docker-compose-file-infra-proxies" {
+    description = "The docker-compose file for global infra proxies"
+	default = "docker-compose-global-proxy-infra.yml"
+}
+variable "ansible-provision-infra-app-docker-compose-app-proxies" {
+    description = "The docker-compose file for global app proxies"
+	default = "docker-compose-global-proxy-apps.yml"
+}
+variable "ansible-provision-infra-app-docker-compose-file-docker-services" {
+    description = "The docker-compose file for infra docker apps"
+	default = "docker-compose-docker-services.yml"
+}
+
+# ---------------------------------------------------------------------------
+# Ansible Provisioning Variables
+#  - Deploy Centralized Logging
+# ---------------------------------------------------------------------------
 variable "ansible-deploy-infra-logging-services-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
 	default = "../../infra-modules/centralized-logging/ansible/deploy-infra-logging-services-main.yml"
@@ -122,8 +159,10 @@ variable "ansible-deploy-infra-logging-services-docker-compose-file" {
 	default = "docker-compose.yml"
 }
 
-
-
+# ---------------------------------------------------------------------------
+# Ansible Provisioning Variables
+#  - Deploy Centralized Monitoring
+# ---------------------------------------------------------------------------
 variable "ansible-deploy-infra-monitoring-services-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
 	default = "../../infra-modules/centralized-monitoring/ansible/deploy-infra-monitoring-services-main.yml"
@@ -137,30 +176,89 @@ variable "ansible-deploy-infra-monitoring-services-docker-compose-file" {
 	default = "docker-compose.yml"
 }
 
-
-variable "ansible-deploy-infra-jenkins-services-playbook-file" {
+# ---------------------------------------------------------------------------
+# Ansible Provisioning Variables
+#  - Deploy Jenkins
+# ---------------------------------------------------------------------------
+variable "ansible-deploy-infra-jenkins-playbook-file" {
     description = "The location of the ansible playbook file that will deploy jenkins service.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/jenkins/ansible/deploy-infra-jenkins-services.yml"
+	default = "../../infra-modules/jenkins/ansible/deploy-infra-jenkins.yml"
 }
-variable "ansible-deploy-infra-confluence-services-playbook-file" {
+variable "ansible-deploy-infra-jenkins-docker-compose-dir" {
+    description = "The directory that contains the docker compose file for jenkins"
+	default = "../docker"
+}
+variable "ansible-deploy-infra-jenkins-docker-compose-file" {
+    description = "The docker-compose file for jenkins"
+	default = "docker-compose.yml"
+}
+
+# ---------------------------------------------------------------------------
+# Ansible Provisioning Variables
+#  - Deploy Conflience
+# ---------------------------------------------------------------------------
+variable "ansible-deploy-infra-confluence-playbook-file" {
     description = "The location of the ansible playbook file that will deploy confluence service.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/confluence/ansible/deploy-infra-confluence-services.yml"
+	default = "../../infra-modules/confluence/ansible/deploy-infra-confluence.yml"
 }
-variable "ansible-deploy-infra-jira-services-playbook-file" {
+variable "ansible-deploy-infra-confluence-docker-compose-dir" {
+    description = "The directory that contains the docker compose file for confluence"
+	default = "../docker"
+}
+variable "ansible-deploy-infra-confluence-docker-compose-file" {
+    description = "The docker-compose file for confluence"
+	default = "docker-compose.yml"
+}
+
+# ---------------------------------------------------------------------------
+# Ansible Provisioning Variables
+#  - Deploy Jira
+# ---------------------------------------------------------------------------
+variable "ansible-deploy-infra-jira-playbook-file" {
     description = "The location of the ansible playbook file that will deploy jira service.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/jira/ansible/deploy-infra-jira-services.yml"
+	default = "../../infra-modules/jira/ansible/deploy-infra-jira.yml"
 }
-variable "ansible-deploy-infra-sonar-services-playbook-file" {
+variable "ansible-deploy-infra-jira-docker-compose-dir" {
+    description = "The directory that contains the docker compose file for jira"
+	default = "../docker"
+}
+variable "ansible-deploy-infra-jira-docker-compose-file" {
+    description = "The docker-compose file for jira"
+	default = "docker-compose.yml"
+}
+
+# ---------------------------------------------------------------------------
+# Ansible Provisioning Variables
+#  - Deploy Sonar
+# ---------------------------------------------------------------------------
+variable "ansible-deploy-infra-sonar-playbook-file" {
     description = "The location of the ansible playbook file that will deploy sonar service.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/sonar/ansible/deploy-infra-sonar-services.yml"
+	default = "../../infra-modules/sonar/ansible/deploy-infra-sonar.yml"
 }
-variable "ansible-deploy-infra-nexus-services-playbook-file" {
+variable "ansible-deploy-infra-sonar-docker-compose-dir" {
+    description = "The directory that contains the docker compose file for sonar"
+	default = "../docker"
+}
+variable "ansible-deploy-infra-sonar-docker-compose-file" {
+    description = "The docker-compose file for sonar"
+	default = "docker-compose.yml"
+}
+
+# ---------------------------------------------------------------------------
+# Ansible Provisioning Variables
+#  - Deploy Nexus
+# ---------------------------------------------------------------------------
+variable "ansible-deploy-infra-nexus-playbook-file" {
     description = "The location of the ansible playbook file that will deploy nexus service.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/nexus/ansible/deploy-infra-nexus-services.yml"
+	default = "../../infra-modules/nexus/ansible/deploy-infra-nexus.yml"
 }
-variable "ansible-remove-swarm-cluster-playbook-file" {
-    description = "The location of the ansible playbook file that will tear down a docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/docker-swarm/ansible/swarm-remove-cluster.yml"
+variable "ansible-deploy-infra-nexus-docker-compose-dir" {
+    description = "The directory that contains the docker compose file for nexus"
+	default = "../docker"
+}
+variable "ansible-deploy-infra-nexus-docker-compose-file" {
+    description = "The docker-compose file for nexus"
+	default = "docker-compose.yml"
 }
 
 # ---------------------------------------------------------------------------

@@ -13,6 +13,17 @@ resource "aws_route53_record" "grafana" {
       evaluate_target_health = true
     }
 }
+resource "aws_route53_record" "cadvisor" {
+    zone_id = "${var.jra-domain-hosted-zone-id}"
+    name = "${var.environment-domain-prefix}cadvisor.${var.jra-domain-name}"
+    type = "A"
+
+    alias {
+      name = "${aws_elb.elb-public-monitoring.dns_name}"
+      zone_id = "${aws_elb.elb-public-monitoring.zone_id}"
+      evaluate_target_health = true
+    }
+}
 resource "aws_route53_record" "alert" {
     zone_id = "${var.jra-domain-hosted-zone-id}"
     name = "${var.environment-domain-prefix}alerts.${var.jra-domain-name}"

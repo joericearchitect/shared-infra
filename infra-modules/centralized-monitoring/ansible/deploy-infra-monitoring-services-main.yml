@@ -32,22 +32,27 @@
 - hosts: swarm_manager_operational[0]
   become: true
   tasks:
+    - name: create the docker script files directory it doesn't already exist
+      shell: >
+        sudo mkdir -p /usr/local/jra/scripts/compose/jarch-infra-monitoring-stack
+      ignore_errors: yes
+
+    - name: copy the docker stack files
+      copy:
+        src: "{{ stack_file_dir }}/"
+        dest: /usr/local/jra/scripts/compose/jarch-infra-monitoring-stack/
+
+    - name: create global monitoring network
+      shell: >
+        docker network create --driver=overlay jarch-infra-global-network-monitoring
+      ignore_errors: yes
+
     - name: remove jarch-infra-monitoring stack if it exists (ignore failure if it does not exist)
       shell: >
         docker stack rm jarch-infra-monitoring
       ignore_errors: yes
 
-    - name: create the elasticsearch mount directory if it doesn't already exist
-      shell: >
-        sudo mkdir -p /usr/local/jra/scripts/compose/jarch-infra-monitoring-stack
-      ignore_errors: yes
-
-    - name: copy the stack file
-      copy:
-        src: "{{ stack_file_dir }}/"
-        dest: /usr/local/jra/scripts/compose/jarch-infra-monitoring-stack/
-
-    - name: deploy central logging stack
+    - name: deploy central monitoring stack
       shell: >
         ADMIN_PASSWORD=admin SLACK_URL=https://bigricedata.slack.com/services/TOKEN SLACK_CHANNEL=alerts SLACK_USER=alertmanager docker stack deploy jarch-infra-monitoring -c {{ stack_file_name }}
       args:

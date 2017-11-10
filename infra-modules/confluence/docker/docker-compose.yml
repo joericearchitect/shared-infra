@@ -1,0 +1,59 @@
+version: '3'
+
+networks:
+    jarch-infra-global-network-proxy-admin:
+      external: true
+    network-app:
+
+services:
+ 
+  db:
+    image: mysql:5.5
+    networks:
+      - network-app
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin123
+      - MYSQL_DATABASE=confluence
+    volumes:
+      - /usr/local/jra/docker-data-volumes/jra-infra/admin-confluence-db/data:/var/lib/mysql
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.labels.jra.swarm-node-type == infra-persistence]
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+      labels:
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-admin-confluence-db"
+        - "jra.container-name=jarch-infra-admin-confluence-db"
+
+  ui:
+    image: atlassian/confluence-server:6.1
+    ports:
+      - 8195:8090
+      - 8196:8091
+    networks:
+      - jarch-infra-global-network-proxy-admin
+      - network-app
+    volumes:
+      - /usr/local/jra/docker-data-volumes/jra-infra/admin-confluence/home:/var/atlassian/application-data/confluence
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.labels.jra.swarm-node-type == admin-ui-web]
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 2048M
+      labels:
+        - "traefik.docker.network=jarch-infra-global-network-proxy-admin"
+        - "traefik.port=8090"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}wiki.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-admin-confluence"
+        - "jra.container-name=jarch-infra-admin-confluence"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}wiki.joericearchitect.com"

@@ -2,7 +2,7 @@
 # Provisions Docker Swarm on the newly created EC2 Instances
 # ---------------------------------------------------------------------------
 
-resource "null_resource" "infa-apps-deploy" {
+resource "null_resource" "infra-deploy-swarm-services" {
   depends_on = ["null_resource.infra-configure-swarm-cluster"]
 
   # Wait 60 seconds to give all the logging services a chance to start up

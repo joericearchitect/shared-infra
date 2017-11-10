@@ -1,0 +1,65 @@
+version: '3'
+
+networks:
+    jarch-infra-global-network-proxy-admin:
+      external: true
+    network-app:
+
+services:
+ 
+  db:
+    image: mysql:5.5
+    networks:
+      - network-app
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin123
+      - MYSQL_DATABASE=sonar
+      - MYSQL_USER=sonar
+      - MYSQL_PASSWORD=admin123
+    volumes:
+      - /usr/local/jra/docker-data-volumes/jra-infra/admin-sonar-db/data:/var/lib/mysql
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.labels.jra.swarm-node-type == infra-persistence]
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+      labels:
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-admin-sonar-db"
+        - "jra.container-name=jarch-infra-admin-sonar-db"
+
+  ui:
+    image: sonarqube:5.6.7
+    ports:
+      - 8194:9000
+      - 8200:9092
+    networks:
+      - jarch-infra-global-network-proxy-admin
+      - network-app
+    environment:
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=admin123
+      - SONARQUBE_JDBC_URL="jdbc:mysql://db:3306/sonar?useUnicode=true&characterEncoding=utf8"
+    volumes:
+      - /usr/local/jra/docker-data-volumes/jra-infra/build-sonar/home:/opt/sonarqube/data
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.labels.jra.swarm-node-type == infra-repos]
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 2048M
+      labels:
+        - "traefik.docker.network=jarch-infra-global-network-proxy-admin"
+        - "traefik.port=9000"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}sonar.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-admin-sonar-ui"
+        - "jra.container-name=jarch-infra-admin-sonar-ui"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}sonar.joericearchitect.com"

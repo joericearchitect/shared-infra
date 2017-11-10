@@ -181,14 +181,14 @@
       shell: >
         docker service create
         --name jarch-infra-logging-fluentd
-        --publish 8282:24224
+        --publish 8182:24224
         --replicas=3
         --network jarch-infra-logging-proxy-traefik-network
         --network jarch-infra-logging-network
         --constraint 'node.labels.jra.swarm-node-type == infra-logging'
         --mount type=bind,source=/usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data,target=/fluentd/log
         --label traefik.docker.network=jarch-infra-logging-proxy-traefik-network
-        --label traefik.port=24284
+        --label traefik.port=24224
         --label traefik.frontend.rule=Host:{{ env_domain_prefix }}fluentd.joericearchitect.com
         --label jra.environment-flip="blue"
         --label jra.application-name="jarch-infra-logging-fluentd"

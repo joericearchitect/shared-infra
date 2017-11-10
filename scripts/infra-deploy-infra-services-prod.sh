@@ -18,7 +18,24 @@ PLAYBOOK_FILE=./deploy-infra-apps-services-main.yml
 EC2_INVENTORY_FILE=./ec2-inventory/ec2.py
 PLAYBOOK_VAR_ENV=prod
 PLAYBOOK_VAR_DOMAIN_PREFIX=""
+PLAYBOOK_VAR_DOMAIN_NAME=$JRA_DOMAIN_NAME
+STACK_FILE_DIR=../docker
+STACK_FILE_NAME_DOCKER_SERVICES=docker-compose-docker-services.yml
+STACK_FILE_NAME_GLOBAL_PROXY_APPS=docker-compose-global-proxy-apps.yml
+STACK_FILE_NAME_GLOBAL_PROXY_INFRA=docker-compose-global-proxy-infra.yml
 
 cd $INFRA_MODULES_DOCKER_SWARM_ANSIBLE_DIR
 
-ansible-playbook -i $EC2_INVENTORY_FILE -v -u ubuntu -e env=$PLAYBOOK_VAR_ENV -e env_domain_prefix=$PLAYBOOK_VAR_DOMAIN_PREFIX --private-key $JRA_BUILD_PRIVATE_KEY_FILE $PLAYBOOK_FILE
+time ansible-playbook \
+   -i $EC2_INVENTORY_FILE \
+   -v \
+   -u ubuntu \
+   -e env=$PLAYBOOK_VAR_ENV \
+   -e env_domain_prefix=$PLAYBOOK_VAR_DOMAIN_PREFIX \
+   -e env_domain_name=$PLAYBOOK_VAR_DOMAIN_NAME \
+   -e stack_file_dir=$STACK_FILE_DIR \
+   -e stack_file_name_docker_services=$STACK_FILE_NAME_DOCKER_SERVICES \
+   -e stack_file_name_app_proxies=$STACK_FILE_NAME_GLOBAL_PROXY_APPS \
+   -e stack_file_name_infra_proxies=$STACK_FILE_NAME_GLOBAL_PROXY_INFRA \
+   --private-key $JRA_BUILD_PRIVATE_KEY_FILE \
+   $PLAYBOOK_FILE

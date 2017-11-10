@@ -1,0 +1,28 @@
+version: '3'
+
+networks:
+    jarch-infra-global-network-proxy-admin:
+      external: true
+
+services:
+ 
+  ui:
+    image: jenkinsci/blueocean:1.3.1
+    ports:
+      - 8180:8080
+    networks:
+      - jarch-infra-global-network-proxy-admin
+    volumes:
+      - /usr/local/jra/docker-data-volumes/jra-infra/build-jenkins/home:/var/jenkins_home
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.labels.jra.swarm-node-type == infra-build]
+      labels:
+        - "traefik.docker.network=jarch-infra-global-network-proxy-admin"
+        - "traefik.port=8080"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}build.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-build-jenkins"
+        - "jra.container-name=jarch-infra-build-jenkins"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}build.joericearchitect.com"

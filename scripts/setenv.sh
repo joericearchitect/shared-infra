@@ -2,6 +2,7 @@ export SCRIPTS_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 export JRA_GLOBAL_DOCKER_REPO_NAME=joericearchitect
 export JRA_GLOBAL_IMAGE_NAME_PREFIX_INFRA=jarch-infra
+export JRA_DOMAIN_NAME=joericearchitect.com
 
 export INFRA_MODULES_HOME_DIR=$SCRIPTS_DIR/../infra-modules
 export INFRA_ENVIRONMENTS_HOME_DIR=$SCRIPTS_DIR/../environments

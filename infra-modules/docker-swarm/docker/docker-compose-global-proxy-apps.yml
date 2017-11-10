@@ -1,0 +1,88 @@
+version: '3'
+
+#####################################################################
+# Set up the Global Proxies. 
+#
+# Global proxies are defined outside of stacks and distribute traffic 
+# across multiple stacks.
+#
+# The global proxies use external overlay networks.  These networks 
+# will also be defined outside of stacks and used across multiple stacks
+# The external overlays are expected to already be created before this
+# stack is deployed.
+#####################################################################
+
+networks:
+  jarch-app-global-network-proxy-ui:
+    external: true
+  jarch-app-global-network-proxy-api:
+    external: true
+
+services:
+
+  ui:
+    image: traefik:v1.4.2
+    ports:
+      - 80:80
+      - 8088:8080
+    networks:
+      - jarch-app-global-network-proxy-ui
+    command:
+      - --docker
+      - --docker.swarmmode
+      - --docker.domain=traefik
+      - --docker.watch
+      - --web
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 28M
+      labels:
+        - "traefik.docker.network=jarch-app-global-network-proxy-ui"
+        - "traefik.port=8080"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}proxy.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-app-ui-proxy"
+        - "jra.container-name=jarch-infra-app-ui-proxy"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}proxy.joericearchitect.com"
+        
+  api:
+    image: traefik:v1.4.2
+    ports:
+      - 84:80
+      - 8488:8080
+    networks:
+      - jarch-app-global-network-proxy-api
+    command:
+      - --docker
+      - --docker.swarmmode
+      - --docker.domain=traefik
+      - --docker.watch
+      - --web
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 28M
+      labels:
+        - "traefik.docker.network=jarch-app-global-network-proxy-api"
+        - "traefik.port=8080"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}app-api-proxy.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-app-api-proxy"
+        - "jra.container-name=jarch-infra-app-api-proxy"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}app-api-proxy.joericearchitect.com"
+        

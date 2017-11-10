@@ -9,8 +9,8 @@ resource "aws_route53_record" "build" {
     type = "A"
 
     alias {
-      name = "${aws_elb.elb-public-swarm.dns_name}"
-      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      name = "${aws_elb.elb-public-admin.dns_name}"
+      zone_id = "${aws_elb.elb-public-admin.zone_id}"
       evaluate_target_health = true
     }
 }
@@ -21,8 +21,8 @@ resource "aws_route53_record" "dockerui" {
     type = "A"
 
     alias {
-      name = "${aws_elb.elb-public-swarm.dns_name}"
-      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      name = "${aws_elb.elb-public-admin.dns_name}"
+      zone_id = "${aws_elb.elb-public-admin.zone_id}"
       evaluate_target_health = true
     }
 }
@@ -33,19 +33,19 @@ resource "aws_route53_record" "docker" {
     type = "A"
 
     alias {
-      name = "${aws_elb.elb-public-swarm.dns_name}"
-      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      name = "${aws_elb.elb-public-admin.dns_name}"
+      zone_id = "${aws_elb.elb-public-admin.zone_id}"
       evaluate_target_health = true
     }
 }
-resource "aws_route53_record" "proxy" {
+resource "aws_route53_record" "admin-proxy" {
     zone_id = "${var.jra-domain-hosted-zone-id}"
-    name = "${var.environment-domain-prefix}proxy.${var.jra-domain-name}"
+    name = "${var.environment-domain-prefix}admin-proxy.${var.jra-domain-name}"
     type = "A"
 
     alias {
-      name = "${aws_elb.elb-public-swarm.dns_name}"
-      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      name = "${aws_elb.elb-public-admin.dns_name}"
+      zone_id = "${aws_elb.elb-public-admin.zone_id}"
       evaluate_target_health = true
     }
 }
@@ -56,8 +56,8 @@ resource "aws_route53_record" "dockervisual" {
     type = "A"
 
     alias {
-      name = "${aws_elb.elb-public-swarm.dns_name}"
-      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      name = "${aws_elb.elb-public-admin.dns_name}"
+      zone_id = "${aws_elb.elb-public-admin.zone_id}"
       evaluate_target_health = true
     }
 }
@@ -69,8 +69,8 @@ resource "aws_route53_record" "jira" {
     type = "A"
 
     alias {
-      name = "${aws_elb.elb-public-swarm.dns_name}"
-      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      name = "${aws_elb.elb-public-admin.dns_name}"
+      zone_id = "${aws_elb.elb-public-admin.zone_id}"
       evaluate_target_health = true
     }
 }
@@ -81,8 +81,8 @@ resource "aws_route53_record" "wiki" {
     type = "A"
 
     alias {
-      name = "${aws_elb.elb-public-swarm.dns_name}"
-      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      name = "${aws_elb.elb-public-admin.dns_name}"
+      zone_id = "${aws_elb.elb-public-admin.zone_id}"
       evaluate_target_health = true
     }
 }
@@ -93,8 +93,8 @@ resource "aws_route53_record" "nexus" {
     type = "A"
 
     alias {
-      name = "${aws_elb.elb-public-swarm.dns_name}"
-      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      name = "${aws_elb.elb-public-admin.dns_name}"
+      zone_id = "${aws_elb.elb-public-admin.zone_id}"
       evaluate_target_health = true
     }
 }
@@ -105,8 +105,8 @@ resource "aws_route53_record" "sonar" {
     type = "A"
 
     alias {
-      name = "${aws_elb.elb-public-swarm.dns_name}"
-      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      name = "${aws_elb.elb-public-admin.dns_name}"
+      zone_id = "${aws_elb.elb-public-admin.zone_id}"
       evaluate_target_health = true
     }
 }

@@ -8,8 +8,8 @@ resource "aws_route53_record" "www" {
     type = "A"
 
     alias {
-      name = "${aws_elb.elb-public-swarm.dns_name}"
-      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      name = "${aws_elb.elb-public-admin.dns_name}"
+      zone_id = "${aws_elb.elb-public-admin.zone_id}"
       evaluate_target_health = true
     }
 }
@@ -20,8 +20,8 @@ resource "aws_route53_record" "blog" {
     type = "A"
 
     alias {
-      name = "${aws_elb.elb-public-swarm.dns_name}"
-      zone_id = "${aws_elb.elb-public-swarm.zone_id}"
+      name = "${aws_elb.elb-public-admin.dns_name}"
+      zone_id = "${aws_elb.elb-public-admin.zone_id}"
       evaluate_target_health = true
     }
 }

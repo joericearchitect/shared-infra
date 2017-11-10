@@ -1,18 +1,18 @@
 version: '3'
 
 networks:
-    proxy-network:
-    app-network:
+    network-proxy:
+    network-app:
 
 services:
  
-  logging-proxy:
+  proxy:
     image: traefik:v1.4.2
     ports:
       - 81:80
       - 8188:8080
     networks:
-      - proxy-network
+      - network-proxy
     command:
       - --docker
       - --docker.swarmmode
@@ -26,7 +26,7 @@ services:
       placement:
         constraints: [node.role == manager]
       labels:
-        - "traefik.docker.network=jarch-infra-logging_proxy-network"
+        - "traefik.docker.network=jarch-infra-logging_network-proxy"
         - "traefik.port=8080"
         - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}logging-proxy.joericearchitect.com"
         - "jra.environment-flip=blue"
@@ -40,8 +40,8 @@ services:
       - 8191:9200
       - 8192:9300
     networks:
-      - proxy-network
-      - app-network
+      - network-proxy
+      - network-app
     command:
       - elasticsearch
     volumes:
@@ -51,7 +51,7 @@ services:
       placement:
         constraints: [node.labels.jra.swarm-node-type == infra-logging]
       labels:
-        - "traefik.docker.network=jarch-infra-logging_proxy-network"
+        - "traefik.docker.network=jarch-infra-logging_network-proxy"
         - "traefik.port=9200"
         - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}es.joericearchitect.com"
         - "jra.environment-flip=blue"
@@ -66,8 +66,8 @@ services:
     ports:
       - 8187:5601
     networks:
-      - proxy-network
-      - app-network
+      - network-proxy
+      - network-app
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
     deploy:
@@ -75,7 +75,7 @@ services:
       placement:
         constraints: [node.labels.jra.swarm-node-type == infra-logging]
       labels:
-        - "traefik.docker.network=jarch-infra-logging_proxy-network"
+        - "traefik.docker.network=jarch-infra-logging_network-proxy"
         - "traefik.port=5601"
         - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}kibana.joericearchitect.com"
         - "jra.environment-flip=blue"
@@ -88,10 +88,10 @@ services:
     depends_on:
       - elasticsearch
     ports:
-      - 8282:24224
+      - 8182:24224
     networks:
-      - proxy-network
-      - app-network
+      - network-proxy
+      - network-app
     volumes:
       - /usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data:/fluentd/log
     deploy:
@@ -99,7 +99,7 @@ services:
       placement:
         constraints: [node.labels.jra.swarm-node-type == infra-logging]
       labels:
-        - "traefik.docker.network=jarch-infra-logging_proxy-network"
+        - "traefik.docker.network=jarch-infra-logging_network-proxy"
         - "traefik.port=24284"
         - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}fluentd.joericearchitect.com"
         - "jra.environment-flip=blue"

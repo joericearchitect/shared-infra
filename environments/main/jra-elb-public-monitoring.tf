@@ -35,7 +35,7 @@ resource "aws_elb" "elb-public-monitoring" {
     security_groups = ["${aws_security_group.elb-public-monitoring.id}"]
 
     listener {
-        instance_port = 83
+        instance_port = 82
         instance_protocol = "tcp"
         lb_port = 80
         lb_protocol = "tcp"

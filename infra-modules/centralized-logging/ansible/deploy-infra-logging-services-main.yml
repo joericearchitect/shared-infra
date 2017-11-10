@@ -57,20 +57,20 @@
 - hosts: swarm_manager_operational[0]
   become: true
   tasks:
-    - name: remove jarch-infra-logging stack if it exists (ignore failure if it does not exist)
-      shell: >
-        docker stack rm jarch-infra-logging
-      ignore_errors: yes
-
-    - name: create the elasticsearch mount directory if it doesn't already exist
+    - name: create the docker script files directory it doesn't already exist
       shell: >
         sudo mkdir -p /usr/local/jra/scripts/compose/jarch-infra-logging-stack
       ignore_errors: yes
 
-    - name: copy the stack file
+    - name: copy the stack files
       copy:
         src: "{{ stack_file_dir }}/"
         dest: /usr/local/jra/scripts/compose/jarch-infra-logging-stack/
+
+    - name: remove jarch-infra-logging stack if it exists (ignore failure if it does not exist)
+      shell: >
+        docker stack rm jarch-infra-logging
+      ignore_errors: yes
 
     - name: deploy central logging stack
       shell: >

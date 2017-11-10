@@ -113,25 +113,25 @@ variable "ansible-deploy-infra-logging-services-playbook-file" {
     description = "The location of the ansible playbook file that will set up a new docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"
 	default = "../../infra-modules/centralized-logging/ansible/deploy-infra-logging-services.yml"
 }
-variable "ansible-deploy-infra-jenkins-services-playbook-file" {
+variable "ansible-deploy-infra-jenkins-playbook-file" {
     description = "The location of the ansible playbook file that will deploy jenkins service.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/jenkins/ansible/deploy-infra-jenkins-services.yml"
+	default = "../../infra-modules/jenkins/ansible/deploy-infra-jenkins.yml"
 }
-variable "ansible-deploy-infra-confluence-services-playbook-file" {
+variable "ansible-deploy-infra-confluence-playbook-file" {
     description = "The location of the ansible playbook file that will deploy confluence service.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/confluence/ansible/deploy-infra-confluence-services.yml"
+	default = "../../infra-modules/confluence/ansible/deploy-infra-confluence.yml"
 }
-variable "ansible-deploy-infra-jira-services-playbook-file" {
+variable "ansible-deploy-infra-jira-playbook-file" {
     description = "The location of the ansible playbook file that will deploy jira service.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/jira/ansible/deploy-infra-jira-services.yml"
+	default = "../../infra-modules/jira/ansible/deploy-infra-jira.yml"
 }
-variable "ansible-deploy-infra-sonar-services-playbook-file" {
+variable "ansible-deploy-infra-sonar-playbook-file" {
     description = "The location of the ansible playbook file that will deploy sonar service.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/sonar/ansible/deploy-infra-sonar-services.yml"
+	default = "../../infra-modules/sonar/ansible/deploy-infra-sonar.yml"
 }
-variable "ansible-deploy-infra-nexus-services-playbook-file" {
+variable "ansible-deploy-infra-nexus-playbook-file" {
     description = "The location of the ansible playbook file that will deploy nexus service.  This includes directory and file name.  Can be fully qualified path or releative"
-	default = "../../infra-modules/nexus/ansible/deploy-infra-nexus-services.yml"
+	default = "../../infra-modules/nexus/ansible/deploy-infra-nexus.yml"
 }
 variable "ansible-remove-swarm-cluster-playbook-file" {
     description = "The location of the ansible playbook file that will tear down a docker swarm.  This includes directory and file name.  Can be fully qualified path or releative"

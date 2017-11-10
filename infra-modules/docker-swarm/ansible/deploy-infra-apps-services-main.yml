@@ -28,47 +28,60 @@
       run_once: true
 
 
-# Create the traefix proxy overlay network
+# Create the global traefix proxy overlay networks
 - hosts: swarm_manager_operational[0]
   become: true
   tasks:
-    - name: create proxy traefic overlay network
+    - name: create global admin proxy overlay network
       shell: >
-        docker network create --driver=overlay jarch-proxy-traefik-network
+        docker network create --driver=overlay jarch-infra-global-network-proxy-admin
       ignore_errors: yes
 
+    - name: create global app-ui proxy overlay network
+      shell: >
+        docker network create --driver=overlay jarch-app-global-network-proxy-ui
+      ignore_errors: yes
 
-# Deploy the Traefik Proxy service
+    - name: create global app-api proxy overlay network
+      shell: >
+        docker network create --driver=overlay jarch-app-global-network-proxy-api
+      ignore_errors: yes
+
+# Deploy the Global Proxies
 - hosts: swarm_manager_operational[0]
   become: true
   tasks:
-    - name: remove jarch-infra-proxy-traefik service if it exists (ignore failure if it does not exist)
+    - name: create the docker script files directory it doesn't already exist
       shell: >
-        docker service rm jarch-infra-proxy-traefik
+        sudo mkdir -p /usr/local/jra/scripts/compose/jarch-infra-apps-services-stacks
       ignore_errors: yes
 
-    - name: deploy traefix service
+    - name: copy the stack files
+      copy:
+        src: "{{ stack_file_dir }}/"
+        dest: /usr/local/jra/scripts/compose/jarch-infra-apps-services-stacks/
+
+    - name: remove jarch-infra-proxy stack if it exists (ignore failure if it does not exist)
       shell: >
-        docker service create
-        --name jarch-infra-proxy-traefik
-        --constraint 'node.role == manager'
-        --label traefik.docker.network=jarch-proxy-traefik-network
-        --label traefik.port=8080
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}proxy.joericearchitect.com
-        --label jra.environment-flip=blue
-        --label jra.application-name=jarch-infra-proxy-traefik
-        --label jra.container-name=jarch-infra-proxy-traefik
-        --label jra.domain-name={{ env_domain_prefix }}proxy.joericearchitect.com
-        --publish 80:80
-        --publish 8388:8080
-        --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock
-        --network jarch-proxy-traefik-network
-        traefik:v1.1.0
-        --docker
-        --docker.swarmmode
-        --docker.domain=traefik
-        --docker.watch
-        --web
+        docker stack rm jarch-infra-proxy
+      ignore_errors: yes
+
+    - name: deploy jarch-infra-proxy stack
+      shell: >
+        ENV_DOMAIN_PREFIX={{ env_domain_prefix }} docker stack deploy jarch-infra-proxy -c {{ stack_file_name_infra_proxies }}
+      args:
+        chdir: /usr/local/jra/scripts/compose/jarch-infra-apps-services-stacks/
+
+    - name: remove jarch-app-proxy stack if it exists (ignore failure if it does not exist)
+      shell: >
+        docker stack rm jarch-app-proxy
+      ignore_errors: yes
+
+    - name: deploy jarch-app-proxy stack
+      shell: >
+        ENV_DOMAIN_PREFIX={{ env_domain_prefix }} docker stack deploy jarch-app-proxy -c {{ stack_file_name_app_proxies }}
+      args:
+        chdir: /usr/local/jra/scripts/compose/jarch-infra-apps-services-stacks/
 
 # Make sure the proper volume mount points are created on all the management nodes
 #   NOTE:  in the future, management will have its own separate node.  For now, all management services will go on
@@ -91,33 +104,6 @@
         sudo chmod -R 777 /usr/local/jra/docker-data-volumes
       ignore_errors: yes
 
-# Deploy the Docker Registy service
-- hosts: swarm_manager_operational[0]
-  become: true
-  tasks:
-    - name: remove jarch-infra-docker-registry service if it exists (ignore failure if it does not exist)
-      shell: >
-        docker service rm jarch-infra-docker-registry
-      ignore_errors: yes
-
-    - name: deploy docker registry service
-      shell: >
-        docker service create
-        --name jarch-infra-docker-registry
-        --publish 8183:5000
-        --network jarch-proxy-traefik-network
-        --mount type=bind,src=/usr/local/jra/docker-data-volumes/jra-infra/docker-registry/data,dst=/var/lib/registry
-        --mount type=bind,src=/usr/local/jra/docker-data-volumes/jra-infra/docker-registry/certs,dst=/certs
-        --constraint 'node.labels.jra.swarm-node-type == infra-repos'
-        --label traefik.docker.network=jarch-proxy-traefik-network
-        --label traefik.port=5000
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}docker.joericearchitect.com
-        --label jra.environment-flip=blue
-        --label jra.application-name=jarch-infra-docker-registry
-        --label jra.container-name="jarch-infra-docker-registry"
-        --label jra.domain-name={{ env_domain_prefix }}docker.joericearchitect.com
-        registry:2
-
 # Make sure the proper volume mount points are created on all the swarm manager nodes
 - hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_instance_type_swarm_manager
   become: true
@@ -132,76 +118,18 @@
         sudo chmod -R 777 /usr/local/jra/docker-data-volumes
       ignore_errors: yes
 
-# Deploy the Portainer service
+# Deploy the Docker Services
 - hosts: swarm_manager_operational[0]
   become: true
   tasks:
-    - name: remove the jarch-infra-docker-ui-portainer service if it exists (ignore failure if it does not exist)
+    - name: remove jarch-infra-docker stack if it exists (ignore failure if it does not exist)
       shell: >
-        docker service rm jarch-infra-docker-ui-portainer
+        docker stack rm jarch-infra-docker
       ignore_errors: yes
 
-    - name: deploy Portainer service
+    - name: deploy jarch-infra-docker stack
       shell: >
-        docker service create
-        --name jarch-infra-docker-ui-portainer
-        --publish 8184:9000
-        --constraint 'node.role == manager'
-        --network jarch-proxy-traefik-network
-        --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock
-        --mount type=bind,src=/usr/local/jra/docker-data-volumes/jra-infra/docker-ui-portainer/data,dst=/data
-        --label traefik.docker.network=jarch-proxy-traefik-network
-        --label traefik.port=9000
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}dockerui.joericearchitect.com
-        --label jra.environment-flip=blue
-        --label jra.application-name=jarch-infra-docker-ui-portainer
-        --label jra.container-name=jarch-infra-docker-ui-portainer
-        --label jra.domain-name={{ env_domain_prefix }}dockerui.joericearchitect.com
-        portainer/portainer
-        -H unix:///var/run/docker.sock
+        ENV_DOMAIN_PREFIX={{ env_domain_prefix }} docker stack deploy jarch-infra-docker -c {{ stack_file_name_docker_services }}
+      args:
+        chdir: /usr/local/jra/scripts/compose/jarch-infra-apps-services-stacks/
 
-# Deploy the docker swarm visualizer service
-- hosts: swarm_manager_operational[0]
-  become: true
-  tasks:
-    - name: remove the jarch-infra-docker-ui-docker visualizer service if it exists (ignore failure if it does not exist)
-      shell: >
-        docker service rm jarch-infra-docker-ui-visualizer
-      ignore_errors: yes
-
-    - name: deploy Docker visualizer service
-      shell: >
-        docker service create
-        --name jarch-infra-docker-ui-visualizer
-        --publish 8190:8080/tcp
-        --constraint 'node.role == manager'
-        --network jarch-proxy-traefik-network
-        --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock
-        --label traefik.docker.network=jarch-proxy-traefik-network
-        --label traefik.port=8080
-        --label traefik.frontend.rule=Host:{{ env_domain_prefix }}dockervisual.joericearchitect.com
-        --label jra.environment-flip=blue
-        --label jra.application-name=jarch-infra-docker-ui-visualizer
-        --label jra.container-name=jarch-infra-docker-ui-visualizer
-        --label jra.domain-name={{ env_domain_prefix }}dockervisual.joericearchitect.com
-        dockersamples/visualizer
-
-# Make sure the elasticsearch volume mount points are created on all the swarm manager nodes
-- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_instance_type_swarm_manager
-  become: true
-  tasks:
-    - name: create the elasticsearch mount directory if it doesn't already exist
-      shell: >
-        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data
-      ignore_errors: yes
-
-    - name: make sure the processes running inside containers have access to the directories
-      shell: >
-        sudo chmod -R 777 /usr/local/jra/docker-data-volumes
-      ignore_errors: yes
-
-    - name: update the mmap limit because elasticsearch needs it
-      shell: >
-        sudo sysctl -w vm.max_map_count=262144 &&
-        sudo bash -c 'sudo echo "vm.max_map_count=262144" >> /etc/sysctl.conf'
-      ignore_errors: yes

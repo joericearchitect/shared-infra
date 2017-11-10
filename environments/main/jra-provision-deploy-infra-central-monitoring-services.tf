@@ -7,7 +7,7 @@ resource "null_resource" "infra-deploy-central-monitoring-services" {
 
   # Wait 30 seconds to give all the monitoring services a chance to start up
   provisioner "local-exec" {
-    command =  "echo waiting 30 seconds to allow time for the cluster nodes to join cluster..."
+    command =  "echo *** About to 'deploy-central-monitoring-services':   waiting 30 seconds to allow for this previous step to finish:  'configure-swarm-cluster'..."
   }
 
   # Wait 30 seconds to give all the instances a chance to fully spin up and become available
