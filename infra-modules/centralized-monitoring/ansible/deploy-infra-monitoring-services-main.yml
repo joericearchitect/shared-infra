@@ -42,11 +42,6 @@
         src: "{{ stack_file_dir }}/"
         dest: /usr/local/jra/scripts/compose/jarch-infra-monitoring-stack/
 
-    - name: create global monitoring network
-      shell: >
-        docker network create --driver=overlay jarch-infra-global-network-monitoring
-      ignore_errors: yes
-
     - name: remove jarch-infra-monitoring stack if it exists (ignore failure if it does not exist)
       shell: >
         docker stack rm jarch-infra-monitoring

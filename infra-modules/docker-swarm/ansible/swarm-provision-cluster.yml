@@ -56,12 +56,6 @@
         docker info | egrep '^Swarm: ' | cut -d ' ' -f2
       register: swarm_status
 
-    - name: Print manager host name
-      debug: msg="manager-host-name='{{ ec2_private_dns_name }}'"
-
-    - name: Print manager node name (with regex)
-      debug: msg="manager-host-name='{{ ec2_private_dns_name | regex_replace('(ip-[0-9]*-[0-9]*-[0-9]*-[0-9]*)\.[a-zA-Z0-9]*\.[a-zA-Z0-9]*', '\\1')}}'"
-
     - name: create swarm_manager_operational group
       add_host:
         hostname: "{{ item }}"
@@ -89,12 +83,6 @@
       shell: >
         docker info | egrep '^Swarm: ' | cut -d ' ' -f2
       register: swarm_status
-
-    - name: Print worker host name
-      debug: msg="worker-host-name='{{ ec2_private_dns_name }}'"
-
-    - name: Print worker node name
-      debug: msg="manager-host-name='{{ ec2_private_dns_name | regex_replace('(ip-[0-9]*-[0-9]*-[0-9]*-[0-9]*)\.[a-zA-Z0-9]*\.[a-zA-Z0-9]*', '\\1')}}'"
 
     - name: create swarm_worker_operational group
       add_host:
@@ -240,3 +228,31 @@
         --label-add jra.swarm-node-type={{ ec2_tag_jra_swarm_node_type }}
         '{{ swarm_node_host_name }}'
       delegate_to: "{{ swarm_manager_ip }}"
+
+# Create the global overlay networks that will be available to the swarm
+- hosts: swarm_manager_operational[0]
+  become: true
+  vars:
+    iface: "{{ swarm_iface | default('eth0') }}"
+  tasks:
+    - name: create global admin proxy overlay network
+      shell: >
+        docker network create --driver=overlay jarch-infra-global-network-proxy-admin
+      ignore_errors: yes
+
+    - name: create global app-ui proxy overlay network
+      shell: >
+        docker network create --driver=overlay jarch-app-global-network-proxy-ui
+      ignore_errors: yes
+
+    - name: create global app-api proxy overlay network
+      shell: >
+        docker network create --driver=overlay jarch-app-global-network-proxy-api
+      ignore_errors: yes
+      
+    - name: create global monitoring network
+      shell: >
+        docker network create --driver=overlay jarch-infra-global-network-monitoring
+
+  
+      

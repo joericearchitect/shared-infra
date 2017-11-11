@@ -28,26 +28,8 @@
       run_once: true
 
 
-# Create the global traefix proxy overlay networks
-- hosts: swarm_manager_operational[0]
-  become: true
-  tasks:
-    - name: create global admin proxy overlay network
-      shell: >
-        docker network create --driver=overlay jarch-infra-global-network-proxy-admin
-      ignore_errors: yes
-
-    - name: create global app-ui proxy overlay network
-      shell: >
-        docker network create --driver=overlay jarch-app-global-network-proxy-ui
-      ignore_errors: yes
-
-    - name: create global app-api proxy overlay network
-      shell: >
-        docker network create --driver=overlay jarch-app-global-network-proxy-api
-      ignore_errors: yes
-
-# Deploy the Global Proxies
+# Deploy the Global Proxies Stack
+# Note - It is expected that the global proxy overlay networks have been created before this step.
 - hosts: swarm_manager_operational[0]
   become: true
   tasks:
