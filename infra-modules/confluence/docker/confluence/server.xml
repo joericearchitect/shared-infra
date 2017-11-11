@@ -1,6 +1,6 @@
 <Server port="8000" shutdown="SHUTDOWN" debug="0">
     <Service name="Tomcat-Standalone">
-        <Connector port="8090" secure="${catalinaConnectorSecure}" scheme="${catalinaConnectorScheme}" proxyName="${catalinaConnectorProxyName}" proxyPort="${catalinaConnectorProxyPort}" co
+        <Connector port="8090" secure="${catalinaConnectorSecure}" scheme="${catalinaConnectorScheme}" proxyName="${catalinaConnectorProxyName}" proxyPort="${catalinaConnectorProxyPort}"
                 maxThreads="48" minSpareThreads="10"
                 enableLookups="false" acceptCount="10" debug="0" URIEncoding="UTF-8"
                 protocol="org.apache.coyote.http11.Http11NioProtocol" />
@@ -12,10 +12,10 @@
                     <!-- Logger is deprecated in Tomcat 5.5. Logging configuration for Confluence is specified in confluence/WEB-INF/classes/log4j.properties -->
 					<!-- If you're using Confluence 5.7 or below; change maxTotal to maxActive -->
 					<Resource name="jdbc/confluence" auth="Container" type="javax.sql.DataSource"
-					         username="${CONFLUENCE_JDBC_USERNAME}"
-					         password="${CONFLUENCE_JDBC_PASSWORD}"
+					         username="root"
+					         password="admin123"
 					         driverClassName="com.mysql.jdbc.Driver"
-					         url="jdbc:mysql://${CONFLUENCE_DATABASE_HOST}:${CONFLUENCE_DATABASE_PORT}/${CONFLUENCE_DATABASE_NAME}?useUnicode=true&amp;characterEncoding=utf8"
+					         url="jdbc:mysql://db:3306/confluence"
 					         maxTotal="200"
 					         maxIdle="100"
 					         maxWaitMillis="5000"

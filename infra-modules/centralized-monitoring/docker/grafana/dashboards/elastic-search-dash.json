@@ -23,7 +23,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "$server",
+          "datasource": null,
           "editable": true,
           "error": false,
           "format": "none",
@@ -104,7 +104,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "$server",
+          "datasource": null,
           "editable": true,
           "error": false,
           "format": "bytes",
@@ -183,7 +183,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "$server",
+          "datasource": null,
           "editable": true,
           "error": false,
           "format": "bytes",
@@ -261,7 +261,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "$server",
+          "datasource": null,
           "editable": true,
           "error": false,
           "format": "bytes",
@@ -345,7 +345,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "$server",
+          "datasource": null,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -419,7 +419,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "$server",
+          "datasource": null,
           "fill": 1,
           "id": 57,
           "legend": {
@@ -455,7 +455,7 @@
                 }
               ],
               "dsType": "elasticsearch",
-              "expr": "avg(irate(node_cpu{cluster=~\"$cluster\"}[10s])) by(mode) *100",
+              "expr": "avg(irate(node_cpu[10s])) by(mode) *100",
               "intervalFactor": 2,
               "legendFormat": "{{ mode }}",
               "metric": "elasticsearch_breakers_tripped",
@@ -520,7 +520,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "$server",
+          "datasource": null,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -549,7 +549,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(elasticsearch_indices_docs{cluster=~\"$cluster\"})",
+              "expr": "sum(elasticsearch_indices_docs)",
               "intervalFactor": 2,
               "legendFormat": "Documents",
               "refId": "A",
@@ -593,7 +593,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "$server",
+          "datasource": null,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -622,7 +622,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(elasticsearch_indices_store_size_bytes{cluster=~\"$cluster\"})",
+              "expr": "sum(elasticsearch_indices_store_size_bytes)",
               "intervalFactor": 2,
               "legendFormat": "Index Size",
               "refId": "A",
@@ -678,7 +678,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "$server",
+          "datasource": null,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -707,14 +707,14 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(elasticsearch_transport_rx_packets_total{cluster=~\"$cluster\"}[5m]))",
+              "expr": "sum(rate(elasticsearch_transport_rx_packets_total[5m]))",
               "intervalFactor": 2,
               "legendFormat": "RX",
               "refId": "A",
               "step": 240
             },
             {
-              "expr": "sum(rate(elasticsearch_transport_tx_packets_total{cluster=~\"$cluster\"}[5m])) * -1",
+              "expr": "sum(rate(elasticsearch_transport_tx_packets_total[5m])) * -1",
               "intervalFactor": 2,
               "legendFormat": "TX",
               "refId": "B",
@@ -758,7 +758,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "$server",
+          "datasource": null,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -848,7 +848,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "$server",
+          "datasource": null,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -923,7 +923,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "$server",
+          "datasource": null,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -1009,7 +1009,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "$server",
+          "datasource": null,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -1121,7 +1121,7 @@
             "$__all"
           ]
         },
-        "datasource": "$server",
+        "datasource": "Prometheus",
         "hide": 0,
         "includeAll": true,
         "label": null,

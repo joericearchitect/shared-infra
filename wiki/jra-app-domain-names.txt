@@ -1,0 +1,39 @@
+Infra - build
+  build.joericearchitect.com
+
+infra - admin
+  admin-proxy.joericearchitect.com
+  jira.joericearchitect.com
+  sonar.joericearchitect.com
+  wiki.joericearchitect.com
+
+infra - logging
+  es.joericearchitect.com
+  fluentd.joericearchitect.com
+  logging-proxy.joericearchitect.com
+  kibana.joericearchitect.com
+  
+infra - monitoring
+  alerts.joericearchitect.com
+  cadvisor.joericearchitect.com
+  grafana.joericearchitect.com
+  monitoring-proxy.joericearchitect.com
+  prometheus.joericearchitect.com
+  unsee.joericearchitect.com
+
+infra - docker
+  docker.joericearchitect.com
+  dockerui.joericearchitect.com
+  dockervisual.joericearchitect.com
+
+app - api
+  api.joericearchitect.com
+  
+infra - repo
+  nexus.joericearchitect.com
+  
+app - ui
+  blog.joericearchitect.com
+  proxy.joericearchitect.com
+  www.joericearchitect.com
+

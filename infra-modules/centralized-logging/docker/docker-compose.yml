@@ -37,7 +37,7 @@ services:
         - "jra.domain-name=${ENV_DOMAIN_PREFIX}logging-proxy.joericearchitect.com"
 
   elasticsearch:
-    image: elasticsearch:latest
+    image: joericearchitect/jarch-infra-elasticsearch:1.0.0
     ports:
       - 8191:9200
       - 8192:9300
@@ -45,10 +45,12 @@ services:
       - network-proxy
       - network-app
       - jarch-infra-global-network-monitoring
+    environment:
+      - xpack.security.enabled=false
     command:
       - elasticsearch
     volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data:/data
+      - /usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data:/usr/share/elasticsearch/data
     deploy:
       replicas: 1
       placement:
@@ -63,7 +65,7 @@ services:
         - "jra.domain-name=${ENV_DOMAIN_PREFIX}es.joericearchitect.com"
 
   kibana:
-    image: kibana
+    image: docker.elastic.co/kibana/kibana:5.6.4
     depends_on:
       - elasticsearch
     ports:

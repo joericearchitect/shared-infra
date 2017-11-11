@@ -31,7 +31,7 @@ services:
         - "jra.container-name=jarch-infra-admin-confluence-db"
 
   ui:
-    image: atlassian/confluence-server:6.1
+    image: joericearchitect/jarch-infra-confluence:1.0.0
     ports:
       - 8195:8090
       - 8196:8091
