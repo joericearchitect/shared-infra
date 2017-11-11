@@ -1,8 +1,10 @@
 version: '3'
 
 networks:
-    network-proxy:
-    network-app:
+  network-proxy:
+  network-app:
+  jarch-infra-global-network-monitoring:
+    external: true
 
 services:
  
@@ -42,6 +44,7 @@ services:
     networks:
       - network-proxy
       - network-app
+      - jarch-infra-global-network-monitoring
     command:
       - elasticsearch
     volumes:

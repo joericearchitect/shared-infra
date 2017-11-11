@@ -34,3 +34,11 @@ scrape_configs:
       - 'tasks.node-exporter'
       type: 'A'
       port: 9100
+
+  - job_name: 'elasticsearch-exporter'
+    dns_sd_configs:
+    - names:
+      - 'tasks.elasticsearch-exporter'
+      type: 'A'
+      port: 9108
+      

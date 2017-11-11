@@ -198,6 +198,8 @@ services:
 
   node-exporter:
     image: stefanprodan/swarmprom-node-exporter
+    ports:
+      - 9100:9100
     networks:
       - network-app
       - network-proxy
@@ -226,8 +228,19 @@ services:
         - "jra.application-name=jarch-infra-monitoring-node-exporter"
         - "jra.container-name=jarch-infra-monitoring-node-exporter"
 
+  elasticsearch-exporter:
+    image: justwatch/elasticsearch_exporter:1.0.1
+    ports:
+      - 9108:9108
+    networks:
+      - network-app
+      - jarch-infra-global-network-monitoring
+    command:
+       - '-es.uri=http://elasticsearch:9200'
+    restart: always
+
   prometheus:
-    image: stefanprodan/swarmprom-prometheus
+    image: joericearchitect/jarch-infra-prometheus
     ports:
       - 9090:9090
     networks:
