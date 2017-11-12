@@ -107,8 +107,8 @@
        --metrics-addr=0.0.0.0:9323
        --log-driver=fluentd
        --log-opt fluentd-address=localhost:8182
-       --log-opt tag='docker.{{ ec2_tag_jra_instance_name }}.\{\{.ID\}\}'
-       --label jra.swarm-node-name={{ ec2_tag_Name }}
+       --log-opt tag='docker.{{ ec2_tag_jra_instance_name }}.{{ ec2_tag_jra_swarm_node_type }}.{{ ec2_tag_jra_environment }}.{{ ec2_tag_jra_failure_zone }}.{{ swarm_node_host_name }}.{{ ec2_private_dns_name }}.{{ ec2_tag_jra_environment_instance_id }}'
+       --log-opt labels=jra.application-name,jra.domain-name,jra.instance-name
        --label jra.instance-name={{ ec2_tag_jra_instance_name }}
        --label jra.instance-name-full={{ ec2_tag_jra_instance_name_full }}
        --label jra.swarm-node-name={{ ec2_tag_jra_instance_name }}
@@ -157,7 +157,8 @@
        --metrics-addr=0.0.0.0:9323
        --log-driver=fluentd
        --log-opt fluentd-address=localhost:8182
-       --log-opt tag='docker.{{ ec2_tag_jra_instance_name }}.\{\{.ID\}\}'
+       --log-opt tag='docker.{{ ec2_tag_jra_instance_name }}.{{ ec2_tag_jra_swarm_node_type }}.{{ ec2_tag_jra_environment }}.{{ ec2_tag_jra_failure_zone }}.{{ swarm_node_host_name }}.{{ ec2_private_dns_name }}.{{ ec2_tag_jra_environment_instance_id }}'
+       --log-opt labels=jra.application-name,jra.domain-name,jra.instance-name
        --label jra.instance-name={{ ec2_tag_jra_instance_name }}
        --label jra.instance-name-full={{ ec2_tag_jra_instance_name_full }}
        --label jra.swarm-node-name={{ ec2_tag_jra_instance_name }}
@@ -243,7 +244,8 @@
        --metrics-addr=0.0.0.0:9323
        --log-driver=fluentd
        --log-opt fluentd-address=localhost:8182
-       --log-opt tag='docker.{{ ec2_tag_jra_instance_name }}.\{\{.ID\}\}'
+       --log-opt tag='docker.{{ ec2_tag_jra_instance_name }}.{{ ec2_tag_jra_swarm_node_type }}.{{ ec2_tag_jra_environment }}.{{ ec2_tag_jra_failure_zone }}.{{ swarm_node_host_name }}.{{ ec2_private_dns_name }}.{{ ec2_tag_jra_environment_instance_id }}'
+       --log-opt labels=jra.application-name,jra.domain-name,jra.instance-name
        --label jra.instance-name={{ ec2_tag_jra_instance_name }}
        --label jra.instance-name-full={{ ec2_tag_jra_instance_name_full }}
        --label jra.swarm-node-name={{ ec2_tag_jra_instance_name }}

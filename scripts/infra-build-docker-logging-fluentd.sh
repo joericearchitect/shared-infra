@@ -25,10 +25,16 @@ IMAGE_TAG_LAGEST=latest
 
 cd $INFRA_MODULES_LOGGING_DOCKER_DIR/fluentd-es
 
-docker build \
+time docker build \
    -t $REPO_NAME/$IMAGE_NAME:$IMAGE_TAG_VERSION \
    -t $REPO_NAME/$IMAGE_NAME:$IMAGE_TAG_LAGEST \
    .
 
-docker push \
+echo .
+echo .
+echo -------------------------------------------------------------
+echo   Pushing fluentD Docker ES Image to registry...
+echo ------------------------------------------------
+
+time docker push \
     $REPO_NAME/$IMAGE_NAME
