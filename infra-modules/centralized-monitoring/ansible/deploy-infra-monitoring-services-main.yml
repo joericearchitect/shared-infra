@@ -46,6 +46,9 @@
       shell: >
         docker stack rm jarch-infra-monitoring
       ignore_errors: yes
+      
+    - pause:
+      seconds: 10
 
     - name: deploy central monitoring stack
       shell: >

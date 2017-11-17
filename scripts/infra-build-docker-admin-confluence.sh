@@ -33,7 +33,7 @@ time docker build \
 echo .
 echo .
 echo -------------------------------------------------------------
-echo   Pushing Jarch Prometheus Docker Image to Registry...
+echo   Pushing Jarch Confluence Docker Image to Registry...
 echo ------------------------------------------------
 
 time docker push \

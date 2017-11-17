@@ -104,7 +104,7 @@ services:
         - "jra.domain-name=${ENV_DOMAIN_PREFIX}cadvisor.joericearchitect.com"
 
   grafana:
-    image: stefanprodan/swarmprom-grafana
+    image: joericearchitect/jarch-infra-grafana:1.0.0
     ports:
       - 3000:3000
     networks:
@@ -240,7 +240,7 @@ services:
     restart: always
 
   prometheus:
-    image: joericearchitect/jarch-infra-prometheus
+    image: joericearchitect/jarch-infra-prometheus:1.0.0
     ports:
       - 9090:9090
     networks:

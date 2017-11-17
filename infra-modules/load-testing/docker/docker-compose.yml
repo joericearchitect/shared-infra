@@ -1,0 +1,49 @@
+version: '3'
+
+networks:
+    network-app:
+
+services:
+ 
+  server:
+    image: joericearchitect/jarch-infra-jmeter-server:1.0.0
+    ports:
+      - 8399:1099
+    networks:
+      - network-app
+    environment:
+      - IP=127.0.0.1
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.labels.jra.swarm-node-type == infra-load]
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+      labels:
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-load-jmeter-server"
+        - "jra.container-name=jarch-infra-load-jmeter-server"
+
+  ui:
+    image: cptactionhank/atlassian-jira:7.5.2
+    ports:
+      - 8394:8080
+    networks:
+      - network-app
+    volumes:
+      - /usr/local/jra/docker-data-volumes/jra-infra/admin-jira-ui/home:/var/atlassian/jira
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.labels.jra.swarm-node-type == infra-load]
+      labels:
+        - "traefik.docker.network=jarch-infra-global-network-proxy-admin"
+        - "traefik.port=8080"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}jira.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-admin-jira-ui"
+        - "jra.container-name=jarch-infra-admin-jira-ui"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}jira.joericearchitect.com"

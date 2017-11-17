@@ -1,0 +1,104 @@
+2017/11/14 05:14:53 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_US 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: Loading user properties from: /usr/share/jmeter/bin/user.properties 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: Loading system properties from: /usr/share/jmeter/bin/system.properties 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: Copyright (c) 1998-2012 The Apache Software Foundation 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: Version 2.8.20130705 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: java.version=1.8.0_151 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: os.name=Linux 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: os.arch=amd64 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: os.version=3.13.0-135-generic 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: file.encoding=UTF-8 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: Default Locale=English (United States) 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: JMeter  Locale=English (United States) 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: JMeterHome=/usr/share/jmeter 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: user.dir  =/home/vagrant/git/shared-infra/infra-modules/docker-swarm/jmeter/smoke-tests 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: PWD       =/home/vagrant/git/shared-infra/infra-modules/docker-swarm/jmeter/smoke-tests 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: IP: 10.0.2.15 Name: vagrant-ubuntu-trusty-64 FullName: vagrant-ubuntu-trusty-64 
+2017/11/14 05:14:53 INFO  - jmeter.services.FileServer: Default base='/home/vagrant/git/shared-infra/infra-modules/docker-swarm/jmeter/smoke-tests' 
+2017/11/14 05:14:53 INFO  - jmeter.services.FileServer: Set new base='/home/vagrant/git/shared-infra/infra-modules/docker-swarm/jmeter/smoke-tests' 
+2017/11/14 05:14:53 INFO  - jmeter.JMeter: Loading file: infra-smoke-test-all-infra-services.jmx 
+2017/11/14 05:14:53 INFO  - jmeter.save.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2 
+2017/11/14 05:14:53 INFO  - jmeter.save.SaveService: Using SaveService properties file encoding UTF-8 
+2017/11/14 05:14:53 INFO  - jmeter.save.SaveService: Using SaveService properties file version 1382180 
+2017/11/14 05:14:53 INFO  - jmeter.save.SaveService: Using SaveService properties version 2.3 
+2017/11/14 05:14:53 INFO  - jmeter.save.SaveService: All converter versions present and correct 
+2017/11/14 05:14:54 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Cannot find .className property for htmlParser, using default 
+2017/11/14 05:14:54 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/html is  
+2017/11/14 05:14:54 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xhtml+xml is  
+2017/11/14 05:14:54 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xml is  
+2017/11/14 05:14:54 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/xml is  
+2017/11/14 05:14:54 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser 
+2017/11/14 05:14:54 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Reuse SSL session context on subsequent iterations: true 
+2017/11/14 05:14:54 INFO  - jmeter.protocol.http.control.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_ 
+2017/11/14 05:14:54 ERROR - jmeter.save.SaveService: Conversion error com.thoughtworks.xstream.converters.ConversionException: No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration' : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration'
+---- Debugging information ----
+message             : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration'
+cause-exception     : com.thoughtworks.xstream.converters.reflection.MissingFieldException
+cause-message       : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration'
+class               : org.apache.jmeter.samplers.SampleSaveConfiguration
+required-type       : org.apache.jmeter.samplers.SampleSaveConfiguration
+converter-type      : org.apache.jmeter.save.converters.SampleSaveConfigurationConverter
+path                : /jmeterTestPlan/hashTree/hashTree/hashTree[2]/ResultCollector/objProp/value/sentBytes
+line number         : 629
+class[1]            : org.apache.jmeter.testelement.property.ObjectProperty
+converter-type[1]   : com.thoughtworks.xstream.converters.reflection.ReflectionConverter
+class[2]            : org.apache.jmeter.reporters.ResultCollector
+converter-type[2]   : org.apache.jmeter.save.converters.TestElementConverter
+class[3]            : org.apache.jorphan.collections.ListedHashTree
+converter-type[3]   : org.apache.jmeter.save.converters.HashTreeConverter
+------------------------------- : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration' : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration'
+---- Debugging information ----
+message             : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration'
+cause-exception     : com.thoughtworks.xstream.converters.reflection.MissingFieldException
+cause-message       : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration'
+class               : org.apache.jmeter.samplers.SampleSaveConfiguration
+required-type       : org.apache.jmeter.samplers.SampleSaveConfiguration
+converter-type      : org.apache.jmeter.save.converters.SampleSaveConfigurationConverter
+path                : /jmeterTestPlan/hashTree/hashTree/hashTree[2]/ResultCollector/objProp/value/sentBytes
+line number         : 629
+class[1]            : org.apache.jmeter.testelement.property.ObjectProperty
+converter-type[1]   : com.thoughtworks.xstream.converters.reflection.ReflectionConverter
+class[2]            : org.apache.jmeter.reporters.ResultCollector
+converter-type[2]   : org.apache.jmeter.save.converters.TestElementConverter
+class[3]            : org.apache.jorphan.collections.ListedHashTree
+converter-type[3]   : org.apache.jmeter.save.converters.HashTreeConverter
+-------------------------------
+message             : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration' : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration'
+---- Debugging information ----
+message             : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration'
+cause-exception     : com.thoughtworks.xstream.converters.reflection.MissingFieldException
+cause-message       : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration'
+class               : org.apache.jmeter.samplers.SampleSaveConfiguration
+required-type       : org.apache.jmeter.samplers.SampleSaveConfiguration
+converter-type      : org.apache.jmeter.save.converters.SampleSaveConfigurationConverter
+path                : /jmeterTestPlan/hashTree/hashTree/hashTree[2]/ResultCollector/objProp/value/sentBytes
+line number         : 629
+class[1]            : org.apache.jmeter.testelement.property.ObjectProperty
+converter-type[1]   : com.thoughtworks.xstream.converters.reflection.ReflectionConverter
+class[2]            : org.apache.jmeter.reporters.ResultCollector
+converter-type[2]   : org.apache.jmeter.save.converters.TestElementConverter
+class[3]            : org.apache.jorphan.collections.ListedHashTree
+converter-type[3]   : org.apache.jmeter.save.converters.HashTreeConverter
+-------------------------------
+cause-exception     : com.thoughtworks.xstream.converters.ConversionException
+cause-message       : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration' : No field 'sentBytes' found in class 'org.apache.jmeter.samplers.SampleSaveConfiguration'
+first-jmeter-class  : org.apache.jmeter.save.converters.TestElementConverter.unmarshal(TestElementConverter.java:107)
+class               : org.apache.jmeter.save.ScriptWrapper
+required-type       : org.apache.jmeter.samplers.SampleSaveConfiguration
+converter-type      : org.apache.jmeter.save.ScriptWrapperConverter
+path                : /jmeterTestPlan/hashTree/hashTree/hashTree[2]/ResultCollector/objProp/value/sentBytes
+line number         : 629
+version             : 2.8.20130705
+------------------------------- 
+2017/11/14 05:14:54 ERROR - jmeter.JMeter: Error in NonGUIDriver java.lang.NullPointerException
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:93)
+	at org.apache.jmeter.JMeter.runNonGui(JMeter.java:745)
+	at org.apache.jmeter.JMeter.startNonGui(JMeter.java:723)
+	at org.apache.jmeter.JMeter.start(JMeter.java:388)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.jmeter.NewDriver.main(NewDriver.java:216)
+
