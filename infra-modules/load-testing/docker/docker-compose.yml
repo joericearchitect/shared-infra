@@ -1,6 +1,8 @@
 version: '3'
 
 networks:
+    jarch-infra-global-network-proxy-admin:
+      external: true
     network-app:
 
 services:
@@ -8,11 +10,16 @@ services:
   server:
     image: joericearchitect/jarch-infra-jmeter-server:1.0.0
     ports:
-      - 8399:1099
+      - 8397:1099
     networks:
       - network-app
     environment:
-      - IP=127.0.0.1
+      - SERVER_HOST_NAME=server
+      - SERVER_RMI_PORT=1099
+      - CLIENT_RMI_PORT=1099
+      - JRA_TEST_RUN_NAME=${JRA_TEST_RUN_NAME}
+      - JRA_TEST_RUN_ID=${JRA_TEST_RUN_ID}
+      - JRA_TEST_START_TIME=${JRA_TEST_START_TIME}
     deploy:
       replicas: 1
       placement:
@@ -26,24 +33,46 @@ services:
         - "jra.environment-flip=blue"
         - "jra.application-name=jarch-infra-load-jmeter-server"
         - "jra.container-name=jarch-infra-load-jmeter-server"
+        - "jra.load-test.test-run-name=${JRA_TEST_RUN_NAME}"
+        - "jra.load-test.test-run-id=${JRA_TEST_RUN_ID}"
+        - "jra.load-test.test-run-start-ts=${JRA_TEST_START_TIME}"
 
-  ui:
-    image: cptactionhank/atlassian-jira:7.5.2
+  client:
+    image: joericearchitect/jarch-infra-jmeter-client:1.0.0
     ports:
-      - 8394:8080
+      - 8398:1099
+      - 8399:4445
     networks:
+      - jarch-infra-global-network-proxy-admin
       - network-app
-    volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/admin-jira-ui/home:/var/atlassian/jira
+    environment:
+      - SERVER_HOST_NAME=server
+      - SERVER_RMI_PORT=1099
+      - CLIENT_RMI_PORT=1099
+      - CLIENT_ENGINE_PORT=4445
+      - JRA_TEST_RUN_NAME=${JRA_TEST_RUN_NAME}
+      - JRA_TEST_RUN_ID=${JRA_TEST_RUN_ID}
+      - JRA_TEST_START_TIME=${JRA_TEST_START_TIME}
+      - TEST_PLAN_FILE_NAME=${TEST_PLAN_FILE_NAME}
+      - TEST_PLAN_URL=${TEST_PLAN_URL}
     deploy:
       replicas: 1
       placement:
         constraints: [node.labels.jra.swarm-node-type == infra-load]
+      restart_policy:
+        condition: none
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
       labels:
         - "traefik.docker.network=jarch-infra-global-network-proxy-admin"
-        - "traefik.port=8080"
-        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}jira.joericearchitect.com"
+        - "traefik.port=4445"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}load.joericearchitect.com"
         - "jra.environment-flip=blue"
-        - "jra.application-name=jarch-infra-admin-jira-ui"
-        - "jra.container-name=jarch-infra-admin-jira-ui"
-        - "jra.domain-name=${ENV_DOMAIN_PREFIX}jira.joericearchitect.com"
+        - "jra.application-name=jarch-infra-load-jmeter-client"
+        - "jra.container-name=jarch-infra-load-jmeter-client"
+        - "jra.load-test.test-run-name=${JRA_TEST_RUN_NAME}"
+        - "jra.load-test.test-run-id=${JRA_TEST_RUN_ID}"
+        - "jra.load-test.test-run-start-ts=${JRA_TEST_START_TIME}"

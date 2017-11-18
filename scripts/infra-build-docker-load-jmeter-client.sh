@@ -25,6 +25,8 @@ IMAGE_TAG_LAGEST=latest
 
 cd $INFRA_MODULES_LOAD_TESTING_DOCKER_DIR/jmeter-client
 
+pwd
+
 time docker build \
    -t $REPO_NAME/$IMAGE_NAME:$IMAGE_TAG_VERSION \
    -t $REPO_NAME/$IMAGE_NAME:$IMAGE_TAG_LAGEST \

@@ -15,6 +15,18 @@ resource "aws_route53_record" "build" {
     }
 }
 
+resource "aws_route53_record" "load" {
+    zone_id = "${var.jra-domain-hosted-zone-id}"
+    name = "${var.environment-domain-prefix}load.${var.jra-domain-name}"
+    type = "A"
+
+    alias {
+      name = "${aws_elb.elb-public-admin.dns_name}"
+      zone_id = "${aws_elb.elb-public-admin.zone_id}"
+      evaluate_target_health = true
+    }
+}
+
 resource "aws_route53_record" "dockerui" {
     zone_id = "${var.jra-domain-hosted-zone-id}"
     name = "${var.environment-domain-prefix}dockerui.${var.jra-domain-name}"
