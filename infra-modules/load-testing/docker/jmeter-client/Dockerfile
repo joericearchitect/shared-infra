@@ -18,7 +18,7 @@ COPY dependencies/jmeter-prometheus-plugin-0.0.1-SNAPSHOT.jar $JMETER_HOME/lib
 EXPOSE $CLIENT_RMI_PORT
 EXPOSE $CLIENT_ENGINE_PORT
 
-COPY load_tests /
+COPY load_tests /load_tests
 COPY docker-entrypoint.sh /
 
 ENTRYPOINT ["/docker-entrypoint.sh"]

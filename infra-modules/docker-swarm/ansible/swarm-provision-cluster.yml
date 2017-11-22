@@ -235,6 +235,15 @@
   vars:
     iface: "{{ swarm_iface | default('eth0') }}"
   tasks:
+    - name: create global app-api proxy overlay network
+      shell: >
+        docker network create --driver=overlay jarch-app-global-network-proxy-api
+      ignore_errors: yes
+
+    - name: create global monitoring network
+      shell: >
+        docker network create --driver=overlay jarch-infra-global-network-monitoring
+        
     - name: create global admin proxy overlay network
       shell: >
         docker network create --driver=overlay jarch-infra-global-network-proxy-admin
@@ -245,14 +254,6 @@
         docker network create --driver=overlay jarch-app-global-network-proxy-ui
       ignore_errors: yes
 
-    - name: create global app-api proxy overlay network
-      shell: >
-        docker network create --driver=overlay jarch-app-global-network-proxy-api
-      ignore_errors: yes
-      
-    - name: create global monitoring network
-      shell: >
-        docker network create --driver=overlay jarch-infra-global-network-monitoring
 
   
       

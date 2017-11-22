@@ -65,7 +65,7 @@ services:
         - "jra.domain-name=${ENV_DOMAIN_PREFIX}es.joericearchitect.com"
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:5.6.4
+    image: docker.elastic.co/kibana/kibana:6.0.0
     depends_on:
       - elasticsearch
     ports:

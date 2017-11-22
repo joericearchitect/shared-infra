@@ -15,7 +15,7 @@ resource "null_resource" "swarm-cluster-provision" {
 
   # Wait 120 seconds to give all the instances a chance to fully spin up and become available
   provisioner "local-exec" {
-    command =  "sleep 30s"
+    command =  "sleep 90s"
   }
 
   provisioner "local-exec" {

@@ -24,11 +24,6 @@ services:
       replicas: 1
       placement:
         constraints: [node.labels.jra.swarm-node-type == infra-load]
-      resources:
-        limits:
-          memory: 128M
-        reservations:
-          memory: 64M
       labels:
         - "jra.environment-flip=blue"
         - "jra.application-name=jarch-infra-load-jmeter-server"
@@ -50,6 +45,7 @@ services:
       - SERVER_RMI_PORT=1099
       - CLIENT_RMI_PORT=1099
       - CLIENT_ENGINE_PORT=4445
+      - REMOTE_HOSTS=server
       - JRA_TEST_RUN_NAME=${JRA_TEST_RUN_NAME}
       - JRA_TEST_RUN_ID=${JRA_TEST_RUN_ID}
       - JRA_TEST_START_TIME=${JRA_TEST_START_TIME}
@@ -61,11 +57,6 @@ services:
         constraints: [node.labels.jra.swarm-node-type == infra-load]
       restart_policy:
         condition: none
-      resources:
-        limits:
-          memory: 128M
-        reservations:
-          memory: 64M
       labels:
         - "traefik.docker.network=jarch-infra-global-network-proxy-admin"
         - "traefik.port=4445"

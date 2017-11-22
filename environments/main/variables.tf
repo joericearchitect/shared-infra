@@ -266,7 +266,7 @@ variable "ansible-deploy-infra-nexus-docker-compose-file" {
 # ---------------------------------------------------------------------------
 variable "environment-size" {
     description = "Size of an environment"
-    default = "large"
+    default = "small"
 }
 
 variable "ec2-instance-type" {
