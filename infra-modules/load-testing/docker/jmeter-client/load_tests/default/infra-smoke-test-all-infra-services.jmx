@@ -18,6 +18,26 @@
             <stringProp name="Argument.value">300</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="jra.test-run-name" elementType="Argument">
+            <stringProp name="Argument.name">jra.test-run-name</stringProp>
+            <stringProp name="Argument.value">${__P(jra.test-run-name)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jra-test-run-id" elementType="Argument">
+            <stringProp name="Argument.name">jra-test-run-id</stringProp>
+            <stringProp name="Argument.value">${__P(jra-test-run-id)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jra-test-run-start-timetamp" elementType="Argument">
+            <stringProp name="Argument.name">jra-test-run-start-timetamp</stringProp>
+            <stringProp name="Argument.value">${__P(jra-test-run-start-timetamp)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jra.test-plan" elementType="Argument">
+            <stringProp name="Argument.name">jra.test-plan</stringProp>
+            <stringProp name="Argument.value">${__P(jra.test-plan)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
