@@ -15,7 +15,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="think-time" elementType="Argument">
             <stringProp name="Argument.name">think-time</stringProp>
-            <stringProp name="Argument.value">10000</stringProp>
+            <stringProp name="Argument.value">5000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="jra.test-run-name" elementType="Argument">
@@ -47,7 +47,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">200</stringProp>
+        <stringProp name="ThreadGroup.num_threads">300</stringProp>
         <stringProp name="ThreadGroup.ramp_time">300</stringProp>
         <longProp name="ThreadGroup.start_time">1510109090000</longProp>
         <longProp name="ThreadGroup.end_time">1510109090000</longProp>
