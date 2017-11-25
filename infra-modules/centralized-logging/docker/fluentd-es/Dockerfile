@@ -1,4 +1,4 @@
-FROM fluent/fluentd:v0.14.23
+FROM fluent/fluentd:v0.14.11
 MAINTAINER YOUR_NAME <...@...>
 WORKDIR /home/fluent
 ENV PATH /home/fluent/.gem/ruby/2.3.0/bin:$PATH

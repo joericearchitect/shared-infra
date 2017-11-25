@@ -46,6 +46,17 @@ resource "aws_route53_record" "unsee" {
       evaluate_target_health = true
     }
 }
+resource "aws_route53_record" "influxdb" {
+    zone_id = "${var.jra-domain-hosted-zone-id}"
+    name = "${var.environment-domain-prefix}influxdb.${var.jra-domain-name}"
+    type = "A"
+
+    alias {
+      name = "${aws_elb.elb-public-monitoring.dns_name}"
+      zone_id = "${aws_elb.elb-public-monitoring.zone_id}"
+      evaluate_target_health = true
+    }
+}
 resource "aws_route53_record" "prometheus" {
     zone_id = "${var.jra-domain-hosted-zone-id}"
     name = "${var.environment-domain-prefix}prometheus.${var.jra-domain-name}"

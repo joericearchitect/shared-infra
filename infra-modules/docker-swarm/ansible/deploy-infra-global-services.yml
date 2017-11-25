@@ -51,11 +51,6 @@
 - hosts: swarm_manager_operational[0]
   become: true
   tasks:
-    - name: remove jarch-infra-global stack if it exists (ignore failure if it does not exist)
-      shell: >
-        docker stack rm jarch-infra-global
-      ignore_errors: yes
-
     - name: create the jarch-infra-global mount directory if it doesn't already exist
       shell: >
         sudo mkdir -p /usr/local/jra/scripts/compose/jarch-infra-global-stack

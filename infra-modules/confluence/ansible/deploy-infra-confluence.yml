@@ -70,11 +70,6 @@
         src: "{{ stack_file_dir }}/"
         dest: /usr/local/jra/scripts/compose/jarch-infra-admin-confluence-stacks/
   
-    - name: remove jarch-infra-admin-confluence stack if it exists (ignore failure if it does not exist)
-      shell: >
-        docker stack rm jarch-infra-admin-confluence
-      ignore_errors: yes
-
     - name: deploy jarch-infra-admin-confluence stack
       shell: >
         ENV_DOMAIN_PREFIX={{ env_domain_prefix }} docker stack deploy jarch-infra-admin-confluence -c {{ stack_file_name }}

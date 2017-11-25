@@ -55,11 +55,6 @@
         src: "{{ stack_file_dir }}/"
         dest: /usr/local/jra/scripts/compose/jarch-infra-build-jenkins-stacks/
   
-    - name: remove jarch-infra-build-jenkins stack if it exists (ignore failure if it does not exist)
-      shell: >
-        docker stack rm jarch-infra-build-jenkins
-      ignore_errors: yes
-
     - name: deploy jarch-infra-build-jenkins stack
       shell: >
         ENV_DOMAIN_PREFIX={{ env_domain_prefix }} docker stack deploy jarch-infra-build-jenkins -c {{ stack_file_name }}

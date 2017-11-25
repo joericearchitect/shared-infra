@@ -58,6 +58,7 @@ JMETER_START_TIME=$(date)
 
 echo "--> client-$JRA_TEST_RUN_ID - Starting the JMeter Engine at this time \"$JMETER_START_TIME\" with this test plan:  \"${FULL_LOAD_TEST_DIR}/${TEST_PLAN_FILE_NAME}\""
 
+JMETER_LOG="jmeter.log" && touch $JMETER_LOG && tail -f $JMETER_LOG &
 $JMETER_BIN/jmeter \
     -n \
     -J "sample_variables=jra.test-plan,jra.test-run-name,jra-test-run-id,jra-test-run-start-timetamp" \
@@ -66,8 +67,7 @@ $JMETER_BIN/jmeter \
     -J "jra.test-run-name=${JRA_TEST_RUN_NAME}" \
     -J "jra-test-run-id=${JRA_TEST_RUN_ID}" \
     -J "jra-test-run-start-timetamp=${JRA_TEST_START_TIME}" \
-    -t "${FULL_LOAD_TEST_DIR}/${TEST_PLAN_FILE_NAME}" \
-    -l "/dev/stdout"
+    -t "${FULL_LOAD_TEST_DIR}/${TEST_PLAN_FILE_NAME}"
 
 JMETER_END_TIME=$(date)
 

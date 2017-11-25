@@ -13,8 +13,6 @@ RUN apt-get -qq update && \
     apt-get -q clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY dependencies/jmeter-prometheus-plugin-0.0.1-SNAPSHOT.jar $JMETER_HOME/lib
-
 EXPOSE $CLIENT_RMI_PORT
 EXPOSE $CLIENT_ENGINE_PORT
 

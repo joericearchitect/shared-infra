@@ -1,0 +1,16 @@
+{
+   "id":2,
+   "orgId":1,
+   "name":"InfluxDB - JMeter",
+   "type":"influxdb",
+   "access":"proxy",
+   "url":"http://influxdb:8086",
+   "password":"",
+   "user":"",
+   "database":"jmeter",
+   "basicAuth":false,
+   "isDefault":false,
+   "jsonData":{
+
+   }
+}

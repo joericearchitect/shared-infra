@@ -42,14 +42,6 @@
         src: "{{ stack_file_dir }}/"
         dest: /usr/local/jra/scripts/compose/jarch-infra-monitoring-stack/
 
-    - name: remove jarch-infra-monitoring stack if it exists (ignore failure if it does not exist)
-      shell: >
-        docker stack rm jarch-infra-monitoring
-      ignore_errors: yes
-      
-    - pause:
-      seconds: 10
-
     - name: deploy central monitoring stack
       shell: >
         ADMIN_PASSWORD=admin SLACK_URL=https://bigricedata.slack.com/services/TOKEN SLACK_CHANNEL=alerts SLACK_USER=alertmanager docker stack deploy jarch-infra-monitoring -c {{ stack_file_name }}

@@ -43,21 +43,11 @@
         src: "{{ stack_file_dir }}/"
         dest: /usr/local/jra/scripts/compose/jarch-infra-apps-services-stacks/
 
-    - name: remove jarch-infra-proxy stack if it exists (ignore failure if it does not exist)
-      shell: >
-        docker stack rm jarch-infra-proxy
-      ignore_errors: yes
-
     - name: deploy jarch-infra-proxy stack
       shell: >
         ENV_DOMAIN_PREFIX={{ env_domain_prefix }} docker stack deploy jarch-infra-proxy -c {{ stack_file_name_infra_proxies }}
       args:
         chdir: /usr/local/jra/scripts/compose/jarch-infra-apps-services-stacks/
-
-    - name: remove jarch-app-proxy stack if it exists (ignore failure if it does not exist)
-      shell: >
-        docker stack rm jarch-app-proxy
-      ignore_errors: yes
 
     - name: deploy jarch-app-proxy stack
       shell: >
@@ -104,11 +94,6 @@
 - hosts: swarm_manager_operational[0]
   become: true
   tasks:
-    - name: remove jarch-infra-docker stack if it exists (ignore failure if it does not exist)
-      shell: >
-        docker stack rm jarch-infra-docker
-      ignore_errors: yes
-
     - name: deploy jarch-infra-docker stack
       shell: >
         ENV_DOMAIN_PREFIX={{ env_domain_prefix }} docker stack deploy jarch-infra-docker -c {{ stack_file_name_docker_services }}

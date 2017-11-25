@@ -1,0 +1,17 @@
+{
+   "id":3,
+   "orgId":1,
+   "name":"ElasticSearch - Logging",
+   "type":"elasticsearch",
+   "access":"proxy",
+   "url":"http://elasticsearch:9200",
+   "password":"",
+   "user":"",
+   "database":"logstash-*",
+   "basicAuth":false,
+   "isDefault":false,
+   "jsonData":{
+      "esVersion":5,
+      "timeField":"@timestamp"
+   }
+}

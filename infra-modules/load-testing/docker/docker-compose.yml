@@ -13,6 +13,7 @@ services:
       - 8397:1099
     networks:
       - network-app
+      - jarch-infra-global-network-monitoring
     environment:
       - SERVER_HOST_NAME=server
       - SERVER_RMI_PORT=1099
@@ -40,6 +41,7 @@ services:
     networks:
       - jarch-infra-global-network-proxy-admin
       - network-app
+      - jarch-infra-global-network-monitoring
     environment:
       - SERVER_HOST_NAME=server
       - SERVER_RMI_PORT=1099

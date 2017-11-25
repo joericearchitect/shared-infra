@@ -31,6 +31,10 @@ WORKDIR $JMETER_HOME
 EXPOSE $SERVER_RMI_PORT
 EXPOSE $CLIENT_ENGINE_PORT
 
+COPY dependencies/JMeter-InfluxDB-Writer-plugin-1.2.jar $JMETER_HOME/lib/ext
+
 COPY docker-entrypoint.sh /
+
+COPY jmeter.properties $JMETER_BIN
 
 ENTRYPOINT ["/docker-entrypoint.sh"]

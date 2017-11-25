@@ -54,11 +54,6 @@
         src: "{{ stack_file_dir }}/"
         dest: /usr/local/jra/scripts/compose/jarch-infra-repo-nexus-stacks/
   
-    - name: remove jarch-infra-repo-nexus stack if it exists (ignore failure if it does not exist)
-      shell: >
-        docker stack rm jarch-infra-repo-nexus
-      ignore_errors: yes
-
     - name: deploy jarch-infra-repo-nexus stack
       shell: >
         ENV_DOMAIN_PREFIX={{ env_domain_prefix }} docker stack deploy jarch-infra-repo-nexus -c {{ stack_file_name }}

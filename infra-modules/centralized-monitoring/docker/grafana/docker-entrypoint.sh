@@ -39,9 +39,9 @@ install_datasources() {
     if [[ -f "${datasource}" ]]; then
       echo "Installing datasource ${datasource}"
       if grafana_api POST /api/datasources "" "${datasource}"; then
-        echo "installed ok"
+        echo "installed ok - ${datasource}"
       else
-        echo "install failed"
+        echo "install failed - ${datasource}"
       fi
     fi
   done

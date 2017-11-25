@@ -9,6 +9,7 @@ networks:
 
 volumes:
     prometheus: {}
+    influxdb: {}
     grafana: {}
     alertmanager: {}
 
@@ -110,6 +111,7 @@ services:
     networks:
       - network-app
       - network-proxy
+      - jarch-infra-global-network-monitoring
     environment:
       - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
       - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
@@ -281,3 +283,37 @@ services:
         - "jra.application-name=jarch-infra-prometheus"
         - "jra.container-name=jarch-infra-prometheus"
         - "jra.domain-name=${ENV_DOMAIN_PREFIX}prometheus.joericearchitect.com"
+
+  influxdb:
+    image: influxdb:1.4.2
+    ports:
+      - 8086:8086
+    networks:
+      - network-app
+      - network-proxy
+      - jarch-infra-global-network-monitoring
+    environment:
+      - INFLUXDB_DB=jmeter
+      - INFLUXDB_HTTP_AUTH_ENABLED=false
+    volumes:
+      - influxdb:/var/lib/influxdb
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.jra.swarm-node-type == infra-monitoring
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+      labels:
+        - "traefik.docker.network=jarch-infra-monitoring_network-proxy"
+        - "traefik.port=8086"
+        - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}influxdb.joericearchitect.com"
+        - "jra.environment-flip=blue"
+        - "jra.application-name=jarch-infra-influxdb"
+        - "jra.container-name=jarch-infra-influxdb"
+        - "jra.domain-name=${ENV_DOMAIN_PREFIX}influxdb.joericearchitect.com"
+        

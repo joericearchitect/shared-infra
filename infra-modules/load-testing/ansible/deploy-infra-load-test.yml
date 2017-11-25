@@ -27,56 +27,24 @@
       when: "'active' not in hostvars[item].swarm_status.stdout_lines"
       run_once: true
 
-# Make sure the proper volume mount points are created on the infra-persistence node
-- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_node_type_infra_persistence
-  become: true
-  tasks:
-    - name: create the jira mysql mount directory if it doesn't already exist
-      shell: >
-        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/admin-jira-db/data
-      ignore_errors: yes
 
-    - name: make sure the processes running inside containers have access to the directories
-      shell: >
-        sudo chmod -R 777 /usr/local/jra/docker-data-volumes
-      ignore_errors: yes
-
-# Make sure the proper volume mount points are created on all the admin ui web nodes
-- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_node_type_admin_ui_web
-  become: true
-  tasks:
-    - name: create the jira mount directory if it doesn't already exist
-      shell: >
-        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/admin-jira-ui/home
-      ignore_errors: yes
-
-    - name: make sure the processes running inside containers have access to the directories
-      shell: >
-        sudo chmod -R 777 /usr/local/jra/docker-data-volumes
-      ignore_errors: yes
-
-# Deploy the Jira Services
+# Deploy the Load Test Services
 - hosts: swarm_manager_operational[0]
   become: true
   tasks:
     - name: create the docker script files directory it doesn't already exist
       shell: >
-        sudo mkdir -p /usr/local/jra/scripts/compose/jarch-infra-admin-jira-stacks
+        sudo mkdir -p /usr/local/jra/scripts/compose/jarch-infra-load-test-stacks
       ignore_errors: yes
 
-    - name: copy the stack files
+    - name: copy the load test stack files
       copy:
-        src: "{{ stack_file_dir }}/"
-        dest: /usr/local/jra/scripts/compose/jarch-infra-admin-jira-stacks/
+        src: "{{ stack_file_dir }}/{{ stack_file_name }}"
+        dest: /usr/local/jra/scripts/compose/jarch-infra-load-test-stacks/
   
-    - name: remove jarch-infra-admin-jira stack if it exists (ignore failure if it does not exist)
+    - name: deploy jarch-infra-load-test stack
       shell: >
-        docker stack rm jarch-infra-admin-jira
-      ignore_errors: yes
-
-    - name: deploy jarch-infra-admin-jira stack
-      shell: >
-        ENV_DOMAIN_PREFIX={{ env_domain_prefix }} docker stack deploy jarch-infra-admin-jira -c {{ stack_file_name }}
+        ENV_DOMAIN_PREFIX={{ env_domain_prefix }} docker stack deploy jarch-infra-load-test -c {{ stack_file_name }}
       args:
-        chdir: /usr/local/jra/scripts/compose/jarch-infra-admin-jira-stacks/
+        chdir: /usr/local/jra/scripts/compose/jarch-infra-load-test-stacks/
 
