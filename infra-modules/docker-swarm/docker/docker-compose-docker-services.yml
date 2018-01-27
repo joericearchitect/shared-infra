@@ -16,6 +16,14 @@ networks:
   jarch-infra-global-network-proxy-admin:
     external: true
 
+volumes:
+  volume-docker-registry-data:
+    driver: local
+  volume-docker-registry-certs:
+    driver: local
+  volume-portainer-data:
+    driver: local
+
 services:
 
   registry:
@@ -25,8 +33,8 @@ services:
     networks:
       - jarch-infra-global-network-proxy-admin
     volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/docker-registry/data:/var/lib/registry
-      - /usr/local/jra/docker-data-volumes/jra-infra/docker-registry/certs:/certs
+      - volume-docker-registry-data:/var/lib/registry
+      - volume-docker-registry-certs:/certs
     deploy:
       replicas: 1
       placement:
@@ -56,7 +64,7 @@ services:
       -H unix:///var/run/docker.sock
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/local/jra/docker-data-volumes/jra-infra/docker-ui-portainer/data:/data
+      - volume-portainer-data:/data
     deploy:
       replicas: 1
       placement:

@@ -27,25 +27,10 @@
       when: "'active' not in hostvars[item].swarm_status.stdout_lines"
       run_once: true
 
-# Make sure all data mount volues and script directories are created on host machines
+# Configure the logging linux host that will run elastic search with production settings
 - hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_node_type_infra_logging
   become: true
   tasks:
-    - name: create the elasticsearch mount directory if it doesn't already exist
-      shell: >
-        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data
-      ignore_errors: yes
-
-    - name: create the elasticsearch mount directory if it doesn't already exist
-      shell: >
-        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data
-      ignore_errors: yes
-
-    - name: make sure the processes running inside containers have access to the directories
-      shell: >
-        sudo chmod -R 777 /usr/local/jra
-      ignore_errors: yes
-
     - name: update the mmap limit because elasticsearch needs it
       shell: >
         sudo sysctl -w vm.max_map_count=262144 &&

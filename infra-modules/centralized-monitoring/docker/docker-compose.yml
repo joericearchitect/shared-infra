@@ -5,13 +5,16 @@ networks:
   network-proxy:
   jarch-infra-global-network-monitoring:
     external: true
-    
 
 volumes:
-    prometheus: {}
-    influxdb: {}
-    grafana: {}
-    alertmanager: {}
+  volume-prometheus:
+    driver: local
+  volume-influxdb:
+    driver: local
+  volume-grafana:
+    driver: local
+  volume-alertmanager:
+    driver: local
 
 configs:
   caddy_config:
@@ -117,7 +120,7 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
       - GF_USERS_ALLOW_SIGN_UP=false
     volumes:
-      - grafana:/var/lib/grafana
+      - volume-grafana:/var/lib/grafana
     deploy:
       mode: replicated
       replicas: 1
@@ -153,7 +156,7 @@ services:
       - '-config.file=/etc/alertmanager/alertmanager.yml'
       - '-storage.path=/alertmanager'
     volumes:
-      - alertmanager:/alertmanager
+      - volume-alertmanager:/alertmanager
     deploy:
       mode: replicated
       replicas: 1
@@ -258,7 +261,7 @@ services:
       - '-storage.local.retention=24h'
       - '-alertmanager.url=http://alertmanager:9093'
     volumes:
-      - prometheus:/prometheus
+      - volume-prometheus:/prometheus
     configs:
       - source: node_rules
         target: /etc/prometheus/swarm_node.rules
@@ -280,6 +283,8 @@ services:
         - "traefik.port=9090"
         - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}prometheus.joericearchitect.com"
         - "jra.environment-flip=blue"
+        - "jra.application-type=time-database"
+        - "jra.application-sub-type=prometheus"
         - "jra.application-name=jarch-infra-prometheus"
         - "jra.container-name=jarch-infra-prometheus"
         - "jra.domain-name=${ENV_DOMAIN_PREFIX}prometheus.joericearchitect.com"
@@ -296,7 +301,7 @@ services:
       - INFLUXDB_DB=jmeter
       - INFLUXDB_HTTP_AUTH_ENABLED=false
     volumes:
-      - influxdb:/var/lib/influxdb
+      - volume-influxdb:/var/lib/influxdb
     deploy:
       mode: replicated
       replicas: 1
@@ -313,6 +318,8 @@ services:
         - "traefik.port=8086"
         - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}influxdb.joericearchitect.com"
         - "jra.environment-flip=blue"
+        - "jra.application-type=time-database"
+        - "jra.application-sub-type=influxdb"
         - "jra.application-name=jarch-infra-influxdb"
         - "jra.container-name=jarch-infra-influxdb"
         - "jra.domain-name=${ENV_DOMAIN_PREFIX}influxdb.joericearchitect.com"

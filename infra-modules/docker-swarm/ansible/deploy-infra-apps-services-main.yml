@@ -55,41 +55,6 @@
       args:
         chdir: /usr/local/jra/scripts/compose/jarch-infra-apps-services-stacks/
 
-# Make sure the proper volume mount points are created on all the management nodes
-#   NOTE:  in the future, management will have its own separate node.  For now, all management services will go on
-#          'build' nodes.  In the future, change the host selector to be management nodes, not build nodes.
-- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_node_type_infra_repos
-  become: true
-  tasks:
-    - name: create the docker registry data mount directory if it doesn't already exist
-      shell: >
-        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/docker-registry/data
-      ignore_errors: yes
-
-    - name: create the docker registry cert mount directory if it doesn't already exist
-      shell: >
-        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/docker-registry/certs
-      ignore_errors: yes
-
-    - name: make sure the processes running inside containers have access to the data directories
-      shell: >
-        sudo chmod -R 777 /usr/local/jra/docker-data-volumes
-      ignore_errors: yes
-
-# Make sure the proper volume mount points are created on all the swarm manager nodes
-- hosts: tag_jra_environment_{{ env }}:&tag_jra_swarm_instance_type_swarm_manager
-  become: true
-  tasks:
-    - name: create the portainer mount directory if it doesn't already exist
-      shell: >
-        sudo mkdir -p /usr/local/jra/docker-data-volumes/jra-infra/docker-ui-portainer/data
-      ignore_errors: yes
-
-    - name: make sure the processes running inside containers have access to the directories
-      shell: >
-        sudo chmod -R 777 /usr/local/jra/docker-data-volumes
-      ignore_errors: yes
-
 # Deploy the Docker Services
 - hosts: swarm_manager_operational[0]
   become: true

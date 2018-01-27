@@ -4,6 +4,10 @@ networks:
     jarch-infra-global-network-proxy-admin:
       external: true
 
+volumes:
+  volume-jenkins-home:
+    driver: local
+
 services:
  
   ui:
@@ -13,7 +17,7 @@ services:
     networks:
       - jarch-infra-global-network-proxy-admin
     volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/build-jenkins/home:/var/jenkins_home
+      - volume-jenkins-home:/var/jenkins_home
     deploy:
       replicas: 1
       placement:

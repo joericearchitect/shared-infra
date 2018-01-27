@@ -6,6 +6,12 @@ networks:
   jarch-infra-global-network-monitoring:
     external: true
 
+volumes:
+  volume-elasticsearch-data:
+    driver: local
+  volume-fluentd-data:
+    driver: local
+
 services:
  
   proxy:
@@ -50,7 +56,7 @@ services:
     command:
       - elasticsearch
     volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/logging-elasticsearch/data:/usr/share/elasticsearch/data
+      - volume-elasticsearch-data:/usr/share/elasticsearch/data
     deploy:
       replicas: 1
       placement:
@@ -60,6 +66,8 @@ services:
         - "traefik.port=9200"
         - "traefik.frontend.rule=Host:${ENV_DOMAIN_PREFIX}es.joericearchitect.com"
         - "jra.environment-flip=blue"
+        - "jra.application-type=database"
+        - "jra.application-sub-type=elasticsearch"
         - "jra.application-name=jarch-infra-logging-elasticsearch"
         - "jra.container-name=jarch-infra-logging-elasticsearch"
         - "jra.domain-name=${ENV_DOMAIN_PREFIX}es.joericearchitect.com"
@@ -98,7 +106,7 @@ services:
       - network-proxy
       - network-app
     volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/logging-fluentd/data:/fluentd/log
+      - volume-fluentd-data:/fluentd/log
     deploy:
       replicas: 1
       placement:

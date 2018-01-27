@@ -5,6 +5,12 @@ networks:
       external: true
     network-app:
 
+volumes:
+  volume-sonar-db-data:
+    driver: local
+  volume-sonar-ui-data:
+    driver: local
+
 services:
  
   db:
@@ -17,7 +23,7 @@ services:
       - MYSQL_USER=sonar
       - MYSQL_PASSWORD=admin123
     volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/admin-sonar-db/data:/var/lib/mysql
+      - volume-sonar-db-data:/var/lib/mysql
     deploy:
       replicas: 1
       placement:
@@ -45,7 +51,7 @@ services:
       - SONARQUBE_JDBC_PASSWORD=admin123
       - SONARQUBE_JDBC_URL="jdbc:mysql://db:3306/sonar?useUnicode=true&characterEncoding=utf8"
     volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/build-sonar/home:/opt/sonarqube/data
+      - volume-sonar-ui-data:/opt/sonarqube/data
     deploy:
       replicas: 1
       placement:

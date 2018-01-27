@@ -1,0 +1,79 @@
+{
+   "changed":true,
+   "cmd":"ADMIN_PASSWORD=admin SLACK_URL=https://bigricedata.slack.com/services/TOKEN SLACK_CHANNEL=alerts SLACK_USER=alertmanager docker stack deploy jarch-infra-monitoring -c docker-compose.yml",
+   "delta":"0:00:01.968921",
+   "end":"2017-11-24 23:45:14.111505",
+   "failed":false,
+   "rc":0,
+   "start":"2017-11-24 23:45:12.142584",
+   "stderr":"Ignoring unsupported options: restart",
+   "stderr_lines":[
+      "Ignoring unsupported options: restart"
+   ],
+   "stdout":"Updating service jarch-infra-monitoring_proxy (id: 3r5n7p02pp92ksv6nt7hs6uc2)\nUpdating service jarch-infra-monitoring_prometheus (id: 48gsgywa3qjzc1kw02vug3xtq)\nCreating service jarch-infra-monitoring_influxdb\nUpdating service jarch-infra-monitoring_cadvisor (id: r0kie1h1g7lov8p3ji0v2hxix)\nUpdating service jarch-infra-monitoring_grafana (id: yohg7o1row3xhqb07vmcz94s9)\nUpdating service jarch-infra-monitoring_dockerd-exporter (id: zfn85eum1pf0ghlbzaf0zm8kf)\nUpdating service jarch-infra-monitoring_unsee (id: ymn364xrqr0kersby5yhcz0is)\nUpdating service jarch-infra-monitoring_node-exporter (id: lnc82zftgkueep33osdrntf2h)\nUpdating service jarch-infra-monitoring_elasticsearch-exporter (id: uitk5jyvdfr3360exyhlsqmx8)\nUpdating service jarch-infra-monitoring_alertmanager (id: kcjqnsgf0ps12q8wq7duyg4h0)",
+   "stdout_lines":[
+      "Updating service jarch-infra-monitoring_proxy (id: 3r5n7p02pp92ksv6nt7hs6uc2)",
+      "Updating service jarch-infra-monitoring_prometheus (id: 48gsgywa3qjzc1kw02vug3xtq)",
+      "Creating service jarch-infra-monitoring_influxdb",
+      "Updating service jarch-infra-monitoring_cadvisor (id: r0kie1h1g7lov8p3ji0v2hxix)",
+      "Updating service jarch-infra-monitoring_grafana (id: yohg7o1row3xhqb07vmcz94s9)",
+      "Updating service jarch-infra-monitoring_dockerd-exporter (id: zfn85eum1pf0ghlbzaf0zm8kf)",
+      "Updating service jarch-infra-monitoring_unsee (id: ymn364xrqr0kersby5yhcz0is)",
+      "Updating service jarch-infra-monitoring_node-exporter (id: lnc82zftgkueep33osdrntf2h)",
+      "Updating service jarch-infra-monitoring_elasticsearch-exporter (id: uitk5jyvdfr3360exyhlsqmx8)",
+      "Updating service jarch-infra-monitoring_alertmanager (id: kcjqnsgf0ps12q8wq7duyg4h0)"
+   ]
+}
+
+curl -i -XPOST http://influxdb.joericearchitect.com/query --data-urlencode "q=CREATE DATABASE blazedemo_performance
+
+curl -i -XPOST http://influxdb.joericearchitect.com/query --data-urlencode "q=CREATE DATABASE blazedemo_performance
+
+curl -i http://influxdb.joericearchitect.com/ping
+
+curl -GET 'http://influxdb.joericearchitect.com/query?db=jmeter' --data-urlencode 'q=SHOW DATABASES'
+
+curl 'http://influxdb.joericearchitect.com/query?pretty=true' --data-urlencode "db=jmeter" --data-urlencode "q=SHOW SERIES
+
+http://influxdb.joericearchitect.com/write?db=jmeter
+
+
+curl 'http://influxdb.joericearchitect.com/query?pretty=true' --data-urlencode "db=jmeter" --data-urlencode "q=SHOW SERIES"
+
+curl -i -XPOST http://influxdb.joericearchitect.com/query?pretty=true --data-urlencode "q=DROP DATABASE jmeter"
+
+curl -GET 'http://influxdb.joericearchitect.com/query?db=jmeter&pretty=true' --data-urlencode 'q=SHOW DATABASES'
+
+curl -i -XPOST http://influxdb.joericearchitect.com/query?pretty=true --data-urlencode "q=CREATE DATABASE jmeter"
+
+curl -GET 'http://influxdb.joericearchitect.com/query?db=jmeter&pretty=true' --data-urlencode 'q=SHOW DATABASES'
+
+curl 'http://influxdb.joericearchitect.com/query?pretty=true' --data-urlencode "db=jmeter" --data-urlencode "q=SHOW SERIES
+
+
+{"results":[{"statement_id":0,"series":[{"name":"databases","columns":["name"],"values":[["jmeter"],["_internal"]]}]}]}
+
+{
+   "results":[
+      {
+         "statement_id":0,
+         "series":[
+            {
+               "name":"databases",
+               "columns":[
+                  "name"
+               ],
+               "values":[
+                  [
+                     "jmeter"
+                  ],
+                  [
+                     "_internal"
+                  ]
+               ]
+            }
+         ]
+      }
+   ]
+}
+

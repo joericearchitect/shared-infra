@@ -5,6 +5,12 @@ networks:
       external: true
     network-app:
 
+volumes:
+  volume-jira-db-data:
+    driver: local
+  volume-jira-ui-data:
+    driver: local
+
 services:
  
   db:
@@ -15,7 +21,7 @@ services:
       - MYSQL_ROOT_PASSWORD=admin123
       - MYSQL_DATABASE=jira
     volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/admin-jira-db/data:/var/lib/mysql
+      - volume-jira-db-data:/var/lib/mysql
     deploy:
       replicas: 1
       placement:
@@ -38,7 +44,7 @@ services:
       - jarch-infra-global-network-proxy-admin
       - network-app
     volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/admin-jira-ui/home:/var/atlassian/jira
+      - volume-jira-ui-data:/var/atlassian/jira
     deploy:
       replicas: 1
       placement:

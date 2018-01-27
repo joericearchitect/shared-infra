@@ -4,6 +4,10 @@ networks:
     jarch-infra-global-network-proxy-admin:
       external: true
 
+volumes:
+  volume-nexus-data:
+    driver: local
+
 services:
  
   ui:
@@ -13,7 +17,7 @@ services:
     networks:
       - jarch-infra-global-network-proxy-admin
     volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/repo-nexus/home:/nexus-data
+      - volume-nexus-data:/nexus-data
     deploy:
       replicas: 1
       placement:

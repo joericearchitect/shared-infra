@@ -5,6 +5,12 @@ networks:
       external: true
     network-app:
 
+volumes:
+  volume-confluence-db-data:
+    driver: local
+  volume-confluence-ui-data:
+    driver: local
+
 services:
  
   db:
@@ -15,7 +21,7 @@ services:
       - MYSQL_ROOT_PASSWORD=admin123
       - MYSQL_DATABASE=confluence
     volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/admin-confluence-db/data:/var/lib/mysql
+      - volume-confluence-db-data:/var/lib/mysql
     deploy:
       replicas: 1
       placement:
@@ -27,6 +33,8 @@ services:
           memory: 64M
       labels:
         - "jra.environment-flip=blue"
+        - "jra.application-type=database"
+        - "jra.application-sub-type=mysql"
         - "jra.application-name=jarch-infra-admin-confluence-db"
         - "jra.container-name=jarch-infra-admin-confluence-db"
 
@@ -39,7 +47,7 @@ services:
       - jarch-infra-global-network-proxy-admin
       - network-app
     volumes:
-      - /usr/local/jra/docker-data-volumes/jra-infra/admin-confluence/home:/var/atlassian/application-data/confluence
+      - volume-confluence-ui-data:/var/atlassian/application-data/confluence
     deploy:
       replicas: 1
       placement:
